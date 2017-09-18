@@ -1,5 +1,6 @@
 package com.techeversion.schoolconnect.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,16 +13,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.techeversion.schoolconnect.MyApplication;
 import com.techeversion.schoolconnect.R;
+import com.techeversion.schoolconnect.api.ApiErrorModel;
+import com.techeversion.schoolconnect.api.ApiException;
+import com.techeversion.schoolconnect.api.response.UserOAuthResponse;
+import com.techeversion.schoolconnect.helper.LoginHelper;
+import com.techeversion.schoolconnect.util.Constants;
+
+import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    
+    @Inject
+    LoginHelper loginHelper;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MyApplication.getApp().getComponent().inject(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
        
@@ -34,7 +48,37 @@ public class MainActivity extends AppCompatActivity
         
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        login();
+        
     }
+    
+   void login(){
+       loginHelper.setCredentials("sitas", "123456");
+       loginUser();
+    }
+    public void loginUser() {
+        loginHelper.loginAndGetUser().continueWith((task) -> {
+                    if (task.getResult() != null) {
+                        UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
+                        
+                    } else {
+                        ApiException e = (ApiException) task.getError();
+                        if (e.getKind() == ApiException.Kind.HTTP || e.getKind() == ApiException.Kind.NETWORK) {
+                            try {
+                                ApiErrorModel apiErrorModel = e.getErrorModel();
+                                Toast.makeText(MainActivity.this, apiErrorModel.errorMessage, Toast.LENGTH_LONG).show();
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    return null;
+                }
+        );
+    }
+    
     
     @Override
     public void onBackPressed() {

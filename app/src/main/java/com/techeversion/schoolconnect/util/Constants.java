@@ -16,6 +16,9 @@ public class Constants {
     public static final String IS_FIRST_TIME_LAUNCH = "is_first_time_launch";
     public static final String REGISTER_EMAIL = "register_email";
     public static final String USER = "user";
-
-
+    
+    public static final String SHARED_PREFERENCES_ACCESS_TOKEN = "access_token";
+    public static final String SHARED_PREFERENCES_REFRESH_TOKEN = "refresh_token";
+    
+    public static final String BASE_URL ="http://schlmappdev.savitech.us/";
 }

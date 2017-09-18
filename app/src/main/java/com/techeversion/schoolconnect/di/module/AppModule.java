@@ -3,8 +3,9 @@ package com.techeversion.schoolconnect.di.module;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
 import com.techeversion.schoolconnect.MyApplication;
+import com.techeversion.schoolconnect.api.MyRestHelper;
+import com.techeversion.schoolconnect.api.RestHelper;
 import com.techeversion.schoolconnect.util.Constants;
 import com.techeversion.schoolconnect.util.TinyDB;
 
@@ -15,7 +16,7 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-
+    
     private MyApplication application;
     
     public AppModule(MyApplication application) {
@@ -37,14 +38,19 @@ public class AppModule {
     @Provides
     @Singleton
     public TinyDB provideTinyDB() {
-        SharedPreferences spPrivate = this.application.getSharedPreferences(Constants.SHARED_PREFERENCE_PRIVATE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences spPrivate = this.application.getSharedPreferences(Constants.SHARED_PREFERENCE_PRIVATE_NAME,
+                Context.MODE_PRIVATE);
         return new TinyDB(spPrivate);
     }
+    
     @Provides
     @Singleton
     public AppModule provideAppModule() {
         return this;
     }
     
-    
+    @Provides
+    public RestHelper provideMyRestHelper(AppModule appModule) {
+        return new MyRestHelper(appModule);
+    }
 }
