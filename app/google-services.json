@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1018383429217:android:060466186920f3b8",
+        "mobilesdk_app_id": "1:1018383429217:android:761ece2ab73ef42c",
         "android_client_info": {
-          "package_name": "com.techeversion.schoolconnect"
+          "package_name": "com.savitroday.savischools"
         }
       },
       "oauth_client": [
@@ -22,6 +22,9 @@
       "api_key": [
         {
           "current_key": "AIzaSyCT3QPJE_NCOZIsroAQxr0xhZAeC5GNM9E"
+        },
+        {
+          "current_key": "AIzaSyCVDoNalS9FbhUBxIz7dGVt8pZahvY6jPk"
         }
       ],
       "services": {

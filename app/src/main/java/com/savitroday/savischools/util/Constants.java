@@ -4,7 +4,7 @@ public class Constants {
     public final static String PROFILE = "Profile";
     public final static String PERMANENT = "permanent";
     public final static String TEMPORARY = "temporary";
-    public static final String SHARED_PREFERENCE_PRIVATE_NAME = "com.techversion.schoolconnect.sp.private";
+    public static final String SHARED_PREFERENCE_PRIVATE_NAME = "com.savitroday.savischools.sp.private";
 
     public final static String SHARED_PREFERENCES_USER_TYPE = "userType";
     public final static String SHARED_PREFERENCES_EMAIL = "userEmail";
