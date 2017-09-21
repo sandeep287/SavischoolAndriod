@@ -26,12 +26,13 @@ public class LoginHelper {
     
     private OAuthRestService oAuthRestService;
     private MyProfileManager myProfileManager;
-    private String email, password;
+    private String email, password, schoolId;
     
     
-    public void setCredentials(String email, String password) {
+    public void setCredentials(String email, String password,String schoolId) {
         this.email = email;
         this.password = password;
+        this.schoolId = schoolId;
     }
     
     
@@ -71,7 +72,7 @@ public class LoginHelper {
     
     public void asyncLogin(final TaskCompletionSource<Boolean> task) {
         CustomCallAdapter.CustomCall<UserOAuthResponse> loginCall = oAuthRestService.userLogin(this.password, this.email,
-                "320", "password");
+                this.schoolId, "password");
         loginCall.enqueue(new CustomCallAdapter.CustomCallback<UserOAuthResponse>() {
             @Override
             public void success(Response<UserOAuthResponse> response) {

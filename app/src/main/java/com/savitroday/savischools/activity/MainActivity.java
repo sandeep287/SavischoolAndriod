@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     }
     
    void login(){
-       loginHelper.setCredentials("sitas", "123456");
+       loginHelper.setCredentials("sitas", "123456","320");
        loginUser();
     }
     public void loginUser() {

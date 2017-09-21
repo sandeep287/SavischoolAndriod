@@ -3,4 +3,27 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!--App style defined-->
+
+    <color name="blue_green">#1299a1</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="bluey_grey">#919db5</color>
+    <color name="tomato">#e74c3c</color>
+    <color name="cerulean">#027cd0</color>
+    <color name="twilight_blue">#08568b</color>
+    <color name="turquoise">#00bfa9</color>
+    <color name="white_55">#8cffffff</color>
+    <color name="white_71">#b6ffffff</color>
+    <color name="white_0">#00ffffff</color>
+    <color name="dark_indigo">#06092b</color>
+    <color name="turquoise_blue">#099bb0</color>
+    <color name="twilight_blue_two">#08588b</color>
+    <color name="topaz">#12c4ae</color>
+    <color name="cerulean_two">#0575c7</color>
+    <color name="white_two">#f3f3f3</color>
+
+
 </resources>
