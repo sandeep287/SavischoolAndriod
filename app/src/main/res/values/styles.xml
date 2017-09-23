@@ -139,5 +139,13 @@
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
         <item name="android:textColor">@color/tomato</item>
     </style>
+    <style name="Bold10Black">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
 </resources>

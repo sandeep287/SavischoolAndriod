@@ -7,7 +7,8 @@ import com.savitroday.savischools.di.module.AppModule;
 import com.savitroday.savischools.di.module.ManagerModule;
 import com.savitroday.savischools.di.module.NonAuthModule;
 import com.savitroday.savischools.di.module.UserRestModule;
-import com.savitroday.savischools.manager.MyProfileManager;
+import com.savitroday.savischools.fragment.DashboardFragment;
+import com.savitroday.savischools.manager.StudentManager;
 
 import javax.inject.Singleton;
 
@@ -30,7 +31,8 @@ public interface AppComponent {
     void inject(RestHelper restHelper);
     
     void inject(MainActivity mainActivity);
+    void inject(DashboardFragment dashboardFragment);
     
-    MyProfileManager profileManager();
+    StudentManager profileManager();
     
 }

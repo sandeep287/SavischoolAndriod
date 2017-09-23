@@ -6,8 +6,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
+import com.savitroday.savischools.api.intercepter.UserAuthInterceptor;
 import com.savitroday.savischools.di.qualifiers.RestServiceOkHttpClient;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.util.DateDeserializer;
+import com.savitroday.savischools.util.DateSerializer;
+
+import java.util.Date;
 
 import javax.inject.Singleton;
 
@@ -30,7 +35,7 @@ public class UserRestModule {
     @Singleton
     @RestServiceOkHttpClient
     public OkHttpClient provideOkHttpClient(OkHttpClient okHttpClient, AppModule appModule) {
-        return okHttpClient.newBuilder().build();//.addInterceptor(new UserAuthInterceptor(appModule)).build();
+        return okHttpClient.newBuilder().addInterceptor(new UserAuthInterceptor(appModule)).build();
     }
     
     @Provides
@@ -41,6 +46,8 @@ public class UserRestModule {
         
         Gson gson = new GsonBuilder()
                             .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                            .registerTypeAdapter(Date.class, new DateSerializer())
+                            .registerTypeAdapter(Date.class, new DateDeserializer())
                             .create();
         
         Retrofit retrofit = new Retrofit.Builder()

@@ -9,12 +9,12 @@ import bolts.Task;
  * Created by Harshita Ahuja on 18/09/17.
  */
 
-public class MyProfileManager {
-    public static final String TAG = "MyProfileManager";
+public class StudentManager {
+    public static final String TAG = "StudentManager";
     public static Boolean updateInProgress = Boolean.FALSE;
     private UserRestService userRestService;
     private TinyDB tinyDB;
-    public MyProfileManager(UserRestService service, TinyDB tinyDB) {
+    public StudentManager(UserRestService service, TinyDB tinyDB) {
         this.userRestService = service;
         this.tinyDB = tinyDB;
 

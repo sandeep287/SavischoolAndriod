@@ -1,0 +1,64 @@
+package com.savitroday.savischools.api.response;
+
+/**
+ * Created by Harshita Ahuja on 23/09/17.
+ */
+
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+public class Dashboard {
+    
+    @SerializedName("SchoolId")
+    @Expose
+    public Integer schoolId;
+    @SerializedName("ParentId")
+    @Expose
+    public String parentId;
+    @SerializedName("ListStudentModel")
+    @Expose
+    public List<Student> listStudentModel = null;
+    @SerializedName("ListSchoolMessagesModel")
+    @Expose
+    public List<Message> listSchoolMessagesModel = null;
+    @SerializedName("ListStudentInvoiceModel")
+    @Expose
+    public List<Invoice> listStudentInvoiceModel = null;
+    
+    
+    public String getStudentName() {
+        String name = "Hi " + listStudentModel.get(0).studentName + ", Good Morning";
+        return name;
+    }
+    
+    public String getCurrentDate() {
+        String date = "Today, ";
+        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
+        date += format.format(new Date());
+        return date;
+    }
+    
+    public String getCheckInTime() {
+        String date = "";
+        Date checkin = listStudentModel.get(0).checkin;
+        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
+        if (checkin != null)
+            date += format.format(checkin);
+        return date;
+    }
+    
+    public String getCheckOutTime() {
+        String date = "";
+        Date checkout = listStudentModel.get(0).checkout;
+        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
+        if (checkout != null)
+            date += format.format(checkout);
+        return date;
+    }
+    
+}

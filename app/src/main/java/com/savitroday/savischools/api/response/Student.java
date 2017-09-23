@@ -3,6 +3,8 @@ package com.savitroday.savischools.api.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 /**
  * Created by Harshita Ahuja on 22/09/17.
  */
@@ -10,16 +12,19 @@ import com.google.gson.annotations.SerializedName;
 public class Student {
     @SerializedName("schoolId")
     @Expose
-    public Object schoolId;
+    public Integer schoolId;
     @SerializedName("StudentName")
     @Expose
     public String studentName;
     @SerializedName("Classname")
     @Expose
-    public String classname;
+    public Object classname;
     @SerializedName("Section")
     @Expose
     public Object section;
+    @SerializedName("Isdefault")
+    @Expose
+    public Boolean isdefault;
     @SerializedName("Curriculum")
     @Expose
     public Object curriculum;
@@ -56,6 +61,15 @@ public class Student {
     @SerializedName("dueDate")
     @Expose
     public Object dueDate;
+    @SerializedName("motherid")
+    @Expose
+    public String motherid;
+    @SerializedName("fatherid")
+    @Expose
+    public String fatherid;
+    @SerializedName("dateOfBirth")
+    @Expose
+    public String dateOfBirth;
     @SerializedName("rollNo")
     @Expose
     public Object rollNo;
@@ -103,7 +117,7 @@ public class Student {
     public Object city;
     @SerializedName("amount")
     @Expose
-    public Integer amount;
+    public Float amount;
     @SerializedName("addressLine1")
     @Expose
     public Object addressLine1;
@@ -122,4 +136,11 @@ public class Student {
     @SerializedName("invoiceNumber")
     @Expose
     public Object invoiceNumber;
+    @SerializedName("Checkin")
+    @Expose
+    public Date checkin;
+    @SerializedName("Checkout")
+    @Expose
+    public Date checkout;
+    
 }

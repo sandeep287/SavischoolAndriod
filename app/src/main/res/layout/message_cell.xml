@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.savitroday.savischools.api.response.Message"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/gradient_circle"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/notification_icon"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/imageView"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Light12Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="From John"
+                />
+
+            <TextView
+                style="@style/Medium14DarkIndigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="You are invited for 2017 F.."
+                />
+
+            <TextView
+                style="@style/Regular14Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="We are Celebrating Upco…"
+                />
+
+            <TextView
+                style="@style/Semibold10White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/blue_rounded_background"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="2dp"
+                tools:text="JENNY"
+                />
+        </LinearLayout>
+
+
+        <TextView android:id="@+id/timeTextview"
+            style="@style/Regular12Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="4:10 AM"
+            android:layout_alignParentRight="true"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="@color/white_three"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/timeTextview"
+            />
+    </RelativeLayout>
+</layout>

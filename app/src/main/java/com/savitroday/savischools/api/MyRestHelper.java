@@ -1,5 +1,7 @@
 package com.savitroday.savischools.api;
 
+import android.content.Intent;
+
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.di.module.AppModule;
 
@@ -20,5 +22,8 @@ public class MyRestHelper extends RestHelper {
         app.clearData();
         
         //send to login again
+//        Intent intent = new Intent(app.getApplicationContext(), SignUpHomeActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        app.getApplicationContext().startActivity(intent);
     }
 }

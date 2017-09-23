@@ -10,4 +10,7 @@
     <string name="internet_off">Internet connection appears to be offline.\nPlease check connection.</string>
     <string name="timeout">Could not connect to the server.\nPlease try again later.</string>
     <string name="server_unreachable">Unable to connect\n The app cannot connect to the server. </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

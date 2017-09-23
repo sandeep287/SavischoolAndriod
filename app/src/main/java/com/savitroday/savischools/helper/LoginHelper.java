@@ -8,7 +8,7 @@ import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.OAuthRestService;
 import com.savitroday.savischools.api.response.UserOAuthResponse;
-import com.savitroday.savischools.manager.MyProfileManager;
+import com.savitroday.savischools.manager.StudentManager;
 import com.savitroday.savischools.util.Constants;
 
 import javax.inject.Inject;
@@ -25,7 +25,7 @@ public class LoginHelper {
     
     
     private OAuthRestService oAuthRestService;
-    private MyProfileManager myProfileManager;
+    private StudentManager studentManager;
     private String email, password, schoolId;
     
     
@@ -37,9 +37,9 @@ public class LoginHelper {
     
     
     @Inject
-    public LoginHelper(OAuthRestService oAuthRestService, MyProfileManager myProfileManager) {
+    public LoginHelper(OAuthRestService oAuthRestService, StudentManager studentManager) {
         this.oAuthRestService = oAuthRestService;
-        this.myProfileManager = myProfileManager;
+        this.studentManager = studentManager;
     }
     
     public Task loginAndGetUser() {
@@ -48,24 +48,24 @@ public class LoginHelper {
                 return Task.forError(task.getError());
             } else {
                 //return myProfileManager.getMyProfileTask();
-                return task;
+                return Task.forResult(task.getResult());
             }
         });
     }
     
     public Task getUser() {
-        return myProfileManager.getMyProfileTask();
+        return studentManager.getMyProfileTask();
     }
     
     
     public Task<Boolean> login() {
         final TaskCompletionSource<Boolean> task = new TaskCompletionSource<Boolean>();
         
-        if (MyApplication.tinyDB.getBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, false)) { // facebook
-            task.setResult(true);
-        } else {
+//        if (MyApplication.tinyDB.getBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, false)) { // facebook
+//            task.setResult(true);
+//        } else {
             asyncLogin(task);
-        }
+       // }
         
         return task.getTask();
     }
@@ -78,8 +78,9 @@ public class LoginHelper {
             public void success(Response<UserOAuthResponse> response) {
                 if (response.isSuccessful()) {
                     UserOAuthResponse userOAuthResponse = response.body();
-                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_ACCESS_TOKEN, userOAuthResponse
-                                                                                                      .accessToken);
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_ACCESS_TOKEN, userOAuthResponse.accessToken);
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_SCHOOL_ID, userOAuthResponse.schoolid);
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.parentid);
                     //if (!createUser) {
                     MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, true);
                     

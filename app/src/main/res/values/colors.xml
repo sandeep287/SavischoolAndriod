@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="translucent">#80FFFFFF</color>
 
     <!--App style defined-->
 
@@ -24,6 +24,9 @@
     <color name="topaz">#12c4ae</color>
     <color name="cerulean_two">#0575c7</color>
     <color name="white_two">#f3f3f3</color>
-
+    <color name="white_61">#9cf5f5f5</color>
+    <color name="black_14">#23000000</color>
+    <color name="warm_grey">#979797</color>
+    <color name="white_three">#d8d8d8</color>
 
 </resources>
