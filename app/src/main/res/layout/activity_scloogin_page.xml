@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/background"
 android:layout_gravity="center_horizontal"
-        tools:context="com.savitroday.savischools.activity.SCLooginPage">
+        tools:context="com.savitroday.savischools.view.activity.LoginActivity">
 
        <RelativeLayout
            android:layout_width="360dp"

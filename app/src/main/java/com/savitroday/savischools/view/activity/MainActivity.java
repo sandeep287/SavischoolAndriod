@@ -1,7 +1,5 @@
-package com.savitroday.savischools.activity;
+package com.savitroday.savischools.view.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -10,34 +8,23 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.SpleshScreen;
 import com.savitroday.savischools.adapter.InvoiceAdapter;
 import com.savitroday.savischools.api.ApiErrorModel;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.api.response.UserOAuthResponse;
-import com.savitroday.savischools.fragment.DashboardFragment;
 import com.savitroday.savischools.helper.LoginHelper;
-import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.view.fragment.DashboardFragment;
 
 import java.util.List;
 
@@ -56,11 +43,12 @@ public class MainActivity extends AppCompatActivity
     
     RelativeLayout mProgressDialog;
     NavigationView navigationView;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
         MyApplication.getApp().getComponent().inject(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -95,7 +83,7 @@ public class MainActivity extends AppCompatActivity
     
     public void loginUser() {
         loginHelper.loginAndGetUser().continueWith((task) -> {
-            mProgressDialog.setVisibility(View.GONE);
+                    mProgressDialog.setVisibility(View.GONE);
                     if (task.getResult() != null) {
                         //UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
                         
@@ -110,7 +98,7 @@ public class MainActivity extends AppCompatActivity
                                 Toast.makeText(MainActivity.this, apiErrorModel.errorMessage, Toast.LENGTH_LONG).show();
                             } catch (Exception e1) {
                                 e1.printStackTrace();
-                                Toast.makeText(MainActivity.this,  e.toString(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show();
                             }
                         } else {
                             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show();
@@ -128,9 +116,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void success(Response<List<Invoice>> response) {
                 if (response.isSuccessful()) {
-                    List<Invoice> invoiceList =  response.body();
-                    InvoiceAdapter adapter = new InvoiceAdapter(MainActivity.this,invoiceList);
-                   // listView.setAdapter(adapter);
+                    List<Invoice> invoiceList = response.body();
+                    InvoiceAdapter adapter = new InvoiceAdapter(MainActivity.this, invoiceList);
+                    // listView.setAdapter(adapter);
                 }
             }
             
@@ -169,5 +157,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+    
 }

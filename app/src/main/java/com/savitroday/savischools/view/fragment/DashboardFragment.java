@@ -1,4 +1,4 @@
-package com.savitroday.savischools.fragment;
+package com.savitroday.savischools.view.fragment;
 
 
 import android.databinding.DataBindingUtil;
@@ -48,7 +48,7 @@ public class DashboardFragment extends Fragment {
                 inflater, R.layout.fragment_dashboard, container, false);
         MyApplication.getApp().getComponent().inject(this);
         
-        ViewGroup header = (ViewGroup)inflater.inflate(R.layout.cell_header, mBindings.notificationListview, false);
+        ViewGroup header = (ViewGroup) inflater.inflate(R.layout.cell_header, mBindings.notificationListview, false);
         mBindings.notificationListview.addHeaderView(header, null, false);
         mBindings.invoiceListview.addHeaderView(header, null, false);
         getDashboardData();
@@ -59,9 +59,9 @@ public class DashboardFragment extends Fragment {
         mBindings.progressBar.setVisibility(View.VISIBLE);
         String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-        HashMap<String,String> map = new HashMap<>();
-        map.put("schoolid",schoolId);
-        map.put("parentId",parentId);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("schoolid", schoolId);
+        map.put("parentId", parentId);
         userRestService.getDashboard(map).enqueue(new CustomCallAdapter.CustomCallback<Dashboard>() {
             @Override
             public void success(Response<Dashboard> response) {
@@ -81,5 +81,10 @@ public class DashboardFragment extends Fragment {
         });
     }
     
+    public class Handler {
+        public void onSelectChildren() {
+            //TODO: show popup here
+        }
+    }
     
 }

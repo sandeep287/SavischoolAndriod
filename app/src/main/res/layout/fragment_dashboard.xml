@@ -1,12 +1,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.savitroday.savischools.fragment.DashboardFragment">
+        tools:context="com.savitroday.savischools.view.fragment.DashboardFragment">
 
     <data>
 
         <variable
             name="dashboard"
             type="com.savitroday.savischools.api.response.Dashboard"/>
+        <variable
+            name="handler"
+            type="com.savitroday.savischools.fragment.DashboardFragment.Handler"/>
     </data>
 
     <RelativeLayout
@@ -25,12 +28,12 @@
             >
 
             <ImageButton
-                android:id="@+id/Formula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:src="@drawable/bottom_icon_user"
+                android:onClick="@{()->handler.onSelectChildren()}"
                 />
 
             <View
@@ -40,7 +43,6 @@
                 />
 
             <ImageButton
-                android:id="@+id/Solve"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -54,7 +56,6 @@
                 />
 
             <ImageButton
-                android:id="@+id/Clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

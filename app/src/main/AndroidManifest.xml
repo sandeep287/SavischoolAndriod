@@ -26,7 +26,7 @@
             android:value="c0112e84372b0d85fe6cbed3a8fcdf516d80d953" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".view.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SCLooginPage"
+            android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SpleshScreen"></activity>
         <activity android:name=".PopupStudentList" android:theme="@style/AppTheme.CustomTheme"></activity>

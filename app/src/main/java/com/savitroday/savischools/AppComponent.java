@@ -1,13 +1,14 @@
 package com.savitroday.savischools;
 
 
-import com.savitroday.savischools.activity.MainActivity;
+import com.savitroday.savischools.view.activity.LoginActivity;
+import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.api.RestHelper;
 import com.savitroday.savischools.di.module.AppModule;
 import com.savitroday.savischools.di.module.ManagerModule;
 import com.savitroday.savischools.di.module.NonAuthModule;
 import com.savitroday.savischools.di.module.UserRestModule;
-import com.savitroday.savischools.fragment.DashboardFragment;
+import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.manager.StudentManager;
 
 import javax.inject.Singleton;
@@ -31,6 +32,7 @@ public interface AppComponent {
     void inject(RestHelper restHelper);
     
     void inject(MainActivity mainActivity);
+    void inject(LoginActivity loginActivity);
     void inject(DashboardFragment dashboardFragment);
     
     StudentManager profileManager();
