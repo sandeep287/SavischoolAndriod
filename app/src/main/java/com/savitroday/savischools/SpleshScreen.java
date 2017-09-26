@@ -6,11 +6,13 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.savitroday.savischools.activity.MainActivity;
 import com.savitroday.savischools.activity.SCLooginPage;
+import com.savitroday.savischools.util.Constants;
 
 public class SpleshScreen extends AppCompatActivity {
     ProgressBar pbar;
@@ -24,10 +26,8 @@ public class SpleshScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                String temp=MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_IS_LOGGED_IN);
 
-                SharedPreferences sharedPreferences=getSharedPreferences("LoginChack", Context.MODE_PRIVATE);
-
-                String temp=sharedPreferences.getString("loginverifide","0");
 
                 if(temp.equals("1"))
                 {

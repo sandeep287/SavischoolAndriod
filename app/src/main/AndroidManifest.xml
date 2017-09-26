@@ -38,6 +38,7 @@
             android:name=".activity.SCLooginPage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SpleshScreen"></activity>
+        <activity android:name=".PopupStudentList" android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>

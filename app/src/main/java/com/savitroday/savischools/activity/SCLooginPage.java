@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
+import com.savitroday.savischools.util.Constants;
 
 public class SCLooginPage extends AppCompatActivity {
     EditText id,uname,pass;
@@ -96,10 +98,9 @@ public class SCLooginPage extends AppCompatActivity {
                 {
                     if (true)
                     {
-                        sharedPreferences =getSharedPreferences("LoginChack", Context.MODE_PRIVATE);
-                        final  SharedPreferences.Editor editor=sharedPreferences.edit();
-                        editor.putString("loginverifide","1");
-                        editor.commit();
+
+                       MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_IS_LOGGED_IN,"1");
+
                     }
                 }
 
