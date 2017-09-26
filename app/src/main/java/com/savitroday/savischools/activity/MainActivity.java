@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
+import com.savitroday.savischools.SpleshScreen;
 import com.savitroday.savischools.adapter.InvoiceAdapter;
 import com.savitroday.savischools.api.ApiErrorModel;
 import com.savitroday.savischools.api.ApiException;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent=new Intent(MainActivity.this,SCLooginPage.class);
+        Intent intent=new Intent(MainActivity.this, SpleshScreen.class);
         startActivity(intent);
         MyApplication.getApp().getComponent().inject(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
