@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText schoolId, userName, password;
     TextView tview, passlength;
     Button loginbtn;
-
     static int temp = 0;
     RelativeLayout relativeLayout;
     SharedPreferences sharedPreferences;
