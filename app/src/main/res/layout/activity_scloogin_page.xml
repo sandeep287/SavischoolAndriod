@@ -38,103 +38,95 @@
             android:orientation="vertical"
             android:weightSum="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="16dp"
-                android:layout_marginLeft="76dp"
-                android:layout_weight="5.89"
-                android:gravity="left"
-                android:text="School ID"
-                android:textColor="#8cffffff"
-                android:textSize="12sp"/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="36dp"
                 android:layout_marginRight="36dp"
                 android:orientation="horizontal"
+
                 >
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="19dp"
                     android:background="@drawable/id"
                     />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="16dp"
 
+                    android:background="@drawable/setcolor"
+                    android:textColorHint="#8cffffff"
+                    android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/Id"
                     android:layout_width="248dp"
-                    android:layout_height="30dp"
+                    android:layout_height="46dp"
                     android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="16dp"
+
                     android:background="@drawable/setcolor"
-                    android:hint="id"
+                    android:hint="School ID"
                     android:inputType="number"
                     android:paddingLeft="1dp"
                     android:maxLines="1"
                     android:textColor="#ffffff"
-                    android:textColorHint="#ffffff"
+
                     android:textSize="16sp"/>
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="16dp"
-                android:layout_marginLeft="76dp"
-                android:layout_marginTop="8dp"
-                android:text="Username"
-                android:textColor="#8cffffff"
-                android:textSize="12sp"
-                />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="36dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="36dp"
                 android:orientation="horizontal"
                 >
-
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="19dp"
                     android:background="@drawable/username"
                     />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="248dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/setcolor"
+                    android:layout_marginLeft="16dp"
+                    style="@style/EditTextHint"
+                    >
 
                 <EditText
                     android:id="@+id/uname"
                     android:layout_width="248dp"
-                    android:layout_height="30dp"
+                    android:layout_height="46dp"
                     android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="16dp"
-                    android:background="@drawable/setcolor"
+
                     android:hint="Username"
+
                     android:paddingLeft="1dp"
                     android:maxLines="1"
                     android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
                     android:textSize="16sp"/>
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="16dp"
-                android:layout_marginLeft="76dp"
-                android:layout_marginTop="8dp"
-                android:text="Password"
-                android:textColor="#8cffffff"
-                android:textSize="12sp"
-                />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="36dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="36dp"
                 android:orientation="horizontal"
                 >
@@ -142,24 +134,30 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="19dp"
                     android:background="@drawable/password"
                     />
-
+<android.support.design.widget.TextInputLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/setcolor"
+    style="@style/EditTextHint"
+    android:layout_marginLeft="16dp"
+    >
                 <EditText
                     android:id="@+id/pass"
                     android:layout_width="248dp"
-                    android:layout_height="30dp"
+                    android:layout_height="46dp"
                     android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="16dp"
-                    android:background="@drawable/setcolor"
+
+
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:paddingLeft="1dp"
                     android:maxLines="1"
                     android:textColorHint="#ffffff"
                     style="@style/Regular16White"/>
-
+</android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <TextView
@@ -168,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="76dp"
                 android:layout_weight="6.75"
+
                 style="@style/Regular12White"
                 android:text="At least 8 Characters"/>
 
