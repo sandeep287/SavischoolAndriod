@@ -3,6 +3,9 @@ package com.savitroday.savischools.api.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Harshita Ahuja on 23/09/17.
  */
@@ -16,7 +19,7 @@ public class Message {
     public String userId;
     @SerializedName("createdOn")
     @Expose
-    public String createdOn;
+    public Date createdOn;
     @SerializedName("isNotification")
     @Expose
     public Boolean isNotification;
@@ -77,4 +80,9 @@ public class Message {
     @SerializedName("name")
     @Expose
     public Object name;
+    
+    public String getCreatedOn(){
+        return new SimpleDateFormat("HH:mm a").format(createdOn);
+    }
+    
 }

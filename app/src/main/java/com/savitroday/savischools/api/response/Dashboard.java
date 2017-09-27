@@ -54,7 +54,7 @@ public class Dashboard {
     
     public String getCheckInTime() {
         String date = "";
-        Date checkin = listStudentModel.get(0).checkin;
+        Date checkin = getDefaultStudent().checkin;
         SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
         if (checkin != null)
             date += format.format(checkin);
@@ -63,7 +63,7 @@ public class Dashboard {
     
     public String getCheckOutTime() {
         String date = "";
-        Date checkout = listStudentModel.get(0).checkout;
+        Date checkout = getDefaultStudent().checkout;
         SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
         if (checkout != null)
             date += format.format(checkout);
