@@ -18,37 +18,40 @@ public class UserOAuthResponse {
     @SerializedName("expires_in")
     @Expose
     public Integer expiresIn;
-    @SerializedName("SchoolType")
+    @SerializedName("schoolType")
     @Expose
     public String schoolType;
-    @SerializedName("SchoolName")
+    @SerializedName("schoolName")
     @Expose
     public String schoolName;
-    @SerializedName("Schoolid")
+    @SerializedName("schoolId")
     @Expose
-    public String schoolid;
-    @SerializedName("Phone")
+    public String schoolId;
+    @SerializedName("phone")
     @Expose
     public String phone;
-    @SerializedName("ContactPerson")
+    @SerializedName("contactPerson")
     @Expose
     public String contactPerson;
-    @SerializedName("LogonId")
+    @SerializedName("logonId")
     @Expose
     public String logonId;
-    @SerializedName("UserType")
+    @SerializedName("userId")
+    @Expose
+    public String userId;
+    @SerializedName("userType")
     @Expose
     public String userType;
-    @SerializedName("Status")
+    @SerializedName("status")
     @Expose
     public String status;
-    @SerializedName("Parentid")
+    @SerializedName("parentid")
     @Expose
     public String parentid;
-    @SerializedName("UserName")
+    @SerializedName("userName")
     @Expose
     public String userName;
-    @SerializedName("Gender")
+    @SerializedName("gender")
     @Expose
     public String gender;
     @SerializedName(".issued")
@@ -57,9 +60,6 @@ public class UserOAuthResponse {
     @SerializedName(".expires")
     @Expose
     public String expires;
-    @SerializedName("userId")
-    @Expose
-    public String userId;
     
 }
 

@@ -58,8 +58,8 @@ public class LoginHelper {
     }
     
     
-    public Task<Boolean> login() {
-        final TaskCompletionSource<Boolean> task = new TaskCompletionSource<Boolean>();
+    public Task<UserOAuthResponse> login() {
+        final TaskCompletionSource<UserOAuthResponse> task = new TaskCompletionSource<UserOAuthResponse>();
 
 //        if (MyApplication.tinyDB.getBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, false)) { // facebook
 //            task.setResult(true);
@@ -70,7 +70,7 @@ public class LoginHelper {
         return task.getTask();
     }
     
-    public void asyncLogin(final TaskCompletionSource<Boolean> task) {
+    public void asyncLogin(final TaskCompletionSource<UserOAuthResponse> task) {
         CustomCallAdapter.CustomCall<UserOAuthResponse> loginCall = oAuthRestService.userLogin(this.password, this.email,
                 this.schoolId, "password");
         loginCall.enqueue(new CustomCallAdapter.CustomCallback<UserOAuthResponse>() {
@@ -80,18 +80,18 @@ public class LoginHelper {
                     UserOAuthResponse userOAuthResponse = response.body();
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_ACCESS_TOKEN, userOAuthResponse
                                                                                                       .accessToken);
-                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_SCHOOL_ID, userOAuthResponse.schoolid);
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_SCHOOL_ID, userOAuthResponse.schoolId);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.parentid);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.userId);
                     //if (!createUser) {
                     MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, true);
                     
-                    task.setResult(true);
+                    task.setResult(userOAuthResponse);
                     
                 } else {
                     //TODO: raise exception
                     Log.e("Login", "login not successful");
-                    task.setResult(false);
+                    task.setError(new Exception("error"));
                 }
             }
             

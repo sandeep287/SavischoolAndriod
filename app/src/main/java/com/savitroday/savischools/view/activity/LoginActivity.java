@@ -131,16 +131,16 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.getResult() != null) {
                         MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN,true);
                         UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
-                        if(profile.userType.equals("SchoolAdmin")) {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        if(profile.userType.equals("SchoolParent")) {
+                            Intent intent = new Intent(LoginActivity.this, TabbedActivity.class);
                             startActivity(intent);
                         }
                         else
                         {
-                            new AlertDialog.Builder(this)
+                            new AlertDialog.Builder(LoginActivity.this)
                                     //set message, mTitle, and icon
                                     .setCancelable(false)
-                                    .setMessage("You have succesfully logged in. Usertype is " + profile.userType)
+                                    .setMessage("You have successfully logged in. Usertype is " + profile.userType)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int whichButton) {
                                             dialog.dismiss();
