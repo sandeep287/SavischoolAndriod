@@ -21,6 +21,7 @@ public class TabbedActivity extends AppCompatActivity {
     private SlidingPaneLayout mSlidingLayout;
     private ListView mList;
     private ActionBarHelper mActionBar;
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {

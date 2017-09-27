@@ -1,9 +1,11 @@
 package com.savitroday.savischools.view.activity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -30,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText schoolId, userName, password;
     TextView tview, passlength;
     Button loginbtn;
+    ProgressDialog progressDialog;
     static int temp = 0;
     SharedPreferences sharedPreferences;
     
@@ -53,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 
             }
-            
+
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (password.getText().toString().trim().length() >= 8) {
@@ -79,9 +82,20 @@ public class LoginActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
                 if (validate()) {
-                    login();
+
+                    progressDialog=new ProgressDialog(LoginActivity.this);
+                    progressDialog.setTitle("Please wait...");
+                    progressDialog.show();
+                   new  Handler().postDelayed(new Runnable() {
+                       @Override
+                       public void run() {
+                           login();
+                           progressDialog.dismiss();
+                       }
+                   },500);
+
                 }
             }
         });
