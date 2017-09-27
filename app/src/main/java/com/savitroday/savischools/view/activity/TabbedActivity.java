@@ -21,13 +21,12 @@ public class TabbedActivity extends AppCompatActivity {
     private SlidingPaneLayout mSlidingLayout;
     private ListView mList;
     private ActionBarHelper mActionBar;
-
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
-        startActivity(new Intent(TabbedActivity.this,LoginActivity.class));
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mSlidingLayout = (SlidingPaneLayout) findViewById(R.id.sliding_pane_layout);

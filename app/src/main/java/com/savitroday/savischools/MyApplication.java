@@ -31,6 +31,7 @@ public class MyApplication extends Application {
     public static Context appContext;
     public static TinyDB tinyDB;
     private AppComponent appComponent;
+
     public static boolean isInBackground = true;
     
     public static MyApplication get(Context context) {

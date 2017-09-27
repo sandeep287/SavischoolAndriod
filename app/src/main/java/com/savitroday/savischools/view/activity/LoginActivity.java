@@ -10,10 +10,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +35,12 @@ public class LoginActivity extends AppCompatActivity {
     EditText schoolId, userName, password;
     TextView tview, passlength;
     Button loginbtn;
-    ProgressDialog progressDialog;
+
     static int temp = 0;
+    RelativeLayout relativeLayout;
     SharedPreferences sharedPreferences;
-    
+    RelativeLayout progressBar;
+
     @Inject
     LoginHelper loginHelper;
     
@@ -44,7 +49,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scloogin_page);
         MyApplication.getApp().getComponent().inject(this);
-        
+     progressBar =(RelativeLayout)findViewById(R.id.progressBar);
+
+
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.top2);
         schoolId = (EditText) findViewById(R.id.Id);
         userName = (EditText) findViewById(R.id.uname);
@@ -84,17 +91,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (validate()) {
-
-                    progressDialog=new ProgressDialog(LoginActivity.this);
-                    progressDialog.setTitle("Please wait...");
-                    progressDialog.show();
-                   new  Handler().postDelayed(new Runnable() {
-                       @Override
-                       public void run() {
+                           progressBar.setVisibility(View.VISIBLE);
                            login();
-                           progressDialog.dismiss();
-                       }
-                   },500);
+
+
 
                 }
             }
@@ -135,17 +135,22 @@ public class LoginActivity extends AppCompatActivity {
         //  mProgressDialog.setVisibility(View.VISIBLE);
         loginHelper.setCredentials(userName.getText().toString().trim(), password.getText().toString().trim(),
                 schoolId.getText().toString().trim());
+
         loginHelper.setCredentials("singhs", "123456", "3");
+
         loginUser();
     }
     
     public void loginUser() {
         loginHelper.loginAndGetUser().continueWith((task) -> {
+            progressBar.setVisibility(View.GONE);
                     // mProgressDialog.setVisibility(View.GONE);
                     if (task.getResult() != null) {
+
                         MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN,true);
                         UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
                         if(profile.userType.equals("SchoolParent")) {
+
                             Intent intent = new Intent(LoginActivity.this, TabbedActivity.class);
                             startActivity(intent);
                         }
@@ -162,8 +167,10 @@ public class LoginActivity extends AppCompatActivity {
                                     }).create().show();
                         }
                     } else {
+
                         ApiException e = (ApiException) task.getError();
                         if (e.getKind() == ApiException.Kind.HTTP || e.getKind() == ApiException.Kind.NETWORK) {
+
                             try {
                                 ApiErrorModel apiErrorModel = e.getErrorModel();
                                 Toast.makeText(LoginActivity.this, apiErrorModel.errorMessage, Toast.LENGTH_LONG)
@@ -173,6 +180,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
                             }
                         } else {
+
                             Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }

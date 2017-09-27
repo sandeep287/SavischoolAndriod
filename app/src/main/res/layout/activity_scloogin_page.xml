@@ -3,6 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/loginrelative"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/background"
                 tools:context="com.savitroday.savischools.view.activity.LoginActivity">
@@ -45,6 +46,7 @@
                 android:layout_height="46dp"
                 android:layout_marginLeft="36dp"
                 android:layout_marginRight="36dp"
+
                 android:orientation="horizontal"
 
                 >
@@ -53,7 +55,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="19dp"
-                    android:background="@drawable/id"
+                    android:background="@drawable/id_icon"
                     />
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
@@ -67,7 +69,6 @@
                     android:layout_width="248dp"
                     android:layout_height="46dp"
                     android:layout_marginBottom="24dp"
-
                     android:background="@drawable/setcolor"
                     android:hint="School ID"
                     android:inputType="number"
@@ -192,6 +193,27 @@
             android:layout_marginLeft="118dp"
             android:background="@drawable/group"
             />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/translucent"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone">
+        <android.support.v4.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:id="@+id/pbar"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"/>
 
     </RelativeLayout>
 </RelativeLayout>
