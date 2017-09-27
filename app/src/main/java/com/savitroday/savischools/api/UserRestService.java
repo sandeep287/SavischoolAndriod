@@ -30,7 +30,8 @@ public interface UserRestService {
                                                                                                      String studentId);
     
     @GET("api/parent/StudentProfileDetail")
-    CustomCallAdapter.CustomCall<Dashboard> getDashboard(@Query("schoolid") String schoolId, @Query("parentId")
-                                                                                             String parentId);
+    CustomCallAdapter.CustomCall<Dashboard> getDashboard(@Query("schoolid") String schoolId,
+                                                         @Query("parentId") String parentId,
+                                                         @Query("userId") String userId);
     
 }

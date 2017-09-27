@@ -57,6 +57,9 @@ public class UserOAuthResponse {
     @SerializedName(".expires")
     @Expose
     public String expires;
+    @SerializedName("userId")
+    @Expose
+    public String userId;
     
 }
 

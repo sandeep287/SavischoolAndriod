@@ -55,10 +55,9 @@ public class PopupStudentList extends Activity
     {
         String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-        HashMap<String,String> map = new HashMap<>();
-        map.put("schoolid",schoolId);
-        map.put("parentId",parentId);
-        userRestService.getDashboard(schoolId,parentId).enqueue(new CustomCallAdapter.CustomCallback<Dashboard>() {
+        String userID = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
+     
+        userRestService.getDashboard(schoolId,parentId,userID).enqueue(new CustomCallAdapter.CustomCallback<Dashboard>() {
         @Override
         public void success(Response<Dashboard> response) {
             Log.e("server",response.toString());

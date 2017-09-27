@@ -29,7 +29,7 @@ public class LoginHelper {
     private String email, password, schoolId;
     
     
-    public void setCredentials(String email, String password,String schoolId) {
+    public void setCredentials(String email, String password, String schoolId) {
         this.email = email;
         this.password = password;
         this.schoolId = schoolId;
@@ -60,12 +60,12 @@ public class LoginHelper {
     
     public Task<Boolean> login() {
         final TaskCompletionSource<Boolean> task = new TaskCompletionSource<Boolean>();
-        
+
 //        if (MyApplication.tinyDB.getBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, false)) { // facebook
 //            task.setResult(true);
 //        } else {
-            asyncLogin(task);
-       // }
+        asyncLogin(task);
+        // }
         
         return task.getTask();
     }
@@ -78,9 +78,11 @@ public class LoginHelper {
             public void success(Response<UserOAuthResponse> response) {
                 if (response.isSuccessful()) {
                     UserOAuthResponse userOAuthResponse = response.body();
-                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_ACCESS_TOKEN, userOAuthResponse.accessToken);
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_ACCESS_TOKEN, userOAuthResponse
+                                                                                                      .accessToken);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_SCHOOL_ID, userOAuthResponse.schoolid);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.parentid);
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.userId);
                     //if (!createUser) {
                     MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, true);
                     

@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         //  mProgressDialog.setVisibility(View.VISIBLE);
         loginHelper.setCredentials(userName.getText().toString().trim(), password.getText().toString().trim(),
                 schoolId.getText().toString().trim());
-        loginHelper.setCredentials("manohardaycare78@yopmail.com", "123456", "1");
+        loginHelper.setCredentials("singhs", "123456", "3");
         loginUser();
     }
     

@@ -1,11 +1,9 @@
 package com.savitroday.savischools.view.activity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SlidingPaneLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,6 +13,7 @@ import android.widget.ListView;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
+
 
 public class TabbedActivity extends AppCompatActivity {
     
@@ -32,18 +31,16 @@ public class TabbedActivity extends AppCompatActivity {
         mList = (ListView) findViewById(R.id.left_pane);
         
         mSlidingLayout.setPanelSlideListener(new SliderListener());
-        mSlidingLayout.openPane();
-
 //        mList.setAdapter(new ArrayAdapter(this,
 //                                                         R.layout.simple_list_item, DataUnit.TITLES));
         mList.setOnItemClickListener(new ListItemClickListener());
-    
-    
+        
+        
         mActionBar = createActionBarHelper();
         mActionBar.init();
         mSlidingLayout.getViewTreeObserver().addOnGlobalLayoutListener(
                 new FirstLayoutListener());
-    
+        
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.flFragments, new DashboardFragment());
@@ -82,7 +79,6 @@ public class TabbedActivity extends AppCompatActivity {
      * is made to fully reveal the content.
      */
     private class ListItemClickListener implements ListView.OnItemClickListener {
-        @SuppressWarnings("deprecation")
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
@@ -129,8 +125,8 @@ public class TabbedActivity extends AppCompatActivity {
      * available.
      */
     private ActionBarHelper createActionBarHelper() {
-       
-            return new ActionBarHelper();
+        
+        return new ActionBarHelper();
         
     }
     
@@ -153,58 +149,5 @@ public class TabbedActivity extends AppCompatActivity {
         public void setTitle(CharSequence title) {
         }
     }
-    
-    /**
-     * Action bar helper for use on ICS and newer devices.
-     */
-    private class ActionBarHelperICS extends ActionBarHelper {
-        private final ActionBar mActionBar;
-        private CharSequence mDrawerTitle;
-        private CharSequence mTitle;
-        
-        ActionBarHelperICS() {
-            mActionBar = getSupportActionBar();
-        }
-        
-        @Override
-        public void init() {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setHomeButtonEnabled(true);
-            mTitle = mDrawerTitle = getTitle();
-        }
-        
-        @Override
-        public void onPanelClosed() {
-            super.onPanelClosed();
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setHomeButtonEnabled(true);
-            mActionBar.setTitle(mTitle);
-        }
-        
-        
-        @Override
-        public void onPanelOpened() {
-            super.onPanelOpened();
-            mActionBar.setHomeButtonEnabled(false);
-            mActionBar.setDisplayHomeAsUpEnabled(false);
-            mActionBar.setTitle(mDrawerTitle);
-        }
-        
-        @SuppressWarnings("deprecation")
-        @Override
-        public void onFirstLayout() {
-            if (mSlidingLayout.canSlide() && !mSlidingLayout.isOpen()) {
-                onPanelClosed();
-            } else {
-                onPanelOpened();
-            }
-        }
-        
-        @Override
-        public void setTitle(CharSequence title) {
-            mTitle = title;
-        }
-    }
-    
     
 }
