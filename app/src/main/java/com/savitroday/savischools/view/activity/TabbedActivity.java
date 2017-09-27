@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
@@ -20,6 +21,9 @@ public class TabbedActivity extends AppCompatActivity {
     
     private SlidingPaneLayout mSlidingLayout;
     private ListView mList;
+
+    RelativeLayout relativeLayout1,relativeLayout2;
+    View temp;
     private ActionBarHelper mActionBar;
     
     @Override
@@ -29,6 +33,11 @@ public class TabbedActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        relativeLayout1=(RelativeLayout)findViewById(R.id.rlayoutman);
+        relativeLayout2=(RelativeLayout)findViewById(R.id.rlayouttemp);
+        temp=findViewById(R.id.rlayouttemp);
+        relativeLayout1.setVisibility(View.INVISIBLE);
+        relativeLayout2.addView(temp);
         mSlidingLayout = (SlidingPaneLayout) findViewById(R.id.sliding_pane_layout);
         mList = (ListView) findViewById(R.id.left_pane);
         
