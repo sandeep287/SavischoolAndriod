@@ -8,7 +8,7 @@ import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.OAuthRestService;
 import com.savitroday.savischools.api.response.UserOAuthResponse;
-import com.savitroday.savischools.manager.StudentManager;
+import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.Constants;
 
 import javax.inject.Inject;
@@ -25,7 +25,7 @@ public class LoginHelper {
     
     
     private OAuthRestService oAuthRestService;
-    private StudentManager studentManager;
+    private DashboardManager dashboardManager;
     private String email, password, schoolId;
     
     
@@ -37,9 +37,9 @@ public class LoginHelper {
     
     
     @Inject
-    public LoginHelper(OAuthRestService oAuthRestService, StudentManager studentManager) {
+    public LoginHelper(OAuthRestService oAuthRestService, DashboardManager dashboardManager) {
         this.oAuthRestService = oAuthRestService;
-        this.studentManager = studentManager;
+        this.dashboardManager = dashboardManager;
     }
     
     public Task loginAndGetUser() {
@@ -53,9 +53,9 @@ public class LoginHelper {
         });
     }
     
-    public Task getUser() {
-        return studentManager.getMyProfileTask();
-    }
+//    public Task getUser() {
+//        return dashboardManager.getMyProfileTask();
+//    }
     
     
     public Task<UserOAuthResponse> login() {
@@ -82,8 +82,7 @@ public class LoginHelper {
                                                                                                       .accessToken);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_SCHOOL_ID, userOAuthResponse.schoolId);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.parentid);
-                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.userId);
-                    //if (!createUser) {
+                    MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_USER_ID, userOAuthResponse.userId);
                     MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, true);
                     
                     task.setResult(userOAuthResponse);

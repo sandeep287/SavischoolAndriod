@@ -10,137 +10,87 @@ import java.util.Date;
  */
 
 public class Student {
+    
     @SerializedName("schoolId")
     @Expose
     public Integer schoolId;
-    @SerializedName("StudentName")
+    @SerializedName("studentName")
     @Expose
     public String studentName;
-    @SerializedName("Classname")
+    @SerializedName("classname")
     @Expose
-    public Object classname;
-    @SerializedName("Section")
+    public String classname;
+    @SerializedName("section")
     @Expose
-    public Object section;
-    @SerializedName("Isdefault")
+    public String section;
+    @SerializedName("session")
+    @Expose
+    public String session;
+    @SerializedName("isdefault")
     @Expose
     public Boolean isdefault;
-    @SerializedName("Curriculum")
+    @SerializedName("curriculum")
     @Expose
-    public Object curriculum;
-    @SerializedName("teacherComments")
-    @Expose
-    public Object teacherComments;
-    @SerializedName("remarks")
-    @Expose
-    public Object remarks;
-    @SerializedName("submissionDate")
-    @Expose
-    public String submissionDate;
+    public String curriculum;
     @SerializedName("mediaPath")
     @Expose
-    public Object mediaPath;
-    @SerializedName("referenceNumberCHAR")
+    public String mediaPath;
+    @SerializedName("iconMediaPath")
     @Expose
-    public Object referenceNumberCHAR;
-    @SerializedName("caption")
-    @Expose
-    public Object caption;
-    @SerializedName("mediaId")
-    @Expose
-    public Object mediaId;
-    @SerializedName("title")
-    @Expose
-    public Object title;
-    @SerializedName("content")
-    @Expose
-    public Object content;
-    @SerializedName("classSectionId")
-    @Expose
-    public String classSectionId;
-    @SerializedName("dueDate")
-    @Expose
-    public Object dueDate;
+    public String iconMediaPath;
     @SerializedName("motherid")
     @Expose
     public String motherid;
     @SerializedName("fatherid")
     @Expose
     public String fatherid;
+    @SerializedName("fatherName")
+    @Expose
+    public String fatherName;
+    @SerializedName("motherName")
+    @Expose
+    public String motherName;
     @SerializedName("dateOfBirth")
     @Expose
-    public String dateOfBirth;
+    public Date dateOfBirth;
     @SerializedName("rollNo")
     @Expose
     public Object rollNo;
-    @SerializedName("studentAssignmentId")
+    @SerializedName("studentmediaPath")
     @Expose
-    public String studentAssignmentId;
-    @SerializedName("classAssignmentId")
-    @Expose
-    public String classAssignmentId;
-    @SerializedName("sectionStudentId")
-    @Expose
-    public String sectionStudentId;
-    @SerializedName("StudentmediaPath")
-    @Expose
-    public Object studentmediaPath;
-    @SerializedName("Studentcaption")
-    @Expose
-    public Object studentcaption;
-    @SerializedName("StudentCommets")
-    @Expose
-    public Object studentCommets;
-    @SerializedName("Status")
-    @Expose
-    public Object status;
-    @SerializedName("Phone")
+    public String studentmediaPath;
+    @SerializedName("phone")
     @Expose
     public String phone;
-    @SerializedName("Email")
+    @SerializedName("email")
     @Expose
-    public Object email;
-    @SerializedName("StudentLastname")
+    public String email;
+    @SerializedName("studentLastname")
     @Expose
-    public Object studentLastname;
-    @SerializedName("studentReceiptId")
-    @Expose
-    public String studentReceiptId;
-    @SerializedName("country")
-    @Expose
-    public Object country;
-    @SerializedName("state")
-    @Expose
-    public Object state;
-    @SerializedName("city")
-    @Expose
-    public Object city;
-    @SerializedName("amount")
-    @Expose
-    public Float amount;
+    public String studentLastname;
     @SerializedName("addressLine1")
     @Expose
-    public Object addressLine1;
+    public String addressLine1;
     @SerializedName("studentId")
     @Expose
     public String studentId;
     @SerializedName("addressLine2")
     @Expose
-    public Object addressLine2;
+    public String addressLine2;
     @SerializedName("postCode")
     @Expose
-    public Object postCode;
-    @SerializedName("transactionId")
-    @Expose
-    public Object transactionId;
-    @SerializedName("invoiceNumber")
-    @Expose
-    public Object invoiceNumber;
-    @SerializedName("Checkin")
+    public String postCode;
+    @SerializedName("checkin")
     @Expose
     public Date checkin;
-    @SerializedName("Checkout")
+    @SerializedName("checkout")
     @Expose
     public Date checkout;
+    @SerializedName("gender")
+    @Expose
+    public Object gender;
+    @SerializedName("bloodGroup")
+    @Expose
+    public Object bloodGroup;
     
 }

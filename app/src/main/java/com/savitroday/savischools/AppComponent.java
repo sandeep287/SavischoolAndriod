@@ -9,7 +9,7 @@ import com.savitroday.savischools.di.module.ManagerModule;
 import com.savitroday.savischools.di.module.NonAuthModule;
 import com.savitroday.savischools.di.module.UserRestModule;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
-import com.savitroday.savischools.manager.StudentManager;
+import com.savitroday.savischools.manager.DashboardManager;
 
 import javax.inject.Singleton;
 
@@ -35,6 +35,6 @@ public interface AppComponent {
     void inject(LoginActivity loginActivity);
     void inject(DashboardFragment dashboardFragment);
     
-    StudentManager profileManager();
+    DashboardManager profileManager();
     
 }

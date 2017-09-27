@@ -16,7 +16,7 @@
         android:background="@color/white"
         android:padding="16dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -37,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="From John"
+                android:text='@{"From " + message.name}'
                 />
 
             <TextView
@@ -44,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="You are invited for 2017 F.."
+                android:text="@{message.title}"
                 />
 
             <TextView
@@ -51,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="We are Celebrating Upco…"
+                android:text="@{message.message}"
                 />
 
             <TextView
@@ -64,6 +67,7 @@
                 android:paddingRight="5dp"
                 android:paddingTop="2dp"
                 tools:text="JENNY"
+                android:text="@{message.studentName}"
                 />
         </LinearLayout>
 

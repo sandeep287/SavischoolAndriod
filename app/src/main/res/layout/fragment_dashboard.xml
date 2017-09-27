@@ -21,7 +21,8 @@
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/bottom_tab">
+            android:layout_above="@id/bottom_tab"
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -139,15 +140,17 @@
                 <ListView
                     android:id="@+id/notification_listview"
                     android:layout_width="match_parent"
-                    android:layout_height="293dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/middle_layout"
+                    android:scrollbars="none"
                     android:layout_margin="16dp"/>
 
                 <ListView
                     android:id="@+id/invoice_listview"
                     android:layout_width="match_parent"
-                    android:layout_height="293dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/notification_listview"
+                    android:scrollbars="none"
                     android:layout_margin="16dp"/>
             </RelativeLayout>
         </ScrollView>

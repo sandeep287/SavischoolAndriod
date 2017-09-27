@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 
+import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.databinding.InvoiceCellBinding;
 import com.savitroday.savischools.databinding.MessageCellBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -76,9 +78,19 @@ public class MessageAdapter implements ListAdapter {
         if (binding == null) {
              binding = MessageCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                     viewGroup, false);
-           
         }
         binding.setMessage(message);
+        if(message.iconMediaPath != null) {
+            binding.imageView.setPadding(0,0,0,0);
+            Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
+        }
+        else
+        {
+            binding.imageView.setPadding(10,10,10,10);
+            binding.imageView.setImageResource(R.drawable.notification_icon);
+            binding.imageView.setBackgroundResource(R.drawable.gradient_circle);
+        }
+    
         binding.executePendingBindings();
     
         return binding.getRoot();

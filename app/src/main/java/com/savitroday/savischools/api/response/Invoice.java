@@ -4,6 +4,7 @@ package com.savitroday.savischools.api.response;
  * Created by Harshita Ahuja on 22/09/17.
  */
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -14,36 +15,15 @@ public class Invoice {
     @SerializedName("studentInvoiceId")
     @Expose
     public String studentInvoiceId;
-    @SerializedName("delFlg")
-    @Expose
-    public Boolean delFlg;
     @SerializedName("createdOn")
     @Expose
     public String createdOn;
-    @SerializedName("createdBy")
-    @Expose
-    public String createdBy;
-    @SerializedName("updatedOn")
-    @Expose
-    public Object updatedOn;
-    @SerializedName("updatedBy")
-    @Expose
-    public Object updatedBy;
     @SerializedName("invoiceType")
     @Expose
     public String invoiceType;
     @SerializedName("invoiceNumber")
     @Expose
     public String invoiceNumber;
-    @SerializedName("DesignId")
-    @Expose
-    public Object designId;
-    @SerializedName("extraHoursAmount")
-    @Expose
-    public Integer extraHoursAmount;
-    @SerializedName("IsextraHours")
-    @Expose
-    public Boolean isextraHours;
     @SerializedName("invoiceDate")
     @Expose
     public Date invoiceDate;
@@ -52,13 +32,10 @@ public class Invoice {
     public String status;
     @SerializedName("paymentTerm")
     @Expose
-    public String paymentTerm;
+    public Object paymentTerm;
     @SerializedName("dueOn")
     @Expose
-    public String dueOn;
-    @SerializedName("monthlydate")
-    @Expose
-    public Object monthlydate;
+    public Date dueOn;
     @SerializedName("schoolId")
     @Expose
     public Integer schoolId;
@@ -68,119 +45,63 @@ public class Invoice {
     @SerializedName("studentId")
     @Expose
     public String studentId;
-    @SerializedName("StudentIdsearch")
-    @Expose
-    public Object studentIdsearch;
     @SerializedName("amount")
     @Expose
-    public Integer amount;
+    public Float amount;
     @SerializedName("currency")
     @Expose
     public String currency;
-    @SerializedName("serviceProvider")
-    @Expose
-    public Object serviceProvider;
     @SerializedName("remarks")
     @Expose
     public String remarks;
-    @SerializedName("StudentName")
+    @SerializedName("studentName")
     @Expose
     public String studentName;
     @SerializedName("classId")
     @Expose
     public String classId;
-    @SerializedName("productInfo")
+    @SerializedName("curriculum")
     @Expose
-    public Object productInfo;
-    @SerializedName("Curriculum")
+    public String curriculum;
+    @SerializedName("className")
     @Expose
-    public Object curriculum;
-    @SerializedName("admittedOnSessionId")
-    @Expose
-    public Object admittedOnSessionId;
-    @SerializedName("classSectionId")
-    @Expose
-    public String classSectionId;
-    @SerializedName("Classname")
-    @Expose
-    public Object classname;
-    @SerializedName("Section")
-    @Expose
-    public Object section;
-    @SerializedName("Session")
-    @Expose
-    public Object session;
+    public String className;
     @SerializedName("mobile")
     @Expose
-    public Object mobile;
-    @SerializedName("email")
+    public String mobile;
+    @SerializedName("schoolName")
     @Expose
-    public Object email;
-    @SerializedName("SchoolName")
-    @Expose
-    public Object schoolName;
+    public String schoolName;
     @SerializedName("year")
     @Expose
-    public Object year;
+    public String year;
     @SerializedName("month")
     @Expose
-    public Object month;
-    @SerializedName("SchoolAddress")
-    @Expose
-    public Object schoolAddress;
+    public String month;
     @SerializedName("rollNo")
     @Expose
     public Object rollNo;
-    @SerializedName("classmonthlyId")
+    @SerializedName("paidAmount")
     @Expose
-    public Object classmonthlyId;
-    @SerializedName("clientId")
+    public Float paidAmount;
+    @SerializedName("mediaPath")
     @Expose
-    public Object clientId;
-    @SerializedName("paidamount")
+    public String mediaPath;
+    @SerializedName("iconMediaPath")
     @Expose
-    public Integer paidamount;
-    @SerializedName("Ischeck")
-    @Expose
-    public Boolean ischeck;
-    @SerializedName("transactionId")
-    @Expose
-    public Object transactionId;
-    @SerializedName("userId")
-    @Expose
-    public String userId;
-    @SerializedName("ipAddress")
-    @Expose
-    public Object ipAddress;
-    @SerializedName("IsReceipt")
-    @Expose
-    public Boolean isReceipt;
-    @SerializedName("sURL")
-    @Expose
-    public Object sURL;
-    @SerializedName("invoiceTemplateId")
-    @Expose
-    public String invoiceTemplateId;
-    @SerializedName("EAmount")
-    @Expose
-    public Integer eAmount;
-    @SerializedName("LAmount")
-    @Expose
-    public Integer lAmount;
-    @SerializedName("TAmount")
-    @Expose
-    public Integer tAmount;
-    @SerializedName("StudentInvoiceDetailsModelsData")
-    @Expose
-    public List<Object> studentInvoiceDetailsModelsData = null;
-    @SerializedName("ListFeeHeads")
-    @Expose
-    public List<Object> listFeeHeads = null;
-    @SerializedName("Listinvoices")
-    @Expose
-    public List<Object> listinvoices = null;
-    @SerializedName("VSectionStudentAttendanceModelsList")
-    @Expose
-    public List<Object> vSectionStudentAttendanceModelsList = null;
+    public String iconMediaPath;
+    
+    
+    public String getDate(){
+        return new SimpleDateFormat("dd").format(dueOn);
+    }
+    
+    public String getMonth(){
+        return new SimpleDateFormat("MMM").format(dueOn);
+    }
+    
+    public String getYear(){
+        return new SimpleDateFormat("yyyy").format(dueOn);
+    }
     
 }

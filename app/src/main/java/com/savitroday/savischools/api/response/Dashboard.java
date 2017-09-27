@@ -32,8 +32,17 @@ public class Dashboard {
     
     
     public String getStudentName() {
-        String name = "Hi " + listStudentModel.get(0).studentName + ", Good Morning";
+        String name = "Hi " + getDefaultStudent().studentName + ", Good Morning";
         return name;
+    }
+    
+    public Student getDefaultStudent(){
+        for (Student student : listStudentModel){
+            if(student.isdefault){
+                return student;
+            }
+        }
+        return listStudentModel.get(0);
     }
     
     public String getCurrentDate() {

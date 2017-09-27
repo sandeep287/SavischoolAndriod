@@ -8,19 +8,24 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.InvoiceAdapter;
+import com.savitroday.savischools.adapter.PopupRecyclerviewAdepter;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 
 import java.util.List;
@@ -36,8 +41,11 @@ public class MainActivity extends AppCompatActivity
     @Inject
     UserRestService userRestService;
     
+    
     RelativeLayout mProgressDialog;
     NavigationView navigationView;
+    RecyclerView recyclerView;
+    PopupRecyclerviewAdepter popupRecyclerviewAdepter;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +73,27 @@ public class MainActivity extends AppCompatActivity
             }
         });
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView =  navigationView.getHeaderView(0);
+        recyclerView = (RecyclerView) hView.findViewById(R.id.studentListRecyclerView);
+        
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        
         navigationView.setNavigationItemSelectedListener(this);
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
-        
-        
-        onNavigationItemSelected(navigationView.getMenu().getItem(0));
-        navigationView.getMenu().getItem(0).setChecked(true);
+    
+        // Handle the camera action
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.flFragments, new DashboardFragment());
+        transaction.commit();
     }
     
+    public void setNavigationList(List<Student> studentList) {
+        popupRecyclerviewAdepter = new PopupRecyclerviewAdepter(this, studentList);
+        recyclerView.setAdapter(popupRecyclerviewAdepter);
+    }
     
     void getInvoice(String schoolId, String studentId) {
         userRestService.getInvoiceByStudent(schoolId, studentId).enqueue(new CustomCallAdapter

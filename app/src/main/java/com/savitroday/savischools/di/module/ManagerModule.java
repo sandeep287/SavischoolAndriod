@@ -4,7 +4,7 @@ package com.savitroday.savischools.di.module;
 
 
 import com.savitroday.savischools.api.UserRestService;
-import com.savitroday.savischools.manager.StudentManager;
+import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.TinyDB;
 
 import javax.inject.Singleton;
@@ -23,8 +23,8 @@ public class ManagerModule {
     
     @Provides
     @Singleton
-    public StudentManager provideMyProfileManager(UserRestService restService, TinyDB tinyDB) { //dependencies!
-        return new StudentManager(restService, tinyDB);
+    public DashboardManager provideMyProfileManager(UserRestService restService, TinyDB tinyDB) { //dependencies!
+        return new DashboardManager(restService, tinyDB);
     }
     
 }

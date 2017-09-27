@@ -1,6 +1,5 @@
 package com.savitroday.savischools.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -21,23 +20,19 @@ public class TabbedActivity extends AppCompatActivity {
     
     private SlidingPaneLayout mSlidingLayout;
     private ListView mList;
-
-    RelativeLayout relativeLayout1,relativeLayout2;
-    View temp;
+    
+ 
     private ActionBarHelper mActionBar;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
-
+        
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        relativeLayout1=(RelativeLayout)findViewById(R.id.rlayoutman);
-        relativeLayout2=(RelativeLayout)findViewById(R.id.rlayouttemp);
-        temp=findViewById(R.id.rlayouttemp);
-        relativeLayout1.setVisibility(View.INVISIBLE);
-        relativeLayout2.addView(temp);
+    
+   
         mSlidingLayout = (SlidingPaneLayout) findViewById(R.id.sliding_pane_layout);
         mList = (ListView) findViewById(R.id.left_pane);
         

@@ -19,10 +19,13 @@ import java.util.Date;
 public class DateDeserializer implements JsonDeserializer<Date> {
     //    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final String[] DATE_FORMATS = new String[]{
+            "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSX",
+            "yyyy-MM-dd'T'HH:mm:ss",
+            "yyyy-MM-dd'T'HH:mm:ssZ",
             "yyyy-MM-dd HH:mm:ss",
             "yyyy-MM-dd hh:mm",
-            "yyyy-dd-MM",
-            "yyyy-dd-MMTHH:mm:ssZ"
+            "yyyy-dd-MM"
+            
     };
 //    public Date deserialize(JsonElement dateStr, Type typeOfSrc, JsonDeserializationContext context)
 //    {
@@ -44,7 +47,7 @@ public class DateDeserializer implements JsonDeserializer<Date> {
             try {
                 return new SimpleDateFormat(format).parse(jsonElement.getAsString());
             } catch (ParseException e) {
-                Log.d("Parse error", "Date");
+                Log.d("Parse error", "Date"+jsonElement.getAsString());
             }
         }
         throw new JsonParseException("Unparseable date: \"" + jsonElement.getAsString()

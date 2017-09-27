@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:elevation="8dp"
         android:padding="16dp">
 
         <LinearLayout
@@ -30,8 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="May"
-                android:text="@{invoice.month}"
-
+                android:text="@{invoice.getMonth()}"
                 />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="21"
-                android:text="@{invoice.monthlydate}"
+                android:text="@{invoice.getDate()}"
                 />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:textSize="12sp"
                 android:textStyle="normal"
                 tools:text="2017"
-                android:text="@{invoice.year}"
+                android:text="@{invoice.getYear()}"
                 />
         </LinearLayout>
 
@@ -74,6 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Invoice 1020"
+                android:text="@{invoice.invoiceType}"
                 />
 
             <TextView
@@ -104,8 +105,9 @@
                 style="@style/Bold18Cerulean"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{invoice.currency + invoice.amount}"
+                android:text='@{invoice.currency +" "+ invoice.amount}'
                 tools:text="$200"
+                android:layout_gravity="end"
                 />
 
             <TextView
@@ -118,7 +120,8 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingTop="6dp"
-                tools:text="Pay Now"
+                android:text="Pay Now"
+                android:layout_gravity="end"
                 />
         </LinearLayout>
     </RelativeLayout>

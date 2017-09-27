@@ -10,6 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="0dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -32,7 +33,8 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ham_menu"/>
+                    android:src="@drawable/ham_menu"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/homeScreen_headerTitle"
@@ -61,5 +63,50 @@
 
     <include layout="@layout/content_main"/>
 
+    <LinearLayout
+        android:id="@+id/bottom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/twilight_blue_two"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bottom_icon_user"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="@color/white"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bottom_icon_catrgory"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="@color/white"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bottom_icon_activites"/>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

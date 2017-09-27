@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/loginrelative"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/loginrelative"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/background"
                 tools:context="com.savitroday.savischools.view.activity.LoginActivity">
@@ -40,7 +40,6 @@
             android:weightSum="1">
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
@@ -57,26 +56,28 @@
                     android:layout_marginTop="19dp"
                     android:background="@drawable/id_icon"
                     />
+
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
                     android:layout_marginLeft="16dp"
-
                     android:background="@drawable/setcolor"
-                    android:textColorHint="#8cffffff"
-                    android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/Id"
-                    android:layout_width="248dp"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="24dp"
-                    android:background="@drawable/setcolor"
-                    android:hint="School ID"
-                    android:inputType="number"
-                    android:paddingLeft="1dp"
-                    android:maxLines="1"
-                    android:textColor="#ffffff"
+                    android:textColorHint="#8cffffff">
 
-                    android:textSize="16sp"/>
+                    <EditText
+                        android:id="@+id/Id"
+                        android:layout_width="248dp"
+                        android:layout_height="46dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/setcolor"
+                        android:hint="School ID"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingLeft="1dp"
+                        android:textColor="#ffffff"
+
+                        android:textSize="16sp"/>
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -86,49 +87,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:layout_marginLeft="36dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginRight="36dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 >
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="19dp"
                     android:background="@drawable/username"
                     />
+
                 <android.support.design.widget.TextInputLayout
+                    style="@style/EditTextHint"
                     android:layout_width="248dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/setcolor"
                     android:layout_marginLeft="16dp"
-                    style="@style/EditTextHint"
+                    android:background="@drawable/setcolor"
                     >
 
-                <EditText
-                    android:id="@+id/uname"
-                    android:layout_width="248dp"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="24dp"
+                    <EditText
+                        android:id="@+id/uname"
+                        android:layout_width="248dp"
+                        android:layout_height="46dp"
+                        android:layout_marginBottom="24dp"
 
-                    android:hint="Username"
+                        android:hint="Username"
 
-                    android:paddingLeft="1dp"
-                    android:maxLines="1"
-                    android:textColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textSize="16sp"/>
+                        android:maxLines="1"
+                        android:paddingLeft="1dp"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="16sp"/>
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:layout_marginLeft="36dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginRight="36dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 >
 
@@ -138,37 +140,36 @@
                     android:layout_marginTop="19dp"
                     android:background="@drawable/password"
                     />
-<android.support.design.widget.TextInputLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/setcolor"
-    style="@style/EditTextHint"
-    android:layout_marginLeft="16dp"
-    >
-                <EditText
-                    android:id="@+id/pass"
-                    android:layout_width="248dp"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="24dp"
 
+                <android.support.design.widget.TextInputLayout
+                    style="@style/EditTextHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:background="@drawable/setcolor"
+                    >
 
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:paddingLeft="1dp"
-                    android:maxLines="1"
-                    android:textColorHint="#ffffff"
-                    style="@style/Regular16White"/>
-</android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/pass"
+                        style="@style/Regular16White"
+                        android:layout_width="248dp"
+                        android:layout_height="46dp"
+                        android:layout_marginBottom="24dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:paddingLeft="1dp"
+                        android:textColorHint="#ffffff"/>
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/passlenth"
+                style="@style/Regular12White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="76dp"
                 android:layout_weight="6.75"
-
-                style="@style/Regular12White"
                 android:text="At least 8 Characters"/>
 
         </LinearLayout>
@@ -205,10 +206,11 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:visibility="gone">
+
         <android.support.v4.widget.ContentLoadingProgressBar
+            android:id="@+id/pbar"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
-            android:id="@+id/pbar"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"

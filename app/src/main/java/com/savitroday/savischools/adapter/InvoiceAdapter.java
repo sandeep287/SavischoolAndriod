@@ -10,6 +10,7 @@ import android.widget.ListAdapter;
 
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.databinding.InvoiceCellBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -77,6 +78,8 @@ public class InvoiceAdapter implements ListAdapter {
            
         }
         binding.setInvoice(invoice);
+        //Picasso.with(context).load(invoice.mediaPath).into(binding.);
+    
         binding.executePendingBindings();
     
         return binding.getRoot();

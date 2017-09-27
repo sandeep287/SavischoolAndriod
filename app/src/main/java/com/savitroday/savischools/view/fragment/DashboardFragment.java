@@ -25,7 +25,9 @@ import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
+import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.util.ListUtils;
 
 import java.util.HashMap;
 
@@ -60,7 +62,9 @@ public class DashboardFragment extends Fragment {
         
         ViewGroup header = (ViewGroup) inflater.inflate(R.layout.cell_header, mBindings.notificationListview, false);
         mBindings.notificationListview.addHeaderView(header, null, false);
-        mBindings.invoiceListview.addHeaderView(header, null, false);
+        ViewGroup headerInvoice = (ViewGroup) inflater.inflate(R.layout.cell_header_invoice, mBindings
+                                                                                               .notificationListview, false);
+        mBindings.invoiceListview.addHeaderView(headerInvoice, null, false);
         getDashboardData();
         return mBindings.getRoot();
     }
@@ -81,6 +85,8 @@ public class DashboardFragment extends Fragment {
                 MessageAdapter messageAdapter = new MessageAdapter(getActivity(), dashboard.listSchoolMessagesModel);
                 mBindings.notificationListview.setAdapter(messageAdapter);
                 mBindings.invoiceListview.setAdapter(adapter);
+                ListUtils.setListViewHeightBasedOnChildren(mBindings.invoiceListview);
+                ListUtils.setListViewHeightBasedOnChildren(mBindings.notificationListview);
                 mBindings.progressBar.setVisibility(View.GONE);
                 
             }
@@ -88,6 +94,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void failure(ApiException e) {
                 mBindings.progressBar.setVisibility(View.GONE);
+                AlertUtil.showSnackbarWithMessage(e.getMessage(),mBindings.getRoot());
             }
         });
     }
