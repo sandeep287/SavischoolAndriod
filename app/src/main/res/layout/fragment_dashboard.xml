@@ -9,59 +9,13 @@
             type="com.savitroday.savischools.api.response.Dashboard"/>
         <variable
             name="handler"
-            type="com.savitroday.savischools.fragment.DashboardFragment.Handler"/>
+            type="com.savitroday.savischools.view.fragment.DashboardFragment.Handler"/>
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/bottom_tab"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/twilight_blue_two"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            >
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/bottom_icon_user"
-                android:onClick="@{()->handler.onSelectChildren()}"
-                />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="20dp"
-                android:background="@color/white"
-                />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/bottom_icon_catrgory"/>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="20dp"
-                android:background="@color/white"
-                />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/bottom_icon_activites"/>
-        </LinearLayout>
 
         <ScrollView
             android:id="@+id/scrollView"

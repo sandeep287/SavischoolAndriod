@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
+import com.savitroday.savischools.view.activity.TabbedActivity;
 
 public class SpleshScreen extends AppCompatActivity {
     ProgressBar pbar;
@@ -24,24 +25,15 @@ public class SpleshScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                String temp = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_IS_LOGGED_IN);
-                
-                
-                if (temp.equals("1")) {
-                    
-                    Intent intent = new Intent(SpleshScreen.this, MainActivity.class);
-                    startActivity(intent);
-                    pbar.setVisibility(View.INVISIBLE);
-                    finish();
-                    
-                } else if (temp.equals("0")) {
-                    Intent intent = new Intent(SpleshScreen.this, LoginActivity.class);
-                    startActivity(intent);
-                    pbar.setVisibility(View.INVISIBLE);
-                    finish();
+                Intent intent;
+                if (MyApplication.tinyDB.getBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, false)) {
+                    intent = new Intent(SpleshScreen.this, TabbedActivity.class);
+                } else {
+                    intent = new Intent(SpleshScreen.this, LoginActivity.class);
                 }
-                
-                
+                startActivity(intent);
+                pbar.setVisibility(View.INVISIBLE);
+                finish();
             }
         }, 1000);
         

@@ -29,9 +29,8 @@ public interface UserRestService {
     CustomCallAdapter.CustomCall<String> getMessages(@Query("schoolid") String schoolId,@Query("studntid")
                                                                                                      String studentId);
     
-    @POST("api/parent/StudentProfileDetail")
-    CustomCallAdapter.CustomCall<Dashboard> getDashboard(@Body HashMap map);
-                                                                 //("schoolid") String schoolId, @Query("parentId")
-                                                                                            // String parentId);
+    @GET("api/parent/StudentProfileDetail")
+    CustomCallAdapter.CustomCall<Dashboard> getDashboard(@Query("schoolid") String schoolId, @Query("parentId")
+                                                                                             String parentId);
     
 }

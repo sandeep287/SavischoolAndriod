@@ -1,0 +1,210 @@
+package com.savitroday.savischools.view.activity;
+
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SlidingPaneLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.savitroday.savischools.R;
+import com.savitroday.savischools.view.fragment.DashboardFragment;
+
+public class TabbedActivity extends AppCompatActivity {
+    
+    private SlidingPaneLayout mSlidingLayout;
+    private ListView mList;
+    private ActionBarHelper mActionBar;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tabbed);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        mSlidingLayout = (SlidingPaneLayout) findViewById(R.id.sliding_pane_layout);
+        mList = (ListView) findViewById(R.id.left_pane);
+        
+        mSlidingLayout.setPanelSlideListener(new SliderListener());
+        mSlidingLayout.openPane();
+
+//        mList.setAdapter(new ArrayAdapter(this,
+//                                                         R.layout.simple_list_item, DataUnit.TITLES));
+        mList.setOnItemClickListener(new ListItemClickListener());
+    
+    
+        mActionBar = createActionBarHelper();
+        mActionBar.init();
+        mSlidingLayout.getViewTreeObserver().addOnGlobalLayoutListener(
+                new FirstLayoutListener());
+    
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.flFragments, new DashboardFragment());
+        transaction.commit();
+    }
+    
+    
+    @Override
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (fragmentManager.getBackStackEntryCount() >= 1) {
+            fragmentManager.popBackStackImmediate();
+        } else {
+            finishAffinity();
+        }
+    }
+    
+    public class Handler {
+        public void onSelectChildren() {
+            //TODO: show popup here
+            //showPopup();
+        }
+        
+        public void openCategoryList() {
+            
+        }
+        
+        public void openActivityScreen() {
+            
+        }
+    }
+    
+    /**
+     * This list item click listener implements very simple view switching by
+     * changing the primary content text. The slider is closed when a selection
+     * is made to fully reveal the content.
+     */
+    private class ListItemClickListener implements ListView.OnItemClickListener {
+        @SuppressWarnings("deprecation")
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                                long id) {
+            
+            mSlidingLayout.smoothSlideClosed();
+        }
+    }
+    
+    /**
+     * This panel slide listener updates the action bar accordingly for each
+     * panel state.
+     */
+    private class SliderListener extends
+            SlidingPaneLayout.SimplePanelSlideListener {
+        @Override
+        public void onPanelOpened(View panel) {
+            mActionBar.onPanelOpened();
+        }
+        
+        @Override
+        public void onPanelClosed(View panel) {
+            mActionBar.onPanelClosed();
+        }
+    }
+    
+    /**
+     * This global layout listener is used to fire an event after first layout
+     * occurs and then it is removed. This gives us a chance to configure parts
+     * of the UI that adapt based on available space after they have had the
+     * opportunity to measure and layout.
+     */
+    private class FirstLayoutListener implements
+            ViewTreeObserver.OnGlobalLayoutListener {
+        @Override
+        public void onGlobalLayout() {
+            mActionBar.onFirstLayout();
+            mSlidingLayout.getViewTreeObserver().removeOnGlobalLayoutListener(
+                    this);
+        }
+    }
+    
+    /**
+     * Create a compatible helper that will manipulate the action bar if
+     * available.
+     */
+    private ActionBarHelper createActionBarHelper() {
+       
+            return new ActionBarHelper();
+        
+    }
+    
+    /**
+     * Stub action bar helper; this does nothing.
+     */
+    private class ActionBarHelper {
+        public void init() {
+        }
+        
+        public void onPanelClosed() {
+        }
+        
+        public void onPanelOpened() {
+        }
+        
+        public void onFirstLayout() {
+        }
+        
+        public void setTitle(CharSequence title) {
+        }
+    }
+    
+    /**
+     * Action bar helper for use on ICS and newer devices.
+     */
+    private class ActionBarHelperICS extends ActionBarHelper {
+        private final ActionBar mActionBar;
+        private CharSequence mDrawerTitle;
+        private CharSequence mTitle;
+        
+        ActionBarHelperICS() {
+            mActionBar = getSupportActionBar();
+        }
+        
+        @Override
+        public void init() {
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+            mActionBar.setHomeButtonEnabled(true);
+            mTitle = mDrawerTitle = getTitle();
+        }
+        
+        @Override
+        public void onPanelClosed() {
+            super.onPanelClosed();
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+            mActionBar.setHomeButtonEnabled(true);
+            mActionBar.setTitle(mTitle);
+        }
+        
+        
+        @Override
+        public void onPanelOpened() {
+            super.onPanelOpened();
+            mActionBar.setHomeButtonEnabled(false);
+            mActionBar.setDisplayHomeAsUpEnabled(false);
+            mActionBar.setTitle(mDrawerTitle);
+        }
+        
+        @SuppressWarnings("deprecation")
+        @Override
+        public void onFirstLayout() {
+            if (mSlidingLayout.canSlide() && !mSlidingLayout.isOpen()) {
+                onPanelClosed();
+            } else {
+                onPanelOpened();
+            }
+        }
+        
+        @Override
+        public void setTitle(CharSequence title) {
+            mTitle = title;
+        }
+    }
+    
+    
+}

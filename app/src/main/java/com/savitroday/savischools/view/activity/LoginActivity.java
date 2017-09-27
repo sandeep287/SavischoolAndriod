@@ -1,8 +1,10 @@
 package com.savitroday.savischools.view.activity;
 
-import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,14 +17,17 @@ import android.widget.Toast;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
+import com.savitroday.savischools.SpleshScreen;
 import com.savitroday.savischools.api.ApiErrorModel;
 import com.savitroday.savischools.api.ApiException;
+import com.savitroday.savischools.api.response.UserOAuthResponse;
 import com.savitroday.savischools.helper.LoginHelper;
+import com.savitroday.savischools.util.Constants;
 
 import javax.inject.Inject;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText id, uname, pass;
+    EditText schoolId, userName, password;
     TextView tview, passlength;
     Button loginbtn;
     static int temp = 0;
@@ -38,12 +43,12 @@ public class LoginActivity extends AppCompatActivity {
         MyApplication.getApp().getComponent().inject(this);
         
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.top2);
-        id = (EditText) findViewById(R.id.Id);
-        uname = (EditText) findViewById(R.id.uname);
-        pass = (EditText) findViewById(R.id.pass);
+        schoolId = (EditText) findViewById(R.id.Id);
+        userName = (EditText) findViewById(R.id.uname);
+        password = (EditText) findViewById(R.id.pass);
         loginbtn = (Button) findViewById(R.id.loginbtn);
         passlength = (TextView) findViewById(R.id.passlenth);
-        pass.addTextChangedListener(new TextWatcher() {
+        password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 
@@ -51,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (pass.getText().toString().trim().length() >= 8) {
+                if (password.getText().toString().trim().length() >= 8) {
                     
                     linearLayout.removeView(passlength);
                     temp = 1;
@@ -74,42 +79,48 @@ public class LoginActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO : move this to a validate method and from there call login
-                if (id.getText().toString().trim().equals("")) {
-                    id.requestFocus();
-                    //   id.setHintTextColor(Color.BLACK);
-                    id.setError("Enter your id no.");
-                    
-                    //  Toast.makeText(SCLooginPage.this,"Your Fields is empety",Toast.LENGTH_LONG).show();
-                } else if (uname.getText().toString().trim().equals("")) {
-                    uname.requestFocus();
-                    // uname.setHintTextColor(Color.BLACK);
-                    uname.setError("Enter Username");
-                    // Toast.makeText(SCLooginPage.this,"Your Fields is empety",Toast.LENGTH_LONG).show();
-                    
-                } else if (pass.getText().toString().trim().equals("")) {
-                    pass.requestFocus();
-                    //  pass.setHintTextColor(Color.BLACK);
-                    pass.setError("enter your password");
-                    //      Toast.makeText(SCLooginPage.this,"Your Fields is empety",Toast.LENGTH_LONG).show();
-                    
-                } else {
-                    if (true) {
-                        sharedPreferences = getSharedPreferences("LoginChack", Context.MODE_PRIVATE);
-                        final SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("loginverifide", "1");
-                        editor.commit();
-                    }
-                }
                 
+                if (validate()) {
+                    login();
+                }
             }
         });
         
         
     }
     
+    boolean validate() {
+        if (schoolId.getText().toString().trim().equals("") ||
+                    userName.getText().toString().trim().equals("") ||
+                    password.getText().toString().trim().equals("")) {
+            if (schoolId.getText().toString().trim().equals("")) {
+                schoolId.requestFocus();
+                //   schoolId.setHintTextColor(Color.BLACK);
+                schoolId.setError("Enter your schoolId no.");
+                
+                //  Toast.makeText(SCLooginPage.this,"Your Fields is empety",Toast.LENGTH_LONG).show();
+            } else if (userName.getText().toString().trim().equals("")) {
+                userName.requestFocus();
+                // userName.setHintTextColor(Color.BLACK);
+                userName.setError("Enter Username");
+                // Toast.makeText(SCLooginPage.this,"Your Fields is empety",Toast.LENGTH_LONG).show();
+                
+            } else if (password.getText().toString().trim().equals("")) {
+                password.requestFocus();
+                //  password.setHintTextColor(Color.BLACK);
+                password.setError("enter your password");
+                //      Toast.makeText(SCLooginPage.this,"Your Fields is empety",Toast.LENGTH_LONG).show();
+                
+            }
+            return false;
+        }
+        return true;
+    }
+    
     void login() {
         //  mProgressDialog.setVisibility(View.VISIBLE);
+        loginHelper.setCredentials(userName.getText().toString().trim(), password.getText().toString().trim(),
+                schoolId.getText().toString().trim());
         loginHelper.setCredentials("manohardaycare78@yopmail.com", "123456", "1");
         loginUser();
     }
@@ -118,11 +129,24 @@ public class LoginActivity extends AppCompatActivity {
         loginHelper.loginAndGetUser().continueWith((task) -> {
                     // mProgressDialog.setVisibility(View.GONE);
                     if (task.getResult() != null) {
-                        //UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
-                        //TODO - send to mainactivity
-                        //getInvoice(profile.schoolid, "");
-                        // onNavigationItemSelected(navigationView.getMenu().getItem(0));
-                        // navigationView.getMenu().getItem(0).setChecked(true);
+                        MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN,true);
+                        UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
+                        if(profile.userType.equals("SchoolAdmin")) {
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            new AlertDialog.Builder(this)
+                                    //set message, mTitle, and icon
+                                    .setCancelable(false)
+                                    .setMessage("You have succesfully logged in. Usertype is " + profile.userType)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int whichButton) {
+                                            dialog.dismiss();
+                                        }
+                                    }).create().show();
+                        }
                     } else {
                         ApiException e = (ApiException) task.getError();
                         if (e.getKind() == ApiException.Kind.HTTP || e.getKind() == ApiException.Kind.NETWORK) {

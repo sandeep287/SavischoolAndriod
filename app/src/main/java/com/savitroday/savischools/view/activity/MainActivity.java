@@ -13,17 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.InvoiceAdapter;
-import com.savitroday.savischools.api.ApiErrorModel;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.helper.LoginHelper;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 
 import java.util.List;
@@ -35,8 +32,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     
-    @Inject
-    LoginHelper loginHelper;
     
     @Inject
     UserRestService userRestService;
@@ -72,42 +67,12 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
-        login();
+        
+        
+        onNavigationItemSelected(navigationView.getMenu().getItem(0));
+        navigationView.getMenu().getItem(0).setChecked(true);
     }
     
-    void login() {
-        mProgressDialog.setVisibility(View.VISIBLE);
-        loginHelper.setCredentials("manohardaycare78@yopmail.com", "123456", "1");
-        loginUser();
-    }
-    
-    public void loginUser() {
-        loginHelper.loginAndGetUser().continueWith((task) -> {
-                    mProgressDialog.setVisibility(View.GONE);
-                    if (task.getResult() != null) {
-                        //UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
-                        
-                        //getInvoice(profile.schoolid, "");
-                        onNavigationItemSelected(navigationView.getMenu().getItem(0));
-                        navigationView.getMenu().getItem(0).setChecked(true);
-                    } else {
-                        ApiException e = (ApiException) task.getError();
-                        if (e.getKind() == ApiException.Kind.HTTP || e.getKind() == ApiException.Kind.NETWORK) {
-                            try {
-                                ApiErrorModel apiErrorModel = e.getErrorModel();
-                                Toast.makeText(MainActivity.this, apiErrorModel.errorMessage, Toast.LENGTH_LONG).show();
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                                Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                    return null;
-                }
-        );
-    }
     
     void getInvoice(String schoolId, String studentId) {
         userRestService.getInvoiceByStudent(schoolId, studentId).enqueue(new CustomCallAdapter

@@ -10,5 +10,6 @@
     <dimen name="label_homescreen_text_size">20sp</dimen>
     <dimen name="header_homescreen_vertical_margin">10dp</dimen>
     <dimen name="header_homescreen_horizontal_margin">20dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 
 </resources>

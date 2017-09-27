@@ -1,4 +1,4 @@
-package com.savitroday.savischools;
+package com.savitroday.savischools.view.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.savitroday.savischools.MyApplication;
+import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.PopupRecyclerviewAdepter;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
@@ -56,7 +58,7 @@ public class PopupStudentList extends Activity
         HashMap<String,String> map = new HashMap<>();
         map.put("schoolid",schoolId);
         map.put("parentId",parentId);
-        userRestService.getDashboard(map).enqueue(new CustomCallAdapter.CustomCallback<Dashboard>() {
+        userRestService.getDashboard(schoolId,parentId).enqueue(new CustomCallAdapter.CustomCallback<Dashboard>() {
         @Override
         public void success(Response<Dashboard> response) {
             Log.e("server",response.toString());
