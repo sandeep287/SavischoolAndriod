@@ -12,11 +12,12 @@ import android.view.ViewGroup;
 import com.savitroday.savischools.R;
 
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
+import com.savitroday.savischools.databinding.FragmentProfileBinding;
 import com.savitroday.savischools.view.activity.TabbedActivity;
 
 public class ProfileFragment extends Fragment {
 
-    FragmentDashboardBinding mBindings;
+    FragmentProfileBinding mBindings;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

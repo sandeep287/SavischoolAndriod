@@ -1,60 +1,63 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
 
-<data>
-    <variable
-        name="student"
-        type="com.savitroday.savischools.api.response.Student"/>
-    <variable
-        name="handler"
-        type="com.savitroday.savischools.view.fragment.DashboardFragment.Handler"/>
+    <data>
 
-</data>
+        <variable
+            name="student"
+            type="com.savitroday.savischools.api.response.Student"/>
+
+
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_two">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:background="@drawable/gradient_background"
-            ></LinearLayout>
+            />
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/stimage"
             android:layout_width="84dp"
             android:layout_height="84dp"
-            android:layout_marginTop="19dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
             android:src="@drawable/profile_img"
-            android:id="@+id/stimage"
             />
+
         <TextView
+            android:id="@+id/stname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/stimage"
             android:layout_marginTop="8dp"
-            android:text="@{student.studentName}"
-            tools:text="Jenny Benson"
-            android:textStyle="bold"
-            android:textSize="24sp"
-
-            android:id="@+id/stname"
-            android:textColor="@color/black"
             android:gravity="center"
+            android:text="@{student.studentName}"
+            android:textColor="@color/black"
+
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="Jenny Benson"
             />
 
         <TextView
+            android:id="@+id/stclass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/stname"
-            android:text="@{student.classname}"
-            tools:text="Nurssary Class"
-
             android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+
             android:letterSpacing="0.02"
-            android:id="@+id/stclass"
+            android:text="@{student.classname}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="Nurssary Class"
 
             />
 
@@ -66,24 +69,25 @@
             android:layout_margin="16dp"
             android:orientation="vertical"
             >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:paddingLeft="24dp"
-
                 android:layout_marginBottom="3dp"
-                android:orientation="vertical"
+
                 android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="24dp"
                 >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DOB"
-                    android:textSize="12sp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text="DOB"
                     android:textColor="@color/black_55"
-
+                    android:textSize="12sp"
 
 
                     />
@@ -92,75 +96,79 @@
                     android:id="@+id/stDob"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="4 may 2010"
-                    android:text="@{student.getDateOfBirth()}"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="@color/black"
                     android:letterSpacing="0.02"
-                    android:textSize="16sp" />
+                    android:text="@{student.getDateOfBirth()}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="4 may 2010"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="92dp"
-                android:paddingLeft="20dp"
                 android:layout_marginBottom="3dp"
                 android:background="@color/white"
                 android:orientation="vertical"
+                android:paddingLeft="20dp"
                 >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Father Name"
-                    android:textSize="12sp"
                     android:layout_marginTop="8dp"
+                    android:text="Father Name"
                     android:textColor="@color/black_55"
-
+                    android:textSize="12sp"
 
 
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Marc Jones"
-                    android:text="@{student.fatherName}"
-                    android:textSize="16sp"
-                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"
-                    android:textColor="@color/black"
-                    android:letterSpacing="0.02"
+                    android:layout_marginTop="4dp"
                     android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="@{student.fatherName}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="Marc Jones"
                     />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     >
+
                     <TextView
+                        android:id="@+id/stfatherno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/stfatherno"
-                        tools:text="1-201-403-2900"
-                        android:text="@{student.fatherid}"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
                         android:letterSpacing="0.02"
+                        android:text="@{student.fatherid}"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        tools:text="1-201-403-2900"
 
                         />
 
                     <Button
+                        android:id="@+id/primarykey"
                         android:layout_width="105dp"
                         android:layout_height="21dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cool_grey_rounded_background"
                         android:text="Primary number"
                         android:textColor="@color/white"
-                        android:background="@drawable/cool_grey_rounded_background"
-                        android:textSize="10sp"
-                        android:layout_marginRight="20dp"
-                        android:layout_gravity="right"
-                        android:layout_alignParentRight="true"
-                        android:id="@+id/primarykey"
 
-                        android:layout_alignParentTop="true" />
+                        android:textSize="10sp"/>
 
                 </RelativeLayout>
 
@@ -169,45 +177,48 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="92dp"
-                android:background="@color/white"
-
-                android:paddingLeft="20dp"
                 android:layout_marginBottom="3dp"
+
+                android:background="@color/white"
                 android:orientation="vertical"
+                android:paddingLeft="20dp"
                 >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mother Name"
-                    android:textSize="12sp"
                     android:layout_marginTop="8dp"
+                    android:text="Mother Name"
                     android:textColor="@color/black_55"
+                    android:textSize="12sp"
 
 
                     />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Bettie"
-                    android:text="@{student.motherName}"
-                    android:fontFamily="sans-serif-medium"
-                    android:textSize="16sp"
-                    android:letterSpacing="0.02"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
                     android:id="@+id/stmother"
-                    android:textColor="@color/black"
-                    />
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="@{student.motherName}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="Bettie"
+                    />
+
+                <TextView
                     android:id="@+id/stmotherno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
                     android:letterSpacing="0.02"
-                    tools:text="1-201-403-2900"
                     android:text="@{student.motherid}"
-                    android:textSize="16sp"
                     android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="1-201-403-2900"
 
                     />
             </LinearLayout>
@@ -215,29 +226,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:paddingLeft="20dp"
-                android:orientation="vertical"
                 android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
                 >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ADDRESS"
-                    android:textSize="12sp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text="ADDRESS"
                     android:textColor="@color/black_55"
-                 />
+                    android:textSize="12sp"
+                    />
+
                 <TextView
+                    android:id="@+id/staddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="738 Block Mountains Suite 482"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="16sp"
-                    android:text="@{student.addressLine1}"
                     android:letterSpacing="0.02"
-                    android:id="@+id/staddress"
+                    android:text="@{student.addressLine1}"
                     android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="738 Block Mountains Suite 482"
 
                     />
             </LinearLayout>
