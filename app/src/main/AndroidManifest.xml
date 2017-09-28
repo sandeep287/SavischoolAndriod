@@ -24,7 +24,6 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="c0112e84372b0d85fe6cbed3a8fcdf516d80d953"/>
-
         <activity
             android:name=".view.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -37,17 +36,13 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".view.activity.PopupStudentList"
             android:theme="@style/AppTheme.CustomTheme"/>
-        <activity
-            android:name=".view.activity.TabbedActivity"
-            android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

@@ -13,7 +13,6 @@ import com.savitroday.savischools.R;
 
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.databinding.FragmentProfileBinding;
-import com.savitroday.savischools.view.activity.TabbedActivity;
 
 public class ProfileFragment extends Fragment {
 
@@ -22,7 +21,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
-        ((TabbedActivity)getActivity()).setActionBarTitle( "Profile");
+      //  ((TabbedActivity)getActivity()).setActionBarTitle( "Profile");
         return mBindings.getRoot();
     }
 

@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (password.getText().toString().trim().length() >= 8) {
+                if (password.getText().toString().trim().length() >= 6) {
                     
                     passlength.setVisibility(View.INVISIBLE);
                     temp = 1;
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         if (schoolId.getText().toString().trim().equals("") ||
                     userName.getText().toString().trim().equals("") ||
                     password.getText().toString().trim().equals("") ||
-                    password.getText().toString().trim().length() < 8 ) {
+                    password.getText().toString().trim().length() < 6 ) {
             if (schoolId.getText().toString().trim().equals("")) {
                 schoolId.requestFocus();
                 schoolId.setError("Enter your schoolId no.");
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                 password.requestFocus();
                 password.setError("Enter your password");
             }
-            else if (password.getText().toString().trim().length() < 8) {
+            else if (password.getText().toString().trim().length() < 6) {
                 password.requestFocus();
                  
             }
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
     void login() {
         loginHelper.setCredentials(userName.getText().toString().trim(), password.getText().toString().trim(),
                 schoolId.getText().toString().trim());
-        loginHelper.setCredentials("singhs", "123456", "3");
+       // loginHelper.setCredentials("singhs", "123456", "3");
         loginUser();
     }
     
@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
                         if (profile.userType.equals("SchoolParent")) {
                             
-                            Intent intent = new Intent(LoginActivity.this, TabbedActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                         } else {
                             new AlertDialog.Builder(LoginActivity.this)
