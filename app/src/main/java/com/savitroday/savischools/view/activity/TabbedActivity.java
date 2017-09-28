@@ -155,5 +155,7 @@ public class TabbedActivity extends AppCompatActivity {
         public void setTitle(CharSequence title) {
         }
     }
-    
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
 }
