@@ -55,7 +55,6 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        
         mBindings = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_dashboard, container, false);
         MyApplication.getApp().getComponent().inject(this);

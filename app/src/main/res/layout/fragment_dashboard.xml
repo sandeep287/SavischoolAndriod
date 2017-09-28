@@ -44,6 +44,7 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:layout_marginTop="19dp"
+                        android:id="@+id/pppppppp"
                         android:background="@android:color/transparent"
                         android:src="@drawable/profile_img"/>
 

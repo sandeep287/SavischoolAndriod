@@ -63,7 +63,7 @@
 
                     android:layout_marginLeft="16dp"
                     android:background="@drawable/setbordercolor"
-                    android:textColorHint="#8cffffff">
+                    android:textColorHint="@color/white_55">
 
                     <EditText
                         android:id="@+id/Id"
@@ -75,7 +75,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:paddingLeft="1dp"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/white"
 
                         android:textSize="16sp"/>
                 </android.support.design.widget.TextInputLayout>
@@ -117,8 +117,8 @@
 
                         android:maxLines="1"
                         android:paddingLeft="1dp"
-                        android:textColor="#ffffff"
-                        android:textColorHint="#ffffff"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         android:textSize="16sp"/>
                 </android.support.design.widget.TextInputLayout>
 
@@ -159,7 +159,7 @@
                         android:inputType="textPassword"
                         android:maxLines="1"
                         android:paddingLeft="1dp"
-                        android:textColorHint="#ffffff"/>
+                        android:textColorHint="@color/white"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -184,7 +184,7 @@
             android:layout_marginTop="44dp"
             android:background="@drawable/white_rounded_background"
             android:text="Login"
-            android:textColor="#1299a1"
+            android:textColor="@color/blue_green"
             android:textSize="18sp"/>
 
         <ImageButton

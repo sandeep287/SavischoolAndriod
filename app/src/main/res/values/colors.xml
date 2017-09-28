@@ -10,6 +10,7 @@
     <color name="blue_green">#1299a1</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="black_55">#8c000000</color>
     <color name="bluey_grey">#919db5</color>
     <color name="tomato">#e74c3c</color>
     <color name="cerulean">#027cd0</color>
@@ -28,5 +29,5 @@
     <color name="black_14">#23000000</color>
     <color name="warm_grey">#979797</color>
     <color name="white_three">#d8d8d8</color>
-
+    <color name="cool_grey">#95a5a6</color>
 </resources>
