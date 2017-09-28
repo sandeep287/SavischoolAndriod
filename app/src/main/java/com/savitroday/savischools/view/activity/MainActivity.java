@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
     
-        // Handle the camera action
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.flFragments, new DashboardFragment());

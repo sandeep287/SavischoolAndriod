@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:background="@color/white_two">
 
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:background="@drawable/gradient_background"

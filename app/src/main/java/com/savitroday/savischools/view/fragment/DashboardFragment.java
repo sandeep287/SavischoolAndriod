@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,8 +88,10 @@ public class DashboardFragment extends Fragment {
     
     public class Handler {
         public void onProfileTap() {
-            //TODO: show popup here
-            
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.flFragments, ProfileFragment.getInstance(dashboard.getDefaultStudent()));
+            transaction.commit();
         }
     }
     
