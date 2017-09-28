@@ -48,7 +48,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     @Override
     public Object getGroup(int i) {
         if (i == 0)
-            return "Notification &amp; Messages";
+            return "Notification & Messages";
         return "Invoice";
     }
     

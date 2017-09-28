@@ -9,14 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.DashboardAdapter;
-import com.savitroday.savischools.adapter.InvoiceAdapter;
-import com.savitroday.savischools.adapter.MessageAdapter;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
@@ -24,7 +20,6 @@ import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
-import com.savitroday.savischools.util.ListUtils;
 
 import javax.inject.Inject;
 
@@ -38,12 +33,9 @@ public class DashboardFragment extends Fragment {
     FragmentDashboardBinding mBindings;
     @Inject
     UserRestService userRestService;
-    PopupWindow studentListPopup;
     Dashboard dashboard;
-    MessageAdapter messageAdapter;
-    InvoiceAdapter adapter;
-    ViewGroup header;
     DashboardAdapter dashboardAdapter;
+    
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -57,14 +49,6 @@ public class DashboardFragment extends Fragment {
         mBindings = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_dashboard, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        
-//        header = (ViewGroup) inflater.inflate(R.layout.cell_header, mBindings.notificationListview, false);
-//        mBindings.notificationListview.addHeaderView(header, null, false);
-//        ViewGroup headerInvoice = (ViewGroup) inflater.inflate(R.layout.cell_header_invoice, mBindings
-//                                                                                                     .invoiceListview, false);
-//        mBindings.invoiceListview.addHeaderView(headerInvoice, null, false);
-//        mBindings.invoiceListview.setNestedScrollingEnabled(false);
-//        mBindings.notificationListview.setNestedScrollingEnabled(false);
         
         getDashboardData();
         return mBindings.getRoot();
@@ -84,20 +68,8 @@ public class DashboardFragment extends Fragment {
                 mBindings.setDashboard(dashboard);
                 mBindings.setHandler(new Handler());
                 mBindings.progressBar.setVisibility(View.GONE);
-                
-              //  messageAdapter = new MessageAdapter(getContext(), dashboard.listSchoolMessagesModel);
-//                mBindings.notificationListview.setAdapter(messageAdapter);
-//
-//
-//                adapter = new InvoiceAdapter(getContext(), dashboard.listStudentInvoiceModel);
-//                mBindings.invoiceListview.setAdapter(adapter);
-//
-//
-//                ListUtils.setListViewHeightBasedOnChildren(mBindings.notificationListview);
-//                ListUtils.setListViewHeightBasedOnChildren(mBindings.invoiceListview);
-                dashboardAdapter =  new DashboardAdapter(getContext(),dashboard.listStudentInvoiceModel,dashboard
-                                                                                                                .listSchoolMessagesModel
-                                                                );
+                dashboardAdapter = new DashboardAdapter(getContext(), dashboard.listStudentInvoiceModel,
+                                                               dashboard.listSchoolMessagesModel);
                 mBindings.listView.setAdapter(dashboardAdapter);
                 mBindings.listView.expandGroup(0);
                 mBindings.listView.expandGroup(1);
@@ -113,9 +85,9 @@ public class DashboardFragment extends Fragment {
     }
     
     public class Handler {
-        public void onSelectChildren() {
+        public void onProfileTap() {
             //TODO: show popup here
-            //showPopup();
+            
         }
     }
     

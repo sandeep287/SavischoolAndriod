@@ -15,8 +15,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusableInTouchMode="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/top_layout"
@@ -33,6 +32,8 @@
                 android:layout_height="85dp"
                 android:layout_marginTop="19dp"
                 android:background="@android:color/transparent"
+                android:clickable="true"
+                android:onClick="@{()->handler.onProfileTap()}"
                 android:src="@drawable/profile_img"/>
 
             <TextView
@@ -125,43 +126,15 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <!-- <android.support.v4.widget.NestedScrollView
-             android:id="@+id/scrollView"
-             android:layout_width="match_parent"
-             android:layout_height="fill_parent"
-             android:layout_below="@id/top_layout"
-             android:scrollbars="vertical"
-             android:background="@color/white_two">
-
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="vertical" >
-
-                 <ListView
-                     android:id="@+id/notification_listview"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_margin="16dp"/>
-
-                 <ListView
-                     android:id="@+id/invoice_listview"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_margin="16dp"
-                    />
-             </LinearLayout>
-         </android.support.v4.widget.NestedScrollView>-->
-
         <android.widget.ExpandableListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_below="@id/top_layout"
-            android:background="@android:color/transparent"
-            android:scrollbars="vertical"
-            android:groupIndicator="@null"
             android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:groupIndicator="@null"
+            android:scrollbars="vertical"
             />
 
         <RelativeLayout
@@ -172,7 +145,8 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:elevation="8dp">
 
             <android.support.v4.widget.ContentLoadingProgressBar
                 style="?android:attr/progressBarStyleLarge"

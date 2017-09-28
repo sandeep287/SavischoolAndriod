@@ -13,14 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:elevation="8dp"
         android:padding="16dp">
 
         <LinearLayout
             android:id="@+id/date"
             android:layout_width="40dp"
-            android:layout_height="52dp"
-            android:background="@color/white_61"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_61_rounded_background"
             android:elevation="8dp"
             android:gravity="center"
             android:layout_centerVertical="true"
