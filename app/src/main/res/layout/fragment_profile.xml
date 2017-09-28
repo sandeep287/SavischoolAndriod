@@ -1,0 +1,233 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:background="@drawable/gradient_background"
+            ></LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="19dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profile_img"
+            android:id="@+id/stimage"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stimage"
+            android:layout_marginTop="8dp"
+            android:text="jenny Benson"
+            android:textStyle="bold"
+            android:textSize="24sp"
+
+            android:id="@+id/stname"
+            android:textColor="#000000"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stname"
+            android:text="Nurssary Class"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:letterSpacing="0.02"
+            android:id="@+id/stclass"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stclass"
+
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:paddingLeft="24dp"
+
+                android:layout_marginBottom="3dp"
+                android:orientation="vertical"
+                android:background="#ffffff"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DOB"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="#8c000000"
+
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/stDob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4 may 2010"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:letterSpacing="0.02"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:paddingLeft="20dp"
+                android:layout_marginBottom="3dp"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Father Name"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#8c000000"
+
+
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marc Jones"
+                    android:textSize="16sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="#000000"
+                    android:letterSpacing="0.02"
+                    android:fontFamily="sans-serif-medium"
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stfatherno"
+                        android:text="1-201-403-2900"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:textStyle="normal"
+                        android:letterSpacing="0.02"
+
+                        />
+
+                    <Button
+                        android:layout_width="105dp"
+                        android:layout_height="21dp"
+                        android:text="Primary number"
+                        android:textColor="#ffffff"
+                        android:background="@drawable/primary_rounded_background"
+                        android:textSize="10sp"
+                        android:layout_marginRight="20dp"
+                        android:layout_gravity="right"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/primarykey"
+
+                        android:layout_alignParentTop="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:background="#ffffff"
+
+                android:paddingLeft="20dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mother Name"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#8c000000"
+
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bettie"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp"
+                    android:letterSpacing="0.02"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/stmother"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/stmotherno"
+                    android:letterSpacing="0.02"
+                    android:text="1-201-403-2900"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:paddingLeft="20dp"
+                android:orientation="vertical"
+                android:background="#ffffff"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADDRESS"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="#8c000000"
+                 />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="738 Block Mountains Suite 482"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp"
+                    android:letterSpacing="0.02"
+                    android:id="@+id/staddress"
+                    android:textColor="#000000"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>
