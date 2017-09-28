@@ -53,29 +53,31 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         
         MyApplication.getApp().getComponent().inject(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                                                                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                                                                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
         //toggle.syncState();
-        toggle.setDrawerIndicatorEnabled(false);
-        ImageView drawertoggle = (ImageView) findViewById(R.id.home_screen_header_nav_drawer);
-        drawertoggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (drawer.isDrawerVisible(GravityCompat.START)) {
-                    drawer.closeDrawer(GravityCompat.START);
-                } else {
-                    drawer.openDrawer(GravityCompat.START);
-                }
-            }
-        });
+       // toggle.setDrawerIndicatorEnabled(false);
+//        ImageView drawertoggle = (ImageView) findViewById(R.id.home_screen_header_nav_drawer);
+//        drawertoggle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (drawer.isDrawerVisible(GravityCompat.START)) {
+//                    drawer.closeDrawer(GravityCompat.START);
+//                } else {
+//                    drawer.openDrawer(GravityCompat.START);
+//                }
+//            }
+//        });
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         View hView =  navigationView.getHeaderView(0);
         recyclerView = (RecyclerView) hView.findViewById(R.id.studentListRecyclerView);
+        
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);

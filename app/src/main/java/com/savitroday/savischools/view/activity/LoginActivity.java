@@ -102,11 +102,9 @@ public class LoginActivity extends AppCompatActivity {
                 schoolId.setError("Enter your schoolId no.");
             } else if (userName.getText().toString().trim().equals("")) {
                 userName.requestFocus();
-                // userName.setHintTextColor(Color.BLACK);
                 userName.setError("Enter Username");
             } else if (password.getText().toString().trim().equals("")) {
                 password.requestFocus();
-                //  password.setHintTextColor(Color.BLACK);
                 password.setError("Enter your password");
             }
             else if (password.getText().toString().trim().length() < 8) {
