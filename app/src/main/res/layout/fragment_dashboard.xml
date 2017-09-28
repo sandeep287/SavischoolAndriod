@@ -73,14 +73,27 @@
                 android:onClick="@{()->handler.onProfileTap()}"
                 android:src="@drawable/profile_img"/>
 
-            <TextView
-                style="@style/Bold16White"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="@{dashboard.getStudentName()}"
-                tools:text="Hi Jenny, Good Morning"
-                />
+                android:orientation="horizontal"
+                android:layout_marginTop="9dp">
+
+                <TextView
+                    style="@style/Bold16White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dashboard.getStudentName()}"
+                    tools:text="Hi Jenny,"
+                    />
+
+                <TextView
+                    style="@style/Light16White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Good Morning"
+                    />
+            </LinearLayout>
 
             <TextView
                 style="@style/Light12White"

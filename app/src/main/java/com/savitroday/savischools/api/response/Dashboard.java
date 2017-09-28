@@ -32,7 +32,7 @@ public class Dashboard {
     
     
     public String getStudentName() {
-        String name = "Hi " + getDefaultStudent().studentName + ", Good Morning";
+        String name = "Hi " + getDefaultStudent().studentName + ",";
         return name;
     }
     
