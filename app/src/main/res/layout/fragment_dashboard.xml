@@ -134,24 +134,24 @@
             android:scrollbars="vertical"
             android:background="@color/white_two">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
                 <ListView
                     android:id="@+id/notification_listview"
                     android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="16dp"/>
 
                 <ListView
                     android:id="@+id/invoice_listview"
                     android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_below="@id/notification_listview"
+                    android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:scrollbars="none"/>
-            </RelativeLayout>
+                   />
+            </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 
         <RelativeLayout

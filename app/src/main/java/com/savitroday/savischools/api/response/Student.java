@@ -3,6 +3,7 @@ package com.savitroday.savischools.api.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -92,5 +93,9 @@ public class Student {
     @SerializedName("bloodGroup")
     @Expose
     public Object bloodGroup;
+    
+    public String getDateOfBirth(){
+        return new SimpleDateFormat("dd-MM-yyyy").format(dateOfBirth);
+    }
     
 }
