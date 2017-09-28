@@ -2,24 +2,19 @@ package com.savitroday.savischools.view.fragment;
 
 
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.InvoiceAdapter;
 import com.savitroday.savischools.adapter.MessageAdapter;
-import com.savitroday.savischools.adapter.PopupRecyclerviewAdepter;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
@@ -28,8 +23,6 @@ import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.ListUtils;
-
-import java.util.HashMap;
 
 import javax.inject.Inject;
 
@@ -45,12 +38,16 @@ public class DashboardFragment extends Fragment {
     UserRestService userRestService;
     PopupWindow studentListPopup;
     Dashboard dashboard;
+    MessageAdapter messageAdapter;
+    InvoiceAdapter adapter;
+    ViewGroup header;
     
     public DashboardFragment() {
         // Required empty public constructor
     }
     
     
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,11 +57,13 @@ public class DashboardFragment extends Fragment {
                 inflater, R.layout.fragment_dashboard, container, false);
         MyApplication.getApp().getComponent().inject(this);
         
-        ViewGroup header = (ViewGroup) inflater.inflate(R.layout.cell_header, mBindings.notificationListview, false);
+        header = (ViewGroup) inflater.inflate(R.layout.cell_header, mBindings.notificationListview, false);
         mBindings.notificationListview.addHeaderView(header, null, false);
         ViewGroup headerInvoice = (ViewGroup) inflater.inflate(R.layout.cell_header_invoice, mBindings
-                                                                                               .notificationListview, false);
+                                                                                                     .invoiceListview, false);
         mBindings.invoiceListview.addHeaderView(headerInvoice, null, false);
+        mBindings.invoiceListview.setNestedScrollingEnabled(false);
+        mBindings.notificationListview.setNestedScrollingEnabled(false);
         getDashboardData();
         return mBindings.getRoot();
     }
@@ -74,27 +73,33 @@ public class DashboardFragment extends Fragment {
         String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
         String userID = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
-    
-        userRestService.getDashboard(schoolId,parentId,userID).enqueue(new CustomCallAdapter.CustomCallback<Dashboard>() {
+        
+        userRestService.getDashboard(schoolId, parentId, userID).enqueue(new CustomCallAdapter
+                                                                                     .CustomCallback<Dashboard>() {
             @Override
             public void success(Response<Dashboard> response) {
                 dashboard = response.body();
                 mBindings.setDashboard(dashboard);
                 mBindings.setHandler(new Handler());
-                InvoiceAdapter adapter = new InvoiceAdapter(getActivity(), dashboard.listStudentInvoiceModel);
-                MessageAdapter messageAdapter = new MessageAdapter(getActivity(), dashboard.listSchoolMessagesModel);
-                mBindings.notificationListview.setAdapter(messageAdapter);
-                mBindings.invoiceListview.setAdapter(adapter);
-                ListUtils.setListViewHeightBasedOnChildren(mBindings.invoiceListview);
-                ListUtils.setListViewHeightBasedOnChildren(mBindings.notificationListview);
                 mBindings.progressBar.setVisibility(View.GONE);
+                messageAdapter = new MessageAdapter(getContext(), dashboard.listSchoolMessagesModel);
+                mBindings.notificationListview.setAdapter(messageAdapter);
+                
+                
+                adapter = new InvoiceAdapter(getContext(), dashboard.listStudentInvoiceModel);
+                mBindings.invoiceListview.setAdapter(adapter);
+                
+                
+                ListUtils.setListViewHeightBasedOnChildren(mBindings.notificationListview);
+                ListUtils.setListViewHeightBasedOnChildren(mBindings.invoiceListview);
+                
                 
             }
             
             @Override
             public void failure(ApiException e) {
                 mBindings.progressBar.setVisibility(View.GONE);
-                AlertUtil.showSnackbarWithMessage(e.getMessage(),mBindings.getRoot());
+                AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());
             }
         });
     }
@@ -102,59 +107,9 @@ public class DashboardFragment extends Fragment {
     public class Handler {
         public void onSelectChildren() {
             //TODO: show popup here
-            showPopup();
+            //showPopup();
         }
     }
     
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (studentListPopup != null && studentListPopup.isShowing()) {
-            studentListPopup.dismiss();
-        }
-        
-    }
-    
-    void showPopup() {
-        if (studentListPopup == null) {
-            studentListPopup = new PopupWindow(this.getContext());
-            View layout = getActivity().getLayoutInflater().inflate(R.layout.selectchildernpopup, null);
-            studentListPopup.setContentView(layout);
-            // Set content width and height
-            studentListPopup.setHeight(WindowManager.LayoutParams.MATCH_PARENT);
-            studentListPopup.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
-            
-            RecyclerView recyclerView = (RecyclerView) layout.findViewById(R.id.stlist);
-            // final ImageView close = (ImageView) layout.findViewById(R.id.rejectReasonClose);
-            LinearLayoutManager llm2 = new LinearLayoutManager(getContext());
-            llm2.setOrientation(LinearLayoutManager.VERTICAL);
-            recyclerView.setLayoutManager(llm2);
-            PopupRecyclerviewAdepter popupRecyclerviewAdepter = new PopupRecyclerviewAdepter(getActivity(),
-                                                                                                    dashboard
-                                                                                                            .listStudentModel);
-            recyclerView.setAdapter(popupRecyclerviewAdepter);
-
-//            close.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    studentListPopup.dismiss();
-//                }
-//            });
-            // Closes the popup window when touch outside of it - when looses focus
-            studentListPopup.setOutsideTouchable(false);
-            studentListPopup.setFocusable(true);
-            // Show anchored to button
-            studentListPopup.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            //popup.showAsDropDown();
-            studentListPopup.showAtLocation(mBindings.getRoot(), Gravity.CENTER, 20, 40);
-            studentListPopup.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                @Override
-                public void onDismiss() {
-                    studentListPopup = null;
-                }
-            });
-            
-        }
-    }
     
 }
