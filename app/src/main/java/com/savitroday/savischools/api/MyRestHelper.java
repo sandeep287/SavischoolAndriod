@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.di.module.AppModule;
+import com.savitroday.savischools.view.activity.LoginActivity;
 
 /**
  * Created by harshitaahuja.
@@ -20,10 +21,9 @@ public class MyRestHelper extends RestHelper {
         MyApplication app = MyApplication.getApp();
         
         app.clearData();
-        
         //send to login again
-//        Intent intent = new Intent(app.getApplicationContext(), SignUpHomeActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        app.getApplicationContext().startActivity(intent);
+        Intent intent = new Intent(app.getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        app.getApplicationContext().startActivity(intent);
     }
 }

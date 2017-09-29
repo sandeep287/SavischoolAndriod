@@ -20,8 +20,12 @@ import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
+import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.view.activity.MainActivity;
+
+import org.eclipse.jdt.internal.compiler.batch.Main;
 
 import javax.inject.Inject;
 
@@ -33,8 +37,9 @@ import retrofit2.Response;
 public class DashboardFragment extends Fragment {
     
     FragmentDashboardBinding mBindings;
+   
     @Inject
-    UserRestService userRestService;
+    DashboardManager dashboardManager;
     Dashboard dashboard;
     DashboardAdapter dashboardAdapter;
     
@@ -58,32 +63,32 @@ public class DashboardFragment extends Fragment {
     
     void getDashboardData() {
         mBindings.progressBar.setVisibility(View.VISIBLE);
-        String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
-        String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-        String userID = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         
-        userRestService.getDashboard(schoolId, parentId, userID).enqueue(new CustomCallAdapter
-                                                                                     .CustomCallback<Dashboard>() {
-            @Override
-            public void success(Response<Dashboard> response) {
-                dashboard = response.body();
+        dashboardManager.getDashboardTask().continueWith((task -> {
+            mBindings.progressBar.setVisibility(View.GONE);
+            if(task.getResult() != null){
+                dashboard =(Dashboard) task.getResult();
                 mBindings.setDashboard(dashboard);
                 mBindings.setHandler(new Handler());
-                mBindings.progressBar.setVisibility(View.GONE);
                 dashboardAdapter = new DashboardAdapter(getContext(), dashboard.listStudentInvoiceModel,
                                                                dashboard.listSchoolMessagesModel);
                 mBindings.listView.setAdapter(dashboardAdapter);
                 mBindings.listView.expandGroup(0);
                 mBindings.listView.expandGroup(1);
-                
+                setNavDrawer();
+            }
+            else
+            {
+                Exception e = task.getError();
+                AlertUtil.showSnackbarWithMessage(e.getMessage(),mBindings.getRoot());
             }
             
-            @Override
-            public void failure(ApiException e) {
-                mBindings.progressBar.setVisibility(View.GONE);
-                AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());
-            }
-        });
+            return null;
+        }));
+    }
+    
+    void setNavDrawer(){
+        ((MainActivity)getActivity()).setNavigationList(dashboard.listStudentModel);
     }
     
     public class Handler {

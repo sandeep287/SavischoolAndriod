@@ -94,6 +94,10 @@ public class Student {
     @Expose
     public Object bloodGroup;
     
+    public Student(String studentName) {
+        this.studentName = studentName;
+    }
+    
     public String getDateOfBirth(){
         return new SimpleDateFormat("dd-MM-yyyy").format(dateOfBirth);
     }

@@ -22,6 +22,15 @@
         android:background="@drawable/gradient_background"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        />
+        >
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="logout"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:layout_gravity="bottom"/>
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

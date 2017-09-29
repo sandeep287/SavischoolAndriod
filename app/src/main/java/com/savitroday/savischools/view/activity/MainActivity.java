@@ -1,30 +1,25 @@
 package com.savitroday.savischools.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.adapter.InvoiceAdapter;
-import com.savitroday.savischools.adapter.PopupRecyclerviewAdepter;
-import com.savitroday.savischools.api.ApiException;
-import com.savitroday.savischools.api.CustomCallAdapter;
+import com.savitroday.savischools.adapter.StudentListAdapter;
 import com.savitroday.savischools.api.UserRestService;
-import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 
@@ -32,10 +27,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import retrofit2.Response;
-
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     
     
     @Inject
@@ -45,7 +38,7 @@ public class MainActivity extends AppCompatActivity
     RelativeLayout mProgressDialog;
     NavigationView navigationView;
     RecyclerView recyclerView;
-    PopupRecyclerviewAdepter popupRecyclerviewAdepter;
+    StudentListAdapter studentListAdapter;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,17 +54,17 @@ public class MainActivity extends AppCompatActivity
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
 //        toggle.setDrawerIndicatorEnabled(false);
-//        ImageView drawertoggle = (ImageView) findViewById(R.id.home_screen_header_nav_drawer);
-//        drawertoggle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (drawer.isDrawerVisible(GravityCompat.START)) {
-//                    drawer.closeDrawer(GravityCompat.START);
-//                } else {
-//                    drawer.openDrawer(GravityCompat.START);
-//                }
-//            }
-//        });
+        ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
+        drawertoggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerVisible(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    drawer.openDrawer(GravityCompat.START);
+                }
+            }
+        });
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         View hView =  navigationView.getHeaderView(0);
         recyclerView = (RecyclerView) hView.findViewById(R.id.studentListRecyclerView);
@@ -85,6 +78,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
     
+        Button logout = (Button)findViewById(R.id.logout_button);
+        logout.setOnClickListener(this);
+    
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.flFragments, new DashboardFragment());
@@ -92,29 +88,11 @@ public class MainActivity extends AppCompatActivity
     }
     
     public void setNavigationList(List<Student> studentList) {
-        popupRecyclerviewAdepter = new PopupRecyclerviewAdepter(this, studentList);
-        recyclerView.setAdapter(popupRecyclerviewAdepter);
+        studentListAdapter = new StudentListAdapter(this, studentList);
+        recyclerView.setAdapter(studentListAdapter);
     }
     
-    void getInvoice(String schoolId, String studentId) {
-        userRestService.getInvoiceByStudent(schoolId, studentId).enqueue(new CustomCallAdapter
-                                                                                     .CustomCallback<List<Invoice>>() {
-            
-            @Override
-            public void success(Response<List<Invoice>> response) {
-                if (response.isSuccessful()) {
-                    List<Invoice> invoiceList = response.body();
-                    InvoiceAdapter adapter = new InvoiceAdapter(MainActivity.this, invoiceList);
-                    // listView.setAdapter(adapter);
-                }
-            }
-            
-            @Override
-            public void failure(ApiException e) {
-                
-            }
-        });
-    }
+    
     
     
     @Override
@@ -145,4 +123,13 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
     
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.logout_button){
+            MyApplication.getApp().logout(this);
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
 }
