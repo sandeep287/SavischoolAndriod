@@ -8,45 +8,46 @@
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
 
-
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_two">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:id="@+id/actionbarcontent"
-    android:background="@drawable/gradient_background"
-    >
-    <TextView
-        android:id="@+id/ProfileScreen_headerTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="30dp"
-        android:text="Profile"
-        android:layout_centerHorizontal="true"
-        style="@style/Medium20White"
-        />
+
+        <RelativeLayout
+            android:id="@+id/actionbarcontent"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/gradient_background"
+            >
+
+            <TextView
+                android:id="@+id/ProfileScreen_headerTitle"
+                style="@style/Medium20White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:text="Profile"
+                />
 
 
-    <ImageView
-        android:id="@+id/notification"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/notification"/>
+        </RelativeLayout>
 
-        android:layout_centerVertical="true"
-        android:src="@drawable/notification_icon"/>
-</RelativeLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="63dp"
-            android:layout_below="@+id/actionbarcontent"
+            android:layout_below="@id/actionbarcontent"
             android:background="@drawable/gradient_background"
             />
 
@@ -54,7 +55,7 @@
             android:id="@+id/stimage"
             android:layout_width="84dp"
             android:layout_height="84dp"
-            android:layout_below="@+id/actionbarcontent"
+            android:layout_below="@id/actionbarcontent"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
             android:src="@drawable/profile_img"
@@ -62,27 +63,25 @@
 
         <TextView
             android:id="@+id/stname"
+            style="@style/Bold24Black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stimage"
+            android:layout_below="@id/stimage"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@{student.studentName}"
-            style="@style/Bold24Black"
             tools:text="Jenny Benson"
             />
 
         <TextView
             android:id="@+id/stclass"
+            style="@style/Regular12Black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stname"
+            android:layout_below="@id/stname"
             android:gravity="center"
-
             android:letterSpacing="0.02"
             android:text="@{student.classname}"
-            style="@style/Regular12Black"
-
             tools:text="Nurssary Class"
 
             />
@@ -91,7 +90,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/stclass"
-
             android:layout_margin="16dp"
             android:orientation="vertical"
             >
@@ -100,28 +98,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
                 android:layout_marginBottom="3dp"
-
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingLeft="24dp"
                 >
 
                 <TextView
+                    style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="8dp"
                     android:text="DOB"
-                    style="@style/Regular12Black55"
                     />
 
                 <TextView
                     android:id="@+id/stDob"
+                    style="@style/Medium16Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.02"
                     android:text="@{student.getDateOfBirth()}"
-                    style="@style/Medium16Black"
                     tools:text="4 may 2010"/>
             </LinearLayout>
 
@@ -135,20 +132,20 @@
                 >
 
                 <TextView
+                    style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Father Name"
-                    style="@style/Regular12Black55"
                     />
 
                 <TextView
+                    style="@style/Medium16Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:letterSpacing="0.02"
-                    style="@style/Medium16Black"
                     android:text="@{student.fatherName}"
                     tools:text="Marc Jones"
                     />
@@ -161,18 +158,18 @@
 
                     <TextView
                         android:id="@+id/stfatherno"
+                        style="@style/Regular16Black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:letterSpacing="0.02"
-
                         android:text="@{student.fatherid}"
-                       style="@style/Regular16Black"
                         tools:text="1-201-403-2900"
 
                         />
 
                     <Button
                         android:id="@+id/primarykey"
+                        style="@style/Regular10White"
                         android:layout_width="105dp"
                         android:layout_height="21dp"
                         android:layout_alignParentRight="true"
@@ -180,9 +177,8 @@
                         android:layout_gravity="right"
                         android:layout_marginRight="20dp"
                         android:background="@drawable/cool_grey_rounded_background"
-                        android:text="Primary number"
                         android:gravity="center"
-                        style="@style/Regular10White"
+                        android:text="Primary number"
                         />
 
                 </RelativeLayout>
@@ -193,42 +189,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="92dp"
                 android:layout_marginBottom="3dp"
-
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 >
 
                 <TextView
+                    style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Mother Name"
-                    style="@style/Regular12Black55"
-
-
                     />
 
                 <TextView
                     android:id="@+id/stmother"
+                    style="@style/Medium16Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
-                    style="@style/Medium16Black"
-                     android:letterSpacing="0.02"
+                    android:letterSpacing="0.02"
                     android:text="@{student.motherName}"
                     tools:text="Bettie"
                     />
 
                 <TextView
                     android:id="@+id/stmotherno"
+                    style="@style/Regular16Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Regular16Black"
                     android:letterSpacing="0.02"
                     android:text="@{student.motherid}"
-
                     tools:text="1-201-403-2900"
 
                     />
@@ -243,27 +235,25 @@
                 >
 
                 <TextView
+                    style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="8dp"
                     android:text="ADDRESS"
-                    style="@style/Regular12Black55"
                     />
 
                 <TextView
                     android:id="@+id/staddress"
+                    style="@style/Medium16Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.02"
                     android:text="@{student.addressLine1}"
-                    style="@style/Medium16Black"
                     tools:text="738 Block Mountains Suite 482"
 
                     />
             </LinearLayout>
-
         </LinearLayout>
     </RelativeLayout>
-
 </layout>
