@@ -7,10 +7,14 @@ import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.util.Event;
+import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.util.TinyDB;
 import com.savitroday.savischools.view.activity.MainActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bolts.Task;
@@ -25,7 +29,9 @@ public class DashboardManager {
     public static final String TAG = "StudentManager";
     public static Boolean updateInProgress = Boolean.FALSE;
     private UserRestService userRestService;
+    private ArrayList<TaskCompletionSource> taskList = new ArrayList<>();
     private static Dashboard dashboard;
+    private static boolean clearCache = false;
     private TinyDB tinyDB;
     
     public DashboardManager(UserRestService service, TinyDB tinyDB) {
@@ -37,25 +43,45 @@ public class DashboardManager {
     public Task getDashboardTask() {
         
         final TaskCompletionSource<Dashboard> task = new TaskCompletionSource<Dashboard>();
+    
+        if (dashboard != null && !clearCache && !updateInProgress) {
+            task.trySetResult(dashboard);
+            return task.getTask();
+        }
+        if (updateInProgress) {
+            //add in task as already called
+            taskList.add(task);
+        } else {
+            updateInProgress = true;
+            String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
+            String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
+            String userID = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
+    
+            userRestService.getDashboard(schoolId, parentId, userID).enqueue(new CustomCallAdapter
+                                                                                         .CustomCallback<Dashboard>() {
+                @Override
+                public void success(Response<Dashboard> response) {
+                    dashboard = response.body();
+                    task.setResult(dashboard);
+                    for (TaskCompletionSource taskCompletionSource : taskList) {
+                        taskCompletionSource.setResult(dashboard);
+                    }
+                    taskList.clear();
+                    updateInProgress = false;
+                    clearCache = false;
+                }
         
-        
-        String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
-        String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-        String userID = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
-        
-        userRestService.getDashboard(schoolId, parentId, userID).enqueue(new CustomCallAdapter
-                                                                                     .CustomCallback<Dashboard>() {
-            @Override
-            public void success(Response<Dashboard> response) {
-                dashboard = response.body();
-                task.setResult(dashboard);
-            }
-            
-            @Override
-            public void failure(ApiException e) {
-                task.setError(e);
-            }
-        });
+                @Override
+                public void failure(ApiException e) {
+                    task.setError(e);
+                    for (TaskCompletionSource taskCompletionSource : taskList) {
+                        taskCompletionSource.setError(new Exception(e.getMessage()));
+                    }
+                    taskList.clear();
+                    updateInProgress = false;
+                }
+            });
+        }
         return task.getTask();
     }
     
@@ -79,8 +105,18 @@ public class DashboardManager {
         });
     }
     
-    void setDefaultStudent(int index){
-        dashboard.getDefaultStudent().isdefault = false;
-        dashboard.listStudentModel.get(index).isdefault = true;
+    public void setDefaultStudent(Student student){
+        for (Student student1:dashboard.listStudentModel){
+            if(student1.studentId.equals(student.studentId)){
+                student1.isdefault = true;
+            }
+            else
+            {
+                student1.isdefault = false;
+            }
+            EventManager.getInstance().postEventName(Event.DASHBOARD_UPDATED);
+        }
+//        dashboard.getDefaultStudent().isdefault = false;
+//        dashboard.listStudentModel.get(index).isdefault = true;
     }
 }

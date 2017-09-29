@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Student;
+import com.savitroday.savischools.helper.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -22,12 +23,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.viewHolder> {
     Context _context;
-    List<Student> ldt;
+    List<Student> studentList;
     View view;
+    private final OnItemClickListener listener;
     
-    public StudentListAdapter(Context _context, List<Student> ldt) {
+    public StudentListAdapter(Context _context, List<Student> studentList, OnItemClickListener listener) {
         this._context = _context;
-        this.ldt = ldt;
+        this.studentList = studentList;
+        this.listener = listener;
     }
     
     
@@ -39,29 +42,31 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
     
     @Override
     public void onBindViewHolder(StudentListAdapter.viewHolder holder, int position) {
-        final Student student = ldt.get(position);
+        final Student student = studentList.get(position);
         if (student.iconMediaPath != null)
             Picasso.with(_context)
                     .load(student.iconMediaPath)
                     .placeholder(R.drawable.profile_img)
                     .into(holder.stImage);
         holder.stName.setText(student.studentName);
-        if(student.isdefault){
-            holder.stImage.setBorderColor(ContextCompat.getColor(_context,R.color.white));
+        if (student.isdefault) {
+            holder.stImage.setBorderColor(ContextCompat.getColor(_context, R.color.white));
+        } else {
+            holder.stImage.setBorderColor(ContextCompat.getColor(_context, android.R.color.transparent));
         }
-        else {
-            holder.stImage.setBorderColor(ContextCompat.getColor(_context,android.R.color.transparent));
-        }
+    
+        holder.bind(studentList.get(position), listener);
+    
     }
     
     
     @Override
     public int getItemCount() {
-        return ldt.size();
+        return studentList.size();
     }
     
-    class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-    
+    class viewHolder extends RecyclerView.ViewHolder {
+        
         CircleImageView stImage;
         TextView stName;
         
@@ -72,11 +77,20 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
             stName = itemView.findViewById(R.id.stname);
             
         }
-    
-        @Override
-        public void onClick(View view) {
         
+        public void bind(final Student item, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                
+                @Override
+                public void onClick(View v) {
+                    
+                    listener.onItemClick(item);
+                    
+                }
+            });
+            
         }
+        
     }
     
     

@@ -2,6 +2,7 @@ package com.savitroday.savischools.api.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.savitroday.savischools.util.DateUtility;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -82,7 +83,7 @@ public class Message {
     public Object name;
     
     public String getCreatedOn(){
-        return new SimpleDateFormat("HH:mm a").format(createdOn);
+        return DateUtility.getDateFull(createdOn);
     }
     
 }

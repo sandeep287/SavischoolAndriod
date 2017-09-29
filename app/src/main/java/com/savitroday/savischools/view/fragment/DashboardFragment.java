@@ -23,7 +23,10 @@ import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.util.Event;
+import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.view.activity.MainActivity;
+import com.squareup.picasso.Picasso;
 
 import org.eclipse.jdt.internal.compiler.batch.Main;
 
@@ -34,7 +37,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements EventManager.EventManagerDelegate{
     
     FragmentDashboardBinding mBindings;
    
@@ -56,7 +59,7 @@ public class DashboardFragment extends Fragment {
         mBindings = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_dashboard, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        
+        EventManager.getInstance().addObserver(this,Event.DASHBOARD_UPDATED);
         getDashboardData();
         return mBindings.getRoot();
     }
@@ -75,6 +78,10 @@ public class DashboardFragment extends Fragment {
                 mBindings.listView.setAdapter(dashboardAdapter);
                 mBindings.listView.expandGroup(0);
                 mBindings.listView.expandGroup(1);
+                Picasso.with(getContext())
+                        .load(dashboard.getDefaultStudent().iconMediaPath)
+                        .placeholder(R.drawable.profile_img)
+                        .into(mBindings.studentImageview);
                 setNavDrawer();
             }
             else
@@ -89,6 +96,11 @@ public class DashboardFragment extends Fragment {
     
     void setNavDrawer(){
         ((MainActivity)getActivity()).setNavigationList(dashboard.listStudentModel);
+    }
+    
+    @Override
+    public void didReceivedEvent(int id, Object... args) {
+        getDashboardData();
     }
     
     public class Handler {

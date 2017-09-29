@@ -36,9 +36,9 @@ public class Dashboard {
         return name;
     }
     
-    public Student getDefaultStudent(){
-        for (Student student : listStudentModel){
-            if(student.isdefault){
+    public Student getDefaultStudent() {
+        for (Student student : listStudentModel) {
+            if (student.isdefault) {
                 return student;
             }
         }
@@ -67,6 +67,8 @@ public class Dashboard {
         SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
         if (checkout != null)
             date += format.format(checkout);
+        else
+            date += "NOT YET";
         return date;
     }
     

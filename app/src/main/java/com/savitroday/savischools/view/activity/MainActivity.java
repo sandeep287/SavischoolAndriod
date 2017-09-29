@@ -19,8 +19,9 @@ import android.widget.RelativeLayout;
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.StudentListAdapter;
-import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Student;
+import com.savitroday.savischools.helper.OnItemClickListener;
+import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 
 import java.util.List;
@@ -32,13 +33,13 @@ public class MainActivity extends AppCompatActivity
     
     
     @Inject
-    UserRestService userRestService;
-    
+    DashboardManager dashboardManager;
     
     RelativeLayout mProgressDialog;
     NavigationView navigationView;
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
+    DrawerLayout drawer;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +49,10 @@ public class MainActivity extends AppCompatActivity
         MyApplication.getApp().getComponent().inject(this);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                                                                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//                                                                        this, drawer, toolbar, R.string
+// .navigation_drawer_open, R.string.navigation_drawer_close);
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
 //        toggle.setDrawerIndicatorEnabled(false);
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View hView =  navigationView.getHeaderView(0);
+        View hView = navigationView.getHeaderView(0);
         recyclerView = (RecyclerView) hView.findViewById(R.id.studentListRecyclerView);
         
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -77,31 +79,39 @@ public class MainActivity extends AppCompatActivity
         
         navigationView.setNavigationItemSelectedListener(this);
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
-    
-        Button logout = (Button)findViewById(R.id.logout_button);
+        
+        Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(this);
-    
+        
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.flFragments, new DashboardFragment());
+        transaction.add(R.id.flFragments, new DashboardFragment());
         transaction.commit();
     }
     
     public void setNavigationList(List<Student> studentList) {
-        studentListAdapter = new StudentListAdapter(this, studentList);
+        studentListAdapter = new StudentListAdapter(this, studentList, new OnItemClickListener() {
+            @Override
+            public void onItemClick(Student student) {
+                dashboardManager.setDefaultStudent(student);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
         recyclerView.setAdapter(studentListAdapter);
     }
     
     
-    
-    
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            if (fragmentManager.getBackStackEntryCount() > 1) {
+                super.onBackPressed();
+            } else {
+                finishAffinity();
+            }
         }
     }
     
@@ -118,14 +128,13 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.flFragments, new DashboardFragment());
             transaction.commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
     
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.logout_button){
+        if (view.getId() == R.id.logout_button) {
             MyApplication.getApp().logout(this);
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
