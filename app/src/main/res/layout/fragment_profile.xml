@@ -28,6 +28,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:text="Profile"
+        android:layout_centerHorizontal="true"
         style="@style/Medium20White"
         />
 
@@ -38,6 +39,7 @@
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
+
         android:layout_centerVertical="true"
         android:src="@drawable/notification_icon"/>
 </RelativeLayout>
