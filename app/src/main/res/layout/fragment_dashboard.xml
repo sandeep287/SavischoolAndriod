@@ -60,7 +60,7 @@
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/notification_icon"/>
+                    android:src="@drawable/notification"/>
 
             </RelativeLayout>
 

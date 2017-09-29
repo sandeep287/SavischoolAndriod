@@ -23,7 +23,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/gradient_circle"
             android:padding="10dp"
-            android:src="@drawable/notification_icon"/>
+            android:src="@drawable/notification"/>
 
         <TextView
             android:id="@+id/timeTextview"

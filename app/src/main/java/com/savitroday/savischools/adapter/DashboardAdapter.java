@@ -105,7 +105,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                 Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
             } else {
                 binding.imageView.setPadding(10, 10, 10, 10);
-                binding.imageView.setImageResource(R.drawable.notification_icon);
+                binding.imageView.setImageResource(R.drawable.notification);
                 binding.imageView.setBackgroundResource(R.drawable.gradient_circle);
             }
             
