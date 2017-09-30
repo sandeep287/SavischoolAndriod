@@ -5,6 +5,8 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.databinding.FragmentProfileBinding;
+import com.savitroday.savischools.view.activity.MainActivity;
 
 public class ProfileFragment extends Fragment {
 
@@ -32,7 +35,8 @@ public class ProfileFragment extends Fragment {
       mBindings.setStudent(student);
         return mBindings.getRoot();
     }
+    public class Handler {
 
 
-
+    }
 }

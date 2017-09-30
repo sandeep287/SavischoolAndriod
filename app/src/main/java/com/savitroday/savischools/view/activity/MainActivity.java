@@ -3,6 +3,7 @@ package com.savitroday.savischools.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +25,11 @@ import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
+import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
+import com.savitroday.savischools.view.fragment.ProfileFragment;
 
 import java.util.List;
+import java.util.Stack;
 
 import javax.inject.Inject;
 
@@ -40,12 +45,13 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
+    public static Stack<Fragment> fragmetbackstack;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+        fragmetbackstack=new Stack<>();
         MyApplication.getApp().getComponent().inject(this);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -85,10 +91,26 @@ public class MainActivity extends AppCompatActivity
         
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.addToBackStack("add");
+
         transaction.add(R.id.flFragments, new DashboardFragment());
         transaction.commit();
     }
-    
+
+          public void backpress()
+         {
+
+             if (fragmetbackstack.empty())
+             {
+              finish();
+             }
+             else
+             {
+                 getSupportFragmentManager().popBackStack();
+
+             }
+
+         }
     public void setNavigationList(List<Student> studentList) {
         studentListAdapter = new StudentListAdapter(this, studentList, new OnItemClickListener() {
             @Override
@@ -100,18 +122,17 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setAdapter(studentListAdapter);
     }
     
-    
+    public void onBackbutton(View v)
+    {
+        backpress();
+    }
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            if (fragmentManager.getBackStackEntryCount() > 1) {
-                super.onBackPressed();
-            } else {
-                finishAffinity();
-            }
+
+           backpress();
         }
     }
     
@@ -140,5 +161,12 @@ public class MainActivity extends AppCompatActivity
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+    }
+    public void onclikthis(View view) {
+        Fragment fragment = new NotificationMessageTabFragment();
+        MainActivity.fragmetbackstack.add(new ProfileFragment());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack("hcdbhj");
+        fragmentTransaction.add(R.id.flFragments, fragment);
+        fragmentTransaction.commit();
     }
 }

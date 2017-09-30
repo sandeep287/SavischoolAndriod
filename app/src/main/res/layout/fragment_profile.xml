@@ -1,13 +1,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
 
     <data>
 
         <variable
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
-
     </data>
 
     <RelativeLayout
@@ -21,6 +20,12 @@
             android:layout_height="64dp"
             android:background="@drawable/gradient_background"
             >
+            <ImageButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+               android:onClick="onBackbutton"
+                />
 
             <TextView
                 android:id="@+id/ProfileScreen_headerTitle"
@@ -55,6 +60,7 @@
             android:id="@+id/stimage"
             android:layout_width="84dp"
             android:layout_height="84dp"
+            android:onClick="onclikthis"
             android:layout_below="@id/actionbarcontent"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
@@ -89,7 +95,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stclass"
+            android:layout_below="@id/stclass"
             android:layout_margin="16dp"
             android:orientation="vertical"
             >
@@ -150,20 +156,23 @@
                     tools:text="Marc Jones"
                     />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:weightSum="5"
                     >
 
                     <TextView
                         android:id="@+id/stfatherno"
                         style="@style/Regular16Black"
-                        android:layout_width="wrap_content"
+                        android:layout_weight="5"
                         android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
                         android:letterSpacing="0.02"
                         android:text="@{student.fatherid}"
                         tools:text="1-201-403-2900"
+                        android:lines="1"
 
                         />
 
@@ -181,7 +190,7 @@
                         android:text="Primary number"
                         />
 
-                </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -220,6 +229,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.02"
+                    android:lines="1"
                     android:text="@{student.motherid}"
                     tools:text="1-201-403-2900"
 
