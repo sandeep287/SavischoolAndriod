@@ -107,7 +107,8 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         public void onProfileTap() {
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.flFragments, ProfileFragment.getInstance(dashboard.getDefaultStudent()));
+            transaction.add(R.id.flFragments, ProfileFragment.getInstance(dashboard.getDefaultStudent()));
+            transaction.addToBackStack(null);
             transaction.commit();
         }
     }

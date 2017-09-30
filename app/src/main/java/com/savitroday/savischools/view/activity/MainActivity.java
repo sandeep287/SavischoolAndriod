@@ -29,7 +29,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+        implements View.OnClickListener {
     
     
     @Inject
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         
-        navigationView.setNavigationItemSelectedListener(this);
+        
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
         
         Button logout = (Button) findViewById(R.id.logout_button);
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.flFragments, new DashboardFragment());
+        transaction.addToBackStack(null);
         transaction.commit();
     }
     
@@ -115,22 +116,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        
-        if (id == R.id.nav_dashboard) {
-            // Handle the camera action
-            FragmentManager manager = getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.flFragments, new DashboardFragment());
-            transaction.commit();
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+   
     
     @Override
     public void onClick(View view) {
