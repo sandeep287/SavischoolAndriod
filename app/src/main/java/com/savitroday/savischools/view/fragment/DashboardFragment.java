@@ -111,6 +111,10 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
             transaction.addToBackStack(null);
             transaction.commit();
         }
+        
+        public void onNotificationTap(){
+            
+        }
     }
     
     

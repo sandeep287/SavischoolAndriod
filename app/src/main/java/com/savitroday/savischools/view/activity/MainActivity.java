@@ -45,17 +45,11 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+        //Used to inject
         MyApplication.getApp().getComponent().inject(this);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                                                                        this, drawer, toolbar, R.string
-// .navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-//        toggle.setDrawerIndicatorEnabled(false);
+
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
         drawertoggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,12 +76,12 @@ public class MainActivity extends AppCompatActivity
         
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(this);
-        
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.flFragments, new DashboardFragment());
-        transaction.addToBackStack(null);
-        transaction.commit();
+    
+        ImageButton category = (ImageButton) findViewById(R.id.categoryButton);
+        category.setOnClickListener(this);
+        ImageButton activities = (ImageButton) findViewById(R.id.activityButton);
+        activities.setOnClickListener(this);
+        addDashboard();
     }
     
     public void setNavigationList(List<Student> studentList) {
@@ -116,7 +110,13 @@ public class MainActivity extends AppCompatActivity
         }
     }
     
-   
+   void addDashboard(){
+       FragmentManager manager = getSupportFragmentManager();
+       FragmentTransaction transaction = manager.beginTransaction();
+       transaction.add(R.id.flFragments, new DashboardFragment());
+       transaction.addToBackStack(null);
+       transaction.commit();
+   }
     
     @Override
     public void onClick(View view) {
@@ -125,6 +125,12 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+        }
+        else if(view.getId() == R.id.categoryButton) {
+            
+        }
+        else if(view.getId() == R.id.activityButton) {
+    
         }
     }
 }

@@ -60,7 +60,9 @@
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/notification"/>
+                    android:src="@drawable/notification"
+                    android:onClick="@{()->handler.onNotificationTap()}"
+                    />
 
             </RelativeLayout>
 

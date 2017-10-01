@@ -30,4 +30,15 @@
     <color name="warm_grey">#979797</color>
     <color name="white_three">#d8d8d8</color>
     <color name="cool_grey">#95a5a6</color>
+
+
+    <color name="navy">#032a45</color>
+    <color name="twilight_blue_three">#08568b</color>
+    <color name="muted_blue">#3977a2</color>
+    <color name="pinky_red">#ff1744</color>
+    <color name="navy_two">#021e47</color>
+    <color name="black__15">#27000000</color>
+    <color name="sea_blue">#085b8c</color>
+    <color name="black__25">#40000000</color>
+    <color name="white__70">#b3ffffff</color>
 </resources>
