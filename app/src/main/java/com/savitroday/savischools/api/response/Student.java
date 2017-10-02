@@ -99,7 +99,7 @@ public class Student {
     }
     
     public String getDateOfBirth(){
-        return new SimpleDateFormat("dd-MM-yyyy").format(dateOfBirth);
+        return new SimpleDateFormat("dd MMM yyyy").format(dateOfBirth);
     }
     
 }
