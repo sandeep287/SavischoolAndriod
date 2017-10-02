@@ -34,6 +34,7 @@
             android:background="@android:color/transparent"
             android:drawableLeft="@drawable/logout"
             android:text="Logout"
+            android:gravity="left|center_vertical"
             android:textAllCaps="false"/>
     </android.support.design.widget.NavigationView>
 

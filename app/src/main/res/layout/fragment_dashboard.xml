@@ -3,11 +3,9 @@
         tools:context="com.savitroday.savischools.view.fragment.DashboardFragment">
 
     <data>
-
         <variable
             name="dashboard"
             type="com.savitroday.savischools.api.response.Dashboard"/>
-
         <variable
             name="handler"
             type="com.savitroday.savischools.view.fragment.DashboardFragment.Handler"/>
@@ -34,21 +32,12 @@
                 android:layout_height="56dp"
                 android:layout_marginRight="@dimen/header_homescreen_horizontal_margin">
 
-                <ImageView
-                    android:id="@+id/home_screen_header_nav_drawer"
-                    android:layout_width="35dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ham_menu"
-                    android:visibility="invisible"/>
-
                 <TextView
                     android:id="@+id/homeScreen_headerTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/home_screen_header_nav_drawer"
+                    android:layout_marginLeft="25dp"
                     android:text="DAYCARE"
                     android:textColor="@color/white"
                     android:textSize="@dimen/label_homescreen_text_size"/>
@@ -79,7 +68,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -102,7 +91,7 @@
                 style="@style/Light12White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@{dashboard.getCurrentDate()}"
                 tools:text="Today, 14 Aug 2017"
                 />
@@ -114,7 +103,8 @@
             android:layout_height="50dp"
             android:layout_marginLeft="37dp"
             android:layout_marginRight="37dp"
-            android:layout_marginTop="225dp"
+            android:layout_marginTop="-25dp"
+            android:layout_below="@id/top_layout"
             android:background="@drawable/white_rounded_background"
             android:elevation="8dp">
 
@@ -183,8 +173,11 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@id/top_layout"
-            android:layout_margin="16dp"
+            android:layout_below="@id/middle_layout"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/transparent"
             android:groupIndicator="@null"
             android:scrollbars="vertical"

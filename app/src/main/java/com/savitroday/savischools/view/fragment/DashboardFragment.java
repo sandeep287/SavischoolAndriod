@@ -108,6 +108,24 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                     //todo : push Invoice fragmnt
                 }
                 
+                return false;
+            }
+        });
+        
+        mBindings.listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                if(i == 0){
+                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.add(R.id.flFragments, new NotificationMessageTabFragment());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                else
+                {
+                    //todo : push Invoice fragmnt
+                }
                 return true;
             }
         });

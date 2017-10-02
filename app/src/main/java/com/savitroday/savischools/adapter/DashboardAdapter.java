@@ -1,7 +1,6 @@
 package com.savitroday.savischools.adapter;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,9 +93,9 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         if (i == 0) {
             final Message message = (Message) getChild(i, i1);
-    
+            
             MessageCellBinding binding = MessageCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
-                        viewGroup, false);
+                    viewGroup, false);
             
             binding.setMessage(message);
             if (message.iconMediaPath != null) {
@@ -113,11 +112,11 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             return binding.getRoot();
         } else {
             final Invoice invoice = (Invoice) getChild(i, i1);
-         
+            
             InvoiceCellBinding binding = InvoiceCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
-                        viewGroup, false);
-                
-          
+                    viewGroup, false);
+            
+            
             binding.setInvoice(invoice);
             
             binding.executePendingBindings();
