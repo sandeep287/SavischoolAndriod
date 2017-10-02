@@ -18,21 +18,30 @@
 
         <ImageView
             android:id="@+id/top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="16.5dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="80dp"
+             android:layout_marginBottom="10dp"
             android:background="@drawable/day_care"
             android:gravity="center"
-            android:layout_marginBottom="100dp"
+
             />
-
-
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           style="@style/Light14White"
+           android:layout_marginBottom="87dp"
+           android:layout_below="@id/top"
+           android:id="@+id/top2"
+           android:text="Sign in to the school"
+           android:gravity="center"
+           />
         <LinearLayout
-            android:id="@+id/top2"
+           android:id="@+id/top3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/top"
+            android:layout_below="@+id/top2"
             android:orientation="vertical"
             android:layout_marginLeft="36dp"
             android:layout_marginRight="36dp"
@@ -157,6 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:alpha="0.50"
                 android:padding="5dp"
                 android:text="At least 8 Characters"
                 android:visibility="visible"/>
@@ -165,24 +175,27 @@
 
         <Button
             android:id="@+id/loginbtn"
-            android:layout_width="273dp"
-            android:layout_height="53dp"
-            android:layout_below="@id/top2"
+            android:layout_width="280dp"
+            android:layout_height="57dp"
+            android:layout_below="@id/top3"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/white_rounded_background"
+            android:layout_marginTop="48dp"
+            android:background="@color/turquoise"
             android:text="Login"
-            style="@style/Bold18BlueGreen"
+            style="@style/Medium14Navy"
             android:gravity="center"
             />
 
-        <ImageButton
-            android:layout_width="138dp"
-            android:layout_height="52dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="118dp"
-            android:background="@drawable/group"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            style="@style/Regular12White"
+            android:layout_below="@id/loginbtn"
+            android:layout_marginTop="57dp"
+            android:gravity="center"
+            android:alpha=".54"
+            android:text="Forget Password?"
             />
 
     </RelativeLayout>

@@ -8,12 +8,6 @@
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
     </data>
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-
-
-        >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,15 +97,21 @@
             />
 
 
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/stclass"
+            android:layout_marginTop="16dp"
+
+            >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:gravity="right"
             android:orientation="vertical"
             android:scrollbars="vertical"
-            android:layout_below="@id/stclass"
-            android:layout_marginTop="16dp"
+
             >
 <LinearLayout
     android:layout_width="match_parent"
@@ -354,10 +354,10 @@
                     android:id="@+id/staddress"
                     style="@style/Medium16Black"
                     android:layout_width="wrap_content"
-                    android:layout_height="22dp"
+                    android:layout_height="wrap_content"
                     android:letterSpacing="0.02"
                     android:text="@{student.addressLine1}"
-                    tools:text="738 Block Mountains Suite"
+                    tools:text="738Block Suite"
 
                     />
                     <View
@@ -370,7 +370,7 @@
             </LinearLayout>
                 </LinearLayout>
         </LinearLayout>
-
+        </ScrollView>
     </RelativeLayout>
-    </ScrollView>
+
 </layout>

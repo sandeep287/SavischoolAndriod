@@ -133,6 +133,20 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="Light14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Medium14Navy">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
     <style name="Bold17White">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">17sp</item>

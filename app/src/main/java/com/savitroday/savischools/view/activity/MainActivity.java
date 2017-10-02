@@ -11,8 +11,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
+    RelativeLayout mainrelayout;
     public static Stack<Fragment> fragmetbackstack;
     
     @Override
@@ -52,16 +53,19 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmetbackstack=new Stack<>();
+        mainrelayout=(RelativeLayout)findViewById(R.id.mainrlayout);
         MyApplication.getApp().getComponent().inject(this);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+   //   Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//      setSupportActionBar(toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                                                                        this, drawer, toolbar, R.string
-// .navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-//        toggle.setDrawerIndicatorEnabled(false);
+//      ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//      this, drawer, R.string
+//.navigation_drawer_open, R.string.navigation_drawer_close);
+//       drawer.addDrawerListener(toggle);
+//       toggle.syncState();
+//      toggle.setDrawerIndicatorEnabled(false);
+
+
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
         drawertoggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +115,12 @@ public class MainActivity extends AppCompatActivity
              }
 
          }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+    }
+
     public void setNavigationList(List<Student> studentList) {
         studentListAdapter = new StudentListAdapter(this, studentList, new OnItemClickListener() {
             @Override
