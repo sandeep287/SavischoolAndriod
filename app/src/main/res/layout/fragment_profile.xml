@@ -10,14 +10,13 @@
     </data>
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
 
 
         >
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -31,23 +30,27 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             >
-            <ImageButton
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-               android:onClick="onBackbutton"
-                />
-
             <TextView
                 android:id="@+id/ProfileScreen_headerTitle"
                 style="@style/Medium20White"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_height="34dp"
+                android:layout_marginLeft="72dp"
+                android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="30dp"
-                android:text="Profile"
+
+                android:text="New Message"
                 />
+            <ImageButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/back_arrow_icon"
+               android:onClick="onBackbutton"
+                android:layout_marginRight="32dp"
+                />
+
+
 
 
             <ImageView
@@ -114,7 +117,7 @@
     android:layout_width="match_parent"
     android:layout_height="68dp"
     android:orientation="horizontal"
-    android:gravity="center"
+
 
     >
     <ImageView
@@ -122,24 +125,22 @@
         android:layout_height="24dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginTop="36dp"
         android:src="@drawable/dob"
         />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:layout_marginBottom="3dp"
-                
                 android:orientation="vertical"
                 android:paddingLeft="24dp"
-
                 >
 
                 <TextView
                     style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="16dp"
                     android:layout_marginBottom="4dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:text="DOB"
                     />
 
@@ -147,7 +148,7 @@
                     android:id="@+id/stDob"
                     style="@style/Medium16Black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:letterSpacing="0.02"
                     android:inputType="date"
                     android:text="@{student.getDateOfBirth()}"
@@ -178,8 +179,8 @@
 
                 <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
-                android:layout_marginBottom="3dp"
+                android:layout_height="97dp"
+
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
@@ -188,15 +189,16 @@
                 <TextView
                     style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="16dp"
                     android:text="Father Name"
+
                     />
 
                 <TextView
                     style="@style/Medium16Black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:letterSpacing="0.02"
@@ -207,8 +209,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-
                     >
 
                     <TextView
@@ -217,7 +217,7 @@
 
                     android:layout_weight="5"
                         android:layout_alignParentLeft="true"
-                        android:layout_height="wrap_content"
+                        android:layout_height="22dp"
                         android:layout_width="120dp"
                         android:letterSpacing="0.02"
                         android:text="@{student.fatherid}"
@@ -246,8 +246,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:background="@color/navy"
-                        android:alpha=".12"
-                        android:layout_marginBottom="8dp"
+                        android:alpha="0.12"
+                        android:layout_marginTop="11dp"
                         />
             </LinearLayout>
                 </LinearLayout>
@@ -278,16 +278,17 @@
                 <TextView
                     style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="16dp"
                     android:text="Mother Name"
+
                     />
 
                 <TextView
                     android:id="@+id/stmother"
                     style="@style/Medium16Black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp"
                     android:letterSpacing="0.02"
@@ -299,7 +300,7 @@
                     android:id="@+id/stmotherno"
                     style="@style/Regular16Black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:letterSpacing="0.02"
                     android:lines="1"
                     android:text="@{student.motherid}"
@@ -309,7 +310,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="17dp"
                     android:alpha="0.12"
                     android:background="@color/navy"
                     />
@@ -334,7 +335,7 @@
                 <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:background="@color/white"
+
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 >
@@ -342,17 +343,18 @@
                 <TextView
                     style="@style/Regular12Black55"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="16dp"
                     android:layout_marginBottom="4dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:text="ADDRESS"
+
                     />
 
                 <TextView
                     android:id="@+id/staddress"
                     style="@style/Medium16Black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:letterSpacing="0.02"
                     android:text="@{student.addressLine1}"
                     tools:text="738 Block Mountains Suite"
