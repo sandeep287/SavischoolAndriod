@@ -8,19 +8,28 @@
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
     </data>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+
+        >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_two">
+        android:background="@color/white">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="124dp"
 
+    android:background="@drawable/backgroundimagegradint"
+    >
+</RelativeLayout>
         <RelativeLayout
             android:id="@+id/actionbarcontent"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:background="@drawable/gradient_background"
             >
             <ImageButton
                 android:layout_width="24dp"
@@ -51,12 +60,7 @@
                 android:src="@drawable/notification"/>
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:layout_below="@id/actionbarcontent"
-            android:background="@drawable/gradient_background"
-            />
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/stimage"
@@ -82,33 +86,52 @@
             />
 
         <TextView
-            android:id="@+id/stclass"
+
             style="@style/Regular12Black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/stname"
             android:gravity="center"
+            android:id="@+id/stclass"
             android:letterSpacing="0.02"
             android:text="@{student.classname}"
             tools:text="Nurssary Class"
 
             />
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/stclass"
-            android:layout_margin="16dp"
+            android:layout_height="fill_parent"
+            android:gravity="right"
             android:orientation="vertical"
+            android:scrollbars="vertical"
+            android:layout_below="@id/stclass"
+            android:layout_marginTop="16dp"
             >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:orientation="horizontal"
+    android:gravity="center"
 
+    >
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="32dp"
+        android:src="@drawable/dob"
+        />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
                 android:layout_marginBottom="3dp"
-                android:background="@color/white"
+                
                 android:orientation="vertical"
                 android:paddingLeft="24dp"
+
                 >
 
                 <TextView
@@ -129,9 +152,31 @@
                     android:inputType="date"
                     android:text="@{student.getDateOfBirth()}"
                     tools:text="4 may 2010"/>
-            </LinearLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:alpha="0.12"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/navy"
+                    />
+                 </LinearLayout>
+</LinearLayout>
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                >
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:src="@drawable/username_black"
+                    />
+
+                <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="92dp"
                 android:layout_marginBottom="3dp"
@@ -159,19 +204,21 @@
                     tools:text="Marc Jones"
                     />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="5"
+
+
                     >
 
                     <TextView
                         android:id="@+id/stfatherno"
                         style="@style/Regular16Black"
-                        android:layout_weight="5"
+
+                    android:layout_weight="5"
+                        android:layout_alignParentLeft="true"
                         android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
+                        android:layout_width="120dp"
                         android:letterSpacing="0.02"
                         android:text="@{student.fatherid}"
                         tools:text="1-201-403-2900"
@@ -183,6 +230,7 @@
                         android:id="@+id/primarykey"
                         style="@style/Regular10White"
                         android:layout_width="105dp"
+
                         android:layout_height="21dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -193,13 +241,34 @@
                         android:text="Primary number"
                         />
 
-                </LinearLayout>
-
+                </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/navy"
+                        android:alpha=".12"
+                        android:layout_marginBottom="8dp"
+                        />
             </LinearLayout>
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                >
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:src="@drawable/username_black"
+                    />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
                 android:background="@color/white"
                 android:orientation="vertical"
@@ -237,9 +306,32 @@
                     tools:text="1-201-403-2900"
 
                     />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.12"
+                    android:background="@color/navy"
+                    />
             </LinearLayout>
-
+                
+                </LinearLayout>
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                >
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:src="@drawable/addres"
+                    />
+
+                <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
                 android:background="@color/white"
@@ -263,11 +355,20 @@
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.02"
                     android:text="@{student.addressLine1}"
-                    tools:text="738 Block Mountains Suite 482"
+                    tools:text="738 Block Mountains Suite"
 
                     />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/navy"
+                        android:alpha="0.12"
+                        />
             </LinearLayout>
+                </LinearLayout>
         </LinearLayout>
+
     </RelativeLayout>
-</ScrollView>
+    </ScrollView>
 </layout>
