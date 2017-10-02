@@ -8,12 +8,16 @@
         <variable
             name="message"
             type="com.savitroday.savischools.api.response.Message"/>
+        <variable
+            name="handler"
+            type="com.savitroday.savischools.adapter.NotificationAdapter.Handler" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:onClick="@{()->handler.openNotificationDetail(notification)}"
         android:padding="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
