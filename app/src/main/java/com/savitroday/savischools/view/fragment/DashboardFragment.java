@@ -11,36 +11,31 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.DashboardAdapter;
-import com.savitroday.savischools.api.ApiException;
-import com.savitroday.savischools.api.CustomCallAdapter;
-import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Dashboard;
+import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
-import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.Event;
 import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.squareup.picasso.Picasso;
 
-import org.eclipse.jdt.internal.compiler.batch.Main;
-
 import javax.inject.Inject;
-
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashboardFragment extends Fragment implements EventManager.EventManagerDelegate{
+public class DashboardFragment extends Fragment implements EventManager.EventManagerDelegate {
     
     FragmentDashboardBinding mBindings;
-   
+    
     @Inject
     DashboardManager dashboardManager;
     Dashboard dashboard;
@@ -59,7 +54,8 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         mBindings = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_dashboard, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        EventManager.getInstance().addObserver(this,Event.DASHBOARD_UPDATED);
+        EventManager.getInstance().addObserver(this, Event.DASHBOARD_UPDATED);
+        mBindings.setHandler(new Handler());
         getDashboardData();
         return mBindings.getRoot();
     }
@@ -69,10 +65,9 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         
         dashboardManager.getDashboardTask().continueWith((task -> {
             mBindings.progressBar.setVisibility(View.GONE);
-            if(task.getResult() != null){
-                dashboard =(Dashboard) task.getResult();
+            if (task.getResult() != null) {
+                dashboard = (Dashboard) task.getResult();
                 mBindings.setDashboard(dashboard);
-                mBindings.setHandler(new Handler());
                 dashboardAdapter = new DashboardAdapter(getContext(), dashboard.listStudentInvoiceModel,
                                                                dashboard.listSchoolMessagesModel);
                 mBindings.listView.setAdapter(dashboardAdapter);
@@ -83,19 +78,43 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                         .placeholder(R.drawable.profile_img)
                         .into(mBindings.studentImageview);
                 setNavDrawer();
-            }
-            else
-            {
+                setListClicks();
+            } else {
                 Exception e = task.getError();
-                AlertUtil.showSnackbarWithMessage(e.getMessage(),mBindings.getRoot());
+                AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());
             }
             
             return null;
         }));
     }
     
-    void setNavDrawer(){
-        ((MainActivity)getActivity()).setNavigationList(dashboard.listStudentModel);
+    void setListClicks(){
+        mBindings.listView.setOnChildClickListener(new ExpandableListView
+                                                                         .OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                if(groupPosition == 0){
+                    Message message = (Message)dashboardAdapter.getChild(groupPosition,childPosition);
+                    
+                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.add(R.id.flFragments, NotificationMessageTabFragment.getInstance(message));
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                else
+                {
+                    //todo : push Invoice fragmnt
+                }
+                
+                return true;
+            }
+        });
+    }
+    
+    void setNavDrawer() {
+        ((MainActivity) getActivity()).setNavigationList(dashboard.listStudentModel);
     }
     
     @Override
@@ -105,15 +124,22 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
     
     public class Handler {
         public void onProfileTap() {
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, ProfileFragment.getInstance(dashboard.getDefaultStudent()));
-            transaction.addToBackStack(null);
-            transaction.commit();
+            if(dashboard != null) {
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, ProfileFragment.getInstance(dashboard.getDefaultStudent()));
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
         }
         
-        public void onNotificationTap(){
-            
+        public void onNotificationTap() {
+            Fragment fragment = new NotificationMessageTabFragment();
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
     }
     

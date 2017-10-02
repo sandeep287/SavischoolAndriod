@@ -19,18 +19,22 @@
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@drawable/gradient_background"
+        android:background="@color/turquoise_blue"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         >
+
         <Button
             android:id="@+id/logout_button"
-            android:layout_width="match_parent"
+            style="@style/Regular12White"
+            android:layout_width="wrap_content"
             android:layout_height="44dp"
-            android:text="logout"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
-            android:textColor="@color/white"
-            android:layout_gravity="bottom"/>
+            android:drawableLeft="@drawable/logout"
+            android:text="Logout"
+            android:textAllCaps="false"/>
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

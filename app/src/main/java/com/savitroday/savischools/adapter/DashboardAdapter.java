@@ -94,7 +94,6 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         if (i == 0) {
             final Message message = (Message) getChild(i, i1);
-           // MessageCellBinding binding = DataBindingUtil.getBinding(view);
     
             MessageCellBinding binding = MessageCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                         viewGroup, false);
@@ -114,14 +113,12 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             return binding.getRoot();
         } else {
             final Invoice invoice = (Invoice) getChild(i, i1);
-          //  InvoiceCellBinding binding = DataBindingUtil.getBinding(view);
-            //if (binding == null) {
+         
             InvoiceCellBinding binding = InvoiceCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                         viewGroup, false);
                 
-           // }
+          
             binding.setInvoice(invoice);
-            //Picasso.with(context).load(invoice.mediaPath).into(binding.);
             
             binding.executePendingBindings();
             
@@ -131,7 +128,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     
     @Override
     public boolean isChildSelectable(int i, int i1) {
-        return false;
+        return true;
     }
     
     

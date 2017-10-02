@@ -22,6 +22,7 @@ import com.savitroday.savischools.adapter.StudentListAdapter;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
+import com.savitroday.savischools.view.fragment.CategoryFragment;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 
 import java.util.List;
@@ -127,7 +128,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
         else if(view.getId() == R.id.categoryButton) {
-            
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, new CategoryFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         else if(view.getId() == R.id.activityButton) {
     
