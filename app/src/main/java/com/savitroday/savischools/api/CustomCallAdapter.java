@@ -18,9 +18,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-/**
- * Created by Harshita Ahuja on 07/10/16.
- */
 
 public class CustomCallAdapter {
     

@@ -48,9 +48,17 @@ public class Student {
     @SerializedName("fatherName")
     @Expose
     public String fatherName;
+    @SerializedName("fatherphonnoName")
+    @Expose
+    public String fatherphonno;
+
     @SerializedName("motherName")
     @Expose
     public String motherName;
+    @SerializedName("motherPhonno")
+    @Expose
+    public String motherPhonno;
+
     @SerializedName("dateOfBirth")
     @Expose
     public Date dateOfBirth;

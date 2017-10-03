@@ -50,8 +50,8 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         // Required empty public constructor
     }
     
-    
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -25,6 +25,7 @@ import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
+import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
 import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 import com.savitroday.savischools.view.fragment.ProfileFragment;
 
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     public void onclikthis(View view) {
-        Fragment fragment = new NotificationMessageTabFragment();
+        Fragment fragment = new InvoicePaymentFragment();
         MainActivity.fragmetbackstack.add(new ProfileFragment());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack("hcdbhj");
         fragmentTransaction.add(R.id.flFragments, fragment);
