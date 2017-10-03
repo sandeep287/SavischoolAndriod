@@ -1,6 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
 
     <data>
 
@@ -8,43 +8,42 @@
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="124dp"
 
-    android:background="@drawable/backgroundimagegradint"
-    >
-</RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:background="@drawable/backgroundimagegradint"
+            />
+
         <RelativeLayout
             android:id="@+id/actionbarcontent"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            >
+            android:layout_height="64dp">
+
             <TextView
                 android:id="@+id/ProfileScreen_headerTitle"
                 style="@style/Medium20White"
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
-                android:layout_marginLeft="72dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-
+                android:layout_marginLeft="72dp"
                 android:text="New Message"
                 />
+
             <ImageButton
+                android:id="@+id/backButton"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="16dp"
-                android:background="@drawable/back_arrow_icon"
-               android:onClick="onBackbutton"
                 android:layout_marginRight="32dp"
+                android:background="@drawable/back_arrow_icon"
                 />
-
-
 
 
             <ImageView
@@ -58,15 +57,14 @@
         </RelativeLayout>
 
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/stimage"
             android:layout_width="84dp"
             android:layout_height="84dp"
-            android:onClick="onclikthis"
             android:layout_below="@id/actionbarcontent"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
+            android:onClick="onclikthis"
             android:src="@drawable/profile_img"
             />
 
@@ -84,12 +82,12 @@
 
         <TextView
 
+            android:id="@+id/stclass"
             style="@style/Regular12Black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/stname"
             android:gravity="center"
-            android:id="@+id/stclass"
             android:letterSpacing="0.02"
             android:text="@{student.classname}"
             tools:text="Nurssary Class"
@@ -105,271 +103,284 @@
 
             >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:orientation="vertical"
-            android:scrollbars="vertical"
-
-            >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="68dp"
-    android:orientation="horizontal"
-
-
-    >
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/dob"
-        />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
-                android:orientation="vertical"
-                android:paddingLeft="24dp"
-                >
-
-                <TextView
-                    style="@style/Regular12Black55"
-                    android:layout_width="wrap_content"
-                    android:layout_height="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="16dp"
-                    android:text="DOB"
-                    />
-
-                <TextView
-                    android:id="@+id/stDob"
-                    style="@style/Medium16Black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:letterSpacing="0.02"
-                    android:inputType="date"
-                    android:text="@{student.getDateOfBirth()}"
-                    tools:text="4 may 2010"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:alpha="0.12"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/navy"
-                    />
-                 </LinearLayout>
-</LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
 
                 >
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="32dp"
-                    android:src="@drawable/username_black"
-                    />
 
                 <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="97dp"
-
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                >
-
-                <TextView
-                    style="@style/Regular12Black55"
-                    android:layout_width="wrap_content"
-                    android:layout_height="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Father Name"
-
-                    />
-
-                <TextView
-                    style="@style/Medium16Black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="4dp"
-                    android:letterSpacing="0.02"
-                    android:text="@{student.fatherName}"
-                    tools:text="Marc Jones"
-                    />
-
-                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="68dp"
+                    android:orientation="horizontal"
+
+
                     >
 
-                    <TextView
-                        android:id="@+id/stfatherno"
-                        style="@style/Regular16Black"
-
-                    android:layout_weight="5"
-                        android:layout_alignParentLeft="true"
-                        android:layout_height="22dp"
-                        android:layout_width="120dp"
-                        android:letterSpacing="0.02"
-                        android:text="@{student.fatherid}"
-                        tools:text="1-201-403-2900"
-                        android:lines="1"
-
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="36dp"
+                        android:src="@drawable/dob"
                         />
 
-                    <Button
-                        android:id="@+id/primarykey"
-                        style="@style/Regular10White"
-                        android:layout_width="105dp"
-
-                        android:layout_height="21dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_gravity="right"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/cool_grey_rounded_background"
-                        android:gravity="center"
-                        android:text="Primary number"
-                        />
-
-                </RelativeLayout>
-                    <View
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="@color/navy"
-                        android:alpha="0.12"
-                        android:layout_marginTop="11dp"
-                        />
-            </LinearLayout>
+                        android:layout_height="68dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="24dp"
+                        >
+
+                        <TextView
+                            style="@style/Regular12Black55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="16dp"
+                            android:text="DOB"
+                            />
+
+                        <TextView
+                            android:id="@+id/stDob"
+                            style="@style/Medium16Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:inputType="date"
+                            android:letterSpacing="0.02"
+                            android:text="@{student.getDateOfBirth()}"
+                            tools:text="4 may 2010"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.12"
+                            android:background="@color/navy"
+                            />
+                    </LinearLayout>
                 </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-
-                >
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="32dp"
-                    android:src="@drawable/username_black"
-                    />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                >
-
-                <TextView
-                    style="@style/Regular12Black55"
-                    android:layout_width="wrap_content"
-                    android:layout_height="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Mother Name"
-
-                    />
-
-                <TextView
-                    android:id="@+id/stmother"
-                    style="@style/Medium16Black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="4dp"
-                    android:letterSpacing="0.02"
-                    android:text="@{student.motherName}"
-                    tools:text="Bettie"
-                    />
-
-                <TextView
-                    android:id="@+id/stmotherno"
-                    style="@style/Regular16Black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:letterSpacing="0.02"
-                    android:lines="1"
-                    android:text="@{student.motherid}"
-                    tools:text="1-201-403-2900"
-
-                    />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="17dp"
-                    android:alpha="0.12"
-                    android:background="@color/navy"
-                    />
-            </LinearLayout>
-                
-                </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
-                android:orientation="horizontal"
-                android:gravity="center"
-
-                >
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="32dp"
-                    android:src="@drawable/addres"
-                    />
 
                 <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
-
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                >
-
-                <TextView
-                    style="@style/Regular12Black55"
-                    android:layout_width="wrap_content"
-                    android:layout_height="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="15dp"
-                    android:text="ADDRESS"
-
-                    />
-
-                <TextView
-                    android:id="@+id/staddress"
-                    style="@style/Medium16Black"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:letterSpacing="0.02"
-                    android:text="@{student.addressLine1}"
-                    tools:text="738Block Suite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
 
-                    />
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@color/navy"
-                        android:alpha="0.12"
+                    >
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/username_black"
                         />
-            </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="97dp"
+
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        >
+
+                        <TextView
+                            style="@style/Regular12Black55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Father Name"
+
+                            />
+
+                        <TextView
+                            style="@style/Medium16Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="4dp"
+                            android:letterSpacing="0.02"
+                            android:text="@{student.fatherName}"
+                            tools:text="Marc Jones"
+                            />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:id="@+id/stfatherno"
+                                style="@style/Regular16Black"
+
+                                android:layout_width="120dp"
+                                android:layout_height="22dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_weight="5"
+                                android:letterSpacing="0.02"
+                                android:lines="1"
+                                android:text="@{student.fatherid}"
+                                tools:text="1-201-403-2900"
+
+                                />
+
+                            <Button
+                                android:id="@+id/primarykey"
+                                style="@style/Regular10White"
+                                android:layout_width="105dp"
+
+                                android:layout_height="21dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/cool_grey_rounded_background"
+                                android:gravity="center"
+                                android:text="Primary number"
+                                />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="11dp"
+                            android:alpha="0.12"
+                            android:background="@color/navy"
+                            />
+                    </LinearLayout>
                 </LinearLayout>
-        </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/username_black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        >
+
+                        <TextView
+                            style="@style/Regular12Black55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Mother Name"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/stmother"
+                            style="@style/Medium16Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="4dp"
+                            android:letterSpacing="0.02"
+                            android:text="@{student.motherName}"
+                            tools:text="Bettie"
+                            />
+
+                        <TextView
+                            android:id="@+id/stmotherno"
+                            style="@style/Regular16Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:letterSpacing="0.02"
+                            android:lines="1"
+                            android:text="@{student.motherid}"
+                            tools:text="1-201-403-2900"
+
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="17dp"
+                            android:alpha="0.12"
+                            android:background="@color/navy"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/addres"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        >
+
+                        <TextView
+                            style="@style/Regular12Black55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="15dp"
+                            android:text="ADDRESS"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/staddress"
+                            style="@style/Medium16Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.02"
+                            android:text="@{student.addressLine1}"
+                            tools:text="738Block Suite"
+
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.12"
+                            android:background="@color/navy"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </ScrollView>
     </RelativeLayout>
 

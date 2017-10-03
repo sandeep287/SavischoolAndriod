@@ -25,7 +25,6 @@ import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
-import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
 import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 import com.savitroday.savischools.view.fragment.ProfileFragment;
 
@@ -56,16 +55,7 @@ public class MainActivity extends AppCompatActivity
         fragmetbackstack=new Stack<>();
         mainrelayout=(RelativeLayout)findViewById(R.id.mainrlayout);
         MyApplication.getApp().getComponent().inject(this);
-   //   Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//      setSupportActionBar(toolbar);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//      ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//      this, drawer, R.string
-//.navigation_drawer_open, R.string.navigation_drawer_close);
-//       drawer.addDrawerListener(toggle);
-//       toggle.syncState();
-//      toggle.setDrawerIndicatorEnabled(false);
-
+          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
         drawertoggle.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +164,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     public void onclikthis(View view) {
-        Fragment fragment = new InvoicePaymentFragment();
+        Fragment fragment = new NotificationMessageTabFragment();
         MainActivity.fragmetbackstack.add(new ProfileFragment());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack("hcdbhj");
         fragmentTransaction.add(R.id.flFragments, fragment);

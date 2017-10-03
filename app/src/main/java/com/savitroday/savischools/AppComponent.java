@@ -1,6 +1,7 @@
 package com.savitroday.savischools;
 
 
+import com.savitroday.savischools.manager.MyProfileManager;
 import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.api.RestHelper;
@@ -35,6 +36,7 @@ public interface AppComponent {
     void inject(LoginActivity loginActivity);
     void inject(DashboardFragment dashboardFragment);
     
-    DashboardManager profileManager();
+    DashboardManager dashboardManager();
+    MyProfileManager profileManager();
     
 }

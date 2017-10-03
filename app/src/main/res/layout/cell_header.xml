@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp">
 
     <TextView
         android:id="@+id/title"
-        style="@style/Bold12TurquoiseBlue"
+        style="@style/Medium14TurquoiseBlue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@color/white"
+        android:layout_height="48dp"
         android:paddingBottom="12dp"
         android:paddingLeft="12dp"
         android:paddingTop="12dp"
-        android:text="Notification &amp; Messages"
+        android:background="@color/white"
+        android:text="Notification &amp; Messages"/>
+
+    <TextView android:id="@+id/viewAllButton"
+        style="@style/Regular12Navy"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:text="View All"
         />
 </RelativeLayout>

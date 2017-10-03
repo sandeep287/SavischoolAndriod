@@ -9,6 +9,7 @@ import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.OAuthRestService;
 import com.savitroday.savischools.api.response.UserOAuthResponse;
 import com.savitroday.savischools.manager.DashboardManager;
+import com.savitroday.savischools.manager.MyProfileManager;
 import com.savitroday.savischools.util.Constants;
 
 import javax.inject.Inject;
@@ -25,7 +26,7 @@ public class LoginHelper {
     
     
     private OAuthRestService oAuthRestService;
-    private DashboardManager dashboardManager;
+    private MyProfileManager myProfileManager;
     private String email, password, schoolId;
     
     
@@ -37,9 +38,9 @@ public class LoginHelper {
     
     
     @Inject
-    public LoginHelper(OAuthRestService oAuthRestService, DashboardManager dashboardManager) {
+    public LoginHelper(OAuthRestService oAuthRestService, MyProfileManager myProfileManager) {
         this.oAuthRestService = oAuthRestService;
-        this.dashboardManager = dashboardManager;
+        this.myProfileManager = myProfileManager;
     }
     
     public Task loginAndGetUser() {
@@ -53,9 +54,9 @@ public class LoginHelper {
         });
     }
     
-//    public Task getUser() {
-//        return dashboardManager.getMyProfileTask();
-//    }
+    public Task getUser() {
+        return myProfileManager.getMyProfileTask();
+    }
     
     
     public Task<UserOAuthResponse> login() {
