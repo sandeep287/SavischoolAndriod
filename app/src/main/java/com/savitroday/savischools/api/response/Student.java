@@ -42,23 +42,23 @@ public class Student {
     @SerializedName("motherid")
     @Expose
     public String motherid;
+
+    @SerializedName("motherPhone")
+    @Expose
+    public String motherPhone;
+
     @SerializedName("fatherid")
     @Expose
     public String fatherid;
     @SerializedName("fatherName")
     @Expose
     public String fatherName;
-    @SerializedName("fatherphonnoName")
+    @SerializedName("fatherPhone")
     @Expose
-    public String fatherphonno;
-
+    public String fatherPhone;
     @SerializedName("motherName")
     @Expose
     public String motherName;
-    @SerializedName("motherPhonno")
-    @Expose
-    public String motherPhonno;
-
     @SerializedName("dateOfBirth")
     @Expose
     public Date dateOfBirth;

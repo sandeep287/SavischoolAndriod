@@ -225,7 +225,7 @@
                                 android:layout_weight="5"
                                 android:letterSpacing="0.02"
                                 android:lines="1"
-                                android:text="@{student.fatherid}"
+                                android:text="@{student.fatherPhone}"
                                 tools:text="1-201-403-2900"
 
                                 />
@@ -310,7 +310,7 @@
                             android:layout_height="22dp"
                             android:letterSpacing="0.02"
                             android:lines="1"
-                            android:text="@{student.motherid}"
+                            android:text="@{student.motherPhone}"
                             tools:text="1-201-403-2900"
 
                             />

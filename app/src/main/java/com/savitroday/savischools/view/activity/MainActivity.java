@@ -25,6 +25,7 @@ import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
+import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
 import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 import com.savitroday.savischools.view.fragment.ProfileFragment;
 
@@ -45,15 +46,12 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
-    RelativeLayout mainrelayout;
-    public static Stack<Fragment> fragmetbackstack;
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmetbackstack=new Stack<>();
-        mainrelayout=(RelativeLayout)findViewById(R.id.mainrlayout);
         MyApplication.getApp().getComponent().inject(this);
           drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -95,14 +93,14 @@ public class MainActivity extends AppCompatActivity
           public void backpress()
          {
 
-             if (fragmetbackstack.empty())
-             {
-              finish();
-             }
-             else
-             {
-                 getSupportFragmentManager().popBackStack();
 
+           if (getSupportFragmentManager().getBackStackEntryCount()<=1)
+            {
+             finish();
+             }
+           else
+            {
+                getSupportFragmentManager().popBackStack();
              }
 
          }
@@ -164,8 +162,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     public void onclikthis(View view) {
-        Fragment fragment = new NotificationMessageTabFragment();
-        MainActivity.fragmetbackstack.add(new ProfileFragment());
+        Fragment fragment = new InvoicePaymentFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack("hcdbhj");
         fragmentTransaction.add(R.id.flFragments, fragment);
         fragmentTransaction.commit();
