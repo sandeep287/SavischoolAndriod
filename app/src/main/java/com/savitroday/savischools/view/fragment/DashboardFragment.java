@@ -18,6 +18,7 @@ import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.DashboardAdapter;
 import com.savitroday.savischools.api.response.Dashboard;
+import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.manager.DashboardManager;
@@ -106,6 +107,13 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 else
                 {
                     //todo : push Invoice fragmnt
+                    Invoice invoice = (Invoice) dashboardAdapter.getChild(groupPosition,childPosition);
+    
+                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.add(R.id.flFragments, new PendingInvoiceFragment());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 
                 return false;
@@ -125,6 +133,11 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 else
                 {
                     //todo : push Invoice fragmnt
+                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.add(R.id.flFragments, new PendingInvoiceFragment());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 return true;
             }

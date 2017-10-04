@@ -8,6 +8,7 @@ import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.ParentProfile;
 import com.savitroday.savischools.api.response.Student;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.http.GET;
@@ -60,9 +61,9 @@ public interface UserRestService {
     
     
     @GET("api/parent/deleteMessageNotification")
-    CustomCallAdapter.CustomCall<List<Assignment>> deleteMessageNotification(@Query("schoolId") String schoolId,
-                                                                             @Query("userId") String userId,
-                                                                             @Query("schoolMessageId") String
+    CustomCallAdapter.CustomCall<Message> deleteMessageNotification(@Query("schoolId") String schoolId,
+                                                                    @Query("userId") String userId,
+                                                                    @Query("schoolMessageId") String
                                                                                      schoolMessageId);
     
     

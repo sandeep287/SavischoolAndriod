@@ -103,4 +103,30 @@ public class NotificationManager {
         return task.getTask();
     }
     
+    
+    public Task deleteMessageNotification(String schoolMessageId) {
+        
+        final TaskCompletionSource<Message> task = new TaskCompletionSource<Message>();
+        
+        
+        String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
+        String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
+        
+        userRestService.deleteMessageNotification(schoolId, userId, schoolMessageId).enqueue(new CustomCallAdapter
+                                                                                                .CustomCallback<Message>() {
+            @Override
+            public void success(Response<Message> response) {
+                Message message = response.body();
+                task.setResult(message);
+            }
+            
+            @Override
+            public void failure(ApiException e) {
+                task.setError(e);
+            }
+        });
+        
+        return task.getTask();
+    }
+    
 }

@@ -10,4 +10,10 @@ public class Event {
 
     public static final int DASHBOARD_UPDATED = 201;
     
+    public static final int INVOICES_UPDATED = 301;
+    
+    public static final int MESSAGES_UPDATED = 401;
+    
+    public static final int NOTIFICATION_UPDATED = 501;
+    
 }

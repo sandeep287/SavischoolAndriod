@@ -20,14 +20,14 @@ import com.savitroday.savischools.api.response.Message;
 public class NotificationMessageTabFragment extends Fragment implements View.OnClickListener {
     
     TabLayout tabLayout;
+    Message message;
+    boolean toDetail = false;
     
     public static NotificationMessageTabFragment getInstance(Message message) {
         NotificationMessageTabFragment fragment = new NotificationMessageTabFragment();
-        if (message.isNotification) {
-            //todo : send to notification detail
-        } else {
-            //todo : send to message detail later
-        }
+       
+        fragment.toDetail = true;
+        fragment.message = message;
         return fragment;
     }
     
@@ -40,6 +40,21 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_notification_message_tab, container, false);
+        
+        if(toDetail){
+            if (message.isNotification) {
+                //todo : send to notification detail
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, NotificationOpenViewFrag.getInstance(message));
+                transaction.addToBackStack(null);
+                transaction.commit();
+            } else {
+                //todo : send to message detail later
+            }
+        }
+        
+        
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
         tabLayout.setTabTextColors(ContextCompat.getColor(getContext(),R.color.white), ContextCompat.getColor(getContext(),R.color.white));
         tabLayout.addTab(tabLayout.newTab().setText("NOTIFICATION"));

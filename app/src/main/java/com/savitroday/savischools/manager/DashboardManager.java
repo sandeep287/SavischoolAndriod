@@ -1,21 +1,17 @@
 package com.savitroday.savischools.manager;
 
 import com.savitroday.savischools.MyApplication;
-import com.savitroday.savischools.adapter.InvoiceAdapter;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Dashboard;
-import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.Event;
 import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.util.TinyDB;
-import com.savitroday.savischools.view.activity.MainActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import bolts.Task;
 import bolts.TaskCompletionSource;
@@ -37,13 +33,13 @@ public class DashboardManager {
     public DashboardManager(UserRestService service, TinyDB tinyDB) {
         this.userRestService = service;
         this.tinyDB = tinyDB;
-
+        
     }
-
+    
     public Task getDashboardTask() {
         
         final TaskCompletionSource<Dashboard> task = new TaskCompletionSource<Dashboard>();
-    
+        
         if (dashboard != null && !clearCache && !updateInProgress) {
             task.trySetResult(dashboard);
             return task.getTask();
@@ -56,7 +52,7 @@ public class DashboardManager {
             String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
             String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
             String userID = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
-    
+            
             userRestService.getDashboard(schoolId, parentId, userID).enqueue(new CustomCallAdapter
                                                                                          .CustomCallback<Dashboard>() {
                 @Override
@@ -70,7 +66,7 @@ public class DashboardManager {
                     updateInProgress = false;
                     clearCache = false;
                 }
-        
+                
                 @Override
                 public void failure(ApiException e) {
                     task.setError(e);
@@ -85,36 +81,58 @@ public class DashboardManager {
         return task.getTask();
     }
     
-    void getInvoice(String schoolId, String studentId) {
-        userRestService.getInvoiceByStudent(schoolId, studentId).enqueue(new CustomCallAdapter
-                                                                                     .CustomCallback<List<Invoice>>() {
-            
-            @Override
-            public void success(Response<List<Invoice>> response) {
-                if (response.isSuccessful()) {
-                    List<Invoice> invoiceList = response.body();
-                  //  InvoiceAdapter adapter = new InvoiceAdapter(MainActivity.this, invoiceList);
-                    // listView.setAdapter(adapter);
-                }
-            }
-            
-            @Override
-            public void failure(ApiException e) {
-                
-            }
-        });
-    }
-    
-    public void setDefaultStudent(Student student){
-        for (Student student1:dashboard.listStudentModel){
-            if(student1.studentId.equals(student.studentId)){
+    public void setDefaultStudent(Student student) {
+        for (Student student1 : dashboard.listStudentModel) {
+            if (student1.studentId.equals(student.studentId)) {
                 student1.isdefault = true;
-            }
-            else
-            {
+            } else {
                 student1.isdefault = false;
             }
             EventManager.getInstance().postEventName(Event.DASHBOARD_UPDATED);
         }
     }
+    
+    public Task getStudentProfileTask(String studentId) {
+        
+        final TaskCompletionSource<Student> task = new TaskCompletionSource<Student>();
+        
+        if (dashboard != null && dashboard.listSchoolMessagesModel != null) {
+            Student student = getStudentWithId(studentId);
+            if (student != null) {
+                task.trySetResult(student);
+                return task.getTask();
+            }
+        }
+        
+        String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
+        String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
+        
+        userRestService.getStudentProfile(schoolId, parentId).enqueue(new CustomCallAdapter
+                                                                                  .CustomCallback<Student>() {
+            @Override
+            public void success(Response<Student> response) {
+                Student studentProfile = response.body();
+                task.setResult(studentProfile);
+                
+            }
+            
+            @Override
+            public void failure(ApiException e) {
+                task.setError(e);
+                
+            }
+        });
+        
+        return task.getTask();
+    }
+    
+    public Student getStudentWithId(String studentId) {
+        for (Student student : dashboard.listStudentModel) {
+            if (student.studentId.equals(studentId)) {
+                return student;
+            }
+        }
+        return null;
+    }
+    
 }

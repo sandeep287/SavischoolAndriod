@@ -22,8 +22,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class PendingInvoiceFragment extends Fragment implements EventManager.EventManagerDelegate
-{
+public class PendingInvoiceFragment extends Fragment implements EventManager.EventManagerDelegate {
     RecyclerView pendingInvoiceList;
     @Inject
     InvoiceManager invoiceManager;

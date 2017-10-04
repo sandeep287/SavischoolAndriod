@@ -1,16 +1,13 @@
 package com.savitroday.savischools.manager;
 
-import android.util.Log;
-
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
+import com.savitroday.savischools.api.response.Assignment;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
-import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,27 +20,27 @@ import retrofit2.Response;
  * Created by Harshita Ahuja on 18/09/17.
  */
 
-public class InvoiceManager {
-    public static final String TAG = "InvoiceManager";
+public class AssignmentManager {
+    public static final String TAG = "AssignmentManager";
     public static Boolean updateInProgress = Boolean.FALSE;
     private UserRestService userRestService;
     private ArrayList<TaskCompletionSource> taskList = new ArrayList<>();
-    private static List<Invoice> invoiceList;
+    private static List<Assignment> assignmentList;
     private static boolean clearCache = false;
     private TinyDB tinyDB;
     
-    public InvoiceManager(UserRestService service, TinyDB tinyDB) {
+    public AssignmentManager(UserRestService service, TinyDB tinyDB) {
         this.userRestService = service;
         this.tinyDB = tinyDB;
         
     }
     
-    public Task getInvoicesTask() {
+    public Task getAssignmentTask() {
         
-        final TaskCompletionSource<List<Invoice>> task = new TaskCompletionSource<List<Invoice>>();
+        final TaskCompletionSource<List<Assignment>> task = new TaskCompletionSource<List<Assignment>>();
         
-        if (invoiceList != null && !clearCache && !updateInProgress) {
-            task.trySetResult(invoiceList);
+        if (assignmentList != null && !clearCache && !updateInProgress) {
+            task.trySetResult(assignmentList);
             return task.getTask();
         }
         if (updateInProgress) {
@@ -54,14 +51,14 @@ public class InvoiceManager {
             String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
             String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
             
-            userRestService.getInvoiceByStudent(schoolId, parentId).enqueue(new CustomCallAdapter
-                                                                                .CustomCallback<List<Invoice>>() {
+            userRestService.getStudentAssignment(schoolId, parentId).enqueue(new CustomCallAdapter
+                                                                                .CustomCallback<List<Assignment>>() {
                 @Override
-                public void success(Response<List<Invoice>> response) {
-                    invoiceList = response.body();
-                    task.setResult(invoiceList);
+                public void success(Response<List<Assignment>> response) {
+                    assignmentList = response.body();
+                    task.setResult(assignmentList);
                     for (TaskCompletionSource taskCompletionSource : taskList) {
-                        taskCompletionSource.setResult(invoiceList);
+                        taskCompletionSource.setResult(assignmentList);
                     }
                     taskList.clear();
                     updateInProgress = false;
@@ -81,26 +78,6 @@ public class InvoiceManager {
         }
         return task.getTask();
     }
-    
-    public List<Invoice> getPendingInvoices() {
-        List<Invoice> pendingInvoices = new ArrayList<>();
-        for (Invoice invoice:invoiceList) {
-            if (invoice.status.equals("Pending")) {
-                pendingInvoices.add(invoice);
-                
-            }
-        }
-        return pendingInvoices;
-    }
-    
-    public float getTotalAmount() {
-        float totalAmount = 0;
-        for (Invoice invoice:invoiceList) {
-            if (invoice.status.equals("Pending")) {
-                totalAmount += invoice.amount;
-            }
-        }
-        return totalAmount;
-    }
+  
     
 }
