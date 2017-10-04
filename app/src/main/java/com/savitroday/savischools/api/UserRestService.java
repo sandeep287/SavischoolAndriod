@@ -1,6 +1,7 @@
 package com.savitroday.savischools.api;
 
 
+import com.savitroday.savischools.api.response.Assignment;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.api.response.Message;
@@ -50,5 +51,19 @@ public interface UserRestService {
                                                            @Query("userId") String userid,
                                                            @Query("schoolmessageId")
                                                                   String schoolMessageId);
+    
+    @GET("api/parent/getstudentassignment")
+    CustomCallAdapter.CustomCall<List<Assignment>> getStudentAssignment(@Query("schoolId") String schoolId, @Query
+                                                                                                               ("studntId")
+                                                                                                        String
+                                                                                                        studentId);
+    
+    
+    @GET("api/parent/deleteMessageNotification")
+    CustomCallAdapter.CustomCall<List<Assignment>> deleteMessageNotification(@Query("schoolId") String schoolId,
+                                                                             @Query("userId") String userId,
+                                                                             @Query("schoolMessageId") String
+                                                                                     schoolMessageId);
+    
     
 }

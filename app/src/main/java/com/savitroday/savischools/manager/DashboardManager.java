@@ -116,7 +116,5 @@ public class DashboardManager {
             }
             EventManager.getInstance().postEventName(Event.DASHBOARD_UPDATED);
         }
-//        dashboard.getDefaultStudent().isdefault = false;
-//        dashboard.listStudentModel.get(index).isdefault = true;
     }
 }

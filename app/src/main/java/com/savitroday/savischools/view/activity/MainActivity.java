@@ -26,11 +26,8 @@ import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
-import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
-import com.savitroday.savischools.view.fragment.ProfileFragment;
 
 import java.util.List;
-import java.util.Stack;
 
 import javax.inject.Inject;
 
@@ -46,15 +43,15 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
-
+    
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MyApplication.getApp().getComponent().inject(this);
-          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
         drawertoggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,31 +82,27 @@ public class MainActivity extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.addToBackStack("add");
-
+        
         transaction.add(R.id.flFragments, new DashboardFragment());
         transaction.commit();
     }
-
-          public void backpress()
-         {
-
-
-           if (getSupportFragmentManager().getBackStackEntryCount()<=1)
-            {
-             finish();
-             }
-           else
-            {
-                getSupportFragmentManager().popBackStack();
-             }
-
-         }
-
+    
+    public void backpress() {
+        
+        
+        if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
+            finish();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+        
+    }
+    
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return super.onTouchEvent(event);
     }
-
+    
     public void setNavigationList(List<Student> studentList) {
         studentListAdapter = new StudentListAdapter(this, studentList, new OnItemClickListener() {
             @Override
@@ -121,17 +114,17 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setAdapter(studentListAdapter);
     }
     
-    public void onBackbutton(View v)
-    {
+    public void onBackbutton(View v) {
         backpress();
     }
+    
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-
-           backpress();
+            
+            backpress();
         }
     }
     
@@ -161,9 +154,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
     }
+    
     public void onclikthis(View view) {
         Fragment fragment = new InvoicePaymentFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack("hcdbhj");
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack
+                                                                                                         ("hcdbhj");
         fragmentTransaction.add(R.id.flFragments, fragment);
         fragmentTransaction.commit();
     }

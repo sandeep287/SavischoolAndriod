@@ -81,6 +81,9 @@ public class Message {
     @SerializedName("name")
     @Expose
     public Object name;
+    @SerializedName("delFlg")
+    @Expose
+    public boolean delFlg;
     
     public String getCreatedOn(){
         return DateUtility.getDateFull(createdOn);
