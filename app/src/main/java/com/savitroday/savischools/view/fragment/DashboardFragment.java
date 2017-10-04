@@ -139,7 +139,7 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
     public void didReceivedEvent(int id, Object... args) {
         getDashboardData();
     }
-    
+
     public class Handler {
         public void onProfileTap() {
             if(dashboard != null) {

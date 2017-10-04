@@ -3,14 +3,17 @@ package com.savitroday.savischools.adapter;
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.databinding.InvoiceCellBinding;
+import com.savitroday.savischools.databinding.InvoiceCellPaymentBinding;
 
 import java.util.List;
 
@@ -22,7 +25,7 @@ public class InvoiceListAdepter extends RecyclerView.Adapter<InvoiceListAdepter.
 
     Activity activity;
     List<Invoice> ldt;
-    InvoiceCellBinding mBinding;
+    InvoiceCellPaymentBinding mBinding;
     AppCompatActivity apc;
 
     public InvoiceListAdepter(Activity activity, List<Invoice> ldt) {
@@ -34,7 +37,7 @@ public class InvoiceListAdepter extends RecyclerView.Adapter<InvoiceListAdepter.
     public InvoiceListAdepter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
        // view = LayoutInflater.from(parent.getContext()).inflate(R.layout.invoice_cell, parent, false);
 
-        mBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.invoice_cell, parent, false);
+        mBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.invoice_cell_payment, parent, false);
 
         return new viewHolder(mBinding.getRoot());
 

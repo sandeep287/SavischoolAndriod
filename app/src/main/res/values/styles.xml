@@ -22,12 +22,44 @@
         <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:textColor">@color/navy</item>
     </style>
+    <style name="TextStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
     <style name="Medium14TurquoiseBlue">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
         <item name="android:lineSpacingExtra">10sp</item>
         <item name="android:textColor">@color/turquoise_blue</item>
+    </style>
+    <style name="Bold10NavyTwo">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+    <style name="Regular10PinkyRed">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/pinky_red</item>
+    </style>
+    <style name="Bold16NavyTwo">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+    <style name="Bold16Turqoise">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/turquoise</item>
     </style>
     <style name="TextStyle9">
         <item name="android:textSize">14sp</item>

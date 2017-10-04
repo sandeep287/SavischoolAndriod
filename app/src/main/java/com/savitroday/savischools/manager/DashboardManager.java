@@ -37,9 +37,9 @@ public class DashboardManager {
     public DashboardManager(UserRestService service, TinyDB tinyDB) {
         this.userRestService = service;
         this.tinyDB = tinyDB;
-        
+
     }
-    
+
     public Task getDashboardTask() {
         
         final TaskCompletionSource<Dashboard> task = new TaskCompletionSource<Dashboard>();

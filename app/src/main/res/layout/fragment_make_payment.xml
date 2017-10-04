@@ -1,0 +1,130 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="student"
+            type="com.savitroday.savischools.api.response.Student"/>
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_two"
+    tools:context="com.savitroday.savischools.view.fragment.MakePaymentFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/actionbarcontent"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:background="@drawable/gradient_background">
+
+            <TextView
+                android:id="@+id/ProfileScreen_headerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="72dp"
+                android:gravity="center"
+                android:text="Make Payment"
+                android:textColor="@color/white"
+
+                android:textSize="17sp" />
+
+            <ImageButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/back_arrow_icon" />
+
+
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/notification" />
+        </RelativeLayout>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+
+            android:layout_below="@id/actionbarcontent"
+            android:layout_height="446dp"
+
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    style="@style/Medium16Navy"
+                    android:text="Summary"
+                    android:id="@+id/summaryhading"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/paymentlist"
+                    android:layout_below="@id/summaryhading"
+                    android:layout_width="match_parent"
+                    android:layout_height="268dp"
+                    android:scrollbars="vertical"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/totalamounthadin"
+                    style="@style/Regular12Navy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/paymentlist"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:text="Total Amount" />
+
+                <TextView
+                    android:id="@+id/totalamount"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/totalamounthadin"
+                    android:layout_marginBottom="46dp"
+                    android:layout_marginTop="6dp"
+                    tools:text="$2300" />
+
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="505dp"
+
+            android:text="Pay Now"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/turquois_round_corner"
+
+            />
+</RelativeLayout>
+
+</FrameLayout>
+</layout>

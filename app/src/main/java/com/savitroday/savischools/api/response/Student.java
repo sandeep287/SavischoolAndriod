@@ -6,10 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by Harshita Ahuja on 22/09/17.
- */
-
 public class Student {
     
     @SerializedName("schoolId")

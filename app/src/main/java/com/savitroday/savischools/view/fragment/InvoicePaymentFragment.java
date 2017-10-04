@@ -13,13 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.savitroday.savischools.R;
 
 
 public class InvoicePaymentFragment extends Fragment {
     TabLayout tabLayout;
-
+    static  TextView totalamount;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class InvoicePaymentFragment extends Fragment {
 
             }
         });
+       totalamount =(TextView)inflatedView.findViewById(R.id.totalamount);
 
         return inflatedView;
     }
@@ -70,6 +72,7 @@ public class InvoicePaymentFragment extends Fragment {
             switch (position) {
                 case 0:
                    PendingInvoiceFragment tab1=new  PendingInvoiceFragment();
+
                     return tab1;
                 case 1:
 

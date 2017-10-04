@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.DashboardAdapter;
 import com.savitroday.savischools.adapter.InvoiceListAdepter;
@@ -37,6 +38,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     DashboardManager dashboardManager;
     List<Invoice> invoiceList;
     View view;
+    float totalamount;
     Dashboard dashboard;
     RelativeLayout progressBar;
     @Override
@@ -45,6 +47,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
 
        view =inflater.inflate(R.layout.fragment_pending_invoice, container, false);
         progressBar=(RelativeLayout) view.findViewById(R.id.progressBar);
+        MyApplication.getApp().getComponent().inject(this);
         pandinginvoiclist =(RecyclerView)view.findViewById(R.id.pandinginvoiclist);
         EventManager.getInstance().addObserver(this, Event.DASHBOARD_UPDATED);
         getInvoicelistdaata();
@@ -87,9 +90,13 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
                      {
                          if(list.get(i).status.equals("Pending"))
                          {
+                             totalamount=totalamount+list.get(i).amount;
+                             Log.e("chack",""+totalamount);
                            pandinginvoices.add(list.get(i));
+
                          }
                      }
+                     InvoicePaymentFragment.totalamount.setText("$"+(int)totalamount);
                      return pandinginvoices;
                  }
 

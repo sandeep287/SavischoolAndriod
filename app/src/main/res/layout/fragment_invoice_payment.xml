@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="315dp"
+    android:layout_height="match_parent"
     android:id="@+id/tosetbackground"
     android:background="@drawable/gradient_background"
     ></RelativeLayout>
@@ -38,7 +38,6 @@
                 android:layout_marginLeft="16dp"
                 android:layout_centerVertical="true"
                 android:background="@drawable/back_arrow_icon"
-                android:onClick="onBackbutton"
                 android:layout_marginRight="32dp"
                 />
 
@@ -101,11 +100,13 @@
             <android.support.design.widget.TabLayout
                 android:id="@+id/invoicepaymenttabLayout"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 app:tabMode="fixed"
                 app:tabTextColor="@color/white"
-                app:tabSelectedTextColor="@color/white"
+                app:tabSelectedTextColor="@color/white__70"
                 app:tabGravity="fill"
+                app:tabIndicatorColor="@color/white__70"
+                app:tabIndicatorHeight="3dp"
                 />
 
             <android.support.v4.view.ViewPager
@@ -113,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@android:color/white"/>
+                android:background="@color/white_four"/>
 
         </android.support.design.widget.AppBarLayout>
 
