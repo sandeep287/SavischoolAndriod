@@ -4,6 +4,7 @@ package com.savitroday.savischools.di.module;
 
 
 import com.savitroday.savischools.api.UserRestService;
+import com.savitroday.savischools.manager.AssignmentManager;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.manager.MyProfileManager;
@@ -48,5 +49,10 @@ public class ManagerModule {
         return new NotificationManager(restService, tinyDB);
     }
     
+    @Provides
+    @Singleton
+    public AssignmentManager provideAssignmentManager(UserRestService restService, TinyDB tinyDB) { //dependencies!
+        return new AssignmentManager(restService, tinyDB);
+    }
 }
 
