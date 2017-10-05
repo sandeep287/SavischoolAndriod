@@ -14,7 +14,6 @@ import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.InvoiceListAdepter;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.EventManager;
@@ -27,8 +26,6 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     RecyclerView pendingInvoiceList;
     @Inject
     InvoiceManager invoiceManager;
-    @Inject
-    DashboardManager dashboardManager;
     List<Invoice> invoiceList;
     View view;
     float totalAmount;
@@ -59,7 +56,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         progressBar.setVisibility(View.VISIBLE);
         
         Log.e("chack", "1");
-        invoiceManager.getInvoicesTask(dashboardManager.getDefaultStudent().studentId).continueWith((task -> {
+        invoiceManager.getInvoicesTask().continueWith((task -> {
             progressBar.setVisibility(View.INVISIBLE);
             Log.e("chack", "2");
             if (task.getResult() != null) {

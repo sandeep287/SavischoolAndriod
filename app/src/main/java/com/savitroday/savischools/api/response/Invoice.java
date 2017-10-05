@@ -103,5 +103,8 @@ public class Invoice {
     public String getYear(){
         return new SimpleDateFormat("yyyy").format(dueOn);
     }
+    public String getCompletDate(){
+        return new SimpleDateFormat("dd MMM yyyy").format(invoiceDate);
+    }
     
 }

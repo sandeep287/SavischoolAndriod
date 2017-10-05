@@ -19,6 +19,7 @@ public class Constants {
     
     public static final String SHARED_PREFERENCES_ACCESS_TOKEN = "access_token";
     public static final String SHARED_PREFERENCES_SCHOOL_ID = "school_id";
+    public static final String SHARED_PREFERENCES_STUDENT_ID = "studntid";
     public static final String SHARED_PREFERENCES_PARENT_ID = "parent_id";
     public static final String SHARED_PREFERENCES_USER_ID = "user_id";
     

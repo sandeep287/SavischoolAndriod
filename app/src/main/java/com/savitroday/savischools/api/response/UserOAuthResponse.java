@@ -48,6 +48,9 @@ public class UserOAuthResponse {
     @SerializedName("parentid")
     @Expose
     public String parentid;
+    @SerializedName("studntid")
+    @Expose
+    public String studntid;
     @SerializedName("userName")
     @Expose
     public String userName;

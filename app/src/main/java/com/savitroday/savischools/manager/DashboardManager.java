@@ -92,15 +92,7 @@ public class DashboardManager {
         }
     }
     
-    public Student getDefaultStudent() {
-        for (Student student : dashboard.listStudentModel) {
-            if (student.isdefault) {
-                return student;
-            }
-        }
-        return null;
-    }
-    
+
     public Task getStudentProfileTask(String studentId) {
         
         final TaskCompletionSource<Student> task = new TaskCompletionSource<Student>();

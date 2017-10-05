@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="16dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@color/yellow_orange"
+            />
+    <LinearLayout
+        android:id="@+id/date"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_61_rounded_background"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Bold10NavyTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="May"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.03"
+            style="@style/Bold16NavyTwo"
+            android:text="21"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.03"
+            style="@style/Bold10NavyTwo"
+            android:text="2017"
+
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_marginLeft="80dp"
+            >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:text="Homework"
+                   android:alpha=".24"
+                   style="@style/Regular10Navy"
+                   />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle4"
+                android:text="3/1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="86dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Submit Date"
+                style="@style/Regular10Navy"
+                android:alpha=".24"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle5"
+                android:text="20 Sep 2017"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="56dp"
+            android:layout_centerVertical="true"
+            android:background="@color/warm_grey"
+            android:alpha=".20"
+            />
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/down_arrow"
+            />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

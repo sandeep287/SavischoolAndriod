@@ -85,7 +85,7 @@ public class LoginHelper {
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_PARENT_ID, userOAuthResponse.parentid);
                     MyApplication.tinyDB.putString(Constants.SHARED_PREFERENCES_USER_ID, userOAuthResponse.userId);
                     MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, true);
-                    
+
                     task.setResult(userOAuthResponse);
                     
                 } else {

@@ -14,6 +14,7 @@ import com.savitroday.savischools.manager.NotificationManager;
 import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
+import com.savitroday.savischools.view.fragment.HistoryInvoiceFragment;
 import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
 
 import javax.inject.Singleton;
@@ -39,6 +40,7 @@ public interface AppComponent {
     void inject(MainActivity mainActivity);
     
     void inject(LoginActivity loginActivity);
+    void inject(HistoryInvoiceFragment historyInvoiceFragment);
     
     void inject(DashboardFragment dashboardFragment);
     
