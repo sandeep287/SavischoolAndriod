@@ -35,9 +35,9 @@ public class NotificationManager {
     }
     
     public Task getMessageTask() {
-        
+
         final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
-        
+
         if (messageList != null && !clearCache && !updateInProgress) {
             task.trySetResult(messageList);
             return task.getTask();
@@ -47,8 +47,10 @@ public class NotificationManager {
             taskList.add(task);
         } else {
             updateInProgress = true;
-            String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
-            String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
+            String parentId ="14";
+                    //MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
+            String schoolId ="D10EAADE-53C6-4E86-B77D-06FC83A61B91";
+                    //MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
             
             userRestService.getMessages(schoolId, parentId).enqueue(new CustomCallAdapter
                                                                                 .CustomCallback<List<Message>>() {
@@ -127,6 +129,30 @@ public class NotificationManager {
         });
         
         return task.getTask();
+    }
+    public List<Message> getNOtificationList()
+    {
+        List<Message> notifications=new ArrayList<>();
+        for (int i=0;i<messageList.size();i++)
+        {
+            if (messageList.get(i).isNotification)
+            {
+                notifications.add(messageList.get(i));
+            }
+        }
+        return notifications;
+    }
+    public List<Message> getMessageList()
+    {
+        List<Message> messages=new ArrayList<>();
+        for (int i=0;i<messageList.size();i++)
+        {
+            if (!messageList.get(i).isNotification)
+            {
+                messages.add(messageList.get(i));
+            }
+        }
+        return messages;
     }
     
 }

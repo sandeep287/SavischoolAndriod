@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.savitroday.savischools.api.response.Message"/>
+       </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/gradient_circle"
+            android:padding="10dp"
+            android:src="@drawable/notification"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="72dp"
+            android:layout_alignLeft="@id/imageView"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="43dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:id="@+id/deletiondetail"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+        <TextView
+            android:id="@+id/timeTextview"
+            style="@style/Regular10Navy"
+            android:alpha=".54"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{message.getCreatedOn()}"
+            tools:text="4:10 AM"
+            />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/Regular12PinkyRed"
+    android:background="@color/white"
+    tools:text="DELETE"
+    />
+
+</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_toLeftOf="@id/seperator"
+
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
+            >
+
+            <TextView
+                style="@style/Light12Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"From " + message.senderName}'
+                tools:text="From John"
+                />
+
+            <TextView
+                style="@style/Medium14DarkIndigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{message.title}"
+                tools:text="You are invited for 2017 F.."
+                />
+
+            <TextView
+                style="@style/Regular14Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{message.message}"
+                tools:text="We are Celebrating Upco…"
+                />
+
+            <TextView
+                style="@style/Semibold10White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/blue_rounded_background"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="2dp"
+                android:text="@{message.studentName}"
+                tools:text="JENNY"
+                />
+              </LinearLayout>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,306 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white_two"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.savitroday.savischools.view.fragment.AttandenceFragment">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="328dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/gradient_background"
+    >
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+        <RelativeLayout
+            android:id="@+id/actionbarcontent"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <TextView
+                android:id="@+id/ProfileScreen_headerTitle"
+                style="@style/Medium20White"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="72dp"
+                android:text="New Message"
+                />
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/back_arrow_icon"
+                />
+
+
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/notification"/>
+        </RelativeLayout>
+<com.prolificinteractive.materialcalendarview.MaterialCalendarView
+    android:layout_width="match_parent"
+  android:layout_margin="16dp"
+    android:id="@+id/attandencecalander"
+    android:layout_height="232dp"
+    android:scaleX="1.8"
+android:layout_below="@id/actionbarcontent"
+    />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_below="@id/attandencecalander"
+            android:background="@color/turquoise"
+            android:id="@+id/datedetail"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    style="@style/Regular12White"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17, Sep 2017"
+                    style="@style/Regular12White"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="124dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Check In"
+                    android:gravity="right"
+                    android:lines="1"
+                    style="@style/Regular12White"
+                    android:alpha=".78"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9:00 AM"
+                    style="@style/Normal14White"
+                    />
+            </LinearLayout>
+<ImageView
+    android:layout_width="36dp"
+    android:layout_height="36dp"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="82dp"
+    android:src="@drawable/time"
+    />
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="17dp"
+                android:orientation="vertical"
+
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Check In"
+                    android:gravity="right"
+                    android:lines="1"
+                    style="@style/Regular12White"
+                    android:alpha=".78"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NOT YET"
+                    style="@style/Normal14White"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:id="@+id/parentmetingdetail"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_below="@id/datedetail"
+    android:layout_marginTop="16dp"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="@color/turquoise"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="11.3dp"
+        >
+
+
+
+    <TextView
+        style="@style/Regular14Navy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Parent meeting"
+
+
+        />
+    <TextView
+        style="@style/Regular12Navy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Today at 10:00 AM"
+        android:alpha=".54"
+        />
+    </LinearLayout>
+</RelativeLayout>
+</android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:id="@+id/leavcard"
+            android:layout_below="@id/parentmetingdetail"
+            android:layout_marginTop="23dp"
+            >
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <View
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/neon_red_circle"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+
+        />
+              <TextView
+                  style="@style/Medium16Navy"
+                  android:layout_centerVertical="true"
+                  android:layout_marginLeft="44dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  tools:text="Leaves"
+                  />
+              <TextView
+                  android:layout_width="53dp"
+                  android:layout_height="22dp"
+                  android:alpha=".80"
+                  android:background="@drawable/muted_blue_round_corner"
+                  android:layout_alignParentRight="true"
+                  android:layout_centerVertical="true"
+                  android:layout_marginRight="44dp"
+                  android:gravity="center"
+                  android:text="2 Days"
+                  style="@style/Medium12white"
+                  />
+              <ImageButton
+                  android:layout_width="12dp"
+                  android:layout_height="9dp"
+                  android:layout_alignParentRight="true"
+                  android:layout_centerVertical="true"
+                  android:layout_marginRight="16dp"
+                  android:rotation="180"
+
+                  android:alpha=".30"
+                  />
+          </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_below="@id/leavcard"
+            android:layout_marginTop="12dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/yellow_orange_circle"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+
+                    />
+                <TextView
+                    style="@style/Medium16Navy"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="44dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Leave Early"
+                    />
+                <TextView
+                    android:layout_width="53dp"
+                    android:layout_height="22dp"
+                    android:alpha=".80"
+                    android:background="@drawable/muted_blue_round_corner"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="44dp"
+                    android:gravity="center"
+                    android:text="2 Days"
+                    style="@style/Medium12white"
+                    />
+                <ImageButton
+                    android:layout_width="12dp"
+                    android:layout_height="9dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:rotation="180"
+
+                    android:alpha=".30"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+</RelativeLayout>
+
+</FrameLayout>

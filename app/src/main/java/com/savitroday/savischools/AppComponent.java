@@ -1,6 +1,7 @@
 package com.savitroday.savischools;
 
 
+import com.google.firebase.messaging.RemoteMessage;
 import com.savitroday.savischools.api.RestHelper;
 import com.savitroday.savischools.di.module.AppModule;
 import com.savitroday.savischools.di.module.ManagerModule;
@@ -15,6 +16,8 @@ import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.HistoryInvoiceFragment;
+import com.savitroday.savischools.view.fragment.MessagesFragment;
+import com.savitroday.savischools.view.fragment.NotificationFragment;
 import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
 
 import javax.inject.Singleton;
@@ -34,7 +37,8 @@ import dagger.Component;
 public interface AppComponent {
     
     void inject(MyApplication application);
-    
+    void inject(MessagesFragment messagesFragment);
+    void inject(NotificationFragment notificationFragment);
     void inject(RestHelper restHelper);
     
     void inject(MainActivity mainActivity);

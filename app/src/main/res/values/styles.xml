@@ -15,11 +15,31 @@
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:textColor">@color/yellow_orange</item>
     </style>
+    <style name="Regular14Navy">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+    <style name="Normal14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
     <style name="TextStyle6">
         <item name="android:textSize">8sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/navy</item>
+    </style>
+    <style name="Regular12PinkyRed">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/pinky_red</item>
     </style>
     <style name="TextStyle5">
         <item name="android:textSize">12sp</item>
@@ -337,6 +357,13 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Medium12white">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">

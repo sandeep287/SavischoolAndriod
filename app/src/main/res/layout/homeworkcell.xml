@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="assignment"
+            type="com.savitroday.savischools.api.response.Assignment"/>
+    </data>
+
 <android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
      android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_marginLeft="16dp"
@@ -31,7 +40,8 @@
             style="@style/Bold10NavyTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="May"
+            tools:text="21"
+            android:text="@{assignment.getMonth()}"
 
             />
 
@@ -42,8 +52,8 @@
             android:gravity="center_horizontal"
             android:letterSpacing="0.03"
             style="@style/Bold16NavyTwo"
-            android:text="21"
-
+            tools:text="21"
+            android:text="@{assignment.getDate()}"
             />
 
         <TextView
@@ -53,7 +63,8 @@
             android:gravity="center_horizontal"
             android:letterSpacing="-0.03"
             style="@style/Bold10NavyTwo"
-            android:text="2017"
+            tools:text="2017"
+            android:text="@{assignment.getYear()}"
 
             />
     </LinearLayout>
@@ -71,12 +82,25 @@
                    android:alpha=".24"
                    style="@style/Regular10Navy"
                    />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextStyle4"
-                android:text="3/1"
+                tools:text="3"
+
                 />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="/1"
+                    style="@style/TextStyle4"
+                    />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -119,3 +143,4 @@
             />
     </RelativeLayout>
 </android.support.v7.widget.CardView>
+</layout>

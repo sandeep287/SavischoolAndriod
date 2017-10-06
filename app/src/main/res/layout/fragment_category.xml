@@ -1,6 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<FrameLayout android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.savitroday.savischools.view.fragment.CategoryFragment">
 
@@ -192,3 +194,4 @@
     </RelativeLayout>
 
 </FrameLayout>
+</layout>

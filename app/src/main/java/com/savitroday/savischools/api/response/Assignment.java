@@ -7,6 +7,8 @@ package com.savitroday.savischools.api.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
+
 public class Assignment {
     
     @SerializedName("schoolId")
@@ -81,7 +83,18 @@ public class Assignment {
     @SerializedName("StudentmediaPath")
     @Expose
     public String studentmediaPath;
-    
+    public String getDate(){
+        return new SimpleDateFormat("dd").format(dueDate);
+    }
+
+    public String getMonth(){
+        return new SimpleDateFormat("MMM").format(dueDate);
+    }
+
+    public String getYear(){
+        return new SimpleDateFormat("yyyy").format(dueDate);
+    }
+
 }
 
 

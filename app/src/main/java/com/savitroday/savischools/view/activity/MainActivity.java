@@ -26,6 +26,7 @@ import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
+import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 
 import java.util.List;
 
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity
     }
     
     public void onclikthis(View view) {
-        Fragment fragment = new InvoicePaymentFragment();
+        Fragment fragment = new NotificationMessageTabFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack
                                                                                                          ("hcdbhj");
         fragmentTransaction.add(R.id.flFragments, fragment);
