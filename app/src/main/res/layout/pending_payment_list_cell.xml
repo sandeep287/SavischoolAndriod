@@ -13,6 +13,7 @@
     android:layout_height="84dp"
     android:layout_marginRight="16dp"
     android:layout_marginLeft="16dp"
+    android:layout_marginBottom="8dp"
     android:background="@color/faded_blue"
     >
     <LinearLayout

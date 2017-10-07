@@ -11,19 +11,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.StudentListAdapter;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
+import com.savitroday.savischools.helper.OnSwipeTouchListener;
 import com.savitroday.savischools.manager.DashboardManager;
+import com.savitroday.savischools.view.fragment.AttandenceFragment;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
 import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
@@ -44,15 +48,26 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
-    
-    
+    private float x1,x2;
+    RelativeLayout mainLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MyApplication.getApp().getComponent().inject(this);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        
+        //mainLayout=(RelativeLayout)findViewById(R.id.mainlayout);
+        drawer.setOnTouchListener(new OnSwipeTouchListener(this){
+
+            public void onSwipeRight() {
+                drawer.openDrawer(Gravity.LEFT);
+            }
+            public void onSwipeLeft() {
+              drawer.closeDrawer(Gravity.LEFT);
+            }
+            }
+
+        );
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
         drawertoggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,8 +115,11 @@ public class MainActivity extends AppCompatActivity
     }
     
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event)
+    {
+
         return super.onTouchEvent(event);
+
     }
     
     public void setNavigationList(List<Student> studentList) {
@@ -157,7 +175,7 @@ public class MainActivity extends AppCompatActivity
     }
     
     public void onclikthis(View view) {
-        Fragment fragment = new NotificationMessageTabFragment();
+        Fragment fragment = new AttandenceFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack
                                                                                                          ("hcdbhj");
         fragmentTransaction.add(R.id.flFragments, fragment);

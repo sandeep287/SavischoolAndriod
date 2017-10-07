@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
 
             android:layout_below="@id/actionbarcontent"
-            android:layout_height="446dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginLeft="17dp"
             android:layout_marginRight="16dp"
@@ -83,7 +83,7 @@
                     android:id="@+id/paymentlist"
                     android:layout_below="@id/summaryhading"
                     android:layout_width="match_parent"
-                    android:layout_height="268dp"
+                    android:layout_height="92dp"
                     android:scrollbars="vertical"
                     >
 
@@ -95,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/paymentlist"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:text="Total Amount" />
 
@@ -117,12 +117,10 @@
         <Button
             android:layout_width="150dp"
             android:layout_height="49dp"
-            android:layout_marginTop="505dp"
-
             android:text="Pay Now"
             android:layout_centerHorizontal="true"
             android:background="@drawable/turquois_round_corner"
-
+             android:id="@+id/paynow"
             />
 </RelativeLayout>
 
