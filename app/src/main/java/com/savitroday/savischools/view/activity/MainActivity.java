@@ -3,7 +3,6 @@ package com.savitroday.savischools.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -11,63 +10,46 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.StudentListAdapter;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.helper.OnItemClickListener;
-import com.savitroday.savischools.helper.OnSwipeTouchListener;
 import com.savitroday.savischools.manager.DashboardManager;
-import com.savitroday.savischools.view.fragment.AttandenceFragment;
+import com.savitroday.savischools.view.fragment.CategoryFragment;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
-import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-    
+        implements View.OnClickListener {
     
     @Inject
     DashboardManager dashboardManager;
-    
     RelativeLayout mProgressDialog;
     NavigationView navigationView;
     RecyclerView recyclerView;
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
-    private float x1,x2;
-    RelativeLayout mainLayout;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Used to inject
         MyApplication.getApp().getComponent().inject(this);
+        
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //mainLayout=(RelativeLayout)findViewById(R.id.mainlayout);
-        drawer.setOnTouchListener(new OnSwipeTouchListener(this){
-
-            public void onSwipeRight() {
-                drawer.openDrawer(Gravity.LEFT);
-            }
-            public void onSwipeLeft() {
-              drawer.closeDrawer(Gravity.LEFT);
-            }
-            }
-
-        );
+        
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
         drawertoggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,44 +64,24 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         View hView = navigationView.getHeaderView(0);
         recyclerView = (RecyclerView) hView.findViewById(R.id.studentListRecyclerView);
-        
-        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        //TODO : uncomment this to stop drawer with swipe
+        //drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         
-        navigationView.setNavigationItemSelectedListener(this);
+        
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
         
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(this);
         
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.addToBackStack("add");
-        
-        transaction.add(R.id.flFragments, new DashboardFragment());
-        transaction.commit();
-    }
-    
-    public void backpress() {
-        
-        
-        if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
-            finish();
-        } else {
-            getSupportFragmentManager().popBackStack();
-        }
-        
-    }
-    
-    @Override
-    public boolean onTouchEvent(MotionEvent event)
-    {
-
-        return super.onTouchEvent(event);
-
+        ImageButton category = (ImageButton) findViewById(R.id.categoryButton);
+        category.setOnClickListener(this);
+        ImageButton activities = (ImageButton) findViewById(R.id.activityButton);
+        activities.setOnClickListener(this);
+        addDashboard();
     }
     
     public void setNavigationList(List<Student> studentList) {
@@ -133,35 +95,27 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setAdapter(studentListAdapter);
     }
     
-    public void onBackbutton(View v) {
-        backpress();
-    }
     
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            
-            backpress();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            if (fragmentManager.getBackStackEntryCount() > 1) {
+                super.onBackPressed();
+            } else {
+                finishAffinity();
+            }
         }
     }
     
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        
-        if (id == R.id.nav_dashboard) {
-            // Handle the camera action
-            FragmentManager manager = getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.flFragments, new DashboardFragment());
-            transaction.commit();
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    void addDashboard(){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.flFragments, new DashboardFragment());
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
     
     @Override
@@ -172,13 +126,19 @@ public class MainActivity extends AppCompatActivity
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-    }
-    
-    public void onclikthis(View view) {
-        Fragment fragment = new AttandenceFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack
-                                                                                                         ("hcdbhj");
-        fragmentTransaction.add(R.id.flFragments, fragment);
-        fragmentTransaction.commit();
+        else if(view.getId() == R.id.categoryButton) {
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, new CategoryFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+        else if(view.getId() == R.id.activityButton) {
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, new InvoicePaymentFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 }

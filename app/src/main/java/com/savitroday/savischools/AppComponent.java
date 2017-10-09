@@ -18,6 +18,7 @@ import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.HistoryInvoiceFragment;
 import com.savitroday.savischools.view.fragment.MessagesFragment;
 import com.savitroday.savischools.view.fragment.NotificationFragment;
+
 import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
 
 import javax.inject.Singleton;
@@ -48,7 +49,6 @@ public interface AppComponent {
     
     void inject(DashboardFragment dashboardFragment);
     
-    //void inject(HistoryInvoiceFragment historyInvoiceFragment);
     void inject(PendingInvoiceFragment pendingInvoiceFragment);
     
     DashboardManager dashboardManager();

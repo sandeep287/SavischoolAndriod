@@ -28,7 +28,7 @@ public class HomeWorkFragment extends Fragment {
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Assigned"));
         tabLayout.addTab(tabLayout.newTab().setText("Complete"));
-        final ViewPager viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpagerfrag);
+        final ViewPager viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
         viewPager.setAdapter(new HomeWorkFragment.PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

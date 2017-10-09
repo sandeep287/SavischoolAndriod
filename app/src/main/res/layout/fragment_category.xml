@@ -1,197 +1,200 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-<FrameLayout android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.savitroday.savischools.view.fragment.CategoryFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <data>
+        <variable
+            name="handler"
+            type="com.savitroday.savischools.view.fragment.CategoryFragment.Handler"/>
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_two"
-        >
+        tools:context="com.savitroday.savischools.view.fragment.CategoryFragment">
 
         <RelativeLayout
-            android:id="@+id/actionbarcontent"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@drawable/gradient_background"
-            >
-
-            <ImageButton android:id="@+id/backButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:background="@drawable/back_arrow_icon"
-                />
-
-            <TextView
-                style="@style/Bold17White"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="Category"
-                />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_below="@id/actionbarcontent"
-            android:background="@drawable/gradient_background"
-            />
-
-        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/actionbarcontent"
-            android:padding="16dp"
+            android:background="@color/white_two"
             >
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/actionbarcontent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="56dp"
+                android:background="@drawable/gradient_background"
                 >
 
-                <android.support.v7.widget.CardView
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/back_arrow_icon"
+                    android:onClick="@{()->handler.onBackPressed()}"
+                    />
+
+                <TextView
+                    style="@style/Bold17White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Category"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_below="@id/actionbarcontent"
+                android:background="@drawable/gradient_background"
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/actionbarcontent"
+                android:padding="16dp"
+                >
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     >
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="16dp"
-                        android:src="@drawable/activites_color"
-                        />
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="16dp"
+                        >
 
-                    <TextView
-                        style="@style/Medium16Navy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/activites_color"
+                            />
 
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="All Activities"
-                        />
-                </android.support.v7.widget.CardView>
+                        <TextView
+                            style="@style/Medium16Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="80dp"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:onClick="@{()->handler.onActivity()}"
+                            android:text="All Activities"
+                            />
+                    </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="16dp"
-                    >
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="16dp"
+                        >
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="16dp"
-                        android:src="@drawable/attendace"
-                        />
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/attendace"
+                            />
 
-                    <TextView
-                        style="@style/Medium16Navy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
+                        <TextView
+                            style="@style/Medium16Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="80dp"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:onClick="@{()->handler.onAttendance()}"
+                            android:text="Attendance"
+                            />
 
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="Attendance"
-                        />
-
-                </android.support.v7.widget.CardView>
-
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="16dp">
-
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="16dp"
-                        android:src="@drawable/payment"
-                        />
-
-                    <TextView
-                        style="@style/Medium16Navy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
-
-                        android:gravity="center"
-
-                        android:lines="1"
-                        android:text="Invoice &amp; Payment"
-                        />
+                    </android.support.v7.widget.CardView>
 
 
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="16dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="16dp"
-                        android:src="@drawable/home_work"
-                        />
-
-                    <TextView
-                        style="@style/Medium16Navy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
-
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="Homework"
-                        />
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="16dp">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="16dp">
 
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="16dp"
-                        android:src="@drawable/msg_noti"
-                        />
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/payment"
+                            />
 
-                    <TextView
-                        style="@style/Medium16Navy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
-
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="Message &amp; Notifcations"
-                        />
-
-                </android.support.v7.widget.CardView>
+                        <TextView
+                            style="@style/Medium16Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="80dp"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:onClick="@{()->handler.onInvoicePayment()}"
+                            android:text="Invoice &amp; Payment"
+                            />
 
 
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+                    </android.support.v7.widget.CardView>
 
-</FrameLayout>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="16dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/home_work"
+                            />
+
+                        <TextView
+                            style="@style/Medium16Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="80dp"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:onClick="@{()->handler.onHomework()}"
+                            android:text="Homework"
+                            />
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="16dp">
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/msg_noti"
+                            />
+
+                        <TextView
+                            style="@style/Medium16Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="80dp"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:onClick="@{()->handler.onMessageNotification()}"
+                            android:text="Message &amp; Notifcations"
+                            />
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </FrameLayout>
 </layout>

@@ -2,7 +2,6 @@ package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,26 +11,26 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.databinding.InvoiceCellPaymentBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by owner on 10/3/2017.
  */
 
-public class InvoiceListAdepter extends RecyclerView.Adapter<InvoiceListAdepter.viewHolder> {
+public class InvoiceListAdapter extends RecyclerView.Adapter<InvoiceListAdapter.viewHolder> {
     
     Activity activity;
-    List<Invoice> ldt;
+    List<Invoice> invoiceList = new ArrayList<>();
     InvoiceCellPaymentBinding mBinding;
-    AppCompatActivity apc;
     
-    public InvoiceListAdepter(Activity activity, List<Invoice> ldt) {
+    public InvoiceListAdapter(Activity activity, List<Invoice> invoiceList) {
         this.activity = activity;
-        this.ldt = ldt;
+        this.invoiceList = invoiceList;
     }
     
     @Override
-    public InvoiceListAdepter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public InvoiceListAdapter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // view = LayoutInflater.from(parent.getContext()).inflate(R.layout.invoice_cell, parent, false);
         
         mBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.invoice_cell_payment,
@@ -42,13 +41,13 @@ public class InvoiceListAdepter extends RecyclerView.Adapter<InvoiceListAdepter.
     }
     
     @Override
-    public void onBindViewHolder(InvoiceListAdepter.viewHolder holder, int position) {
-        mBinding.setInvoice(ldt.get(position));
+    public void onBindViewHolder(InvoiceListAdapter.viewHolder holder, int position) {
+        mBinding.setInvoice(invoiceList.get(position));
     }
     
     @Override
     public int getItemCount() {
-        return ldt.size();
+        return invoiceList.size();
     }
     
     class viewHolder extends RecyclerView.ViewHolder {

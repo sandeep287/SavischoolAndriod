@@ -1,47 +1,49 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.savitroday.savischools.view.fragment.InvoicePaymentFragment">
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.savitroday.savischools.view.fragment.InvoicePaymentFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/tosetbackground"
-    android:background="@drawable/gradient_background"
-    ></RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tosetbackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_background"
+            ></RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/actionbarcontent"
             android:layout_width="match_parent"
             android:layout_height="64dp"
 
             >
+
             <TextView
                 android:id="@+id/ProfileScreen_headerTitle"
-                android:textColor="@color/white"
-                android:textSize="17sp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="72dp"
-                android:gravity="center"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-
+                android:layout_marginLeft="72dp"
+                android:gravity="center"
                 android:text="Invoice &amp; Payment"
+                android:textColor="@color/white"
+
+                android:textSize="17sp"
                 />
+
             <ImageButton
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginLeft="16dp"
                 android:layout_centerVertical="true"
-                android:background="@drawable/back_arrow_icon"
+                android:layout_marginLeft="16dp"
                 android:layout_marginRight="32dp"
+                android:background="@drawable/back_arrow_icon"
                 />
-
-
 
 
             <ImageView
@@ -53,28 +55,32 @@
                 android:layout_marginRight="16dp"
                 android:src="@drawable/notification"/>
         </RelativeLayout>
+
         <TextView
+            android:id="@+id/hadingtotalamount"
+            style="@style/TextStyle3"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_below="@id/actionbarcontent"
             android:layout_marginTop="24dp"
-            android:id="@+id/hadingtotalamount"
-            android:text="Total Amount"
-            style="@style/TextStyle3"
             android:alpha="0.54"
             android:gravity="center"
+            android:text="Total Amount"
             />
+
         <TextView
+            android:id="@+id/totalamount"
+            style="@style/Bold60White"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Bold60White"
-            tools:text="$2300"
             android:layout_below="@id/hadingtotalamount"
-            android:id="@+id/totalamount"
-            android:gravity="center"
             android:layout_marginTop="3dp"
+            android:gravity="center"
+            tools:text="$2300"
             />
+
         <Button
+            android:id="@+id/paynow"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_below="@id/totalamount"
@@ -82,18 +88,18 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/turquois_round_corner"
             android:text="PAY NOW"
-            android:id="@+id/paynow"
             android:textColor="@color/white"
             android:textSize="14sp"
             />
+
         <android.support.design.widget.AppBarLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/paynow"
             android:layout_height="fill_parent"
+            android:layout_below="@+id/paynow"
+            android:layout_marginTop="16dp"
             android:background="@android:color/transparent"
             >
 
@@ -101,12 +107,12 @@
                 android:id="@+id/invoicepaymenttabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabMode="fixed"
-                app:tabTextColor="@color/white"
-                app:tabSelectedTextColor="@color/white__70"
                 app:tabGravity="fill"
                 app:tabIndicatorColor="@color/white__70"
                 app:tabIndicatorHeight="3dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/white__70"
+                app:tabTextColor="@color/white"
                 />
 
             <android.support.v4.view.ViewPager

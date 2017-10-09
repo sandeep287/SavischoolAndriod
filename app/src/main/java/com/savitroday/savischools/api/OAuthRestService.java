@@ -24,20 +24,20 @@ public interface OAuthRestService {
     
     
     @FormUrlEncoded
-    @POST("api/parent/CheckEmailForForgotPass")
+    @POST("api/account/CheckEmailForForgotPass")
     CustomCallAdapter.CustomCall<HashMap<String, String>> validateEmail(@Field("emailId") String emailId,
                                                                         @Field("schoolId") String schoolId);
     
     
     @FormUrlEncoded
-    @POST("api/parent/CheckOtpForForgotPass")
+    @POST("api/account/CheckOtpForForgotPass")
     CustomCallAdapter.CustomCall<HashMap<String, String>> verifyOtpCode(@Field("emailId") String emailId,
                                                                         @Field("schoolId") String schoolId,
                                                                         @Field("otp") int otp);
     
     
     @FormUrlEncoded
-    @POST("api/parent/ChangeForgotPass")
+    @POST("api/account/ChangeForgotPass")
     CustomCallAdapter.CustomCall<HashMap<String, String>> changePassword(@Field("emailId") String emailId,
                                                                          @Field("schoolId") String schoolId,
                                                                          @Field("otp") int otp,

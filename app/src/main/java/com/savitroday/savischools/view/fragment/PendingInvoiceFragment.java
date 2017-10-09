@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.adapter.InvoiceListAdepter;
+import com.savitroday.savischools.adapter.InvoiceListAdapter;
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.util.AlertUtil;
@@ -30,7 +30,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     View view;
     float totalAmount;
     RelativeLayout progressBar;
-    InvoiceListAdepter invoiceListAdepter;
+    InvoiceListAdapter invoiceListAdapter;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,25 +45,22 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         pendingInvoiceList.setLayoutManager(llm2);
         
+    
         getInvoiceData();
-        
-        invoiceListAdepter = new InvoiceListAdepter(getActivity(), invoiceList);
-        pendingInvoiceList.setAdapter(invoiceListAdepter);
         return view;
     }
     
     public void getInvoiceData() {
         progressBar.setVisibility(View.VISIBLE);
         
-        Log.e("chack", "1");
         invoiceManager.getInvoicesTask().continueWith((task -> {
             progressBar.setVisibility(View.INVISIBLE);
-            Log.e("chack", "2");
             if (task.getResult() != null) {
-                Log.e("chack", "3");
+                invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceList);
+                pendingInvoiceList.setAdapter(invoiceListAdapter);
                 invoiceList = invoiceManager.getPendingInvoices();
                 setAmount();
-                invoiceListAdepter.notifyDataSetChanged();
+                invoiceListAdapter.notifyDataSetChanged();
             } else {
                 Exception e = task.getError();
                 AlertUtil.showSnackbarWithMessage(e.getMessage(), view);

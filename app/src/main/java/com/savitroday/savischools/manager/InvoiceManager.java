@@ -51,10 +51,9 @@ public class InvoiceManager {
             taskList.add(task);
         } else {
             updateInProgress = true;
-            String parentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_STUDENT_ID);
+            String studentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_STUDENT_ID);
             String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-            Log.e("studentid","jhvhhhhhhhhhhhhhhhhhhhhhhh"+parentId);
-            userRestService.getInvoiceByStudent(schoolId, parentId).enqueue(new CustomCallAdapter
+            userRestService.getInvoiceByStudent(schoolId, studentId).enqueue(new CustomCallAdapter
                                                                                 .CustomCallback<List<Invoice>>() {
                 @Override
                 public void success(Response<List<Invoice>> response) {

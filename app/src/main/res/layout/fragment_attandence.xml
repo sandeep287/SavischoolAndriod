@@ -1,490 +1,517 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@color/white_two"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.savitroday.savischools.view.fragment.AttandenceFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.savitroday.savischools.view.fragment.AttendanceFragment">
 
-    <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="328dp"
-    android:layout_gravity="center_horizontal"
-    android:background="@drawable/gradient_background"
-    >
-</RelativeLayout>
+    <data>
+        <variable
+            name="handler"
+            type="com.savitroday.savischools.view.fragment.AttendanceFragment.Handler"/>
+    </data>
 
-    <RelativeLayout
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white_two">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="328dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/gradient_background"
+            />
 
         <RelativeLayout
-            android:id="@+id/actionbarcontent"
             android:layout_width="match_parent"
-            android:layout_height="64dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/ProfileScreen_headerTitle"
-                style="@style/Medium20White"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="72dp"
-                android:text="Attendance" />
-
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:layout_marginRight="32dp"
-                android:background="@drawable/back_arrow_icon" />
-
-
-            <ImageView
-                android:id="@+id/notification"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/notification" />
-        </RelativeLayout>
-
-        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-            android:id="@+id/attandencecalander"
-            android:layout_width="match_parent"
-            android:layout_height="199dp"
-              app:mcv_dateTextAppearance="@style/Bold10white"
-            app:mcv_tileSize="0dp"
-            app:mcv_arrowColor="@color/white"
-            app:mcv_headerTextAppearance="@style/Regular12White"
-            app:mcv_weekDayTextAppearance="@style/Normal10White"
-            android:layout_below="@id/actionbarcontent"
-            android:layout_margin="16dp"
-            android:scaleX="1" />
-
-        <RelativeLayout
-            android:id="@+id/datedetail"
-            android:layout_width="match_parent"
-            android:layout_height="68dp"
-            android:layout_below="@id/attandencecalander"
-            android:background="@color/turquoise">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/Regular12White"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Today" />
-
-                <TextView
-                    style="@style/Regular12White"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="17, Sep 2017" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="124dp"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/Regular12White"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:alpha=".78"
-                    android:gravity="right"
-                    android:lines="1"
-                    android:text="Check In" />
-
-                <TextView
-                    style="@style/Normal14White"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9:00 AM" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="82dp"
-                android:src="@drawable/time" />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="17dp"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-
-                >
-
-                <TextView
-                    style="@style/Regular12White"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:alpha=".78"
-                    android:gravity="right"
-                    android:lines="1"
-                    android:text="Check In" />
-
-                <TextView
-                    style="@style/Normal14White"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NOT YET" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/datedetail">
 
             <RelativeLayout
+                android:id="@+id/actionbarcontent"
+                android:layout_width="match_parent"
+                android:layout_height="64dp">
+
+                <TextView
+                    android:id="@+id/ProfileScreen_headerTitle"
+                    style="@style/Medium20White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="72dp"
+                    android:text="Attendance"/>
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginRight="32dp"
+                    android:background="@drawable/back_arrow_icon"
+                    android:onClick="@{()->handler.onBackPressed()}"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/notification"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/notification"/>
+            </RelativeLayout>
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/attandencecalander"
+                android:layout_width="match_parent"
+                android:layout_height="199dp"
+                android:layout_below="@id/actionbarcontent"
+                android:layout_margin="16dp"
+                android:scaleX="1"
+                app:mcv_arrowColor="@color/white"
+                app:mcv_dateTextAppearance="@style/Bold10white"
+                app:mcv_headerTextAppearance="@style/Regular12White"
+                app:mcv_tileSize="0dp"
+                app:mcv_weekDayTextAppearance="@style/Normal10White"/>
+
+            <RelativeLayout
+                android:id="@+id/datedetail"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_below="@id/attandencecalander"
+                android:background="@color/turquoise">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Regular12White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"/>
+
+                    <TextView
+                        style="@style/Regular12White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="17, Sep 2017"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="124dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Regular12White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alpha=".78"
+                        android:gravity="right"
+                        android:lines="1"
+                        android:text="Check In"/>
+
+                    <TextView
+                        style="@style/Normal14White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9:00 AM"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="82dp"
+                    android:src="@drawable/time"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="17dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+
+                    >
+
+                    <TextView
+                        style="@style/Regular12White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alpha=".78"
+                        android:gravity="right"
+                        android:lines="1"
+                        android:text="Check In"/>
+
+                    <TextView
+                        style="@style/Normal14White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NOT YET"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="56dp"
-                >
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/parentmetingdetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="4dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/turquoise" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="11.3dp"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                style="@style/Regular14Navy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:text="Parent meeting"
-
-
-                                />
-
-                            <TextView
-                                style="@style/Regular12Navy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:alpha=".54"
-
-                                tools:text="Today at 10:00 AM" />
-                        </LinearLayout>
-                    </RelativeLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/leavcard"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/parentmetingdetail"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="23dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="16dp"
-                            android:background="@drawable/neon_red_circle"
-
-                            />
-
-                        <TextView
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
-                            tools:text="Leaves" />
-
-                        <TextView
-                            style="@style/Medium12white"
-                            android:layout_width="53dp"
-                            android:layout_height="22dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="44dp"
-                            android:alpha=".80"
-                            android:background="@drawable/muted_blue_round_corner"
-                            android:gravity="center"
-                            android:text="2 Days" />
-
-                        <ImageButton
-                            android:layout_width="12dp"
-                            android:layout_height="9dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="16dp"
-                            android:alpha=".30"
-
-                            android:rotation="180" />
-                    </RelativeLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/leavarlycard"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/leavcard"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="12dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="16dp"
-                            android:background="@drawable/yellow_orange_circle"
-
-                            />
-
-                        <TextView
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
-                            tools:text="Leave Early" />
-
-                        <TextView
-                            style="@style/Medium12white"
-                            android:layout_width="53dp"
-                            android:layout_height="22dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="44dp"
-                            android:alpha=".80"
-                            android:background="@drawable/muted_blue_round_corner"
-                            android:gravity="center"
-                            android:text="2 Days" />
-
-                        <ImageButton
-                            android:layout_width="12dp"
-                            android:layout_height="9dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="16dp"
-                            android:alpha=".30"
-
-                            android:rotation="180" />
-                    </RelativeLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/leavarlycard"
-                    android:layout_marginLeft="16dp"
-                    android:id="@+id/holidayleavecard"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="12dp">
+                android:layout_below="@id/datedetail">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <View
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="16dp"
-                        android:background="@drawable/neon_blue_circle"
-
-                        />
-
-                    <TextView
-                        style="@style/Medium16Navy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="44dp"
-                        tools:text="Holiday Leaves" />
-
-                    <TextView
-                        style="@style/Medium12white"
-                        android:layout_width="53dp"
-                        android:layout_height="22dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="44dp"
-                        android:alpha=".80"
-                        android:background="@drawable/muted_blue_round_corner"
-                        android:gravity="center"
-                        android:text="2 Days" />
-
-                    <ImageButton
-                        android:layout_width="12dp"
-                        android:layout_height="9dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="16dp"
-                        android:alpha=".30"
-
-                        android:rotation="180" />
-                </RelativeLayout>
-</android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="39dp"
-                    android:layout_below="@id/holidayleavecard"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:id="@+id/upcomingtital"
-                    android:layout_marginTop="36dp"
-
+                    android:layout_height="match_parent"
+                    android:paddingBottom="56dp"
                     >
-                    <TextView
-                        style="@style/Medium14TurquoiseBlue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        tools:text="Upcoming "
-                        android:gravity="center"
-                        android:layout_marginLeft="16dp"
-                        />
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_below="@id/upcomingtital"
-                    >
-                    <RelativeLayout
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/parentmetingdetail"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <android.support.v7.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:id="@+id/upcoming_first_holiday"
-                            >
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="12dp"
-                            android:orientation="vertical"
-                            android:layout_centerVertical="true"
-                            >
-                            <TextView
-                            style="@style/Regular14Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            tools:text="Christmas Holidays"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp">
 
-                            />
-                            <TextView
-                                style="@style/Regular12Navy"
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <View
+                                android:layout_width="4dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/turquoise"/>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="10 May - 20 May 2017"
-                                />
-                        </LinearLayout>
-                                <View
-                                    android:layout_width="5dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_alignParentLeft="true"
-                                    android:background="@color/neon_blue"
-                                    />
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="11.3dp"
+                                android:orientation="vertical">
 
-                            </RelativeLayout>
 
-                        </android.support.v7.widget.CardView>
-                        <android.support.v7.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_below="@id/upcoming_first_holiday"
-
-                            >
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                                <LinearLayout
-                                    android:layout_width="match_parent"
+                                <TextView
+                                    style="@style/Regular14Navy"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
-                                    android:orientation="vertical"
-                                    android:layout_centerVertical="true"
-                                    >
-                                    <TextView
-                                        style="@style/Regular14Navy"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        tools:text="School Holiday"
+                                    tools:text="Parent meeting"
 
-                                        />
-                                    <TextView
-                                        style="@style/Regular12Navy"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        tools:text="29 Sep 2017"
-                                        />
-                                </LinearLayout>
-                                <View
-                                    android:layout_width="5dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_alignParentLeft="true"
-                                    android:background="@color/neon_blue"
+
                                     />
 
-                            </RelativeLayout>
+                                <TextView
+                                    style="@style/Regular12Navy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:alpha=".54"
 
-                        </android.support.v7.widget.CardView>
-                    </RelativeLayout>
+                                    tools:text="Today at 10:00 AM"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
 
-                </android.support.v7.widget.CardView>
-            </RelativeLayout>
-        </ScrollView>
-    </RelativeLayout>
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/leavcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/parentmetingdetail"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="23dp">
 
-</FrameLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:background="@drawable/neon_red_circle"
+
+                                />
+
+                            <TextView
+                                style="@style/Medium16Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="44dp"
+                                tools:text="Leaves"/>
+
+                            <TextView
+                                style="@style/Medium12white"
+                                android:layout_width="53dp"
+                                android:layout_height="22dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="44dp"
+                                android:alpha=".80"
+                                android:background="@drawable/muted_blue_round_corner"
+                                android:gravity="center"
+                                android:text="2 Days"/>
+
+                            <ImageButton
+                                android:layout_width="12dp"
+                                android:layout_height="9dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:alpha=".30"
+
+                                android:rotation="180"/>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/leavarlycard"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/leavcard"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:background="@drawable/yellow_orange_circle"
+
+                                />
+
+                            <TextView
+                                style="@style/Medium16Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="44dp"
+                                tools:text="Leave Early"/>
+
+                            <TextView
+                                style="@style/Medium12white"
+                                android:layout_width="53dp"
+                                android:layout_height="22dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="44dp"
+                                android:alpha=".80"
+                                android:background="@drawable/muted_blue_round_corner"
+                                android:gravity="center"
+                                android:text="2 Days"/>
+
+                            <ImageButton
+                                android:layout_width="12dp"
+                                android:layout_height="9dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:alpha=".30"
+
+                                android:rotation="180"/>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/holidayleavecard"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/leavarlycard"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:background="@drawable/neon_blue_circle"
+
+                                />
+
+                            <TextView
+                                style="@style/Medium16Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="44dp"
+                                tools:text="Holiday Leaves"/>
+
+                            <TextView
+                                style="@style/Medium12white"
+                                android:layout_width="53dp"
+                                android:layout_height="22dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="44dp"
+                                android:alpha=".80"
+                                android:background="@drawable/muted_blue_round_corner"
+                                android:gravity="center"
+                                android:text="2 Days"/>
+
+                            <ImageButton
+                                android:layout_width="12dp"
+                                android:layout_height="9dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:alpha=".30"
+
+                                android:rotation="180"/>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/upcomingtital"
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp"
+                        android:layout_below="@id/holidayleavecard"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="36dp"
+
+                        >
+
+                        <TextView
+                            style="@style/Medium14TurquoiseBlue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="16dp"
+                            android:gravity="center"
+                            tools:text="Upcoming "
+                            />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_below="@id/upcomingtital"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/upcoming_first_holiday"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="12dp"
+                                        android:orientation="vertical"
+                                        >
+
+                                        <TextView
+                                            style="@style/Regular14Navy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            tools:text="Christmas Holidays"
+
+                                            />
+
+                                        <TextView
+                                            style="@style/Regular12Navy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            tools:text="10 May - 20 May 2017"
+                                            />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="5dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentLeft="true"
+                                        android:background="@color/neon_blue"
+                                        />
+
+                                </RelativeLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_below="@id/upcoming_first_holiday"
+
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="12dp"
+                                        android:orientation="vertical"
+                                        >
+
+                                        <TextView
+                                            style="@style/Regular14Navy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            tools:text="School Holiday"
+
+                                            />
+
+                                        <TextView
+                                            style="@style/Regular12Navy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            tools:text="29 Sep 2017"
+                                            />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="5dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentLeft="true"
+                                        android:background="@color/neon_blue"
+                                        />
+
+                                </RelativeLayout>
+
+                            </android.support.v7.widget.CardView>
+                        </RelativeLayout>
+
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>
