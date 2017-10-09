@@ -107,13 +107,13 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 else
                 {
                     //todo : push Invoice fragmnt
-                    Invoice invoice = (Invoice) dashboardAdapter.getChild(groupPosition,childPosition);
-    
-                    FragmentManager manager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = manager.beginTransaction();
-                    transaction.add(R.id.flFragments, new PendingInvoiceFragment());
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+//                    Invoice invoice = (Invoice) dashboardAdapter.getChild(groupPosition,childPosition);
+//
+//                    FragmentManager manager = getActivity().getSupportFragmentManager();
+//                    FragmentTransaction transaction = manager.beginTransaction();
+//                    transaction.add(R.id.flFragments, new PendingInvoiceFragment());
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
                 }
                 
                 return false;
@@ -133,11 +133,11 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 else
                 {
                     //todo : push Invoice fragmnt
-                    FragmentManager manager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = manager.beginTransaction();
-                    transaction.add(R.id.flFragments, new PendingInvoiceFragment());
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+//                    FragmentManager manager = getActivity().getSupportFragmentManager();
+//                    FragmentTransaction transaction = manager.beginTransaction();
+//                    transaction.add(R.id.flFragments, new PendingInvoiceFragment());
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
                 }
                 return true;
             }

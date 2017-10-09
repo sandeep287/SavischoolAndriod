@@ -46,7 +46,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         pendingInvoiceList.setLayoutManager(llm2);
         
     
-        getInvoiceData();
+       // getInvoiceData();
         return view;
     }
     
