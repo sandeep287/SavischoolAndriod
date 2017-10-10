@@ -19,6 +19,7 @@ import com.savitroday.savischools.view.fragment.HistoryInvoiceFragment;
 import com.savitroday.savischools.view.fragment.MessagesFragment;
 import com.savitroday.savischools.view.fragment.NotificationFragment;
 
+import com.savitroday.savischools.view.fragment.ParentProfileFragment;
 import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
 
 import javax.inject.Singleton;
@@ -41,7 +42,7 @@ public interface AppComponent {
     void inject(MessagesFragment messagesFragment);
     void inject(NotificationFragment notificationFragment);
     void inject(RestHelper restHelper);
-    
+    void inject(ParentProfileFragment parentProfileFragment);
     void inject(MainActivity mainActivity);
     
     void inject(LoginActivity loginActivity);
@@ -52,6 +53,7 @@ public interface AppComponent {
     void inject(PendingInvoiceFragment pendingInvoiceFragment);
     
     DashboardManager dashboardManager();
+
     
     MyProfileManager profileManager();
     

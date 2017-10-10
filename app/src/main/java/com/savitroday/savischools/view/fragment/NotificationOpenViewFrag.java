@@ -29,5 +29,9 @@ public class NotificationOpenViewFrag extends Fragment {
         mBindings.setMessage(message);
         return mBindings.getRoot();
     }
-    
+    public class Handler {
+        public void onBackPressed() {
+            getActivity().onBackPressed();
+        }
+    }
 }

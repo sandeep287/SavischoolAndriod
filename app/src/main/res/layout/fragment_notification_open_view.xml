@@ -4,6 +4,9 @@
     >
     <data>
         <variable
+            name="handler"
+            type="com.savitroday.savischools.view.fragment.NotificationOpenViewFrag.Handler"/>
+        <variable
             name="message"
             type="com.savitroday.savischools.api.response.Message"></variable>
     </data>
@@ -38,7 +41,8 @@
                     android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/back_arrow_icon"
-                    android:onClick="onBackbutton"
+
+                    android:onClick="@{()->handler.onBackPressed()}"
                     android:layout_marginRight="32dp"
                     />
 

@@ -7,6 +7,14 @@ package com.savitroday.savischools.api.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class ParentProfile {
     
     @SerializedName("parentId")
@@ -23,7 +31,7 @@ public class ParentProfile {
     public String firstName;
     @SerializedName("middleName")
     @Expose
-    public Object middleName;
+    public String middleName;
     @SerializedName("lastName")
     @Expose
     public String lastName;
@@ -60,7 +68,20 @@ public class ParentProfile {
     @SerializedName("emailAddress")
     @Expose
     public String emailAddress;
-    
+    public String getName()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (String s : Arrays.asList(firstName,middleName,lastName)) {
+            if (s != null) {
+                sb.append(s).append(' ');
+            }
+        }
+        String itemList = sb.toString();
+           return itemList;
+                   //(firstName + " " + middleName + " " + lastName);
+    }
+
+
 }
 
 

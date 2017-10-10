@@ -6,6 +6,7 @@
     <color name="translucent">#80FFFFFF</color>
 
     <!--App style defined-->
+    <color name="white__15">#26ffffff</color>
     <color name="neon_blue">#00e1ff</color>
     <color name="neon_red">#fe1643</color>
     <color name="blue_green">#1299a1</color>

@@ -20,8 +20,8 @@ import com.savitroday.savischools.di.module.AppModule;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
 
+import dagger.internal.DaggerCollections;
 import io.fabric.sdk.android.Fabric;
-
 
 /**
  * Application class for our application.
@@ -47,6 +47,7 @@ public class MyApplication extends Application {
         super.onCreate();
         
         appContext = getApplicationContext();
+
         appComponent = DaggerAppComponent.builder()
                                .appModule(new AppModule(this))
                                .build();

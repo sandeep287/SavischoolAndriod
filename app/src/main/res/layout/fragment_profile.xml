@@ -3,6 +3,9 @@
         tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
 
     <data>
+        <variable
+            name="handler"
+            type="com.savitroday.savischools.view.fragment.ProfileFragment.Handler"/>
 
         <variable
             name="student"
@@ -41,6 +44,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="16dp"
+                android:onClick="@{()->handler.onBackPressed()}"
                 android:layout_marginRight="32dp"
                 android:background="@drawable/back_arrow_icon"
                 />
@@ -53,6 +57,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="16dp"
+                android:onClick="@{()->handler.onNotificationTap()}"
+
                 android:src="@drawable/notification"/>
         </RelativeLayout>
 

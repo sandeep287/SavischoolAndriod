@@ -5,6 +5,10 @@
         <variable
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
+        <variable
+            name="handler"
+            type="com.savitroday.savischools.view.fragment.MakePaymentFragment.Handler"/>
+
     </data>
 <FrameLayout
     android:layout_width="match_parent"
@@ -41,6 +45,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="32dp"
+                android:onClick="@{()->handler.onBackPressed()}"
                 android:background="@drawable/back_arrow_icon" />
 
 

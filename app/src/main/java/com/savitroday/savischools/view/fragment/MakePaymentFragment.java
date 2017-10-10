@@ -43,6 +43,7 @@ RecyclerView paymentlist;
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_make_payment, container, false);
+        mBinding.setHandler(new Handler());
        //view = inflater.inflate(R.layout.fragment_make_payment, container, false);
         paymentlist=(RecyclerView)view.findViewById(R.id.paymentlist);
         LinearLayoutManager llm2 = new LinearLayoutManager((MainActivity)getActivity());
@@ -83,5 +84,11 @@ RecyclerView paymentlist;
     @Override
     public void didReceivedEvent(int id, Object... args) {
         getInvoiceData();
+    }
+    public class Handler
+    {
+        public void onBackPressed(){
+            getActivity().onBackPressed();
+        }
     }
 }
