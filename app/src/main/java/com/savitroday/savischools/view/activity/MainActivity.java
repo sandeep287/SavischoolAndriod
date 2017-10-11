@@ -10,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -25,6 +24,7 @@ import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.CategoryFragment;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
+import com.savitroday.savischools.view.fragment.ParentProfileFragment;
 
 import java.util.List;
 
@@ -76,7 +76,8 @@ public class MainActivity extends AppCompatActivity
         
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(this);
-        
+        Button profileButton = (Button) findViewById(R.id.profile_button);
+        profileButton.setOnClickListener(this);
         ImageButton category = (ImageButton) findViewById(R.id.categoryButton);
         category.setOnClickListener(this);
         ImageButton activities = (ImageButton) findViewById(R.id.activityButton);
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     
-    void addDashboard(){
+    void addDashboard() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.flFragments, new DashboardFragment());
@@ -125,15 +126,20 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-        }
-        else if(view.getId() == R.id.categoryButton) {
+        } else if (view.getId() == R.id.profile_button) {
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, new ParentProfileFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (view.getId() == R.id.categoryButton) {
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, new CategoryFragment());
             transaction.addToBackStack(null);
             transaction.commit();
-        }
-        else if(view.getId() == R.id.activityButton) {
+        } else if (view.getId() == R.id.activityButton) {
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, new InvoicePaymentFragment());

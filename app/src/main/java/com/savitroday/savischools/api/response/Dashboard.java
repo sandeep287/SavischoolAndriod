@@ -14,12 +14,24 @@ import java.util.List;
 
 public class Dashboard {
     
-    @SerializedName("SchoolId")
+    @SerializedName("schoolId")
     @Expose
     public Integer schoolId;
-    @SerializedName("ParentId")
+    @SerializedName("parentId")
     @Expose
     public String parentId;
+    @SerializedName("userId")
+    @Expose
+    public String userId;
+    @SerializedName("parentName")
+    @Expose
+    public String parentName;
+    @SerializedName("totalMessagesNotification")
+    @Expose
+    public Integer totalMessagesNotification;
+    @SerializedName("unreadMessagesNotification")
+    @Expose
+    public Integer unreadMessagesNotification;
     @SerializedName("ListStudentModel")
     @Expose
     public List<Student> listStudentModel = null;
