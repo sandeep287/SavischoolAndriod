@@ -9,6 +9,7 @@
     <color name="white__15">#26ffffff</color>
     <color name="neon_blue">#00e1ff</color>
     <color name="neon_red">#fe1643</color>
+    <color name="pinky_red">#ff1744</color>
     <color name="blue_green">#1299a1</color>
     <color name="white">#ffffff</color>
     <color name="yellow_orange">#ffb700</color>
@@ -39,7 +40,6 @@
     <color name="navy">#032a45</color>
     <color name="twilight_blue_three">#08568b</color>
     <color name="muted_blue">#3977a2</color>
-    <color name="pinky_red">#ff1744</color>
     <color name="navy_two">#021e47</color>
 
     <color name="sea_blue">#085b8c</color>

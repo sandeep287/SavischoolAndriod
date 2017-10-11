@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+android:background="@color/white_two"
+    >
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/time_black"
+     android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        />
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginLeft="56dp"
+       >
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+
+           >
+       <TextView
+           style="@style/Regular14Navy"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           tools:text="Breakfast"
+           android:id="@+id/tital"
+           />
+           <ImageView
+               android:layout_width="12dp"
+               android:layout_height="12dp"
+               android:layout_alignParentRight="true"
+               android:layout_marginRight="63dp"
+               android:background="@drawable/time_black"
+               />
+           <TextView
+               style="@style/Regular10Navy"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               tools:text="09:00 AM"
+               android:layout_marginRight="16dp"
+               android:layout_alignParentRight="true"
+               />
+           <TextView
+               style="@style/Regular14Navy"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/tital"
+               tools:text="2 eggs with a glass of milk was served."
+               />
+       </RelativeLayout>
+
+   </RelativeLayout>
+
+</RelativeLayout>

@@ -23,6 +23,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/background_image"
             android:elevation="8dp"
+
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -30,7 +31,7 @@
                 android:id="@+id/titleBar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginRight="@dimen/header_homescreen_horizontal_margin">
+                android:paddingRight="@dimen/header_homescreen_horizontal_margin">
 
                 <TextView
                     android:id="@+id/homeScreen_headerTitle"
@@ -47,10 +48,24 @@
                     android:id="@+id/notification"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_marginRight="16dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/notification"
                     android:onClick="@{()->handler.onNotificationTap()}"
+                    />
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/pinkred_budge"
+                    android:layout_alignParentTop="true"
+                    tools:text="10"
+                    android:id="@+id/notification_budge"
+                    style="@style/Bold5White"
+                    android:gravity="center"
+                    android:layout_marginRight="17dp"
+                    android:layout_marginTop="18dp"
                     />
 
             </RelativeLayout>

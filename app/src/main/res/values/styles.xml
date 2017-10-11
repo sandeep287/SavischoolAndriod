@@ -8,6 +8,14 @@
         <item name="colorPrimaryDark">@color/turquoise</item>
         <item name="colorAccent">@color/white</item>
     </style>
+
+    <style name="Regular14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
     <style name="TextStyle4">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -108,6 +116,13 @@
     <style name="Bold60White">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">60sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Bold5White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">5sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>

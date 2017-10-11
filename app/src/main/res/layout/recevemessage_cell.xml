@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="message"
+            type="com.savitroday.savischools.api.response.Message"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/sendmessage"
+        >
+        <android.support.v4.widget.CircleImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/profile_img"
+            android:layout_gravity="bottom|left"
+
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/receivmessagecorner"
+                style="@style/Regular14Navy"
+                android:id="@+id/textmessage"
+                android:text='@{ message.message}'
+                tools:text="Thank alot, we’ll love to come there and enjoy this beautiful day!"
+                />
+            <TextView
+                style="@style/Regular10Navy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:alpha=".54"
+                android:text="@{message.getCreatedOn()}"
+                tools:text="02:20 AM"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
