@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Student {
@@ -38,7 +39,7 @@ public class Student {
     @SerializedName("motherid")
     @Expose
     public String motherid;
-
+    
     @SerializedName("motherPhone")
     @Expose
     public String motherPhone;
@@ -92,17 +93,29 @@ public class Student {
     public Date checkout;
     @SerializedName("gender")
     @Expose
-    public Object gender;
+    public String gender;
     @SerializedName("bloodGroup")
     @Expose
-    public Object bloodGroup;
+    public String bloodGroup;
     
     public Student(String studentName) {
         this.studentName = studentName;
     }
     
-    public String getDateOfBirth(){
+    public String getDateOfBirth() {
         return new SimpleDateFormat("dd MMM yyyy").format(dateOfBirth);
+    }
+    
+    public String getAddress() {
+        StringBuilder sb = new StringBuilder();
+        for (String s : Arrays.asList(addressLine1, addressLine2, postCode)) {
+            if (s != null) {
+                sb.append(s).append(' ');
+            }
+        }
+        String itemList = sb.toString();
+        return itemList;
+        //(firstName + " " + middleName + " " + lastName);
     }
     
 }

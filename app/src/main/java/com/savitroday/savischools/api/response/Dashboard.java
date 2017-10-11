@@ -17,21 +17,57 @@ public class Dashboard {
     @SerializedName("schoolId")
     @Expose
     public Integer schoolId;
-    @SerializedName("parentId")
-    @Expose
-    public String parentId;
     @SerializedName("userId")
     @Expose
     public String userId;
+    @SerializedName("parentId")
+    @Expose
+    public String parentId;
     @SerializedName("parentName")
     @Expose
     public String parentName;
+    @SerializedName("gender")
+    @Expose
+    public String gender;
+    @SerializedName("phone")
+    @Expose
+    public String phone;
+    @SerializedName("emailId")
+    @Expose
+    public String emailId;
+    @SerializedName("countryName")
+    @Expose
+    public String countryName;
+    @SerializedName("stateName")
+    @Expose
+    public String stateName;
+    @SerializedName("city")
+    @Expose
+    public String city;
+    @SerializedName("address")
+    @Expose
+    public String address;
+    @SerializedName("postCode")
+    @Expose
+    public String postCode;
     @SerializedName("totalMessagesNotification")
     @Expose
-    public Integer totalMessagesNotification;
+    public int totalMessagesNotification;
     @SerializedName("unreadMessagesNotification")
     @Expose
-    public Integer unreadMessagesNotification;
+    public int unreadMessagesNotification;
+    @SerializedName("onlinePaymentIsAllow")
+    @Expose
+    public boolean onlinePaymentIsAllow;
+    @SerializedName("nameOfGateway")
+    @Expose
+    public String nameOfGateway;
+    @SerializedName("gatewayKey")
+    @Expose
+    public String gatewayKey;
+    @SerializedName("gatewaySalt")
+    @Expose
+    public String gatewaySalt;
     @SerializedName("ListStudentModel")
     @Expose
     public List<Student> listStudentModel = null;
@@ -82,6 +118,21 @@ public class Dashboard {
         else
             date += "NOT YET";
         return date;
+    }
+    
+    public ParentProfile getParentProfile(){
+        ParentProfile profile = new ParentProfile();
+        profile.parentId = parentId;
+        profile.firstName = parentName;
+        profile.gender = gender;
+        profile.phone1 = phone;
+        profile.emailAddress = emailId;
+        profile.countryName = countryName;
+        profile.stateName = stateName;
+        profile.city = city;
+        profile.addressLine1 = address;
+        profile.postCode = postCode;
+        return profile;
     }
     
 }

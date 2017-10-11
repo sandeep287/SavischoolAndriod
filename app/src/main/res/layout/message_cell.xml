@@ -8,9 +8,10 @@
         <variable
             name="message"
             type="com.savitroday.savischools.api.response.Message"/>
+
         <variable
             name="handler"
-            type="com.savitroday.savischools.adapter.NotificationAdapter.Handler" />
+            type="com.savitroday.savischools.adapter.NotificationAdapter.Handler"/>
     </data>
 
     <RelativeLayout
@@ -40,14 +41,24 @@
             tools:text="4:10 AM"
             />
 
+        <ImageView
+            android:id="@+id/time_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/timeTextview"
+            android:src="@drawable/time_black"
+            android:layout_marginRight="4dp"
+            />
+
         <View
             android:id="@+id/seperator"
             android:layout_width="1dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@id/timeTextview"
+            android:layout_toLeftOf="@id/time_icon"
             android:background="@color/white_three"
             />
 

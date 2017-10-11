@@ -15,7 +15,6 @@
     </data>
 
     <FrameLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -105,30 +104,25 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:orientation="vertical"
-                    android:scrollbars="vertical"
-
-                    >
+                    android:scrollbars="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:orientation="horizontal"
-
-
-                        >
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="32dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="36dp"
-                            android:src="@drawable/dob"
+                            android:src="@drawable/username_black"
                             />
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="68dp"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:paddingLeft="24dp"
                             >
@@ -139,18 +133,15 @@
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
-                                android:text="Parent Id"
+                                android:text="Email Id"
                                 />
 
                             <TextView
-
                                 style="@style/Medium16Black"
                                 android:layout_width="wrap_content"
                                 android:layout_height="22dp"
-                                android:inputType="date"
-                                android:letterSpacing="0.02"
-                                android:text="@{parent.parentId}"
-                                tools:text="ddsjvnskjnvdlskvnldkvsndlkvsnvlk"/>
+                                android:text="@{parent.emailAddress}"
+                                tools:text="test@test.com"/>
 
                             <View
                                 android:layout_width="match_parent"
@@ -165,18 +156,15 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
-                        android:orientation="horizontal"
-
-
-                        >
+                        android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="32dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="36dp"
-
+                            android:src="@drawable/username_black"
                             />
 
                         <LinearLayout
@@ -218,10 +206,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
-                        android:orientation="horizontal"
-
-
-                        >
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="24dp"
@@ -270,10 +255,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-
-
-                        >
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="24dp"
@@ -304,9 +286,7 @@
                                 android:id="@+id/childrenlist"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                >
-
-                            </android.support.v7.widget.RecyclerView>
+                                />
 
                             <View
                                 android:layout_width="match_parent"
@@ -320,15 +300,13 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="68dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:orientation="horizontal"
-
-                        >
+                        android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="32dp"
                             android:layout_marginRight="16dp"
                             android:src="@drawable/addres"
@@ -336,8 +314,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="68dp"
-
+                            android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:paddingLeft="20dp"
                             >
@@ -348,9 +325,7 @@
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="15dp"
-                                android:text="ADDRESS"
-
-                                />
+                                android:text="ADDRESS"/>
 
                             <TextView
                                 android:id="@+id/staddress"
@@ -358,10 +333,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:letterSpacing="0.02"
-                                android:text="@{parent.addressLine1}"
-                                tools:text="738Block Suite"
-
-                                />
+                                android:text="@{parent.getAddress()}"
+                                tools:text="738Block Suite"/>
 
                             <View
                                 android:layout_width="match_parent"

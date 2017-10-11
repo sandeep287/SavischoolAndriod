@@ -7,13 +7,7 @@ package com.savitroday.savischools.api.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ParentProfile {
     
@@ -58,7 +52,7 @@ public class ParentProfile {
     public String addressLine1;
     @SerializedName("adressLine2")
     @Expose
-    public Object adressLine2;
+    public String adressLine2;
     @SerializedName("postCode")
     @Expose
     public String postCode;
@@ -68,20 +62,32 @@ public class ParentProfile {
     @SerializedName("emailAddress")
     @Expose
     public String emailAddress;
-    public String getName()
-    {
+    
+    
+    public String getName() {
         StringBuilder sb = new StringBuilder();
-        for (String s : Arrays.asList(firstName,middleName,lastName)) {
+        for (String s : Arrays.asList(firstName, middleName, lastName)) {
             if (s != null) {
                 sb.append(s).append(' ');
             }
         }
         String itemList = sb.toString();
-           return itemList;
-                   //(firstName + " " + middleName + " " + lastName);
+        return itemList;
+        //(firstName + " " + middleName + " " + lastName);
     }
-
-
+    
+    public String getAddress() {
+        StringBuilder sb = new StringBuilder();
+        for (String s : Arrays.asList(addressLine1, adressLine2, city,stateName,countryName ,postCode)) {
+            if (s != null) {
+                sb.append(s).append(' ');
+            }
+        }
+        String itemList = sb.toString();
+        return itemList;
+    }
+    
+    
 }
 
 

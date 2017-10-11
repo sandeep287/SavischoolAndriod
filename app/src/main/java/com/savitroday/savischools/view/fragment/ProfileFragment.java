@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.databinding.FragmentProfileBinding;
+import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
     
@@ -29,6 +30,10 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
         mBindings.setStudent(student);
+        Picasso.with(getContext())
+                .load(student.iconMediaPath)
+                .placeholder(R.drawable.profile_img)
+                .into(mBindings.studentImageview);
         mBindings.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,20 +42,21 @@ public class ProfileFragment extends Fragment {
         });
         return mBindings.getRoot();
     }
-    public class Handler
-    {
-        public void onBackPressed(){
+    
+    public class Handler {
+        public void onBackPressed() {
             getActivity().onBackPressed();
         }
+        
         public void onNotificationTap() {
-            Fragment fragment =new  NotificationMessageTabFragment();
+            Fragment fragment = new NotificationMessageTabFragment();
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, fragment);
             transaction.addToBackStack(null);
             transaction.commit();
         }
-
+        
     }
     
 }

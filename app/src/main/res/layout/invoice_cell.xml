@@ -31,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="May"
+                android:textAllCaps="true"
                 android:text="@{invoice.getMonth()}"
                 />
 
@@ -110,7 +111,7 @@
                 android:layout_gravity="end"
                 />
 
-            <TextView
+            <TextView android:id="@+id/paynow_button"
                 style="@style/Semibold10White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

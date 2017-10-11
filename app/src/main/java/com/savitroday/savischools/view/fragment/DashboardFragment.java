@@ -65,7 +65,8 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 dashboard = (Dashboard) task.getResult();
                 mBindings.setDashboard(dashboard);
                 dashboardAdapter = new DashboardAdapter(getContext(), dashboard.listStudentInvoiceModel,
-                                                               dashboard.listSchoolMessagesModel);
+                                                               dashboard.listSchoolMessagesModel, dashboard
+                                                                                                          .onlinePaymentIsAllow);
                 mBindings.listView.setAdapter(dashboardAdapter);
                 mBindings.listView.expandGroup(0);
                 mBindings.listView.expandGroup(1);
@@ -87,7 +88,12 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
     
     void setBadgeCount() {
         int count = dashboard.unreadMessagesNotification;
-        //todo : create badge on icon bell
+        if (count > 0) {
+            mBindings.notificationBadge.setText("" + count);
+            mBindings.notificationBadge.setVisibility(View.VISIBLE);
+        } else {
+            mBindings.notificationBadge.setVisibility(View.GONE);
+        }
     }
     
     void setListClicks() {
@@ -143,6 +149,7 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
     
     void setNavDrawer() {
         ((MainActivity) getActivity()).setNavigationList(dashboard.listStudentModel);
+        ((MainActivity) getActivity()).setProfileButtonText(dashboard.parentName);
     }
     
     @Override

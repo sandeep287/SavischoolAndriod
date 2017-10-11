@@ -24,11 +24,13 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     private Context context;
     List<Invoice> invoiceList;
     List<Message> messageList;
+    boolean onlinePaymentIsAllow;
     
-    public DashboardAdapter(Context context, List<Invoice> invoiceList, List<Message> messageList) {
+    public DashboardAdapter(Context context, List<Invoice> invoiceList, List<Message> messageList, boolean onlinePaymentIsAllow) {
         this.context = context;
         this.invoiceList = invoiceList;
         this.messageList = messageList;
+        this.onlinePaymentIsAllow = onlinePaymentIsAllow;
     }
     
     
@@ -115,10 +117,12 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             
             InvoiceCellBinding binding = InvoiceCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                     viewGroup, false);
-            
-            
             binding.setInvoice(invoice);
-            
+            if (onlinePaymentIsAllow) {
+                binding.paynowButton.setVisibility(View.VISIBLE);
+            } else {
+                binding.paynowButton.setVisibility(View.GONE);
+            }
             binding.executePendingBindings();
             
             return binding.getRoot();
