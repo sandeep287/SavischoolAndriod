@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
@@ -34,7 +33,7 @@
             android:layout_marginBottom="48dp"
             android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/usernamesmall"
+            android:drawableLeft="@drawable/username"
             android:drawablePadding="15dp"
             android:gravity="left|center_vertical"
             android:text="fazurrehman "

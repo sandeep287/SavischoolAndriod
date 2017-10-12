@@ -11,18 +11,19 @@
             type="com.savitroday.savischools.api.response.Student"/>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <TextView
             style="@style/Medium16Navy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_height="wrap_content"
             android:text="@{student.studentName}"
             tools:text="Amit goyal"
+            android:layout_centerVertical="true"
             />
-    </LinearLayout>
+    </RelativeLayout>
 </layout>
