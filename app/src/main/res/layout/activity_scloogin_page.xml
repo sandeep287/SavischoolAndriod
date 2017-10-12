@@ -10,16 +10,16 @@
                 tools:context="com.savitroday.savischools.view.activity.LoginActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         >
 
 
         <ImageView
-            android:id="@+id/top"
-            android:layout_width="100dp"
-            android:layout_height="16.5dp"
+            android:id="@+id/daycaretital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
              android:layout_marginBottom="10dp"
@@ -32,19 +32,22 @@
            android:layout_height="wrap_content"
            style="@style/Light14White"
            android:layout_marginBottom="87dp"
-           android:layout_below="@id/top"
-           android:id="@+id/top2"
+           android:layout_below="@id/daycaretital"
+           android:id="@+id/signinital"
            android:text="Sign in to the school"
            android:gravity="center"
            />
         <LinearLayout
-           android:id="@+id/top3"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/top2"
-            android:orientation="vertical"
+            android:layout_below="@+id/signinital"
+            android:id="@+id/signindetail"
             android:layout_marginLeft="36dp"
             android:layout_marginRight="36dp"
+            android:orientation="vertical"
+
+
             >
 
 
@@ -177,7 +180,7 @@
             android:id="@+id/loginbtn"
             android:layout_width="280dp"
             android:layout_height="57dp"
-            android:layout_below="@id/top3"
+            android:layout_below="@id/signindetail"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="48dp"
@@ -188,14 +191,15 @@
             />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
             style="@style/Regular12White"
-            android:layout_below="@id/loginbtn"
-            android:layout_marginTop="57dp"
-            android:gravity="center"
-            android:alpha=".54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Forget Password?"
+            android:alpha=".54"
+            android:layout_below="@id/loginbtn"
+            android:layout_centerHorizontal="true"
+  android:layout_marginTop="57dp"
+            android:layout_marginBottom="24dp"
             />
 
     </RelativeLayout>

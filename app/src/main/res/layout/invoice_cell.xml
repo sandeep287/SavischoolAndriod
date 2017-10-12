@@ -111,7 +111,7 @@
                 android:layout_gravity="end"
                 />
 
-            <TextView android:id="@+id/paynow_button"
+            <TextView android:id="@+id/paynowButton"
                 style="@style/Semibold10White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

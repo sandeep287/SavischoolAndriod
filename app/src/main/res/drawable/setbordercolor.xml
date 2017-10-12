@@ -6,6 +6,6 @@
     android:insetTop="-3dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <shape xmlns:android="http://schemas.android.com/apk/res/android">
-        <stroke android:color="#ffffff" android:width="2dp" android:dashGap="10dp"/>
+        <stroke android:color="@color/white" android:width="2dp" android:dashGap="10dp"/>
     </shape>
 </inset>
