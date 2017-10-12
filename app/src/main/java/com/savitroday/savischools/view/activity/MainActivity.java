@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity
         profileButton = (Button) findViewById(R.id.profile_button);
         profileButton.setOnClickListener(this);
         ImageButton category = (ImageButton) findViewById(R.id.categoryButton);
-        category.setOnClickListener(this);
+        //category.setOnClickListener(this);
         ImageButton activities = (ImageButton) findViewById(R.id.activityButton);
-        activities.setOnClickListener(this);
+       // activities.setOnClickListener(this);
         addDashboard();
     }
     

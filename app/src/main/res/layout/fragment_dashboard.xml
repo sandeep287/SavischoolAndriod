@@ -69,6 +69,7 @@
                     android:background="@drawable/pinkred_budge"
                     android:gravity="center"
                     tools:text="5"
+                    android:visibility="gone"
                     />
 
             </RelativeLayout>

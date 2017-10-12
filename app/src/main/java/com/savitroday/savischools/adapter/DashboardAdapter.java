@@ -118,9 +118,17 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             InvoiceCellBinding binding = InvoiceCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                     viewGroup, false);
             binding.setInvoice(invoice);
-            if (onlinePaymentIsAllow) {
+            if(invoice.status.equalsIgnoreCase("Pending")) {
                 binding.paynowButton.setVisibility(View.VISIBLE);
-            } else {
+                if (onlinePaymentIsAllow) {
+                    binding.paynowButton.setBackgroundResource(R.drawable.blue_rounded_background);
+                    binding.paynowButton.setClickable(true);
+                } else {
+                    binding.paynowButton.setBackgroundResource(R.drawable.cool_grey_rounded_background);
+                    binding.paynowButton.setClickable(false);
+                }
+            }
+            else if (invoice.status.equalsIgnoreCase("Paid")){
                 binding.paynowButton.setVisibility(View.GONE);
             }
             binding.executePendingBindings();

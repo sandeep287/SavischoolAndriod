@@ -105,11 +105,11 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 if (groupPosition == 0) {
                     Message message = (Message) dashboardAdapter.getChild(groupPosition, childPosition);
                     
-                    FragmentManager manager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = manager.beginTransaction();
-                    transaction.add(R.id.flFragments, NotificationMessageTabFragment.getInstance(message));
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+//                    FragmentManager manager = getActivity().getSupportFragmentManager();
+//                    FragmentTransaction transaction = manager.beginTransaction();
+//                    transaction.add(R.id.flFragments, NotificationMessageTabFragment.getInstance(message));
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
                 } else {
                     //todo : push Invoice fragmnt
 //                    Invoice invoice = (Invoice) dashboardAdapter.getChild(groupPosition,childPosition);
@@ -129,11 +129,11 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
                 if (i == 0) {
-                    FragmentManager manager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = manager.beginTransaction();
-                    transaction.add(R.id.flFragments, new NotificationMessageTabFragment());
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+//                    FragmentManager manager = getActivity().getSupportFragmentManager();
+//                    FragmentTransaction transaction = manager.beginTransaction();
+//                    transaction.add(R.id.flFragments, new NotificationMessageTabFragment());
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
                 } else {
                     //todo : push Invoice fragmnt
 //                    FragmentManager manager = getActivity().getSupportFragmentManager();
@@ -169,12 +169,12 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         }
         
         public void onNotificationTap() {
-            Fragment fragment = new NotificationMessageTabFragment();
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+//            Fragment fragment = new NotificationMessageTabFragment();
+//            FragmentManager manager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.add(R.id.flFragments, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
         }
         
         public void onBackPressed() {

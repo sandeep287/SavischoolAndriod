@@ -52,6 +52,9 @@ public class Student {
     @SerializedName("fatherPhone")
     @Expose
     public String fatherPhone;
+    @SerializedName("primaryPhone")
+    @Expose
+    public String primaryPhone;
     @SerializedName("motherName")
     @Expose
     public String motherName;
