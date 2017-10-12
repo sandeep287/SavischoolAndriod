@@ -18,6 +18,7 @@ import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.EventManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,7 +27,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     RecyclerView pendingInvoiceList;
     @Inject
     InvoiceManager invoiceManager;
-    List<Invoice> invoiceList;
+    List<Invoice> invoiceList = new ArrayList<>();
     View view;
     float totalAmount;
     RelativeLayout progressBar;

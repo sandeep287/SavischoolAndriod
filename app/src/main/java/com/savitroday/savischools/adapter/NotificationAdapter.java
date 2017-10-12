@@ -12,7 +12,7 @@ import com.savitroday.savischools.databinding.MessageCellBinding;
 import java.util.List;
 
 /**
- * Created by Mohit on 9/1/2017.
+ * Created by harshitaahuja on 9/1/2017.
  */
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {

@@ -24,6 +24,7 @@ import javax.inject.Inject;
 public class MessagesFragment extends Fragment {
     
     RecyclerView messagesListView;
+
     @Inject
     NotificationManager notificationManager;
     List<Message> messageList = new ArrayList<>();

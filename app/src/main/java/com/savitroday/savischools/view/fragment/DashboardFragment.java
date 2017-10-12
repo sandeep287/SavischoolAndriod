@@ -16,11 +16,13 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.DashboardAdapter;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.databinding.DashboardHeaderBinding;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Event;
 import com.savitroday.savischools.util.EventManager;
+import com.savitroday.savischools.util.ListUtils;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.squareup.picasso.Picasso;
 
@@ -37,6 +39,7 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
     DashboardManager dashboardManager;
     Dashboard dashboard;
     DashboardAdapter dashboardAdapter;
+    DashboardHeaderBinding headerBinding;
     
     public DashboardFragment() {
         // Required empty public constructor
@@ -52,6 +55,12 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         MyApplication.getApp().getComponent().inject(this);
         EventManager.getInstance().addObserver(this, Event.DASHBOARD_UPDATED);
         mBindings.setHandler(new Handler());
+        
+      
+        headerBinding = DataBindingUtil.inflate(
+                inflater, R.layout.dashboard_header, mBindings.listView, false);
+        headerBinding.setHandler(new Handler());
+        mBindings.listView.addHeaderView(headerBinding.getRoot());
         getDashboardData();
         return mBindings.getRoot();
     }
@@ -64,19 +73,24 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
             if (task.getResult() != null) {
                 dashboard = (Dashboard) task.getResult();
                 mBindings.setDashboard(dashboard);
+                headerBinding.setDashboard(dashboard);
                 dashboardAdapter = new DashboardAdapter(getContext(), dashboard.listStudentInvoiceModel,
                                                                dashboard.listSchoolMessagesModel, dashboard
                                                                                                           .onlinePaymentIsAllow);
                 mBindings.listView.setAdapter(dashboardAdapter);
+
                 mBindings.listView.expandGroup(0);
                 mBindings.listView.expandGroup(1);
+                
                 Picasso.with(getContext())
                         .load(dashboard.getDefaultStudent().iconMediaPath)
                         .placeholder(R.drawable.profile_img)
-                        .into(mBindings.studentImageview);
+                        .into(headerBinding.studentImageview);
                 setNavDrawer();
                 setListClicks();
                 setBadgeCount();
+                
+                
             } else {
                 Exception e = task.getError();
                 AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());

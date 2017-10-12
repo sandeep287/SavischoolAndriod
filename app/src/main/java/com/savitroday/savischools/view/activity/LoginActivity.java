@@ -51,32 +51,33 @@ public class LoginActivity extends AppCompatActivity {
     
         loginbtn = (Button) findViewById(R.id.loginbtn);
         passlength = (TextView) findViewById(R.id.passlenth);
-        password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                
-            }
-            
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (password.getText().toString().trim().length() >= 6) {
-                    
-                    passlength.setVisibility(View.INVISIBLE);
-                    temp = 1;
-                } else {
-                    if (temp == 1) {
-                        passlength.setVisibility(View.VISIBLE);
-                        temp = 0;
-                    }
-                }
-                
-            }
-            
-            @Override
-            public void afterTextChanged(Editable editable) {
-                
-            }
-        });
+        
+//        password.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                if (password.getText().toString().trim().length() >= 6) {
+//
+//                    passlength.setVisibility(View.INVISIBLE);
+//                    temp = 1;
+//                } else {
+//                    if (temp == 1) {
+//                        passlength.setVisibility(View.VISIBLE);
+//                        temp = 0;
+//                    }
+//                }
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
         
         
         loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -95,8 +96,8 @@ public class LoginActivity extends AppCompatActivity {
     boolean validate() {
         if (schoolId.getText().toString().trim().equals("") ||
                     userName.getText().toString().trim().equals("") ||
-                    password.getText().toString().trim().equals("") ||
-                    password.getText().toString().trim().length() < 6 ) {
+                    password.getText().toString().trim().equals("") ){
+                  //  || password.getText().toString().trim().length() < 6 ) {
             if (schoolId.getText().toString().trim().equals("")) {
                 schoolId.requestFocus();
                 schoolId.setError("Enter your schoolId no.");
@@ -107,10 +108,10 @@ public class LoginActivity extends AppCompatActivity {
                 password.requestFocus();
                 password.setError("Enter your password");
             }
-            else if (password.getText().toString().trim().length() < 6) {
-                password.requestFocus();
-                 
-            }
+//            else if (password.getText().toString().trim().length() < 6) {
+//                password.requestFocus();
+//
+//            }
             
             return false;
         }
