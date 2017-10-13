@@ -17,8 +17,15 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         >
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +44,7 @@
 
                 <TextView
                     android:id="@+id/ProfileScreen_headerTitle"
-                    style="@style/Medium20White"
+                    style="@style/Bold17White"
                     android:layout_width="wrap_content"
                     android:layout_height="34dp"
                     android:layout_alignParentLeft="true"
@@ -82,7 +89,7 @@
 
             <TextView
                 android:id="@+id/stname"
-                style="@style/Bold24Black"
+                style="@style/Regular24Navy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/stimage"
@@ -93,16 +100,14 @@
                 />
 
 
-            <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/stname"
-                android:layout_marginTop="16dp">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:layout_below="@id/stname"
+                    android:layout_marginTop="16dp"
                     android:orientation="vertical"
                     android:scrollbars="vertical">
 
@@ -128,16 +133,17 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Black55"
+                                style="@style/Regular12Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
                                 android:text="Email Id"
+                                android:alpha=".54"
                                 />
 
                             <TextView
-                                style="@style/Medium16Black"
+                                style="@style/Medium16Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="22dp"
                                 android:text="@{parent.emailAddress}"
@@ -175,17 +181,18 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Black55"
+                                style="@style/Regular12Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
                                 android:text="Phone No."
+                                android:alpha=".54"
                                 />
 
                             <TextView
 
-                                style="@style/Medium16Black"
+                                style="@style/Medium16Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="22dp"
                                 android:inputType="date"
@@ -207,7 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
                         android:orientation="horizontal"
-                        android:visibility="gone">
+                      >
 
                         <ImageView
                             android:layout_width="24dp"
@@ -226,17 +233,18 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Black55"
+                                style="@style/Regular12Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
+                                android:alpha=".54"
                                 android:text="Other Parent Name"
                                 />
 
                             <TextView
 
-                                style="@style/Medium16Black"
+                                style="@style/Medium16Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="22dp"
                                 android:inputType="date"
@@ -275,11 +283,12 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Black55"
+                                style="@style/Regular12Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
+                                android:alpha=".54"
                                 android:text="Children Name"
                                 />
 
@@ -321,16 +330,17 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Black55"
+                                style="@style/Regular12Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
+                                android:alpha=".54"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="15dp"
                                 android:text="ADDRESS"/>
 
                             <TextView
                                 android:id="@+id/staddress"
-                                style="@style/Medium16Black"
+                                style="@style/Medium16Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:letterSpacing="0.02"
@@ -347,6 +357,7 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+        </RelativeLayout>
             </ScrollView>
         </RelativeLayout>
 

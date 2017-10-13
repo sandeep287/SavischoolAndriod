@@ -24,8 +24,7 @@
                 >
                 <TextView
                     android:id="@+id/ProfileScreen_headerTitle"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
+                   style="@style/Bold17White"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="72dp"
@@ -96,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/notificationHading"
                 android:padding="16dp"
-                style="@style/TextStyle9"
+                style="@style/Regular14Navy"
                 android:layout_marginRight="6dp"
                 android:text="@{message.message}"
                 tools:text="New Year is just round the corner. So start looking here for some awesome New Year Messages that you can send to your family members and friends wishing them a fabulous year ahead."

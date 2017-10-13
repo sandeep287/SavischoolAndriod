@@ -31,9 +31,7 @@
                 android:layout_marginLeft="72dp"
                 android:gravity="center"
                 android:text="Invoice &amp; Payment"
-                android:textColor="@color/white"
-
-                android:textSize="17sp"
+               style="@style/Bold17White"
                 />
 
             <ImageButton
@@ -88,8 +86,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/turquois_round_corner"
             android:text="PAY NOW"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+           style="@style/Medium14White"
             />
 
         <android.support.design.widget.AppBarLayout

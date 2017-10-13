@@ -35,9 +35,8 @@
                 android:layout_marginLeft="72dp"
                 android:gravity="center"
                 android:text="Make Payment"
-                android:textColor="@color/white"
-
-                android:textSize="17sp" />
+                style="@style/Bold17White"
+           />
 
             <ImageButton
                 android:layout_width="24dp"
@@ -72,7 +71,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
 
                 >
                 <TextView
@@ -88,8 +87,8 @@
                     android:id="@+id/paymentlist"
                     android:layout_below="@id/summaryhading"
                     android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:scrollbars="vertical"
+                    android:layout_height="wrap_content"
+
                     >
 
                 </android.support.v7.widget.RecyclerView>

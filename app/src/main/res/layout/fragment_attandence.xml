@@ -34,7 +34,7 @@
 
                 <TextView
                     android:id="@+id/ProfileScreen_headerTitle"
-                    style="@style/Medium20White"
+                    style="@style/Bold17White"
                     android:layout_width="wrap_content"
                     android:layout_height="34dp"
                     android:layout_alignParentLeft="true"
@@ -72,7 +72,7 @@
                 android:scaleX="1"
                 app:mcv_arrowColor="@color/white"
                 app:mcv_dateTextAppearance="@style/Bold10white"
-                app:mcv_headerTextAppearance="@style/Regular12White"
+                app:mcv_headerTextAppearance="@style/Regular12White55"
                 app:mcv_tileSize="0dp"
                 app:mcv_weekDayTextAppearance="@style/Normal10White"/>
 
