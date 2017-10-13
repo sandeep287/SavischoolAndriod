@@ -88,8 +88,8 @@ public class DashboardManager {
             } else {
                 student1.isdefault = false;
             }
-            EventManager.getInstance().postEventName(Event.DASHBOARD_UPDATED);
         }
+        EventManager.getInstance().postEventName(Event.DASHBOARD_UPDATED);
     }
     
 

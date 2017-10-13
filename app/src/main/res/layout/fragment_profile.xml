@@ -39,13 +39,13 @@
         <RelativeLayout
             android:id="@+id/actionbarcontent"
             android:layout_width="match_parent"
-            android:layout_height="64dp">
+            android:layout_height="56dp">
 
             <TextView
                 android:id="@+id/ProfileScreen_headerTitle"
                 style="@style/Bold17White"
                 android:layout_width="wrap_content"
-                android:layout_height="34dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="72dp"
@@ -71,8 +71,26 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="16dp"
                 android:onClick="@{()->handler.onNotificationTap()}"
+                android:src="@drawable/notification"
+                />
 
-                android:src="@drawable/notification"/>
+            <TextView
+                android:id="@+id/notificationBadge"
+                style="@style/Bold10white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/pinkred_budge"
+                android:gravity="center"
+                android:visibility="gone"
+                tools:text="5"
+                android:minWidth="12dp"
+                android:minHeight="12dp"
+                android:textSize="8sp"
+                />
         </RelativeLayout>
 
 
@@ -179,7 +197,77 @@
                             />
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
 
+                    >
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/username_black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/textView"
+                            style="@style/Regular12Navy_54"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Mother Name" />
+
+                        <TextView
+                            android:id="@+id/stmother"
+                            style="@style/Medium16Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="4dp"
+                            android:letterSpacing="0.02"
+                            android:text="@{student.motherName}"
+                            tools:text="Bettie"
+                            />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                            <TextView
+                                android:id="@+id/stmotherno"
+                                style="@style/Regular14Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="22dp"
+                                android:letterSpacing="0.02"
+                                android:lines="1"
+                                android:text="@{student.motherPhone}"
+                                tools:text="1-201-403-2900"
+
+                                />
+
+                        </RelativeLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="17dp"
+                            android:alpha="0.12"
+                            android:background="@color/navy"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -272,77 +360,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
 
-                    >
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="16dp"
-                        android:src="@drawable/username_black"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="3dp"
-                        android:background="@color/white"
-                        android:orientation="vertical"
-                        android:paddingLeft="20dp"
-                        >
-
-                        <TextView
-                            android:id="@+id/textView"
-                            style="@style/Regular12Navy_54"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Mother Name" />
-
-                        <TextView
-                            android:id="@+id/stmother"
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="22dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="4dp"
-                            android:letterSpacing="0.02"
-                            android:text="@{student.motherName}"
-                            tools:text="Bettie"
-                            />
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                        <TextView
-                            android:id="@+id/stmotherno"
-                            style="@style/Regular14Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="22dp"
-                            android:letterSpacing="0.02"
-                            android:lines="1"
-                            android:text="@{student.motherPhone}"
-                            tools:text="1-201-403-2900"
-
-                            />
-
-                           </RelativeLayout>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="17dp"
-                            android:alpha="0.12"
-                            android:background="@color/navy"
-                            />
-                    </LinearLayout>
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

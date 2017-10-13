@@ -18,344 +18,345 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:layout_marginBottom="56dp"
+        android:focusableInTouchMode="true"
         >
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
 
-            <View
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="124dp"
-                android:background="@drawable/backgroundimagegradint"
-                />
+                android:layout_height="match_parent"
+                >
 
-            <RelativeLayout
-                android:id="@+id/actionbarcontent"
-                android:layout_width="match_parent"
-                android:layout_height="64dp">
-
-                <TextView
-                    android:id="@+id/ProfileScreen_headerTitle"
-                    style="@style/Bold17White"
-                    android:layout_width="wrap_content"
-                    android:layout_height="34dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="72dp"
-                    android:text="Parent Profile"
-                    />
-
-                <ImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_margin="16dp"
-                    android:layout_marginRight="32dp"
-                    android:background="@drawable/back_arrow_icon"
-                    android:onClick="@{()->handler.onBackPressed()}"
-                    />
-
-
-                <ImageView
-                    android:id="@+id/notification"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="16dp"
-                    android:onClick="@{()->handler.onNotificationTap()}"
-                    android:src="@drawable/notification"/>
-            </RelativeLayout>
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/stimage"
-                android:layout_width="84dp"
-                android:layout_height="84dp"
-                android:layout_below="@id/actionbarcontent"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="19dp"
-                android:onClick="onclikthis"
-                android:src="@drawable/profile_img"
-                />
-
-            <TextView
-                android:id="@+id/stname"
-                style="@style/Regular24Navy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/stimage"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="@{parent.getName()}"
-                tools:text="Jenny Benson"
-                />
-
-
-
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:layout_below="@id/stname"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical"
-                    android:scrollbars="vertical">
+                    android:background="@color/white">
 
-                    <LinearLayout
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_height="124dp"
+                        android:background="@drawable/backgroundimagegradint"
+                        />
 
-                        <ImageView
+                    <RelativeLayout
+                        android:id="@+id/actionbarcontent"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp">
+
+                        <TextView
+                            android:id="@+id/ProfileScreen_headerTitle"
+                            style="@style/Bold17White"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginTop="36dp"
-                            android:src="@drawable/username_black"
+                            android:layout_height="34dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="72dp"
+                            android:text="Parent Profile"
                             />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingLeft="24dp"
-                            >
-
-                            <TextView
-                                style="@style/Regular12Navy_54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="16dp"
-                                android:layout_marginBottom="4dp"
-                                android:layout_marginTop="16dp"
-                                android:text="Email Id"
-
-                                />
-
-                            <TextView
-                                style="@style/Medium16Navy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="22dp"
-                                android:text="@{parent.emailAddress}"
-                                tools:text="test@test.com"/>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_marginTop="8dp"
-                                android:alpha="0.12"
-                                android:background="@color/navy"
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginTop="36dp"
-                            android:src="@drawable/username_black"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="68dp"
-                            android:orientation="vertical"
-                            android:paddingLeft="24dp"
-                            >
-
-                            <TextView
-                                style="@style/Regular12Navy_54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="16dp"
-                                android:layout_marginBottom="4dp"
-                                android:layout_marginTop="16dp"
-                                android:text="Phone No."
-                                />
-
-                            <TextView
-
-                                style="@style/Medium16Navy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="22dp"
-                                android:inputType="date"
-                                android:letterSpacing="0.02"
-                                android:text="@{parent.phone1}"
-                                tools:text="9887152506"/>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_marginTop="8dp"
-                                android:alpha="0.12"
-                                android:background="@color/navy"
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:orientation="horizontal"
-                      >
-
-                        <ImageView
+                        <ImageButton
+                            android:id="@+id/backButton"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginTop="36dp"
-                            android:src="@drawable/username_black"
+                            android:layout_margin="16dp"
+                            android:layout_marginRight="32dp"
+                            android:background="@drawable/back_arrow_icon"
+                            android:onClick="@{()->handler.onBackPressed()}"
                             />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="68dp"
-                            android:orientation="vertical"
-                            android:paddingLeft="24dp"
-                            >
-
-                            <TextView
-                                style="@style/Regular12Navy_54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="16dp"
-                                android:layout_marginBottom="4dp"
-                                android:layout_marginTop="16dp"
-                                android:text="Other Parent Name"
-                                />
-
-                            <TextView
-
-                                style="@style/Medium16Navy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="22dp"
-                                android:inputType="date"
-                                android:letterSpacing="0.02"
-                                tools:text="Other Parent Name.."/>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_marginTop="8dp"
-                                android:alpha="0.12"
-                                android:background="@color/navy"
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginLeft="32dp"
+                            android:id="@+id/notification"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
                             android:layout_marginRight="16dp"
-                            android:layout_marginTop="36dp"
-                            android:src="@drawable/username_black"
-                            />
+                            android:onClick="@{()->handler.onNotificationTap()}"
+                            android:src="@drawable/notification"/>
+                    </RelativeLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingLeft="24dp"
-                            >
 
-                            <TextView
-                                style="@style/Regular12Navy_54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="16dp"
-                                android:layout_marginBottom="4dp"
-                                android:layout_marginTop="16dp"
-                                android:text="Children Name"
-                                />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/stimage"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:layout_below="@id/actionbarcontent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="19dp"
+                        android:onClick="onclikthis"
+                        android:src="@drawable/profile_img"
+                        />
 
-                            <android.support.v7.widget.RecyclerView
-                                android:id="@+id/childrenlist"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_marginTop="8dp"
-                                android:alpha="0.12"
-                                android:background="@color/navy"
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/stname"
+                        style="@style/Regular24Navy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/stimage"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:text="@{parent.getName()}"
+                        tools:text="Jenny Benson"
+                        />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginRight="16dp"
-                            android:src="@drawable/addres"
-                            />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stname"
+                        android:layout_marginTop="16dp"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:scrollbars="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            >
+                            android:orientation="horizontal">
 
-                            <TextView
-                                style="@style/Regular12Navy_54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="16dp"
-                                android:alpha=".54"
-                                android:layout_marginBottom="4dp"
-                                android:layout_marginTop="15dp"
-                                android:text="ADDRESS"/>
-
-                            <TextView
-                                android:id="@+id/staddress"
-                                style="@style/Medium16Navy"
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:letterSpacing="0.02"
-                                android:text="@{parent.getAddress()}"
-                                tools:text="738Block Suite"/>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_marginTop="8dp"
-                                android:alpha="0.12"
-                                android:background="@color/navy"
+                                android:layout_marginLeft="32dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginTop="36dp"
+                                android:src="@drawable/username_black"
                                 />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="24dp"
+                                >
+
+                                <TextView
+                                    style="@style/Regular12Navy_54"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="16dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Email Id"
+
+                                    />
+
+                                <TextView
+                                    style="@style/Medium16Navy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="22dp"
+                                    android:text="@{parent.emailAddress}"
+                                    tools:text="test@test.com"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:alpha="0.12"
+                                    android:background="@color/navy"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="68dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="32dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginTop="36dp"
+                                android:src="@drawable/username_black"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="68dp"
+                                android:orientation="vertical"
+                                android:paddingLeft="24dp"
+                                >
+
+                                <TextView
+                                    style="@style/Regular12Navy_54"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="16dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Phone No."
+                                    />
+
+                                <TextView
+
+                                    style="@style/Medium16Navy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="22dp"
+                                    android:inputType="date"
+                                    android:letterSpacing="0.02"
+                                    android:text="@{parent.phone1}"
+                                    tools:text="9887152506"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:alpha="0.12"
+                                    android:background="@color/navy"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="68dp"-->
+                            <!--android:orientation="horizontal"-->
+                            <!--&gt;-->
+
+                            <!--<ImageView-->
+                                <!--android:layout_width="24dp"-->
+                                <!--android:layout_height="24dp"-->
+                                <!--android:layout_marginLeft="32dp"-->
+                                <!--android:layout_marginRight="16dp"-->
+                                <!--android:layout_marginTop="36dp"-->
+                                <!--android:src="@drawable/username_black"-->
+                                <!--/>-->
+
+                            <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="68dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:paddingLeft="24dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;style="@style/Regular12Navy_54"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="16dp"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_marginBottom="4dp"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_marginTop="16dp"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="Other Parent Name"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+
+                                    <!--&lt;!&ndash;style="@style/Medium16Navy"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="22dp"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:inputType="date"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:letterSpacing="0.02"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;tools:text="Other Parent Name.."/>&ndash;&gt;-->
+
+                                <!--&lt;!&ndash;<View&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="2dp"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_marginTop="8dp"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:alpha="0.12"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:background="@color/navy"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;/>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+                        <!--</LinearLayout>-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginLeft="32dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginTop="36dp"
+                                android:src="@drawable/username_black"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="24dp"
+                                >
+
+                                <TextView
+                                    style="@style/Regular12Navy_54"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="16dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Children Name"
+                                    />
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/childrenlist"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:alpha="0.12"
+                                    android:background="@color/navy"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="32dp"
+                                android:layout_marginRight="16dp"
+                                android:src="@drawable/addres"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                >
+
+                                <TextView
+                                    style="@style/Regular12Navy_54"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="16dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginTop="15dp"
+                                    android:alpha=".54"
+                                    android:text="ADDRESS"/>
+
+                                <TextView
+                                    android:id="@+id/staddress"
+                                    style="@style/Medium16Navy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:letterSpacing="0.02"
+                                    android:text="@{parent.getAddress()}"
+                                    tools:text="738Block Suite"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:alpha="0.12"
+                                    android:background="@color/navy"
+                                    />
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-        </RelativeLayout>
+                </RelativeLayout>
             </ScrollView>
         </RelativeLayout>
 

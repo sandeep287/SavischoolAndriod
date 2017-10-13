@@ -40,6 +40,7 @@
                     android:text="@{invoice.getMonth()}"
                     android:textAllCaps="true"
                     tools:text="May"
+                    android:alpha="0.80"
                     />
 
                 <TextView
@@ -66,6 +67,7 @@
                     android:textSize="12sp"
                     android:textStyle="normal"
                     tools:text="2017"
+                    android:alpha="0.50"
                     />
             </LinearLayout>
 
@@ -91,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:text="@{invoice.remarks}"
                     tools:text="This month Fee pending…"
+                    android:alpha="0.74"
                     />
 
                 <TextView
@@ -110,7 +113,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/Bold18Cerulean"
+                    style="@style/Bold18twilightBlueThree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -125,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/blue_rounded_background"
+                    android:background="@drawable/turqoise_rounded_background"
                     android:paddingBottom="6dp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"

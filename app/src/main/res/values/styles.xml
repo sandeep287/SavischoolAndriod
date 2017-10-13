@@ -165,12 +165,12 @@
     </style>
     <!--app defined styles-->
 
-    <style name="Bold18Cerulean">
+    <style name="Bold18twilightBlueThree">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
-        <item name="android:textColor">@color/cerulean</item>
+        <item name="android:textColor">@color/twilight_blue_three</item>
     </style>
 
     <style name="Bold18BlueGreen">
@@ -180,9 +180,9 @@
         <item name="android:textColor">@color/blue_green</item>
     </style>
 
-    <style name="Bold16White">
+    <style name="Bold14White">
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>

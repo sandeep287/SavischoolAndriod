@@ -104,9 +104,8 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                 binding.imageView.setPadding(0, 0, 0, 0);
                 Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
             } else {
-                binding.imageView.setPadding(10, 10, 10, 10);
+                binding.imageView.setPadding(15, 15, 15, 15);
                 binding.imageView.setImageResource(R.drawable.notification);
-                binding.imageView.setBackgroundResource(R.drawable.gradient_circle);
             }
             
             binding.executePendingBindings();
@@ -121,7 +120,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             if(invoice.status.equalsIgnoreCase("Pending")) {
                 binding.paynowButton.setVisibility(View.VISIBLE);
                 if (onlinePaymentIsAllow) {
-                    binding.paynowButton.setBackgroundResource(R.drawable.blue_rounded_background);
+                    binding.paynowButton.setBackgroundResource(R.drawable.turqoise_rounded_background);
                     binding.paynowButton.setClickable(true);
                 } else {
                     binding.paynowButton.setBackgroundResource(R.drawable.cool_grey_rounded_background);

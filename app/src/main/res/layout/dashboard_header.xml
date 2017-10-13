@@ -57,15 +57,17 @@
                 <TextView
                     android:id="@+id/notificationBadge"
                     style="@style/Bold10white"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/pinkred_budge"
                     android:gravity="center"
-                    android:paddingRight="@dimen/header_homescreen_horizontal_margin"
+                    android:minHeight="12dp"
+                    android:minWidth="12dp"
+                    android:textSize="8sp"
                     android:visibility="gone"
                     tools:text="5"
                     />
@@ -73,12 +75,10 @@
             </RelativeLayout>
 
             <LinearLayout
-
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="190dp"
                 android:layout_below="@id/titleBar"
                 android:layout_centerHorizontal="true"
-
                 android:elevation="8dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
@@ -100,7 +100,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        style="@style/Bold16White"
+                        style="@style/Bold14White"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{dashboard.getStudentName()}"
@@ -108,7 +108,7 @@
                         />
 
                     <TextView
-                        style="@style/Light16White"
+                        style="@style/Regular14White"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" Good Morning"
@@ -116,7 +116,7 @@
                 </LinearLayout>
 
                 <TextView
-                    style="@style/Light12White"
+                    style="@style/Regular12White"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -143,8 +143,8 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_centerInParent="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/stroke_3"/>
 
@@ -157,7 +157,7 @@
 
                 <TextView
                     android:id="@+id/checkin_label"
-                    style="@style/Light12BlueGrey"
+                    style="@style/Regular12Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -165,7 +165,7 @@
                     />
 
                 <TextView
-                    style="@style/Medium14Black"
+                    style="@style/Medium16Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -182,7 +182,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/Light12BlueGrey"
+                    style="@style/Regular12Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"

@@ -28,6 +28,7 @@
         android:layout_marginRight="16dp"
         android:gravity="center_vertical"
         android:text="View All"
+        android:alpha="0.54"
         />
     <View
         android:layout_width="match_parent"

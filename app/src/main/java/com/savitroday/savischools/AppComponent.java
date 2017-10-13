@@ -23,6 +23,7 @@ import com.savitroday.savischools.view.fragment.NotificationFragment;
 import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 import com.savitroday.savischools.view.fragment.ParentProfileFragment;
 import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
+import com.savitroday.savischools.view.fragment.ProfileFragment;
 
 import javax.inject.Singleton;
 
@@ -51,12 +52,10 @@ public interface AppComponent {
     void inject(HistoryInvoiceFragment historyInvoiceFragment);
     
     void inject(DashboardFragment dashboardFragment);
-    
+    void inject(ProfileFragment profileFragment);
     void inject(PendingInvoiceFragment pendingInvoiceFragment);
     
     DashboardManager dashboardManager();
-
-    
     MyProfileManager profileManager();
     
     InvoiceManager invoiceManager();

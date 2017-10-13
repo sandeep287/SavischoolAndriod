@@ -103,10 +103,10 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
     void setBadgeCount() {
         int count = dashboard.unreadMessagesNotification;
         if (count > 0) {
-            mBindings.notificationBadge.setText("" + count);
-            mBindings.notificationBadge.setVisibility(View.VISIBLE);
+            headerBinding.notificationBadge.setText("" + count);
+            headerBinding.notificationBadge.setVisibility(View.VISIBLE);
         } else {
-            mBindings.notificationBadge.setVisibility(View.GONE);
+            headerBinding.notificationBadge.setVisibility(View.GONE);
         }
     }
     
