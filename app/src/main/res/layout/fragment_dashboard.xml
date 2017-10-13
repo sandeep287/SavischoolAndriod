@@ -18,64 +18,16 @@
         android:layout_height="match_parent"
         android:background="@color/white_two">
 
-        <RelativeLayout
-            android:id="@+id/titleBar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/turquoise"
-            android:paddingRight="@dimen/header_homescreen_horizontal_margin">
-
-            <TextView
-                android:id="@+id/homeScreen_headerTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:text="DAYCARE"
-                android:textColor="@color/white"
-                android:textSize="@dimen/label_homescreen_text_size"/>
-
-
-            <ImageView
-                android:id="@+id/notification"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:onClick="@{()->handler.onNotificationTap()}"
-                android:src="@drawable/notification"
-                />
-
-            <TextView
-                android:id="@+id/notificationBadge"
-                style="@style/Bold10white"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/pinkred_budge"
-                android:gravity="center"
-                android:visibility="gone"
-                tools:text="5"
-                android:textSize="8sp"
-                />
-
-        </RelativeLayout>
-
 
         <android.widget.ExpandableListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/titleBar"
-            android:paddingBottom="16dp"
             android:background="@android:color/transparent"
-            android:groupIndicator="@null"
-            android:scrollbars="none"
             android:divider="@null"
+            android:groupIndicator="@null"
+            android:paddingBottom="16dp"
+            android:scrollbars="none"
             />
 
 
