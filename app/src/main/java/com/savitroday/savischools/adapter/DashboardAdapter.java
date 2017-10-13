@@ -105,9 +105,16 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                 Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
             } else {
                 binding.imageView.setPadding(15, 15, 15, 15);
-                binding.imageView.setImageResource(R.drawable.notification);
+                if (message.isNotification) {
+                    binding.imageView.setImageResource(R.drawable.notification);
+                } else {
+                    binding.imageView.setImageResource(R.drawable.message);
+                }
             }
-            
+            if (!message.isNotification && message.messageAttachment != null && message.messageAttachment.length() >
+                                                                                        0) {
+                //todo: show camera icon
+            }
             binding.executePendingBindings();
             
             return binding.getRoot();
@@ -117,7 +124,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             InvoiceCellBinding binding = InvoiceCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                     viewGroup, false);
             binding.setInvoice(invoice);
-            if(invoice.status.equalsIgnoreCase("Pending")) {
+            if (invoice.status.equalsIgnoreCase("Pending")) {
                 binding.paynowButton.setVisibility(View.VISIBLE);
                 if (onlinePaymentIsAllow) {
                     binding.paynowButton.setBackgroundResource(R.drawable.turqoise_rounded_background);
@@ -126,8 +133,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                     binding.paynowButton.setBackgroundResource(R.drawable.cool_grey_rounded_background);
                     binding.paynowButton.setClickable(false);
                 }
-            }
-            else if (invoice.status.equalsIgnoreCase("Paid")){
+            } else if (invoice.status.equalsIgnoreCase("Paid")) {
                 binding.paynowButton.setVisibility(View.GONE);
             }
             binding.executePendingBindings();
