@@ -101,20 +101,21 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
             
             binding.setMessage(message);
             if (message.iconMediaPath != null) {
-                binding.imageView.setPadding(0, 0, 0, 0);
                 Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
             } else {
-                binding.imageView.setPadding(15, 15, 15, 15);
                 if (message.isNotification) {
-                    binding.imageView.setImageResource(R.drawable.notification);
+                    binding.imageView.setImageResource(R.drawable.icon_notification);
                 } else {
-                    binding.imageView.setImageResource(R.drawable.message);
+                    binding.imageView.setImageResource(R.drawable.icon_msg);
                 }
             }
-            if (!message.isNotification && message.messageAttachment != null && message.messageAttachment.length() >
-                                                                                        0) {
-                //todo: show camera icon
-            }
+            //todo test this
+//            if (!message.isNotification && message.messageAttachment != null && message.messageAttachment.length() >
+//                                                                                        0) {
+//                binding.cameraIcon.setVisibility(View.VISIBLE);
+//            } else {
+//                binding.cameraIcon.setVisibility(View.GONE);
+//            }
             binding.executePendingBindings();
             
             return binding.getRoot();

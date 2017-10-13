@@ -24,20 +24,31 @@
         android:paddingRight="16dp"
         >
 
-        <RelativeLayout android:id="@+id/bottomLayout"
+        <RelativeLayout
+            android:id="@+id/bottomLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:padding="16dp">
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_centerVertical="true"
-                android:background="@drawable/gradient_circle"
-                android:padding="15dp"
-                android:src="@drawable/notification"/>
+                android:src="@drawable/icon_notification"/>
+
+            <ImageView android:id="@+id/camera_icon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignTop="@id/imageView"
+                android:layout_marginLeft="-18dp"
+                android:layout_toRightOf="@id/imageView"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/neon_red_circle"
+                android:src="@drawable/camera"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/timeTextview"
@@ -46,9 +57,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:alpha="0.54"
                 android:text="@{message.getCreatedOn()}"
                 tools:text="4:10 AM"
-                android:alpha="0.54"
                 />
 
             <ImageView
@@ -84,9 +95,9 @@
                     style="@style/Light12Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:alpha="0.54"
                     android:text='@{"From " + message.senderName}'
                     tools:text="From John"
-                    android:alpha="0.54"
                     />
 
                 <TextView
@@ -103,11 +114,11 @@
                     style="@style/Regular14Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:alpha="0.74"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@{message.message}"
                     tools:text="We are Celebrating Upco…"
-                    android:alpha="0.74"
                     />
 
                 <TextView
@@ -115,6 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:alpha="0.80"
                     android:background="@drawable/muted_blue_rounded_background"
                     android:paddingBottom="2dp"
                     android:paddingLeft="5dp"
@@ -122,11 +134,11 @@
                     android:paddingTop="2dp"
                     android:text="@{message.studentName}"
                     tools:text="JENNY"
-                    android:alpha="0.80"
                     />
             </LinearLayout>
 
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

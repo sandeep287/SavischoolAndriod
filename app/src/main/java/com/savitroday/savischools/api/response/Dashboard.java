@@ -103,7 +103,7 @@ public class Dashboard {
     public String getCheckInTime() {
         String date = "";
         Date checkin = getDefaultStudent().checkin;
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm a");
+        SimpleDateFormat format = new SimpleDateFormat("H:mm a");
         if (checkin != null)
             date += format.format(checkin);
         return date;
@@ -112,7 +112,7 @@ public class Dashboard {
     public String getCheckOutTime() {
         String date = "";
         Date checkout = getDefaultStudent().checkout;
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm a");
+        SimpleDateFormat format = new SimpleDateFormat("H:mm a");
         if (checkout != null)
             date += format.format(checkout);
         else
