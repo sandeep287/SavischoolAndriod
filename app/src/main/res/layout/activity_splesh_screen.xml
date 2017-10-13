@@ -10,15 +10,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:gravity="center"
         android:src="@drawable/day_care"
         />
 
-    <ProgressBar
-        android:id="@+id/pbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+
 
 </LinearLayout>

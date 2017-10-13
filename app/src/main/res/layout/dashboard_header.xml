@@ -66,7 +66,6 @@
                     android:background="@drawable/pinkred_budge"
                     android:gravity="center"
                     android:paddingRight="@dimen/header_homescreen_horizontal_margin"
-                    android:textSize="8sp"
                     android:visibility="gone"
                     tools:text="5"
                     />

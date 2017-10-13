@@ -16,9 +16,11 @@ import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.HistoryInvoiceFragment;
+import com.savitroday.savischools.view.fragment.MessageOpenViewFragment;
 import com.savitroday.savischools.view.fragment.MessagesFragment;
 import com.savitroday.savischools.view.fragment.NotificationFragment;
 
+import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
 import com.savitroday.savischools.view.fragment.ParentProfileFragment;
 import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
 
@@ -39,12 +41,12 @@ import dagger.Component;
 public interface AppComponent {
     
     void inject(MyApplication application);
-    void inject(MessagesFragment messagesFragment);
+    void inject(NotificationMessageTabFragment notificationMessageTabFragment);
     void inject(NotificationFragment notificationFragment);
     void inject(RestHelper restHelper);
     void inject(ParentProfileFragment parentProfileFragment);
     void inject(MainActivity mainActivity);
-    
+    void inject(MessageOpenViewFragment messageOpenViewFragment);
     void inject(LoginActivity loginActivity);
     void inject(HistoryInvoiceFragment historyInvoiceFragment);
     

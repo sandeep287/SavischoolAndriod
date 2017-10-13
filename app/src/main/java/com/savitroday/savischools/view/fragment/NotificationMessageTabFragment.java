@@ -7,22 +7,31 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.PagerAdapter;
 import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.manager.NotificationManager;
+import com.savitroday.savischools.util.AlertUtil;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 public class NotificationMessageTabFragment extends Fragment implements View.OnClickListener {
     
     TabLayout tabLayout;
     Message message;
     boolean toDetail = false;
-    
+    @Inject
+    NotificationManager notificationManager;
     public static NotificationMessageTabFragment getInstance(Message message) {
         NotificationMessageTabFragment fragment = new NotificationMessageTabFragment();
        
@@ -40,7 +49,8 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_notification_message_tab, container, false);
-        
+        MyApplication.getApp().getComponent().inject(this);
+        getMessageData();
         if(toDetail){
             if (message.isNotification) {
                 //todo : send to notification detail
@@ -101,5 +111,19 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
             transaction.addToBackStack(null);
             transaction.commit();
         }
+    }
+    public void getMessageData() {
+        Log.e("ghcgcjgcgj","gjcjcghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+        notificationManager.getMessageTask().continueWith((task -> {
+if(task.getResult()==null)
+{
+
+
+}
+
+
+            return null;
+        }));
+
     }
 }

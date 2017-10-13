@@ -25,9 +25,9 @@ public class MessagesFragment extends Fragment {
     
     RecyclerView messagesListView;
 
-    @Inject
-    NotificationManager notificationManager;
-    List<Message> messageList = new ArrayList<>();
+
+    List<Message> messageList =new ArrayList<>();
+    Message message;
     View view;
     RelativeLayout progressBar;
     NotificationAdapter notificationAdapter;
@@ -37,37 +37,20 @@ public class MessagesFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_messages, container, false);
         progressBar = (RelativeLayout) view.findViewById(R.id.progressBar);
-        MyApplication.getApp().getComponent().inject(this);
+
         messagesListView = (RecyclerView) view.findViewById(R.id.message_list);
         
         LinearLayoutManager llm2 = new LinearLayoutManager(getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         messagesListView.setLayoutManager(llm2);
         
-        
+        messageList=NotificationManager.getMessageList();
         notificationAdapter = new NotificationAdapter(getActivity(), messageList);
         messagesListView.setAdapter(notificationAdapter);
-        
-        getInvoiceData();
         return view;
     }
     
-    public void getInvoiceData() {
-        progressBar.setVisibility(View.VISIBLE);
-        
-        notificationManager.getMessageTask().continueWith((task -> {
-            progressBar.setVisibility(View.INVISIBLE);
-            if (task.getResult() != null) {
-                messageList = (List<Message>) task.getResult();
-                notificationAdapter.notifyDataSetChanged();
-            } else {
-                Exception e = task.getError();
-                AlertUtil.showSnackbarWithMessage(e.getMessage(), view);
-            }
-            return null;
-        }));
-        
-    }
+
     
     
 }

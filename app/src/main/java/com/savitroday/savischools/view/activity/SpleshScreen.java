@@ -11,14 +11,12 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.util.Constants;
 
 public class SpleshScreen extends AppCompatActivity {
-    ProgressBar pbar;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splesh_screen);
-        pbar = (ProgressBar) findViewById(R.id.pbar);
-        
+
         Intent intent;
         if (MyApplication.tinyDB.getBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, false)) {
             intent = new Intent(SpleshScreen.this, MainActivity.class);
@@ -26,7 +24,7 @@ public class SpleshScreen extends AppCompatActivity {
             intent = new Intent(SpleshScreen.this, LoginActivity.class);
         }
         startActivity(intent);
-        pbar.setVisibility(View.GONE);
+
         finish();
     }
     

@@ -73,6 +73,13 @@
         <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:textColor">@color/navy</item>
     </style>
+    <style name="Regular12Navy_54">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/navy_54</item>
+    </style>
     <style name="TextStyle">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">30sp</item>

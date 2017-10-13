@@ -130,7 +130,7 @@ public class NotificationManager {
         
         return task.getTask();
     }
-    public List<Message> getNOtificationList()
+    public  static  List<Message> getNOtificationList()
     {
         List<Message> notifications=new ArrayList<>();
         for (int i=0;i<messageList.size();i++)
@@ -142,7 +142,7 @@ public class NotificationManager {
         }
         return notifications;
     }
-    public List<Message> getMessageList()
+    public static List<Message> getMessageList()
     {
         List<Message> messages=new ArrayList<>();
         for (int i=0;i<messageList.size();i++)
@@ -150,6 +150,18 @@ public class NotificationManager {
             if (!messageList.get(i).isNotification)
             {
                 messages.add(messageList.get(i));
+            }
+        }
+        return messages;
+    }
+    public List<Message> getComunicationwith(String sendername)
+    {
+        List<Message> messages=new ArrayList<>();
+        for (int i=0;i<messageList.size();i++)
+        {
+            if (sendername.equals(messageList.get(i).senderName))
+            {
+
             }
         }
         return messages;

@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:layout_marginBottom="56dp"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -133,13 +134,13 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Navy"
+                                style="@style/Regular12Navy_54"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
                                 android:text="Email Id"
-                                android:alpha=".54"
+
                                 />
 
                             <TextView
@@ -181,13 +182,12 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Navy"
+                                style="@style/Regular12Navy_54"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
                                 android:text="Phone No."
-                                android:alpha=".54"
                                 />
 
                             <TextView
@@ -233,12 +233,11 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Navy"
+                                style="@style/Regular12Navy_54"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
-                                android:alpha=".54"
                                 android:text="Other Parent Name"
                                 />
 
@@ -283,12 +282,11 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Navy"
+                                style="@style/Regular12Navy_54"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_marginTop="16dp"
-                                android:alpha=".54"
                                 android:text="Children Name"
                                 />
 
@@ -330,7 +328,7 @@
                             >
 
                             <TextView
-                                style="@style/Regular12Navy"
+                                style="@style/Regular12Navy_54"
                                 android:layout_width="wrap_content"
                                 android:layout_height="16dp"
                                 android:alpha=".54"

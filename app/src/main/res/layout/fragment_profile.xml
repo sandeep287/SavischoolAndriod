@@ -13,9 +13,11 @@
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
     </data>
-<RelativeLayout
+<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -149,13 +151,13 @@
                         >
 
                         <TextView
-                            style="@style/Regular12Navy"
+                            style="@style/Regular12Navy_54"
                             android:layout_width="wrap_content"
                             android:layout_height="16dp"
                             android:layout_marginBottom="4dp"
                             android:layout_marginTop="16dp"
                             android:text="DOB"
-                            android:alpha=".54"
+
                             />
 
                         <TextView
@@ -204,12 +206,12 @@
                         >
 
                         <TextView
-                            style="@style/Regular12Navy"
+                            style="@style/Regular12Navy_54"
                             android:layout_width="wrap_content"
                             android:layout_height="16dp"
                             android:layout_marginTop="16dp"
                             android:text="Father Name"
-                            android:alpha=".54"
+
 
                             />
 
@@ -296,13 +298,12 @@
                         >
 
                         <TextView
-                            style="@style/Regular12Navy"
+                            android:id="@+id/textView"
+                            style="@style/Regular12Navy_54"
                             android:layout_width="wrap_content"
                             android:layout_height="16dp"
                             android:layout_marginTop="16dp"
-                            android:text="Mother Name"
-
-                            />
+                            android:text="Mother Name" />
 
                         <TextView
                             android:id="@+id/stmother"
@@ -367,13 +368,12 @@
                         >
 
                         <TextView
-                            style="@style/Regular12Navy"
+                            style="@style/Regular12Navy_54"
                             android:layout_width="wrap_content"
                             android:layout_height="16dp"
                             android:layout_marginBottom="4dp"
                             android:layout_marginTop="15dp"
                             android:text="ADDRESS"
-
                             />
 
                         <TextView
@@ -401,5 +401,5 @@
 
     </RelativeLayout>
     </ScrollView>
-</RelativeLayout>
+</FrameLayout>
 </layout>
