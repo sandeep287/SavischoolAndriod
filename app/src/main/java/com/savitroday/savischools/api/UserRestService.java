@@ -28,8 +28,8 @@ public interface UserRestService {
                                                                                                                 String studentId);
     
     @GET("api/parent/GetMessages")
-    CustomCallAdapter.CustomCall<List<Message>> getMessages(@Query("schoolid") String schoolId, @Query("studntid")
-                                                                                                 String studentId);
+    CustomCallAdapter.CustomCall<List<Message>> getMessages(@Query("schoolid") String schoolId, @Query("userId")
+                                                                                                 String userID);
     
     @GET("api/parent/StudentProfileDetail")
     CustomCallAdapter.CustomCall<Dashboard> getDashboard(@Query("schoolid") String schoolId,

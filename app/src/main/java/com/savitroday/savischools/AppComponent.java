@@ -54,7 +54,7 @@ public interface AppComponent {
     void inject(DashboardFragment dashboardFragment);
     void inject(ProfileFragment profileFragment);
     void inject(PendingInvoiceFragment pendingInvoiceFragment);
-    
+    void inject(MessagesFragment messagesFragment);
     DashboardManager dashboardManager();
     MyProfileManager profileManager();
     

@@ -19,9 +19,6 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.PagerAdapter;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.manager.NotificationManager;
-import com.savitroday.savischools.util.AlertUtil;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -32,9 +29,10 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
     boolean toDetail = false;
     @Inject
     NotificationManager notificationManager;
+    
     public static NotificationMessageTabFragment getInstance(Message message) {
         NotificationMessageTabFragment fragment = new NotificationMessageTabFragment();
-       
+        
         fragment.toDetail = true;
         fragment.message = message;
         return fragment;
@@ -50,8 +48,8 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_notification_message_tab, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        getMessageData();
-        if(toDetail){
+        //getMessageData();
+        if (toDetail) {
             if (message.isNotification) {
                 //todo : send to notification detail
                 FragmentManager manager = getActivity().getSupportFragmentManager();
@@ -66,7 +64,7 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         
         
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
-        tabLayout.setTabTextColors(ContextCompat.getColor(getContext(),R.color.white), ContextCompat.getColor(getContext(),R.color.white));
+        tabLayout.setTabTextColors(ContextCompat.getColor(getContext(), R.color.white), ContextCompat.getColor(getContext(), R.color.white));
         tabLayout.addTab(tabLayout.newTab().setText("NOTIFICATION"));
         tabLayout.addTab(tabLayout.newTab().setText("MESSAGES"));
         ImageButton button = (ImageButton) inflatedView.findViewById(R.id.backButton);
@@ -112,18 +110,17 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
             transaction.commit();
         }
     }
-    public void getMessageData() {
-        Log.e("ghcgcjgcgj","gjcjcghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-        notificationManager.getMessageTask().continueWith((task -> {
-if(task.getResult()==null)
-{
-
-
-}
-
-
-            return null;
-        }));
-
-    }
+    
+//    public void getMessageData() {
+//        notificationManager.getMessageTask().continueWith((task -> {
+//            if (task.getResult() != null) {
+//
+//
+//            }
+//
+//
+//            return null;
+//        }));
+//
+//    }
 }

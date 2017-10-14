@@ -183,12 +183,12 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
         }
         
         public void onNotificationTap() {
-//            Fragment fragment = new NotificationMessageTabFragment();
-//            FragmentManager manager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction transaction = manager.beginTransaction();
-//            transaction.add(R.id.flFragments, fragment);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
+            Fragment fragment = new NotificationMessageTabFragment();
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         
         public void onBackPressed() {

@@ -47,12 +47,10 @@ public class NotificationManager {
             taskList.add(task);
         } else {
             updateInProgress = true;
-            String parentId ="14";
-                    //MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_PARENT_ID);
-            String schoolId ="D10EAADE-53C6-4E86-B77D-06FC83A61B91";
-                    //MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
+            String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
+            String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
             
-            userRestService.getMessages(schoolId, parentId).enqueue(new CustomCallAdapter
+            userRestService.getMessages(schoolId, userId).enqueue(new CustomCallAdapter
                                                                                 .CustomCallback<List<Message>>() {
                 @Override
                 public void success(Response<List<Message>> response) {

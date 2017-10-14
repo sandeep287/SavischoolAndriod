@@ -14,7 +14,6 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.NotificationAdapter;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.manager.NotificationManager;
-import com.savitroday.savischools.util.AlertUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,33 +23,48 @@ import javax.inject.Inject;
 public class MessagesFragment extends Fragment {
     
     RecyclerView messagesListView;
-
-
-    List<Message> messageList =new ArrayList<>();
-    Message message;
+    List<Message> messageList = new ArrayList<>();
     View view;
     RelativeLayout progressBar;
     NotificationAdapter notificationAdapter;
+    @Inject
+    NotificationManager notificationManager;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_messages, container, false);
+        
+        MyApplication.getApp().getComponent().inject(this);
         progressBar = (RelativeLayout) view.findViewById(R.id.progressBar);
-
+        
         messagesListView = (RecyclerView) view.findViewById(R.id.message_list);
         
         LinearLayoutManager llm2 = new LinearLayoutManager(getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         messagesListView.setLayoutManager(llm2);
+        getMessageData();
         
-        messageList=NotificationManager.getMessageList();
-        notificationAdapter = new NotificationAdapter(getActivity(), messageList);
-        messagesListView.setAdapter(notificationAdapter);
         return view;
     }
     
-
+    public void getMessageData() {
+        
+        notificationManager.getMessageTask().continueWith((task -> {
+            if (task.getResult() != null) {
+                messageList = NotificationManager.getMessageList();
+                notificationAdapter = new NotificationAdapter(getActivity(), messageList);
+                messagesListView.setAdapter(notificationAdapter);
+                
+            } else {
+                
+            }
+            
+            
+            return null;
+        }));
+        
+    }
     
     
 }
