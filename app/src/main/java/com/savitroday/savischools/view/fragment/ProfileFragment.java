@@ -50,14 +50,14 @@ public class ProfileFragment extends Fragment implements EventManager.EventManag
     @Override
     public void didReceivedEvent(int id, Object... args) {
         if (id == Event.DASHBOARD_UPDATED) {
-           getDashboardData(true);
+            getDashboardData(true);
         }
     }
     
-    void getDashboardData(boolean refresh){
+    void getDashboardData(boolean refresh) {
         dashboardManager.getDashboardTask().continueWithTask((task -> {
             Dashboard dashboard = (Dashboard) task.getResult();
-            if(refresh) {
+            if (refresh) {
                 student = dashboard.getDefaultStudent();
                 setImage();
                 mBindings.setStudent(student);
@@ -74,6 +74,10 @@ public class ProfileFragment extends Fragment implements EventManager.EventManag
                     .load(student.iconMediaPath)
                     .placeholder(R.drawable.profile_img)
                     .into(mBindings.studentImageview);
+        }
+        else
+        {
+            mBindings.studentImageview.setImageResource(R.drawable.profile_img);
         }
     }
     
@@ -92,11 +96,11 @@ public class ProfileFragment extends Fragment implements EventManager.EventManag
         }
         
         public void onNotificationTap() {
-              Fragment fragment = new NotificationMessageTabFragment();
-           FragmentManager manager = getActivity().getSupportFragmentManager();
-          FragmentTransaction transaction = manager.beginTransaction();
-           transaction.add(R.id.flFragments, fragment);
-           transaction.addToBackStack(null);
+            Fragment fragment = new NotificationMessageTabFragment();
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
             transaction.commit();
         }
         

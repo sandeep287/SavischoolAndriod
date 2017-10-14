@@ -148,10 +148,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
-                        android:orientation="horizontal"
-
-
-                        >
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="24dp"
@@ -351,6 +348,7 @@
                                     android:background="@drawable/muted_blue_round_corner"
                                     android:gravity="center"
                                     android:text="Primary number"
+                                    android:alpha="0.80"
                                     android:visibility='@{student.primaryPhone.equals("F") ? view.VISIBLE : view.GONE}'
                                     />
 
