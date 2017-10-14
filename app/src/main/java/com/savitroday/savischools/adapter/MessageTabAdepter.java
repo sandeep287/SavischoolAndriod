@@ -2,6 +2,10 @@ package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +15,8 @@ import android.view.ViewGroup;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.databinding.NotificationmessaegeCellBinding;
+import com.savitroday.savischools.view.fragment.MessageOpenViewFragment;
+import com.savitroday.savischools.view.fragment.NotificationOpenViewFrag;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,12 +27,12 @@ import java.util.List;
 
 public class MessageTabAdepter extends RecyclerView.Adapter<MessageTabAdepter.viewHolder> {
 
-    Activity activity;
+    FragmentActivity activity;
     List<Message> ldt;
     NotificationmessaegeCellBinding mBinding;
     AppCompatActivity apc;
 
-    public MessageTabAdepter(Activity activity, List<Message> ldt) {
+    public MessageTabAdepter(FragmentActivity activity, List<Message> ldt) {
         this.activity = activity;
         this.ldt = ldt;
     }
@@ -49,6 +55,17 @@ public class MessageTabAdepter extends RecyclerView.Adapter<MessageTabAdepter.vi
             Picasso.with(activity).load((ldt.get(position)).iconMediaPath).into(mBinding.imageView);
             mBinding.imageView.setPadding(0,0,0,0);
         }
+        mBinding.messagecell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = MessageOpenViewFragment.getInstance(ldt.get(position));
+                FragmentManager manager=activity.getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     @Override

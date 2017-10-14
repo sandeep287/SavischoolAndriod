@@ -28,6 +28,17 @@
             android:background="@drawable/gradient_circle"
 
             android:src="@drawable/message"/>
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/photo_camera"
+            android:id="@+id/camera_icon"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/pinkred_budge"
+            android:padding="1dp"
+            android:visibility="gone"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,6 +48,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:background="@color/warm_grey"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="67dp"
+                    android:alpha=".20"
+                    />
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="16dp"
@@ -78,6 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/line"
+            android:id="@+id/messagecell"
             android:layout_toLeftOf="@id/seperator"
             android:layout_marginRight="80dp"
             android:orientation="vertical"
@@ -118,12 +139,13 @@
                 style="@style/Regular10White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+
                 android:background="@drawable/muted_blue_round_corner"
                 android:paddingBottom="2dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:paddingTop="2dp"
+
                 android:text="@{message.studentName}"
                 tools:text="JENNY"
                 />

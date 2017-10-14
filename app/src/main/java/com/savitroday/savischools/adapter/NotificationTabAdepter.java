@@ -2,6 +2,10 @@ package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +14,10 @@ import android.view.ViewGroup;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.databinding.FragmentAttandenceBinding;
 import com.savitroday.savischools.databinding.NotificationCellBinding;
 import com.savitroday.savischools.databinding.NotificationmessaegeCellBinding;
+import com.savitroday.savischools.view.fragment.NotificationOpenViewFrag;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -22,12 +28,12 @@ import java.util.List;
 
 public class NotificationTabAdepter extends RecyclerView.Adapter<NotificationTabAdepter.viewHolder> {
 
-    Activity activity;
+   FragmentActivity activity;
     List<Message> ldt;
     NotificationCellBinding mBinding;
     AppCompatActivity apc;
 
-    public NotificationTabAdepter(Activity activity, List<Message> ldt) {
+    public NotificationTabAdepter(FragmentActivity activity, List<Message> ldt) {
         this.activity = activity;
         this.ldt = ldt;
     }
@@ -38,7 +44,6 @@ public class NotificationTabAdepter extends RecyclerView.Adapter<NotificationTab
 
         mBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.notification_cell,
                 parent, false);
-
         return new NotificationTabAdepter.viewHolder(mBinding.getRoot());
 
     }
@@ -50,6 +55,17 @@ public class NotificationTabAdepter extends RecyclerView.Adapter<NotificationTab
             Picasso.with(activity).load((ldt.get(position)).iconMediaPath).into(mBinding.imageView);
             mBinding.imageView.setPadding(0,0,0,0);
         }
+        mBinding.notificationcell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment =NotificationOpenViewFrag.getInstance(ldt.get(position));
+                   FragmentManager manager=activity.getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                     transaction.add(R.id.flFragments, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+            }
+        });
 
     }
 

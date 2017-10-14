@@ -76,6 +76,7 @@ public class ParentProfileFragment extends Fragment {
     
     public class Handler {
         public void onNotificationTap() {
+
 //            Fragment fragment = new NotificationMessageTabFragment();
 //            FragmentManager manager = getActivity().getSupportFragmentManager();
 //            FragmentTransaction transaction = manager.beginTransaction();

@@ -39,14 +39,6 @@ int tempposition;
     @Override
     public MessageOpenViewAdepter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        if (Constants.SHARED_PREFERENCES_USER_ID.equals(((ldt.get(tempposition)).userId).equals(Constants.SHARED_PREFERENCES_USER_ID)))
-        {
-            mBindings = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.sendmessage_cell, parent, false);
-        }
-        else
-        {
-            mBindings = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.recevemessage_cell, parent, false);
-        }
 
         return new MessageOpenViewAdepter.viewHolder(mBindings.getRoot());
     }
@@ -54,18 +46,7 @@ int tempposition;
     @Override
     public void onBindViewHolder(MessageOpenViewAdepter.viewHolder holder, int position)
     {
-        tempposition=position+1;
-        if (Constants.SHARED_PREFERENCES_USER_ID.equals(((ldt.get(position)).userId).equals(Constants.SHARED_PREFERENCES_USER_ID)))
-        {
 
-            SendmessageCellBinding sendmessageCellBinding=(SendmessageCellBinding) mBindings;
-            sendmessageCellBinding.setMessage(ldt.get(position));
-        }
-        else
-        {
-            RecevemessageCellBinding recevemessageCellBinding=(RecevemessageCellBinding)mBindings;
-            recevemessageCellBinding.setMessage(ldt.get(position));
-        }
 
 
     }

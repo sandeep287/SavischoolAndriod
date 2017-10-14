@@ -1,5 +1,6 @@
 package com.savitroday.savischools.view.fragment;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,8 @@ import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.MessageTabAdepter;
 import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.databinding.FragmentMessagesBinding;
+import com.savitroday.savischools.databinding.FragmentNotificationBinding;
 import com.savitroday.savischools.manager.NotificationManager;
 
 import java.util.ArrayList;
@@ -24,33 +27,35 @@ public class MessagesFragment extends Fragment {
     
     RecyclerView messagesListView;
     List<Message> messageList = new ArrayList<>();
-    View view;
+
     RelativeLayout progressBar;
     MessageTabAdepter notificationAdapter;
     @Inject
     NotificationManager notificationManager;
+    FragmentMessagesBinding mBindings;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_messages, container, false);
-        
+
+        mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_messages, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        progressBar = (RelativeLayout) view.findViewById(R.id.progressBar);
+
         
-        messagesListView = (RecyclerView) view.findViewById(R.id.message_list);
+        messagesListView = mBindings.messageList;
         
         LinearLayoutManager llm2 = new LinearLayoutManager(getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         messagesListView.setLayoutManager(llm2);
         getMessageData();
         
-        return view;
+        return mBindings.getRoot();
     }
     
     public void getMessageData() {
-        
+        mBindings.progressBar.setVisibility(View.VISIBLE);
         notificationManager.getMessageTask().continueWith((task -> {
+            mBindings.progressBar.setVisibility(View.GONE);
             if (task.getResult() != null) {
                 messageList = NotificationManager.getMessageList();
                 notificationAdapter = new MessageTabAdepter(getActivity(), messageList);
