@@ -1,52 +1,59 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.savitroday.savischools.view.fragment.NotificationOpenViewFrag"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.savitroday.savischools.view.fragment.NotificationOpenViewFrag"
     >
+
     <data>
+
         <variable
             name="handler"
             type="com.savitroday.savischools.view.fragment.NotificationOpenViewFrag.Handler"/>
+
         <variable
             name="message"
             type="com.savitroday.savischools.api.response.Message"></variable>
     </data>
-    <FrameLayout  android:layout_width="match_parent"
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         >
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RelativeLayout
                 android:id="@+id/actionbarcontent"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:background="@drawable/gradient_background"
                 >
+
                 <TextView
                     android:id="@+id/ProfileScreen_headerTitle"
-                   style="@style/Bold17White"
+                    style="@style/Bold17White"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="72dp"
-                    android:gravity="center"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginLeft="72dp"
+                    android:gravity="center"
 
                     android:text="Notification"
                     />
+
                 <ImageButton
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/back_arrow_icon"
-
-                    android:onClick="@{()->handler.onBackPressed()}"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
+
+                    android:background="@drawable/back_arrow_icon"
+                    android:onClick="@{()->handler.onBackPressed()}"
                     />
-
-
 
 
                 <ImageView
@@ -58,49 +65,54 @@
                     android:layout_marginRight="16dp"
                     android:src="@drawable/delete"/>
             </RelativeLayout>
+
             <RelativeLayout
+                android:id="@+id/notificationHading"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
-                android:id="@+id/notificationHading"
                 android:layout_below="@id/actionbarcontent"
                 >
+
                 <ImageView
+                    android:id="@+id/notificationbell"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
-                    android:id="@+id/notificationbell"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/notification_dark"
                     />
+
                 <TextView
+                    style="@style/Medium16Navy"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:paddingRight="35dp"
                     android:paddingLeft="72dp"
-                    style="@style/Medium16Navy"
+                    android:paddingRight="35dp"
                     android:text="@{message.title}"
                     tools:text="Celebrating new year tomorrow in our school"
 
                     />
             </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black__15"
                 android:layout_below="@id/notificationHading"
+                android:background="@color/black__15"
                 />
+
             <TextView
+                style="@style/Regular14Navy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/notificationHading"
-                android:padding="16dp"
-                style="@style/Regular14Navy"
                 android:layout_marginRight="6dp"
+                android:padding="16dp"
                 android:text="@{message.message}"
                 tools:text="New Year is just round the corner. So start looking here for some awesome New Year Messages that you can send to your family members and friends wishing them a fabulous year ahead."
-                 />
+                />
         </RelativeLayout>
 
     </FrameLayout>

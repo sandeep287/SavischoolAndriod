@@ -1,132 +1,137 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
         <variable
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
+
         <variable
             name="handler"
             type="com.savitroday.savischools.view.fragment.MakePaymentFragment.Handler"/>
 
     </data>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_two"
-    tools:context="com.savitroday.savischools.view.fragment.MakePaymentFragment">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white_two"
+        tools:context="com.savitroday.savischools.view.fragment.MakePaymentFragment">
 
         <RelativeLayout
-            android:id="@+id/actionbarcontent"
             android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:background="@drawable/gradient_background">
-
-            <TextView
-                android:id="@+id/ProfileScreen_headerTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="72dp"
-                android:gravity="center"
-                android:text="Make Payment"
-                style="@style/Bold17White"
-           />
-
-            <ImageButton
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="32dp"
-                android:onClick="@{()->handler.onBackPressed()}"
-                android:background="@drawable/back_arrow_icon" />
-
-
-            <ImageView
-                android:id="@+id/notification"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/notification" />
-        </RelativeLayout>
-        <android.support.v7.widget.CardView
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-
-            android:layout_below="@id/actionbarcontent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginLeft="17dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/white">
+            android:layout_height="match_parent">
 
             <RelativeLayout
+                android:id="@+id/actionbarcontent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="66dp"
+                android:background="@drawable/gradient_background">
 
-                >
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:id="@+id/ProfileScreen_headerTitle"
+                    style="@style/Bold17White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="72dp"
                     android:gravity="center"
-                    style="@style/Medium16Navy"
-                    android:text="Summary"
-                    android:id="@+id/summaryhading"
+                    android:text="Make Payment"
                     />
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/paymentlist"
-                    android:layout_below="@id/summaryhading"
+                <ImageButton
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:background="@drawable/back_arrow_icon"
+                    android:onClick="@{()->handler.onBackPressed()}"/>
+
+
+                <ImageView
+                    android:id="@+id/notification"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/notification"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@id/actionbarcontent"
+
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
                     >
 
-                </android.support.v7.widget.RecyclerView>
+                    <TextView
+                        android:id="@+id/summaryhading"
+                        style="@style/Medium16Navy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="Summary"
+                        />
 
-                <TextView
-                    android:id="@+id/totalamounthadin"
-                    style="@style/Regular12Navy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/paymentlist"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:text="Total Amount" />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/paymentlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/summaryhading"
 
-                <TextView
-                    android:id="@+id/totalamount"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/totalamounthadin"
-                    android:layout_marginBottom="46dp"
-                    android:layout_marginTop="6dp"
-                    tools:text="$2300" />
+                        >
+
+                    </android.support.v7.widget.RecyclerView>
+
+                    <TextView
+                        android:id="@+id/totalamounthadin"
+                        style="@style/Regular12Navy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/paymentlist"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:text="Total Amount"/>
+
+                    <TextView
+                        android:id="@+id/totalamount"
+                        style="@style/Bold60White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/totalamounthadin"
+                        android:layout_marginBottom="46dp"
+                        android:layout_marginTop="6dp"
+                        tools:text="$2300"/>
 
 
+                </RelativeLayout>
 
-            </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="49dp"
-            android:text="Pay Now"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/turquois_round_corner"
-             android:id="@+id/paynow"
-            />
-</RelativeLayout>
+            <Button
+                android:id="@+id/paynow"
+                android:layout_width="150dp"
+                android:layout_height="49dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/turquois_round_corner"
+                android:text="Pay Now"
+                />
+        </RelativeLayout>
 
-</FrameLayout>
+    </FrameLayout>
 </layout>

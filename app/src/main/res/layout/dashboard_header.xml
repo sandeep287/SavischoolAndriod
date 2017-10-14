@@ -56,7 +56,7 @@
 
                 <TextView
                     android:id="@+id/notificationBadge"
-                    style="@style/Bold10white"
+                    style="@style/Regular8White"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -108,7 +108,7 @@
                         />
 
                     <TextView
-                        style="@style/Regular14White"
+                        style="@style/Light14White"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" Good Morning"
@@ -153,7 +153,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_toLeftOf="@id/image"
                 android:orientation="vertical">
 
@@ -164,25 +163,23 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="Check In"
-
-                    android:layout_marginBottom="-4dp"
+                    android:includeFontPadding="false"
                     />
 
                 <TextView
                     style="@style/Medium14Navy"
-                    android:layout_marginTop="-4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="@{dashboard.getCheckInTime()}"
                     tools:text="9:00 AM"
+                    android:includeFontPadding="false"
                     />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_toRightOf="@id/image"
                 android:orientation="vertical">
 
@@ -192,8 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Check OUT"
-                    android:layout_marginBottom="-4dp"
-
+                    android:includeFontPadding="false"
                     />
 
                 <TextView
@@ -201,9 +197,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="-4dp"
                     android:text="@{dashboard.getCheckOutTime()}"
                     tools:text="NOT YET"
+                    android:includeFontPadding="false"
                     />
             </LinearLayout>
         </RelativeLayout>

@@ -109,15 +109,13 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                     binding.imageView.setImageResource(R.drawable.icon_msg);
                 }
             }
-            //todo test this
-//            if (!message.isNotification && message.messageAttachment != null && message.messageAttachment.length() >
-//                                                                                        0) {
-//                binding.cameraIcon.setVisibility(View.VISIBLE);
-//            } else {
-//                binding.cameraIcon.setVisibility(View.GONE);
-//            }
+            if (!message.isNotification && message.messageAttachment != null && message.messageAttachment.length() >
+                                                                                        0) {
+                binding.cameraIcon.setVisibility(View.VISIBLE);
+            } else {
+                binding.cameraIcon.setVisibility(View.GONE);
+            }
             binding.executePendingBindings();
-            
             return binding.getRoot();
         } else {
             final Invoice invoice = (Invoice) getChild(i, i1);

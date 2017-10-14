@@ -14,16 +14,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <TextView
             style="@style/Medium16Navy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="@{student.studentName}"
             tools:text="Amit goyal"
-            android:layout_centerVertical="true"
             />
     </RelativeLayout>
 </layout>

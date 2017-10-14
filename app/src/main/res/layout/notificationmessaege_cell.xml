@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+        xmlns:tools="http://schemas.android.com/tools"
     >
 
     <data>
@@ -8,148 +8,157 @@
         <variable
             name="message"
             type="com.savitroday.savischools.api.response.Message"/>
-       </data>
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:paddingBottom="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="16dp"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:padding="8dp"
             android:layout_centerVertical="true"
             android:background="@drawable/gradient_circle"
+            android:padding="8dp"
 
             android:src="@drawable/message"/>
+
         <ImageView
+            android:id="@+id/camera_icon"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:src="@drawable/photo_camera"
-            android:id="@+id/camera_icon"
             android:layout_marginLeft="27dp"
             android:layout_marginTop="22dp"
             android:background="@drawable/pinkred_budge"
             android:padding="1dp"
+            android:src="@drawable/photo_camera"
             android:visibility="gone"
             />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="56dp"
 
             >
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <View
                     android:layout_width="2dp"
                     android:layout_height="30dp"
-                    android:background="@color/warm_grey"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="67dp"
                     android:alpha=".20"
+                    android:background="@color/warm_grey"
                     />
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="16dp"
-    android:layout_alignParentRight="true"
-    android:layout_centerVertical="true"
-    android:id="@+id/deletiondetail"
-    android:orientation="horizontal"
-    android:background="@color/white"
-    >
-    <ImageView
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:background="@drawable/time_black"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="4dp"
-        />
-        <TextView
-            android:id="@+id/timeTextview"
-            style="@style/Regular10Navy"
-            android:alpha=".54"
-            android:background="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{message.getCreatedOn()}"
 
-            tools:text="4:10 AM"
-            />
+                <LinearLayout
+                    android:id="@+id/deletiondetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    >
 
-</LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:id="@+id/line"
-    android:layout_marginBottom="16dp"
-    android:layout_alignParentTop="true"
-    android:background="@color/black_14"
-    />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/line"
-            android:id="@+id/messagecell"
-            android:layout_toLeftOf="@id/seperator"
-            android:layout_marginRight="80dp"
-            android:orientation="vertical"
-            android:layout_alignParentLeft="true"
-            >
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/time_black"
+                        />
 
-            <TextView
-                style="@style/Regular12Navy_54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text='@{"From " + message.senderName}'
-                tools:text="From John"
+                    <TextView
+                        android:id="@+id/timeTextview"
+                        style="@style/Regular10Navy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha=".54"
+                        android:background="@color/white"
+                        android:text="@{message.getCreatedOn()}"
 
-                />
+                        tools:text="4:10 AM"
+                        />
 
-            <TextView
-                style="@style/Medium16Navy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@{message.title}"
-                tools:text="You are invited for 2017 F.."
-                />
+                </LinearLayout>
 
-            <TextView
-                style="@style/Regular14Navy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:alpha=".74"
-                android:maxLines="1"
-                android:text="@{message.message}"
-                tools:text="We are Celebrating Upco…"
-                />
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/black_14"
+                    />
 
-            <TextView
-                style="@style/Regular10White"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <LinearLayout
+                    android:id="@+id/messagecell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/line"
+                    android:layout_marginRight="80dp"
+                    android:layout_toLeftOf="@id/seperator"
+                    android:orientation="vertical"
+                    >
 
-                android:background="@drawable/muted_blue_round_corner"
-                android:paddingBottom="2dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="2dp"
+                    <TextView
+                        style="@style/Regular12Navy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.54"
+                        android:text='@{"From " + message.senderName}'
+                        tools:text="From John"
+                        />
 
-                android:text="@{message.studentName}"
-                tools:text="JENNY"
-                />
-              </LinearLayout>
+                    <TextView
+                        style="@style/Medium16Navy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{message.title}"
+                        tools:text="You are invited for 2017 F.."
+                        />
+
+                    <TextView
+                        style="@style/Regular14Navy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha=".74"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{message.message}"
+                        tools:text="We are Celebrating Upco…"
+                        />
+
+                    <TextView
+                        style="@style/Regular10White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/muted_blue_round_corner"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="2dp"
+
+                        android:text="@{message.studentName}"
+                        tools:text="JENNY"
+                        />
+                </LinearLayout>
 
             </RelativeLayout>
         </RelativeLayout>

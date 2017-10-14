@@ -34,13 +34,13 @@
                     />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileButton"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/profile_img"
-                    android:id="@+id/profileButton"/>
+                    android:src="@drawable/profile_img"/>
 
             </RelativeLayout>
         </android.support.design.widget.AppBarLayout>
@@ -61,17 +61,18 @@
             android:layout_height="match_parent"
             android:layout_below="@id/tabLayout"
             android:background="@android:color/white"/>
-       </RelativeLayout>
+    </RelativeLayout>
+
     <ImageButton
         android:id="@+id/fab"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:backgroundTint="@color/aqua_marine"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/add"
+        android:background="@drawable/aqua_marine_circle"
+        android:backgroundTint="@color/aqua_marine"
         android:padding="16dp"
-         android:background="@drawable/aqua_marine_circle"
+        android:src="@drawable/add"
 
         />
 

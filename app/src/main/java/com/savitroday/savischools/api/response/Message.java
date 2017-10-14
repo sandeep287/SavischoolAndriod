@@ -18,12 +18,18 @@ public class Message {
     @SerializedName("userId")
     @Expose
     public String userId;
+    @SerializedName("totalTime")
+    @Expose
+    public String totalTime;
     @SerializedName("createdOn")
     @Expose
     public Date createdOn;
     @SerializedName("isNotification")
     @Expose
     public Boolean isNotification;
+    @SerializedName("hideOnMobile")
+    @Expose
+    public Boolean hideOnMobile;
     @SerializedName("isViewed")
     @Expose
     public Boolean isViewed;
@@ -42,9 +48,6 @@ public class Message {
     @SerializedName("message")
     @Expose
     public String message;
-    @SerializedName("mediaPath")
-    @Expose
-    public String mediaPath;
     @SerializedName("iconMediaPath")
     @Expose
     public String iconMediaPath;
@@ -63,21 +66,12 @@ public class Message {
     @SerializedName("studentId")
     @Expose
     public String studentId;
-    @SerializedName("staffName")
-    @Expose
-    public Object staffName;
     @SerializedName("studentName")
     @Expose
     public String studentName;
-    @SerializedName("className")
-    @Expose
-    public Object className;
     @SerializedName("status")
     @Expose
     public Object status;
-    @SerializedName("classSectionName")
-    @Expose
-    public Object classSectionName;
     @SerializedName("name")
     @Expose
     public Object name;

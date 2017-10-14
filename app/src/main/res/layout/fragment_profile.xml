@@ -3,421 +3,427 @@
         tools:context="com.savitroday.savischools.view.fragment.ProfileFragment">
 
     <data>
+
         <variable
             name="handler"
             type="com.savitroday.savischools.view.fragment.ProfileFragment.Handler"/>
+
         <variable
             name="view"
             type="android.view.View"/>
+
         <variable
             name="student"
             type="com.savitroday.savischools.api.response.Student"/>
     </data>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    >
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-
-
-        >
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="124dp"
-            android:background="@drawable/backgroundimagegradint"
-            />
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/actionbarcontent"
-            android:layout_width="match_parent"
-            android:layout_height="56dp">
-
-            <TextView
-                android:id="@+id/ProfileScreen_headerTitle"
-                style="@style/Bold17White"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="72dp"
-                android:text="Child Profile"
-                />
-
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:onClick="@{()->handler.onBackPressed()}"
-                android:layout_marginRight="32dp"
-                android:background="@drawable/back_arrow_icon"
-                />
-
-
-            <ImageView
-                android:id="@+id/notification"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:onClick="@{()->handler.onNotificationTap()}"
-                android:src="@drawable/notification"
-                />
-
-            <TextView
-                android:id="@+id/notificationBadge"
-                style="@style/Bold10white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/pinkred_budge"
-                android:gravity="center"
-                android:visibility="gone"
-                tools:text="5"
-                android:minWidth="12dp"
-                android:minHeight="12dp"
-                android:textSize="8sp"
-                />
-        </RelativeLayout>
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/studentImageview"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:layout_below="@id/actionbarcontent"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="19dp"
-            android:src="@drawable/profile_img"
-            />
-
-        <TextView
-            android:id="@+id/stname"
-            style="@style/Regular24Navy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/studentImageview"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@{student.studentName}"
-            tools:text="Jenny Benson"
-            />
-
-        <TextView
-
-            android:id="@+id/stclass"
-            style="@style/Regular12Navy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/stname"
-            android:gravity="center"
-            android:letterSpacing="0.02"
-            android:alpha=".54"
-            android:text="@{student.classname}"
-            tools:text="Nurssary Class"
-
-            />
-
-
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:orientation="vertical"
-                android:scrollbars="vertical"
-                android:layout_below="@id/stclass"
-                android:layout_marginTop="16dp"
+                android:background="@color/white">
 
-                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:background="@drawable/backgroundimagegradint"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/actionbarcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp">
+
+                    <TextView
+                        android:id="@+id/ProfileScreen_headerTitle"
+                        style="@style/Bold17White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="72dp"
+                        android:text="Child Profile"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="16dp"
+                        android:layout_marginRight="32dp"
+                        android:background="@drawable/back_arrow_icon"
+                        android:onClick="@{()->handler.onBackPressed()}"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/notification"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="16dp"
+                        android:onClick="@{()->handler.onNotificationTap()}"
+                        android:src="@drawable/notification"
+                        />
+
+                    <TextView
+                        android:id="@+id/notificationBadge"
+                        style="@style/Bold10White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/pinkred_budge"
+                        android:gravity="center"
+                        android:minHeight="12dp"
+                        android:minWidth="12dp"
+                        android:textSize="8sp"
+                        android:visibility="gone"
+                        tools:text="5"
+                        />
+                </RelativeLayout>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/studentImageview"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    android:layout_below="@id/actionbarcontent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="19dp"
+                    android:src="@drawable/profile_img"
+                    />
+
+                <TextView
+                    android:id="@+id/stname"
+                    style="@style/Regular24Navy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/studentImageview"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@{student.studentName}"
+                    tools:text="Jenny Benson"
+                    />
+
+                <TextView
+
+                    android:id="@+id/stclass"
+                    style="@style/Regular12Navy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stname"
+                    android:alpha=".54"
+                    android:gravity="center"
+                    android:letterSpacing="0.02"
+                    android:text="@{student.classname}"
+                    tools:text="Nurssary Class"
+
+                    />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="68dp"
-                    android:orientation="horizontal"
-
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stclass"
+                    android:layout_marginTop="16dp"
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    android:scrollbars="vertical"
 
                     >
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="36dp"
-                        android:src="@drawable/dob"
-                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
-                        android:orientation="vertical"
-                        android:paddingLeft="24dp"
+                        android:orientation="horizontal"
+
+
                         >
 
-                        <TextView
-                            style="@style/Regular12Navy_54"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="16dp"
-                            android:text="DOB"
-
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="36dp"
+                            android:src="@drawable/dob"
                             />
 
-                        <TextView
-                            android:id="@+id/stDob"
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="22dp"
-                            android:inputType="date"
-                            android:letterSpacing="0.02"
-                            android:text="@{student.getDateOfBirth()}"
-                            tools:text="4 may 2010"/>
-
-                        <View
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="8dp"
-                            android:alpha="0.12"
-                            android:background="@color/navy"
-                            />
+                            android:layout_height="68dp"
+                            android:orientation="vertical"
+                            android:paddingLeft="24dp"
+                            >
+
+                            <TextView
+                                style="@style/Regular12Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginTop="16dp"
+                                android:alpha="0.54"
+                                android:text="DOB"
+                                />
+
+                            <TextView
+                                android:id="@+id/stDob"
+                                style="@style/Medium16Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="22dp"
+                                android:inputType="date"
+                                android:letterSpacing="0.02"
+                                android:text="@{student.getDateOfBirth()}"
+                                tools:text="4 may 2010"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="8dp"
+                                android:alpha="0.12"
+                                android:background="@color/navy"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="16dp"
-                        android:src="@drawable/username_black"
-                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="3dp"
-                        android:background="@color/white"
-                        android:orientation="vertical"
-                        android:paddingLeft="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+
                         >
 
-                        <TextView
-                            android:id="@+id/textView"
-                            style="@style/Regular12Navy_54"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Mother Name" />
-
-                        <TextView
-                            android:id="@+id/stmother"
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="22dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="4dp"
-                            android:letterSpacing="0.02"
-                            android:text="@{student.motherName}"
-                            tools:text="Bettie"
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:src="@drawable/username_black"
                             />
-                        <RelativeLayout
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="@color/white"
+                            android:orientation="vertical"
+                            android:paddingLeft="20dp"
                             >
+
                             <TextView
-                                android:id="@+id/stmotherno"
-                                style="@style/Regular14Navy"
+                                android:id="@+id/textView"
+                                style="@style/Regular12Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="16dp"
+                                android:alpha="0.54"
+                                android:text="Mother Name"/>
+
+                            <TextView
+                                android:id="@+id/stmother"
+                                style="@style/Medium16Navy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="22dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginTop="4dp"
                                 android:letterSpacing="0.02"
-                                android:lines="1"
-                                android:text="@{student.motherPhone}"
-                                tools:text="1-201-403-2900"
-
+                                android:text="@{student.motherName}"
+                                tools:text="Bettie"
                                 />
 
-                        </RelativeLayout>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="17dp"
-                            android:alpha="0.12"
-                            android:background="@color/navy"
-                            />
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:id="@+id/stmotherno"
+                                    style="@style/Regular14Navy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="22dp"
+                                    android:letterSpacing="0.02"
+                                    android:lines="1"
+                                    android:text="@{student.motherPhone}"
+                                    tools:text="1-201-403-2900"
+
+                                    />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="17dp"
+                                android:alpha="0.12"
+                                android:background="@color/navy"
+                                />
+                        </LinearLayout>
+
                     </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="16dp"
-                        android:src="@drawable/username_black"
-                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="97dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
 
-                        android:background="@color/white"
-                        android:orientation="vertical"
-                        android:paddingLeft="20dp"
                         >
 
-                        <TextView
-                            style="@style/Regular12Navy_54"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Father Name"
-
-
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:src="@drawable/username_black"
                             />
 
-                        <TextView
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="22dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="4dp"
-                            android:letterSpacing="0.02"
-                            android:text="@{student.fatherName}"
-                            tools:text="Marc Jones"
-                            />
-
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="97dp"
+
+                            android:background="@color/white"
+                            android:orientation="vertical"
+                            android:paddingLeft="20dp"
                             >
 
                             <TextView
-                                android:id="@+id/stfatherno"
-                                style="@style/Regular14Navy"
-                                android:layout_width="120dp"
+                                style="@style/Regular12Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="16dp"
+                                android:alpha="0.54"
+                                android:text="Father Name"
+                                />
+
+                            <TextView
+                                style="@style/Medium16Navy"
+                                android:layout_width="wrap_content"
                                 android:layout_height="22dp"
-                                android:layout_alignParentLeft="true"
-                                android:layout_weight="5"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginTop="4dp"
                                 android:letterSpacing="0.02"
-                                android:lines="1"
-                                android:text="@{student.fatherPhone}"
-                                tools:text="1-201-403-2900"
-
+                                android:text="@{student.fatherName}"
+                                tools:text="Marc Jones"
                                 />
 
-                            <Button
-                                android:id="@+id/primarykey"
-                                style="@style/Regular10White"
-                                android:layout_width="105dp"
-                                android:layout_height="21dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_gravity="right"
-                                android:layout_marginRight="20dp"
-                                android:background="@drawable/muted_blue_round_corner"
-                                android:gravity="center"
-                                android:text="Primary number"
-                                android:visibility='@{student.primaryPhone.equals("F") ? view.VISIBLE : view.GONE}'
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:id="@+id/stfatherno"
+                                    style="@style/Regular14Navy"
+                                    android:layout_width="120dp"
+                                    android:layout_height="22dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_weight="5"
+                                    android:letterSpacing="0.02"
+                                    android:lines="1"
+                                    android:text="@{student.fatherPhone}"
+                                    tools:text="1-201-403-2900"
+
+                                    />
+
+                                <Button
+                                    android:id="@+id/primarykey"
+                                    style="@style/Regular10White"
+                                    android:layout_width="105dp"
+                                    android:layout_height="21dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_gravity="right"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/muted_blue_round_corner"
+                                    android:gravity="center"
+                                    android:text="Primary number"
+                                    android:visibility='@{student.primaryPhone.equals("F") ? view.VISIBLE : view.GONE}'
+                                    />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="11dp"
+                                android:alpha="0.12"
+                                android:background="@color/navy"
                                 />
-
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="11dp"
-                            android:alpha="0.12"
-                            android:background="@color/navy"
-                            />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
 
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="68dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="16dp"
-                        android:src="@drawable/addres"
-                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
-                        android:orientation="vertical"
-                        android:paddingLeft="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+
                         >
 
-                        <TextView
-                            style="@style/Regular12Navy_54"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="15dp"
-                            android:text="ADDRESS"
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:src="@drawable/addres"
                             />
 
-                        <TextView
-                            android:id="@+id/staddress"
-                            style="@style/Medium16Navy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:letterSpacing="0.02"
-                            android:text="@{student.getAddress()}"
-                            tools:text="738Block Suite"
-
-                            />
-
-                        <View
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="8dp"
-                            android:alpha="0.12"
-                            android:background="@color/navy"
-                            />
+                            android:layout_height="68dp"
+                            android:orientation="vertical"
+                            android:paddingLeft="20dp"
+                            >
+
+                            <TextView
+                                style="@style/Regular12Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginTop="15dp"
+                                android:alpha="0.54"
+                                android:text="ADDRESS"
+                                />
+
+                            <TextView
+                                android:id="@+id/staddress"
+                                style="@style/Medium16Navy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.02"
+                                android:text="@{student.getAddress()}"
+                                tools:text="738Block Suite"
+
+                                />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="8dp"
+                                android:alpha="0.12"
+                                android:background="@color/navy"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
+
                 </LinearLayout>
 
-            </LinearLayout>
-
-    </RelativeLayout>
-    </ScrollView>
-</FrameLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </FrameLayout>
 </layout>

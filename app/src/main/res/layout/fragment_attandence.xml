@@ -4,6 +4,7 @@
         tools:context="com.savitroday.savischools.view.fragment.AttendanceFragment">
 
     <data>
+
         <variable
             name="handler"
             type="com.savitroday.savischools.view.fragment.AttendanceFragment.Handler"/>
@@ -71,10 +72,10 @@
                 android:layout_margin="16dp"
                 android:scaleX="1"
                 app:mcv_arrowColor="@color/white"
-                app:mcv_dateTextAppearance="@style/Bold10white"
+                app:mcv_dateTextAppearance="@style/Bold10White"
                 app:mcv_headerTextAppearance="@style/Regular12White55"
                 app:mcv_tileSize="0dp"
-                app:mcv_weekDayTextAppearance="@style/Normal10White"/>
+                app:mcv_weekDayTextAppearance="@style/Medium10White"/>
 
             <RelativeLayout
                 android:id="@+id/datedetail"
@@ -122,7 +123,7 @@
                         android:text="Check In"/>
 
                     <TextView
-                        style="@style/Normal14White"
+                        style="@style/Medium10White"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="9:00 AM"/>
@@ -158,7 +159,7 @@
                         android:text="Check In"/>
 
                     <TextView
-                        style="@style/Normal14White"
+                        style="@style/Medium10White"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NOT YET"/>
@@ -252,7 +253,7 @@
                                 tools:text="Leaves"/>
 
                             <TextView
-                                style="@style/Medium12white"
+                                style="@style/Medium12White"
                                 android:layout_width="53dp"
                                 android:layout_height="22dp"
                                 android:layout_alignParentRight="true"
@@ -306,7 +307,7 @@
                                 tools:text="Leave Early"/>
 
                             <TextView
-                                style="@style/Medium12white"
+                                style="@style/Medium12White"
                                 android:layout_width="53dp"
                                 android:layout_height="22dp"
                                 android:layout_alignParentRight="true"
@@ -360,7 +361,7 @@
                                 tools:text="Holiday Leaves"/>
 
                             <TextView
-                                style="@style/Medium12white"
+                                style="@style/Medium12White"
                                 android:layout_width="53dp"
                                 android:layout_height="22dp"
                                 android:layout_alignParentRight="true"

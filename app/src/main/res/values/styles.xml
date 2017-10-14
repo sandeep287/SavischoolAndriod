@@ -4,142 +4,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/turquoise</item>
-        <item name="colorPrimaryDark">@color/turquoise</item>
+        <item name="colorPrimary">@color/turquoise_blue</item>
+        <item name="colorPrimaryDark">@color/turquoise_blue</item>
         <item name="colorAccent">@color/white</item>
     </style>
-    <style name="Regular24Navy">
-        <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Regular14White">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="TextStyle4">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">@color/yellow_orange</item>
-    </style>
-    <style name="Regular14Navy">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Normal14White">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">2sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="TextStyle6">
-        <item name="android:textSize">8sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Regular12PinkyRed">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/pinky_red</item>
-    </style>
-    <style name="TextStyle5">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/navy_two</item>
-    </style>
-    <style name="TextStyle3">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Regular12Navy">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">4sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Regular12Navy_54">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">4sp</item>
-        <item name="android:textColor">@color/navy_54</item>
-    </style>
-    <style name="TextStyle">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/navy_two</item>
-    </style>
-    <style name="Medium14TurquoiseBlue">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="android:textColor">@color/turquoise_blue</item>
-    </style>
-    <style name="Bold10NavyTwo">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/navy_two</item>
-    </style>
-    <style name="Regular10PinkyRed">
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/pinky_red</item>
-    </style>
-    <style name="Bold16NavyTwo">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/navy_two</item>
-    </style>
-    <style name="Bold16Turqoise">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/turquoise</item>
-    </style>
-    <style name="TextStyle9">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Bold60White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">60sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Bold5White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">5sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
+
     <style name="AppTheme.CustomTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
@@ -163,250 +32,6 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
-    <!--app defined styles-->
-
-    <style name="Bold18twilightBlueThree">
-        <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
-        <item name="android:textColor">@color/twilight_blue_three</item>
-    </style>
-
-    <style name="Bold18BlueGreen">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
-        <item name="android:textColor">@color/blue_green</item>
-    </style>
-
-    <style name="Bold14White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="TextStyle2">
-        <item name="android:gravity">end</item>
-        <item name="android:textSize">17sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/turquoise</item>
-    </style>
-    <style name="Regular16White">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Regular10Navy">
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Light16White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="Medium14Black">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Medium16Black">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Regular16Black">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Bold24Black">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="Regular12Black55">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">4sp</item>
-        <item name="android:textColor">@color/black_55</item>
-    </style>
-    <style name="Medium14DarkIndigo">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/dark_indigo</item>
-    </style>
-
-    <style name="Medium14White">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Medium20White">
-        <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#ffffff</item>
-    </style>
-    <style name="Regular14Black">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Light14White">
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Medium14Navy">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">2sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Bold17White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">17sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Medium16Navy">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:textColor">@color/navy</item>
-    </style>
-    <style name="Bold12TurquoiseBlue">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/turquoise_blue</item>
-    </style>
-    <style name="Regular12Black">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Medium12Tomato">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/tomato</item>
-    </style>
-
-    <style name="Regular12White">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-
-
-    <style name="Regular12White55">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">4sp</item>
-        <item name="android:textColor">@color/white_55</item>
-    </style>
-
-    <style name="Light12White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="Light12Black">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Regular10White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Light12BlueGrey">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/bluey_grey</item>
-    </style>
-
-    <style name="Semibold10White">
-        <item name="android:textSize">10sp</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="Bold10white">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Normal10White">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="Medium10Tomoto">
-        <item name="android:textSize">10sp</item>
-        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
-        <item name="android:textColor">@color/tomato</item>
-    </style>
-
-    <style name="Bold10Black">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-    <style name="Medium12white">
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:lineSpacingExtra">4sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
 
     <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/white_55</item>
@@ -420,4 +45,440 @@
         <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
     </style>
 
+
+    <style name="Bold30NavyTwo">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+
+    <style name="Bold24Black">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Regular24Navy">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Medium20White">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bold18Cerulean">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
+        <item name="android:textColor">@color/cerulean</item>
+    </style>
+
+    <style name="Bold18BlueGreen">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
+        <item name="android:textColor">@color/blue_green</item>
+    </style>
+
+    <style name="Bold17Turquoise">
+        <item name="android:gravity">end</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/turquoise</item>
+    </style>
+
+    <style name="Bold16Turqoise">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/turquoise</item>
+    </style>
+
+    <style name="Bold16NavyTwo">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+
+    <style name="Bold16TwilightBlue">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/twilight_blue_three</item>
+    </style>
+
+    <style name="Bold16White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Medium16Navy">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.38</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Medium16YellowOrange">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.38</item>
+        <item name="android:textColor">@color/yellow_orange</item>
+    </style>
+
+    <style name="Medium16Black">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Medium16NavyTwo">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+
+    <style name="Regular16White">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Regular16Black">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Light16White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bold14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Roboto14Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.14</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Medium14White70">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+        <item name="android:textColor">@color/white__70</item>
+    </style>
+
+    <style name="Medium14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Medium14TurquoiseBlue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.71</item>
+        <item name="android:textColor">@color/turquoise_blue</item>
+    </style>
+
+    <style name="Medium14Black">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Medium14DarkIndigo">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/dark_indigo</item>
+    </style>
+
+    <style name="Medium14Navy">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.14</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Regular14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Regular14Black">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Regular14Navy">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.57</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Light14White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bold12TurquoiseBlue">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/turquoise_blue</item>
+    </style>
+
+    <style name="Medium12White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Medium12Tomato">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/tomato</item>
+    </style>
+
+    <style name="Medium12YellowOrange">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/yellow_orange</item>
+    </style>
+
+    <style name="Medium12NavyTwo">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+
+    <style name="Regular12PinkyRed">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/pinky_red</item>
+    </style>
+
+    <style name="Regular12White">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Regular12Black">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Regular12Black55">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+        <item name="android:textColor">@color/black_55</item>
+    </style>
+
+    <style name="Regular12White55">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+        <item name="android:textColor">@color/white_55</item>
+    </style>
+
+    <style name="Regular12Navy">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Light12White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Light12BlueGrey">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/bluey_grey</item>
+    </style>
+
+    <style name="Light12Black">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Bold10White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bold10NavyTwo">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+
+    <style name="Bold10Black">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Semibold10White">
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Medium10White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Medium10Tomoto">
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
+        <item name="android:textColor">@color/tomato</item>
+    </style>
+
+    <style name="Regular10NavyTwo">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/navy_two</item>
+    </style>
+
+    <style name="Regular10PinkyRed">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/pinky_red</item>
+    </style>
+
+    <style name="Regular10White">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.6</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Regular10Navy">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.6</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Regular8Navy">
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/navy</item>
+    </style>
+
+    <style name="Regular8White">
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bold17White">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bold60White">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

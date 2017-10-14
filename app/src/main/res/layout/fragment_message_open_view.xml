@@ -1,57 +1,58 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_two"
-    tools:context="com.savitroday.savischools.view.fragment.MessageOpenViewFragment">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/white_two"
+             tools:context="com.savitroday.savischools.view.fragment.MessageOpenViewFragment">
+
     <RelativeLayout
-        android:id="@+id/actionbarcontent"
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="@drawable/gradient_background">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/ProfileScreen_headerTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="72dp"
-            android:gravity="center"
-            android:text="Message"
-            style="@style/Bold17White"
-             />
+        <RelativeLayout
+            android:id="@+id/actionbarcontent"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:background="@drawable/gradient_background">
 
-        <ImageButton
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="32dp"
+            <TextView
+                android:id="@+id/ProfileScreen_headerTitle"
+                style="@style/Bold17White"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="72dp"
+                android:gravity="center"
+                android:text="Message"
+                />
 
-            android:background="@drawable/back_arrow_icon" />
+            <ImageButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="32dp"
+
+                android:background="@drawable/back_arrow_icon"/>
 
 
-        <ImageView
-            android:id="@+id/delete"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/delete" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/delete"/>
+        </RelativeLayout>
 
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/reyclerview_message_list"
-            android:layout_below="@id/actionbarcontent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/actionbarcontent"
             android:layout_marginBottom="50dp"
             >
         </android.support.v7.widget.RecyclerView>
@@ -62,34 +63,34 @@
             android:id="@+id/layout_chatbox"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
-           >
+            android:orientation="horizontal"
+            >
 
             <EditText
                 android:id="@+id/edittext_chatbox"
-                android:hint="Type something to send…"
-                android:background="@android:color/transparent"
-                android:layout_gravity="center"
                 style="@style/Regular14Navy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-               />
+                android:background="@android:color/transparent"
+                android:hint="Type something to send…"
+                />
 
             <Button
                 android:id="@+id/button_chatbox_send"
-                android:background="@drawable/send"
-                android:clickable="true"
                 android:layout_width="64dp"
                 android:layout_height="48dp"
-                android:gravity="center"
-                android:layout_gravity="bottom" />
+                android:layout_gravity="bottom"
+                android:background="@drawable/send"
+                android:clickable="true"
+                android:gravity="center"/>
         </LinearLayout>
 
 
-</RelativeLayout>
+    </RelativeLayout>
 </FrameLayout>

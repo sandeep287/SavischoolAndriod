@@ -4,7 +4,6 @@
     >
 
     <data>
-
         <variable
             name="invoice"
             type="com.savitroday.savischools.api.response.Invoice"/>
@@ -17,57 +16,54 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
-        <RelativeLayout android:id="@+id/bottomLayout"
+        <RelativeLayout
+            android:id="@+id/bottomLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:padding="16dp">
+            android:padding="8dp">
 
             <LinearLayout
                 android:id="@+id/date"
-                android:layout_width="40dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_margin="8dp"
                 android:background="@drawable/white_61_rounded_background"
-                android:elevation="12dp"
+                android:elevation="8dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/Bold10Black"
+                    style="@style/Bold10NavyTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:alpha="0.80"
                     android:text="@{invoice.getMonth()}"
                     android:textAllCaps="true"
                     tools:text="May"
-                    android:alpha="0.80"
                     />
 
                 <TextView
+                    style="@style/Bold16NavyTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:gravity="center_horizontal"
                     android:letterSpacing="0.03"
                     android:text="@{invoice.getDate()}"
-                    android:textColor="@color/dark_indigo"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     tools:text="21"
                     />
 
                 <TextView
+                    style="@style/Regular10NavyTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="center_horizontal"
-                    android:letterSpacing="-0.03"
-                    android:text="@{invoice.getYear()}"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    tools:text="2017"
+                    android:layout_marginBottom="3dp"
                     android:alpha="0.50"
+                    android:gravity="center_horizontal"
+                    android:text="@{invoice.getYear()}"
+                    tools:text="2017"
                     />
             </LinearLayout>
 
@@ -75,12 +71,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="4dp"
                 android:layout_toRightOf="@id/date"
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/Medium14DarkIndigo"
+                    style="@style/Medium16Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{invoice.invoiceType}"
@@ -88,16 +84,16 @@
                     />
 
                 <TextView
-                    style="@style/Regular14Black"
+                    style="@style/Regular14Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:alpha="0.74"
                     android:text="@{invoice.remarks}"
                     tools:text="This month Fee pending…"
-                    android:alpha="0.74"
                     />
 
                 <TextView
-                    style="@style/Medium10Tomoto"
+                    style="@style/Regular10PinkyRed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{invoice.status}"
@@ -113,7 +109,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/Bold18twilightBlueThree"
+                    style="@style/Bold16TwilightBlue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -123,7 +119,7 @@
 
                 <TextView
                     android:id="@+id/paynowButton"
-                    style="@style/Semibold10White"
+                    style="@style/Medium12White"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -137,10 +133,12 @@
                     />
             </LinearLayout>
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/bottomLayout"
+            android:alpha="0.24"
             android:background="@color/warm_grey"/>
     </RelativeLayout>
 </layout>

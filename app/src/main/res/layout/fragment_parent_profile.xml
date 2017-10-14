@@ -135,13 +135,13 @@
                                 >
 
                                 <TextView
-                                    style="@style/Regular12Navy_54"
+                                    style="@style/Regular12Navy"
                                     android:layout_width="wrap_content"
                                     android:layout_height="16dp"
                                     android:layout_marginBottom="4dp"
                                     android:layout_marginTop="16dp"
+                                    android:alpha="0.54"
                                     android:text="Email Id"
-
                                     />
 
                                 <TextView
@@ -183,11 +183,12 @@
                                 >
 
                                 <TextView
-                                    style="@style/Regular12Navy_54"
+                                    style="@style/Regular12Navy"
                                     android:layout_width="wrap_content"
                                     android:layout_height="16dp"
                                     android:layout_marginBottom="4dp"
                                     android:layout_marginTop="16dp"
+                                    android:alpha="0.54"
                                     android:text="Phone No."
                                     />
 
@@ -212,53 +213,53 @@
                         </LinearLayout>
 
                         <!--<LinearLayout-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="68dp"-->
-                            <!--android:orientation="horizontal"-->
-                            <!--&gt;-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="68dp"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--&gt;-->
 
-                            <!--<ImageView-->
-                                <!--android:layout_width="24dp"-->
-                                <!--android:layout_height="24dp"-->
-                                <!--android:layout_marginLeft="32dp"-->
-                                <!--android:layout_marginRight="16dp"-->
-                                <!--android:layout_marginTop="36dp"-->
-                                <!--android:src="@drawable/username_black"-->
-                                <!--/>-->
+                        <!--<ImageView-->
+                        <!--android:layout_width="24dp"-->
+                        <!--android:layout_height="24dp"-->
+                        <!--android:layout_marginLeft="32dp"-->
+                        <!--android:layout_marginRight="16dp"-->
+                        <!--android:layout_marginTop="36dp"-->
+                        <!--android:src="@drawable/username_black"-->
+                        <!--/>-->
 
-                            <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
-                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                                <!--&lt;!&ndash;android:layout_height="68dp"&ndash;&gt;-->
-                                <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
-                                <!--&lt;!&ndash;android:paddingLeft="24dp"&ndash;&gt;-->
-                                <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="68dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:paddingLeft="24dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;&gt;&ndash;&gt;-->
 
-                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-                                    <!--&lt;!&ndash;style="@style/Regular12Navy_54"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_height="16dp"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_marginBottom="4dp"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_marginTop="16dp"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:text="Other Parent Name"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                        <!--&lt;!&ndash;style="@style/Regular12Navy_54"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="16dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginBottom="4dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="16dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="Other Parent Name"&ndash;&gt;-->
+                        <!--&lt;!&ndash;/>&ndash;&gt;-->
 
-                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
 
-                                    <!--&lt;!&ndash;style="@style/Medium16Navy"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_height="22dp"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:inputType="date"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:letterSpacing="0.02"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;tools:text="Other Parent Name.."/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;style="@style/Medium16Navy"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="22dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:inputType="date"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:letterSpacing="0.02"&ndash;&gt;-->
+                        <!--&lt;!&ndash;tools:text="Other Parent Name.."/>&ndash;&gt;-->
 
-                                <!--&lt;!&ndash;<View&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_height="2dp"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:layout_marginTop="8dp"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:alpha="0.12"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;android:background="@color/navy"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;/>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<View&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="2dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="8dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:alpha="0.12"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:background="@color/navy"&ndash;&gt;-->
+                        <!--&lt;!&ndash;/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
                         <!--</LinearLayout>-->
 
                         <LinearLayout
@@ -283,11 +284,12 @@
                                 >
 
                                 <TextView
-                                    style="@style/Regular12Navy_54"
+                                    style="@style/Regular12Navy"
                                     android:layout_width="wrap_content"
                                     android:layout_height="16dp"
                                     android:layout_marginBottom="4dp"
                                     android:layout_marginTop="16dp"
+                                    android:alpha="0.54"
                                     android:text="Children Name"
                                     />
 
@@ -329,12 +331,12 @@
                                 >
 
                                 <TextView
-                                    style="@style/Regular12Navy_54"
+                                    style="@style/Regular12Navy"
                                     android:layout_width="wrap_content"
                                     android:layout_height="16dp"
                                     android:layout_marginBottom="4dp"
                                     android:layout_marginTop="15dp"
-                                    android:alpha=".54"
+                                    android:alpha="0.54"
                                     android:text="ADDRESS"/>
 
                                 <TextView

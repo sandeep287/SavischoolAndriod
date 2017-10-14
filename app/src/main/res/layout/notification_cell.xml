@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+        xmlns:tools="http://schemas.android.com/tools"
     >
 
     <data>
@@ -14,9 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:paddingBottom="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="16dp"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -27,95 +27,106 @@
             android:background="@drawable/gradient_circle"
 
             android:src="@drawable/notification"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="56dp"
 
             >
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <View
                     android:layout_width="2dp"
                     android:layout_height="30dp"
-                    android:background="@color/warm_grey"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="67dp"
                     android:alpha=".20"
+                    android:background="@color/warm_grey"
                     />
+
                 <LinearLayout
+                    android:id="@+id/deletiondetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:id="@+id/deletiondetail"
                     android:orientation="vertical"
                     >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="16dp"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    >
-                    <ImageView
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:background="@drawable/time_black"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="4dp"
-                        />
-                    <TextView
-                        android:id="@+id/timeTextview"
-                        style="@style/Regular10Navy"
-                        android:alpha=".54"
-                        android:background="@color/white"
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{message.getCreatedOn()}"
+                        android:layout_height="16dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        >
 
-                        tools:text="4:10 AM"
-                        />
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/time_black"
+                            />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/timeTextview"
+                            style="@style/Regular10Navy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha=".54"
+                            android:background="@color/white"
+                            android:text="@{message.getCreatedOn()}"
+
+                            tools:text="4:10 AM"
+                            />
+
+                    </LinearLayout>
+
                     <TextView
                         style="@style/Regular12PinkyRed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="DELETE"
-                        android:layout_marginTop="-5dp"
                         android:layout_gravity="right"
+                        android:layout_marginTop="-5dp"
                         android:alpha=".75"
+                        tools:text="DELETE"
                         />
 
                 </LinearLayout>
+
                 <View
+                    android:id="@+id/line"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:id="@+id/line"
-                    android:layout_marginBottom="16dp"
                     android:layout_alignParentTop="true"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/black_14"
                     />
+
                 <LinearLayout
+                    android:id="@+id/notificationcell"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/line"
-                    android:id="@+id/notificationcell"
-                    android:layout_toLeftOf="@id/seperator"
-                    android:layout_marginRight="80dp"
-                    android:orientation="vertical"
                     android:layout_alignParentLeft="true"
+                    android:layout_below="@id/line"
+                    android:layout_marginRight="80dp"
+                    android:layout_toLeftOf="@id/seperator"
+                    android:orientation="vertical"
                     >
 
                     <TextView
-                        style="@style/Regular12Navy_54"
+                        style="@style/Regular12Navy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text='@{"From " + message.senderName}'
                         tools:text="From John"
-                      />
+                        android:alpha="0.54"
+                        />
 
                     <TextView
                         style="@style/Medium16Navy"
@@ -131,9 +142,9 @@
                         style="@style/Regular14Navy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
-
                         android:alpha=".74"
+
+                        android:ellipsize="end"
                         android:maxLines="1"
                         android:text="@{message.message}"
                         tools:text="We are Celebrating Upco…"

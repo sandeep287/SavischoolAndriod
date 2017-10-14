@@ -35,9 +35,9 @@ public class NotificationManager {
     }
     
     public Task getMessageTask() {
-
+        
         final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
-
+        
         if (messageList != null && !clearCache && !updateInProgress) {
             task.trySetResult(messageList);
             return task.getTask();
@@ -51,7 +51,7 @@ public class NotificationManager {
             String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
             
             userRestService.getMessages(schoolId, userId).enqueue(new CustomCallAdapter
-                                                                                .CustomCallback<List<Message>>() {
+                                                                              .CustomCallback<List<Message>>() {
                 @Override
                 public void success(Response<List<Message>> response) {
                     messageList = response.body();
@@ -113,7 +113,7 @@ public class NotificationManager {
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
         
         userRestService.deleteMessageNotification(schoolId, userId, schoolMessageId).enqueue(new CustomCallAdapter
-                                                                                                .CustomCallback<Message>() {
+                                                                                                         .CustomCallback<Message>() {
             @Override
             public void success(Response<Message> response) {
                 Message message = response.body();
@@ -128,38 +128,32 @@ public class NotificationManager {
         
         return task.getTask();
     }
-    public  static  List<Message> getNOtificationList()
-    {
-        List<Message> notifications=new ArrayList<>();
-        for (int i=0;i<messageList.size();i++)
-        {
-            if (messageList.get(i).isNotification)
-            {
+    
+    public static List<Message> getNOtificationList() {
+        List<Message> notifications = new ArrayList<>();
+        for (int i = 0; i < messageList.size(); i++) {
+            if (messageList.get(i).isNotification) {
                 notifications.add(messageList.get(i));
             }
         }
         return notifications;
     }
-    public static List<Message> getMessageList()
-    {
-        List<Message> messages=new ArrayList<>();
-        for (int i=0;i<messageList.size();i++)
-        {
-            if (!messageList.get(i).isNotification)
-            {
+    
+    public static List<Message> getMessageList() {
+        List<Message> messages = new ArrayList<>();
+        for (int i = 0; i < messageList.size(); i++) {
+            if (!messageList.get(i).isNotification) {
                 messages.add(messageList.get(i));
             }
         }
         return messages;
     }
-    public List<Message> getComunicationwith(String sendername)
-    {
-        List<Message> messages=new ArrayList<>();
-        for (int i=0;i<messageList.size();i++)
-        {
-            if (sendername.equals(messageList.get(i).senderName))
-            {
-
+    
+    public List<Message> getComunicationwith(String sendername) {
+        List<Message> messages = new ArrayList<>();
+        for (int i = 0; i < messageList.size(); i++) {
+            if (sendername.equals(messageList.get(i).senderName)) {
+                
             }
         }
         return messages;
