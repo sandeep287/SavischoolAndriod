@@ -1,6 +1,5 @@
 package com.savitroday.savischools.adapter;
 
-import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,7 +15,6 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.databinding.NotificationmessaegeCellBinding;
 import com.savitroday.savischools.view.fragment.MessageOpenViewFragment;
-import com.savitroday.savischools.view.fragment.NotificationOpenViewFrag;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

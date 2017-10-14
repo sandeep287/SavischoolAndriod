@@ -1,17 +1,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.savitroday.savischools.view.fragment.NotificationOpenViewFrag"
+        tools:context="com.savitroday.savischools.view.fragment.NotificationDetailFragment"
     >
 
     <data>
 
         <variable
             name="handler"
-            type="com.savitroday.savischools.view.fragment.NotificationOpenViewFrag.Handler"/>
+            type="com.savitroday.savischools.view.fragment.NotificationDetailFragment.Handler"/>
 
         <variable
             name="message"
-            type="com.savitroday.savischools.api.response.Message"></variable>
+            type="com.savitroday.savischools.api.response.Message"/>
     </data>
 
     <FrameLayout
@@ -40,7 +40,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="72dp"
                     android:gravity="center"
-
                     android:text="Notification"
                     />
 
@@ -50,7 +49,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-
                     android:background="@drawable/back_arrow_icon"
                     android:onClick="@{()->handler.onBackPressed()}"
                     />

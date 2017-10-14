@@ -136,4 +136,13 @@ public class DashboardManager {
         return null;
     }
     
+    public Student getDefaultStudent() {
+        for (Student student : dashboard.listStudentModel) {
+            if (student.isdefault) {
+                return student;
+            }
+        }
+        return null;
+    }
+    
 }

@@ -1,6 +1,5 @@
 package com.savitroday.savischools.adapter;
 
-import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -14,10 +13,8 @@ import android.view.ViewGroup;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Message;
-import com.savitroday.savischools.databinding.FragmentAttandenceBinding;
 import com.savitroday.savischools.databinding.NotificationCellBinding;
-import com.savitroday.savischools.databinding.NotificationmessaegeCellBinding;
-import com.savitroday.savischools.view.fragment.NotificationOpenViewFrag;
+import com.savitroday.savischools.view.fragment.NotificationDetailFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -58,7 +55,7 @@ public class NotificationTabAdepter extends RecyclerView.Adapter<NotificationTab
         mBinding.notificationcell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment =NotificationOpenViewFrag.getInstance(ldt.get(position));
+                Fragment fragment = NotificationDetailFragment.getInstance(ldt.get(position));
                    FragmentManager manager=activity.getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                      transaction.add(R.id.flFragments, fragment);

@@ -3,10 +3,7 @@ package com.savitroday.savischools.view.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +16,6 @@ import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.databinding.FragmentParentProfileBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
-import com.savitroday.savischools.util.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +27,7 @@ public class ParentProfileFragment extends Fragment {
     FragmentParentProfileBinding mBindings;
     @Inject
     DashboardManager dashboardManager;
-    List<Student> students =  new ArrayList<>();
+    List<Student> students = new ArrayList<>();
     ChildrenNameAdapter adapter;
     
     
@@ -56,6 +52,15 @@ public class ParentProfileFragment extends Fragment {
         
     }
     
+    void setBadgeCount(int count) {
+        if (count > 0) {
+            mBindings.notificationBadge.setText("" + count);
+            mBindings.notificationBadge.setVisibility(View.VISIBLE);
+        } else {
+            mBindings.notificationBadge.setVisibility(View.GONE);
+        }
+    }
+    
     void getStudentListData() {
         dashboardManager.getDashboardTask().continueWith((task -> {
             
@@ -65,6 +70,7 @@ public class ParentProfileFragment extends Fragment {
                 students = dashboard.listStudentModel;
                 adapter = new ChildrenNameAdapter(getActivity(), students);
                 mBindings.childrenlist.setAdapter(adapter);
+                setBadgeCount(dashboard.unreadMessagesNotification);
             } else {
                 Exception e = task.getError();
                 AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());

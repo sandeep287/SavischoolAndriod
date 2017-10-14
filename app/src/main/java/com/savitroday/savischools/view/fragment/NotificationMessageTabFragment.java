@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.PagerAdapter;
 import com.savitroday.savischools.api.response.Message;
-import com.savitroday.savischools.manager.NotificationManager;
+import com.savitroday.savischools.manager.DashboardManager;
 
 import javax.inject.Inject;
 
@@ -28,11 +27,10 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
     Message message;
     boolean toDetail = false;
     @Inject
-    NotificationManager notificationManager;
+    DashboardManager dashboardManager;
     
     public static NotificationMessageTabFragment getInstance(Message message) {
         NotificationMessageTabFragment fragment = new NotificationMessageTabFragment();
-        
         fragment.toDetail = true;
         fragment.message = message;
         return fragment;
@@ -48,13 +46,12 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_notification_message_tab, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        //getMessageData();
         if (toDetail) {
             if (message.isNotification) {
                 //todo : send to notification detail
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
-                transaction.add(R.id.flFragments, NotificationOpenViewFrag.getInstance(message));
+                transaction.add(R.id.flFragments, NotificationDetailFragment.getInstance(message));
                 transaction.addToBackStack(null);
                 transaction.commit();
             } else {
@@ -104,8 +101,7 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         } else if (view.getId() == R.id.profileButton) {
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
-            //TODO: send student object
-            transaction.add(R.id.flFragments, ProfileFragment.getInstance(null));
+            transaction.add(R.id.flFragments, ProfileFragment.getInstance(dashboardManager.getDefaultStudent()));
             transaction.addToBackStack(null);
             transaction.commit();
         }

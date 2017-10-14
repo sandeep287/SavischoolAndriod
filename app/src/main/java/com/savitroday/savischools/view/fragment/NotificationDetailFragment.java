@@ -11,13 +11,13 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.databinding.FragmentNotificationOpenViewBinding;
 
-public class NotificationOpenViewFrag extends Fragment {
+public class NotificationDetailFragment extends Fragment {
     
     Message message;
     FragmentNotificationOpenViewBinding mBindings;
     
-    public static NotificationOpenViewFrag getInstance(Message message) {
-        NotificationOpenViewFrag notificationOpenViewFra = new NotificationOpenViewFrag();
+    public static NotificationDetailFragment getInstance(Message message) {
+        NotificationDetailFragment notificationOpenViewFra = new NotificationDetailFragment();
         notificationOpenViewFra.message = message;
         return notificationOpenViewFra;
     }
@@ -27,6 +27,7 @@ public class NotificationOpenViewFrag extends Fragment {
                              Bundle savedInstanceState) {
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_notification_open_view, container, false);
         mBindings.setMessage(message);
+        mBindings.setHandler(new Handler());
         return mBindings.getRoot();
     }
     public class Handler {
