@@ -26,10 +26,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         switch (position)
         {
             case 0:
-                MessagesFragment tab1 = new MessagesFragment();
-                return tab1;
+                NotificationFragment tab1 = new NotificationFragment();
+              return tab1;
             case 1:
-                NotificationFragment tab2 = new NotificationFragment();
+                MessagesFragment tab2 = new MessagesFragment();
+
                 return tab2;
             default:
                 return null;

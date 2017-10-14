@@ -134,6 +134,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="58dp"
             android:layout_marginRight="58dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="9dp"
             android:layout_marginTop="-25dp"
             android:background="@drawable/white_rounded_background"
             android:elevation="8dp">
@@ -151,7 +153,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+
                 android:layout_toLeftOf="@id/image"
                 android:orientation="vertical">
 
@@ -162,10 +164,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="Check In"
+
+                    android:layout_marginBottom="-4dp"
                     />
 
                 <TextView
-                    style="@style/Medium16Navy"
+                    style="@style/Medium14Navy"
+                    android:layout_marginTop="-4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -177,7 +182,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+
                 android:layout_toRightOf="@id/image"
                 android:orientation="vertical">
 
@@ -187,6 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Check OUT"
+                    android:layout_marginBottom="-4dp"
 
                     />
 
@@ -195,6 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginTop="-4dp"
                     android:text="@{dashboard.getCheckOutTime()}"
                     tools:text="NOT YET"
                     />

@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.pass);
     
         loginbtn = (Button) findViewById(R.id.loginbtn);
-        passlength = (TextView) findViewById(R.id.passlenth);
+       // passlength = (TextView) findViewById(R.id.passlenth);
         
 //        password.addTextChangedListener(new TextWatcher() {
 //            @Override

@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.adapter.NotificationAdapter;
+import com.savitroday.savischools.adapter.MessageTabAdepter;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.manager.NotificationManager;
 
@@ -26,7 +26,7 @@ public class MessagesFragment extends Fragment {
     List<Message> messageList = new ArrayList<>();
     View view;
     RelativeLayout progressBar;
-    NotificationAdapter notificationAdapter;
+    MessageTabAdepter notificationAdapter;
     @Inject
     NotificationManager notificationManager;
     
@@ -53,7 +53,7 @@ public class MessagesFragment extends Fragment {
         notificationManager.getMessageTask().continueWith((task -> {
             if (task.getResult() != null) {
                 messageList = NotificationManager.getMessageList();
-                notificationAdapter = new NotificationAdapter(getActivity(), messageList);
+                notificationAdapter = new MessageTabAdepter(getActivity(), messageList);
                 messagesListView.setAdapter(notificationAdapter);
                 
             } else {

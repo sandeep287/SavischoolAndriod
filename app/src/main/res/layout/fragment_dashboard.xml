@@ -28,6 +28,7 @@
             android:groupIndicator="@null"
             android:paddingBottom="16dp"
             android:scrollbars="none"
+            android:elevation="4dp"
             />
 
 

@@ -3,6 +3,8 @@ package com.savitroday.savischools.view.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,12 +92,12 @@ public class ProfileFragment extends Fragment implements EventManager.EventManag
         }
         
         public void onNotificationTap() {
-            //  Fragment fragment = new NotificationMessageTabFragment();
-//            FragmentManager manager = getActivity().getSupportFragmentManager();
-//           FragmentTransaction transaction = manager.beginTransaction();
-//            transaction.add(R.id.flFragments, fragment);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
+              Fragment fragment = new NotificationMessageTabFragment();
+           FragmentManager manager = getActivity().getSupportFragmentManager();
+          FragmentTransaction transaction = manager.beginTransaction();
+           transaction.add(R.id.flFragments, fragment);
+           transaction.addToBackStack(null);
+            transaction.commit();
         }
         
     }

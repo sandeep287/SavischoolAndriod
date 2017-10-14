@@ -14,34 +14,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:padding="16dp">
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:padding="8dp"
             android:layout_centerVertical="true"
             android:background="@drawable/gradient_circle"
-            android:padding="10dp"
-            android:src="@drawable/notification"/>
-        <android.support.v7.widget.CardView
+
+            android:src="@drawable/message"/>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="72dp"
-            android:layout_alignLeft="@id/imageView"
+            android:layout_marginLeft="56dp"
+
             >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 <LinearLayout
-    android:layout_width="43dp"
-    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_height="16dp"
     android:layout_alignParentRight="true"
     android:layout_centerVertical="true"
     android:id="@+id/deletiondetail"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@color/white"
     >
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/time_black"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="4dp"
+        />
         <TextView
             android:id="@+id/timeTextview"
             style="@style/Regular10Navy"
@@ -50,24 +61,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{message.getCreatedOn()}"
+
             tools:text="4:10 AM"
             />
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    style="@style/Regular12PinkyRed"
-    android:background="@color/white"
-    tools:text="DELETE"
-    />
 
 </LinearLayout>
-
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:id="@+id/line"
+    android:layout_marginBottom="16dp"
+    android:layout_alignParentTop="true"
+    android:background="@color/black_14"
+    />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_below="@id/line"
             android:layout_toLeftOf="@id/seperator"
-
+            android:layout_marginRight="80dp"
             android:orientation="vertical"
             android:layout_alignParentLeft="true"
             >
@@ -78,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text='@{"From " + message.senderName}'
                 tools:text="From John"
+                android:alpha=".54"
                 />
 
             <TextView
@@ -105,7 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/turqoise_rounded_background"
+                android:background="@drawable/muted_blue_round_corner"
                 android:paddingBottom="2dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
@@ -116,6 +129,6 @@
               </LinearLayout>
 
             </RelativeLayout>
-        </android.support.v7.widget.CardView>
+        </RelativeLayout>
     </RelativeLayout>
 </layout>
