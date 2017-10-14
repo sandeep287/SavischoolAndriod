@@ -85,16 +85,16 @@
             >
 
             <TextView
-                style="@style/Light12Black"
+                style="@style/Regular12Navy_54"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text='@{"From " + message.senderName}'
                 tools:text="From John"
-                android:alpha=".54"
+
                 />
 
             <TextView
-                style="@style/Medium14DarkIndigo"
+                style="@style/Medium16Navy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -104,17 +104,18 @@
                 />
 
             <TextView
-                style="@style/Regular14Black"
+                style="@style/Regular14Navy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
+                android:alpha=".74"
                 android:maxLines="1"
                 android:text="@{message.message}"
                 tools:text="We are Celebrating Upco…"
                 />
 
             <TextView
-                style="@style/Semibold10White"
+                style="@style/Regular10White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
