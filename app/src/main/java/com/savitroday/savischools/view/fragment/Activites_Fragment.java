@@ -15,7 +15,15 @@ public class Activites_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_activites_, container, false);
+       return inflater.inflate(R.layout.fragment_activites_, container, false);
     }
+    public class Handler {
+        public void onBackPressed() {
+            getActivity().onBackPressed();
+        }
+
+
+
+    }
+
 }

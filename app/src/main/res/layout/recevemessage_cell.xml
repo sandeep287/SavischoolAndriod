@@ -16,14 +16,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="8dp"
         >
-
-        <android.support.v4.widget.CircleImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:id="@+id/senderimage"
             android:layout_gravity="bottom|left"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/profile_img"
 
             />
@@ -37,10 +38,12 @@
             <TextView
                 android:id="@+id/textmessage"
                 style="@style/Regular14Navy"
-                android:layout_width="230dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
+               android:padding="8dp"
                 android:background="@drawable/receivmessagecorner"
                 android:text='@{ message.message}'
+                android:alpha=".74"
                 tools:text="Thank alot, we’ll love to come there and enjoy this beautiful day!"
                 />
 

@@ -1,5 +1,7 @@
 package com.savitroday.savischools.manager;
 
+import android.util.Log;
+
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
@@ -149,13 +151,18 @@ public class NotificationManager {
         return messages;
     }
     
-    public List<Message> getComunicationwith(String sendername) {
+    public static List<Message> getComunicationwith(String sendername) {
         List<Message> messages = new ArrayList<>();
-        for (int i = 0; i < messageList.size(); i++) {
+
+        for (int i = messageList.size()-1; i >= 0; i--) {
+
             if (sendername.equals(messageList.get(i).senderName)) {
-                
+
+                messages.add(messageList.get(i));
+                Log.e("sizeeeeeeeeeee",""+messageList.size());
             }
         }
+
         return messages;
     }
     

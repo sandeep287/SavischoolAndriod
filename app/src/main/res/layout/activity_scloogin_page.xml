@@ -44,7 +44,7 @@
             android:layout_below="@+id/signinital"
             android:id="@+id/signindetail"
             android:layout_marginLeft="32dp"
-            android:layout_marginRight="36dp"
+
             android:orientation="vertical"
 
 
@@ -175,7 +175,7 @@
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_below="@id/signindetail"
-            android:layout_centerHorizontal="true"
+
 
             android:layout_marginTop="48dp"
             android:layout_marginRight="32dp"
