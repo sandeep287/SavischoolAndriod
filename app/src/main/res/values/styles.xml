@@ -46,13 +46,13 @@
     </style>
 
 
-    <style name="Bold30NavyTwo">
+    <style name="Bold30NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/navy_two</item>
     </style>
 
-    <style name="Bold24Black">
+    <style name="Bold24Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -60,7 +60,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Regular24Navy">
+    <style name="Regular24Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -68,14 +68,14 @@
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Medium20White">
+    <style name="Medium20White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Bold18Cerulean">
+    <style name="Bold18Cerulean" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
@@ -83,14 +83,14 @@
         <item name="android:textColor">@color/cerulean</item>
     </style>
 
-    <style name="Bold18BlueGreen">
+    <style name="Bold18BlueGreen" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">18sp</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
         <item name="android:textColor">@color/blue_green</item>
     </style>
 
-    <style name="Bold17Turquoise">
+    <style name="Bold17Turquoise" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">end</item>
         <item name="android:textSize">17sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -98,14 +98,14 @@
         <item name="android:textColor">@color/turquoise</item>
     </style>
 
-    <style name="Bold16Turqoise">
+    <style name="Bold16Turqoise" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/turquoise</item>
     </style>
 
-    <style name="Bold16NavyTwo">
+    <style name="Bold16NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -113,14 +113,14 @@
         <item name="android:textColor">@color/navy_two</item>
     </style>
 
-    <style name="Bold16TwilightBlue">
+    <style name="Bold16TwilightBlue" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/twilight_blue_three</item>
     </style>
 
-    <style name="Bold16White">
+    <style name="Bold16White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -128,7 +128,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Medium16Navy">
+    <style name="Medium16Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -136,7 +136,7 @@
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Medium16YellowOrange">
+    <style name="Medium16YellowOrange" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -144,7 +144,7 @@
         <item name="android:textColor">@color/yellow_orange</item>
     </style>
 
-    <style name="Medium16Black">
+    <style name="Medium16Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -152,7 +152,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Medium16NavyTwo">
+    <style name="Medium16NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -160,7 +160,7 @@
         <item name="android:textColor">@color/navy_two</item>
     </style>
 
-    <style name="Regular16White">
+    <style name="Regular16White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -168,7 +168,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Regular16Black">
+    <style name="Regular16Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -176,7 +176,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Light16White">
+    <style name="Light16White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
@@ -184,7 +184,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Bold14White">
+    <style name="Bold14White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
@@ -192,7 +192,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Roboto14Medium">
+    <style name="Roboto14Medium" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -200,7 +200,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Medium14White70">
+    <style name="Medium14White70" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -209,7 +209,7 @@
         <item name="android:textColor">@color/white__70</item>
     </style>
 
-    <style name="Medium14White">
+    <style name="Medium14White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -217,7 +217,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Medium14TurquoiseBlue">
+    <style name="Medium14TurquoiseBlue" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
@@ -225,7 +225,7 @@
         <item name="android:textColor">@color/turquoise_blue</item>
     </style>
 
-    <style name="Medium14Black">
+    <style name="Medium14Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -233,14 +233,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Medium14DarkIndigo">
+    <style name="Medium14DarkIndigo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/dark_indigo</item>
     </style>
 
-    <style name="Medium14Navy">
+    <style name="Medium14Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -249,7 +249,7 @@
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Regular14White">
+    <style name="Regular14White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -257,14 +257,14 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Regular14Black">
+    <style name="Regular14Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Regular14Navy">
+    <style name="Regular14Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -272,7 +272,7 @@
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Light14White">
+    <style name="Light14White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textStyle">normal</item>
@@ -280,14 +280,14 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Bold12TurquoiseBlue">
+    <style name="Bold12TurquoiseBlue" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/turquoise_blue</item>
     </style>
 
-    <style name="Medium12White">
+    <style name="Medium12White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -295,31 +295,31 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Medium12Tomato">
+    <style name="Medium12Tomato" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/tomato</item>
     </style>
 
-    <style name="Medium12YellowOrange">
+    <style name="Medium12YellowOrange" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/yellow_orange</item>
     </style>
 
-    <style name="Medium12NavyTwo">
+    <style name="Medium12NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/navy_two</item>
     </style>
 
-    <style name="Regular12PinkyRed">
+    <style name="Regular12PinkyRed" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/pinky_red</item>
     </style>
 
-    <style name="Regular12White">
+    <style name="Regular12White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -327,7 +327,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Regular12Black">
+    <style name="Regular12Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -335,7 +335,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Regular12Black55">
+    <style name="Regular12Black55" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -343,7 +343,7 @@
         <item name="android:textColor">@color/black_55</item>
     </style>
 
-    <style name="Regular12White55">
+    <style name="Regular12White55" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -351,7 +351,7 @@
         <item name="android:textColor">@color/white_55</item>
     </style>
 
-    <style name="Regular12Navy">
+    <style name="Regular12Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -359,7 +359,7 @@
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Light12White">
+    <style name="Light12White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
@@ -367,21 +367,21 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Light12BlueGrey">
+    <style name="Light12BlueGrey" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/bluey_grey</item>
     </style>
 
-    <style name="Light12Black">
+    <style name="Light12Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Bold10White">
+    <style name="Bold10White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -389,7 +389,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Bold10NavyTwo">
+    <style name="Bold10NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -397,7 +397,7 @@
         <item name="android:textColor">@color/navy_two</item>
     </style>
 
-    <style name="Bold10Black">
+    <style name="Bold10Black" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -405,13 +405,13 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Semibold10White">
+    <style name="Semibold10White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">10sp</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Medium10White">
+    <style name="Medium10White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -419,27 +419,27 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Medium10Tomoto">
+    <style name="Medium10Tomoto" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">10sp</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.02</item>
         <item name="android:textColor">@color/tomato</item>
     </style>
 
-    <style name="Regular10NavyTwo">
+    <style name="Regular10NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/navy_two</item>
     </style>
 
-    <style name="Regular10PinkyRed">
+    <style name="Regular10PinkyRed" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/pinky_red</item>
     </style>
 
-    <style name="Regular10White">
+    <style name="Regular10White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -447,7 +447,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Regular10Navy">
+    <style name="Regular10Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">10sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
@@ -455,26 +455,26 @@
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Regular8Navy">
+    <style name="Regular8Navy" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">8sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/navy</item>
     </style>
 
-    <style name="Regular8White">
+    <style name="Regular8White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">8sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Bold17White">
+    <style name="Bold17White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Bold60White">
+    <style name="Bold60White" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">60sp</item>
         <item name="android:fontFamily">sans-serif</item>
