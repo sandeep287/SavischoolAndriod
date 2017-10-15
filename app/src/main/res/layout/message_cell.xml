@@ -54,8 +54,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:alpha="0.54"
+                android:minWidth="44dp"
                 android:text="@{message.getCreatedOn()}"
-                tools:text="4:10 AM"
+                tools:text="23 Weeks"
                 />
 
             <ImageView
