@@ -76,7 +76,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:elevation="2dp"
                     >
 
                     <TextView
@@ -101,6 +101,7 @@
                     <TextView
                         android:id="@+id/totalamounthadin"
                         style="@style/Regular12Navy"
+                        android:alpha=".54"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/paymentlist"
@@ -110,7 +111,7 @@
 
                     <TextView
                         android:id="@+id/totalamount"
-                        style="@style/Bold60White"
+                        style="@style/Bold30NavyTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/totalamounthadin"
@@ -128,6 +129,8 @@
                 android:layout_width="150dp"
                 android:layout_height="49dp"
                 android:layout_centerHorizontal="true"
+                android:layout_below="@id/card"
+                android:layout_marginTop="-25dp"
                 android:background="@drawable/turquois_round_corner"
                 android:text="Pay Now"
                 />

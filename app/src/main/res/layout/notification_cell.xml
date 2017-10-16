@@ -94,7 +94,7 @@
                         android:layout_gravity="right"
                         android:layout_marginTop="-5dp"
                         android:alpha=".75"
-                        tools:text="DELETE"
+                        android:text="DELETE"
                         />
 
                 </LinearLayout>
@@ -160,6 +160,8 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:paddingTop="2dp"
+                        android:id="@+id/student_name"
+                     android:visibility="gone"
                         android:text="@{message.studentName}"
                         tools:text="JENNY"
                         />

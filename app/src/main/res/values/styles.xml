@@ -49,6 +49,7 @@
     <style name="Bold30NavyTwo" style="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/navy_two</item>
     </style>
 

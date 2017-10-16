@@ -154,7 +154,8 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:paddingTop="2dp"
-
+                        android:visibility="gone"
+                        android:id="@+id/student_name"
                         android:text="@{message.studentName}"
                         tools:text="JENNY"
                         />

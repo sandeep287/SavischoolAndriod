@@ -153,13 +153,15 @@ public class NotificationManager {
     
     public static List<Message> getComunicationwith(String sendername) {
         List<Message> messages = new ArrayList<>();
+List<Message> onlymessageslist=new ArrayList<>();
+        onlymessageslist=getMessageList();
+        for (int i = onlymessageslist.size()-1; i >= 0; i--) {
 
-        for (int i = messageList.size()-1; i >= 0; i--) {
+            if (sendername.equals(onlymessageslist.get(i).senderName))
+            {
 
-            if (sendername.equals(messageList.get(i).senderName)) {
+                messages.add(onlymessageslist.get(i));
 
-                messages.add(messageList.get(i));
-                Log.e("sizeeeeeeeeeee",""+messageList.size());
             }
         }
 

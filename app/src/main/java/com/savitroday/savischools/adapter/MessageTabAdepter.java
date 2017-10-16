@@ -48,9 +48,14 @@ public class MessageTabAdepter extends RecyclerView.Adapter<MessageTabAdepter.vi
 
     @Override
     public void onBindViewHolder(MessageTabAdepter.viewHolder holder, int position) {
-        mBinding.setMessage(ldt.get(position));
-        if ((ldt.get(position)).iconMediaPath !=null) {
-            Picasso.with(activity).load((ldt.get(position)).iconMediaPath).into(mBinding.imageView);
+        Message msg=ldt.get(position);
+        if (msg.studentName!=null)
+        {
+            mBinding.studentName.setVisibility(View.VISIBLE);
+        }
+        mBinding.setMessage(msg);
+        if (msg.iconMediaPath !=null) {
+            Picasso.with(activity).load(msg.iconMediaPath).into(mBinding.imageView);
             mBinding.imageView.setPadding(0,0,0,0);
         }
         mBinding.messagecell.setOnClickListener(new View.OnClickListener() {

@@ -69,6 +69,7 @@
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:visibility="gone"
         android:background="@drawable/aqua_marine_circle"
         android:backgroundTint="@color/aqua_marine"
         android:padding="16dp"

@@ -38,7 +38,8 @@
             <TextView
                 android:id="@+id/textmessage"
                 style="@style/Regular14Navy"
-                android:layout_width="240dp"
+                android:layout_width="wrap_content"
+                android:maxWidth="240dp"
                 android:layout_height="wrap_content"
                android:padding="8dp"
                 android:background="@drawable/receivmessagecorner"

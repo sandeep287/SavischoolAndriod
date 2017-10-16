@@ -64,7 +64,6 @@ RecyclerView paymentlist;
 
                 invoiceList = (List<Invoice>) task.getResult();
                 //invoiceManager.getPendingInvoices();
-                mBinding.paynow.setY((float)(228+(92*invoiceList.size()*92)));
                 setAmount();
                 makePaymentListAdepter.notifyDataSetChanged();
             } else {

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Student;
-import com.savitroday.savischools.databinding.StudentnameCellBinding;
+
 
 import java.util.List;
 

@@ -67,9 +67,17 @@ public class CategoryFragment extends Fragment{
             transaction.addToBackStack(null);
             transaction.commit();
         }
-    
+
         public void onMessageNotification(){
             Fragment fragment = new HomeWorkFragment();
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+        public void  onChildernProfile(){
+            Fragment fragment = new ProfileFragment();
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, fragment);

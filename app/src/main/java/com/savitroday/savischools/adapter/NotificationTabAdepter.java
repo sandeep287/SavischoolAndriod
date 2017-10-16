@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,13 @@ public class NotificationTabAdepter extends RecyclerView.Adapter<NotificationTab
             Picasso.with(activity).load((ldt.get(position)).iconMediaPath).into(mBinding.imageView);
             mBinding.imageView.setPadding(0,0,0,0);
         }
+        if (ldt.get(position).studentName!=null)
+        {
+            if ((!ldt.get(position).studentName.equals(""))) {
+                Log.e("chack", "chackkkkkkkkkkkkkk");
+                mBinding.studentName.setVisibility(View.VISIBLE);
+            }
+            }
         mBinding.notificationcell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
