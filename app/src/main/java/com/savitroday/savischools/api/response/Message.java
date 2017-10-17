@@ -15,6 +15,10 @@ public class Message {
     @SerializedName("schoolMessageId")
     @Expose
     public String schoolMessageId;
+    @SerializedName("messageAttachmentType")
+    @Expose
+    public String messageAttachmentType;
+
     @SerializedName("userId")
     @Expose
     public String userId;

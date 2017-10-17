@@ -48,6 +48,8 @@ public class NotificationTabAdepter extends RecyclerView.Adapter<NotificationTab
 
     @Override
     public void onBindViewHolder(NotificationTabAdepter.viewHolder holder, int position) {
+        Log.e("ccccccckkkkkkkkkkkkkkkk","not"+ldt.get(position).messageAttachmentType);
+
         mBinding.setMessage(ldt.get(position));
         if ((ldt.get(position)).iconMediaPath !=null) {
             Picasso.with(activity).load((ldt.get(position)).iconMediaPath).into(mBinding.imageView);

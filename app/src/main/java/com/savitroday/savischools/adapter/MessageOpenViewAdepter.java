@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
     View view;
 //    ViewDataBinding mBindings;
     AppCompatActivity apc;
-   static int tempposition=0;
+    int tempposition=0;
     SendmessageCellBinding sendmessageCellBinding;
     RecevemessageCellBinding recevemessageCellBinding;
     Message message;
@@ -66,6 +67,8 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
     public void onBindViewHolder(MessageOpenViewAdepter.viewHolder holder, int position)
     {
        tempposition=tempposition+1;
+
+
 
         if (message.senderName.equals(ldt.get(position).senderName)) {
 

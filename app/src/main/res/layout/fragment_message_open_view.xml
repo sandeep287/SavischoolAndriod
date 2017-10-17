@@ -82,7 +82,7 @@ android:scrollbars="vertical"
             <EditText
                 android:id="@+id/edittext_chatbox"
                 style="@style/Regular14Navy"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
@@ -94,9 +94,11 @@ android:scrollbars="vertical"
 
             <Button
                 android:id="@+id/button_chatbox_send"
-                android:layout_width="64dp"
-                android:layout_height="48dp"
-                android:layout_gravity="bottom"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="bottom|center"
                 android:background="@drawable/send"
                 android:clickable="true"
                 android:gravity="center"/>

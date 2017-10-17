@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<RelativeLayout
+     android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/white_five"
+
+
+    >
+    <TextView
+        style="@style/Regular14Navy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="English Reading"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="81dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="64dp"
+        >
+        <TextView
+            style="@style/Regular10Navy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Submit Date"
+            />
+        <TextView
+            style="@style/Medium12NavyTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="17 Sep 2017"
+
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        >
+
+        <view
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:alpha=".20"
+            android:id="@+id/line"
+            android:background="@color/warm_grey"
+
+
+            />
+        <TextView
+            style="@style/Regular8Navy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Completed"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:alpha=".50"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
+</layout>

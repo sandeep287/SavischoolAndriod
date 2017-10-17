@@ -84,7 +84,9 @@ public class MessageOpenViewFragment extends Fragment {
         }));
 
     }
-    public class Handler { public void onBackPressed() {
+    public class Handler {
+        public void onBackPressed()
+        {
             getActivity().onBackPressed();
         }
     }
