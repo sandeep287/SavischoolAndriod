@@ -1,12 +1,10 @@
 package com.savitroday.savischools.manager;
 
-import android.util.Log;
-
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
-import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
 
@@ -26,7 +24,7 @@ public class NotificationManager {
     public static Boolean updateInProgress = Boolean.FALSE;
     private UserRestService userRestService;
     private ArrayList<TaskCompletionSource> taskList = new ArrayList<>();
-    private static List<Message> messageList;
+    private static List<MessageNotification> messageNotificationList;
     private static boolean clearCache = false;
     private TinyDB tinyDB;
     
@@ -38,10 +36,10 @@ public class NotificationManager {
     
     public Task getMessageTask() {
         
-        final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
+        final TaskCompletionSource<List<MessageNotification>> task = new TaskCompletionSource<List<MessageNotification>>();
         
-        if (messageList != null && !clearCache && !updateInProgress) {
-            task.trySetResult(messageList);
+        if (messageNotificationList != null && !clearCache && !updateInProgress) {
+            task.trySetResult(messageNotificationList);
             return task.getTask();
         }
         if (updateInProgress) {
@@ -53,13 +51,13 @@ public class NotificationManager {
             String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
             
             userRestService.getMessages(schoolId, userId).enqueue(new CustomCallAdapter
-                                                                              .CustomCallback<List<Message>>() {
+                                                                              .CustomCallback<List<MessageNotification>>() {
                 @Override
-                public void success(Response<List<Message>> response) {
-                    messageList = response.body();
-                    task.setResult(messageList);
+                public void success(Response<List<MessageNotification>> response) {
+                    messageNotificationList = response.body();
+                    task.setResult(messageNotificationList);
                     for (TaskCompletionSource taskCompletionSource : taskList) {
-                        taskCompletionSource.setResult(messageList);
+                        taskCompletionSource.setResult(messageNotificationList);
                     }
                     taskList.clear();
                     updateInProgress = false;
@@ -82,18 +80,18 @@ public class NotificationManager {
     
     public Task readStatusUpdate(String schoolMessageId) {
         
-        final TaskCompletionSource<Message> task = new TaskCompletionSource<Message>();
+        final TaskCompletionSource<MessageNotification> task = new TaskCompletionSource<MessageNotification>();
         
         
         String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
         
         userRestService.readStatusUpdate(schoolId, userId, schoolMessageId).enqueue(new CustomCallAdapter
-                                                                                                .CustomCallback<Message>() {
+                                                                                                .CustomCallback<MessageNotification>() {
             @Override
-            public void success(Response<Message> response) {
-                Message message = response.body();
-                task.setResult(message);
+            public void success(Response<MessageNotification> response) {
+                MessageNotification messageNotification = response.body();
+                task.setResult(messageNotification);
             }
             
             @Override
@@ -108,18 +106,18 @@ public class NotificationManager {
     
     public Task deleteMessageNotification(String schoolMessageId) {
         
-        final TaskCompletionSource<Message> task = new TaskCompletionSource<Message>();
+        final TaskCompletionSource<MessageNotification> task = new TaskCompletionSource<MessageNotification>();
         
         
         String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
         
         userRestService.deleteMessageNotification(schoolId, userId, schoolMessageId).enqueue(new CustomCallAdapter
-                                                                                                         .CustomCallback<Message>() {
+                                                                                                         .CustomCallback<MessageNotification>() {
             @Override
-            public void success(Response<Message> response) {
-                Message message = response.body();
-                task.setResult(message);
+            public void success(Response<MessageNotification> response) {
+                MessageNotification messageNotification = response.body();
+                task.setResult(messageNotification);
             }
             
             @Override
@@ -131,41 +129,40 @@ public class NotificationManager {
         return task.getTask();
     }
     
-    public static List<Message> getNOtificationList() {
-        List<Message> notifications = new ArrayList<>();
-        for (int i = 0; i < messageList.size(); i++) {
-            if (messageList.get(i).isNotification) {
-                notifications.add(messageList.get(i));
+    public static List<MessageNotification> getNOtificationList() {
+        List<MessageNotification> notifications = new ArrayList<>();
+        for (int i = 0; i < messageNotificationList.size(); i++) {
+            if (messageNotificationList.get(i).isNotification) {
+                notifications.add(messageNotificationList.get(i));
             }
         }
         return notifications;
     }
     
-    public static List<Message> getMessageList() {
-        List<Message> messages = new ArrayList<>();
-        for (int i = 0; i < messageList.size(); i++) {
-            if (!messageList.get(i).isNotification) {
-                messages.add(messageList.get(i));
+    public static List<MessageNotification> getMessageNotificationList() {
+        List<MessageNotification> messageNotifications = new ArrayList<>();
+        for (int i = 0; i < messageNotificationList.size(); i++) {
+            if (!messageNotificationList.get(i).isNotification) {
+                messageNotifications.add(messageNotificationList.get(i));
             }
         }
-        return messages;
+        return messageNotifications;
     }
     
-    public static List<Message> getComunicationwith(String sendername) {
-        List<Message> messages = new ArrayList<>();
-List<Message> onlymessageslist=new ArrayList<>();
-        onlymessageslist=getMessageList();
-        for (int i = onlymessageslist.size()-1; i >= 0; i--) {
-
-            if (sendername.equals(onlymessageslist.get(i).senderName))
-            {
-
-                messages.add(onlymessageslist.get(i));
-
+    public static List<MessageNotification> getComunicationwith(String sendername) {
+        List<MessageNotification> messageNotifications = new ArrayList<>();
+        List<MessageNotification> onlymessageslist = new ArrayList<>();
+        onlymessageslist = getMessageNotificationList();
+        for (int i = onlymessageslist.size() - 1; i >= 0; i--) {
+            
+            if (sendername.equals(onlymessageslist.get(i).senderName)) {
+                
+                messageNotifications.add(onlymessageslist.get(i));
+                
             }
         }
-
-        return messages;
+        
+        return messageNotifications;
     }
     
 }

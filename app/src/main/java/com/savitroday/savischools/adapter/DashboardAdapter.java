@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.InvoiceCellBinding;
 import com.savitroday.savischools.databinding.MessageCellBinding;
 import com.squareup.picasso.Picasso;
@@ -23,13 +23,13 @@ import java.util.List;
 public class DashboardAdapter extends BaseExpandableListAdapter {
     private Context context;
     List<Invoice> invoiceList;
-    List<Message> messageList;
+    List<MessageNotification> messageNotificationList;
     boolean onlinePaymentIsAllow;
     
-    public DashboardAdapter(Context context, List<Invoice> invoiceList, List<Message> messageList, boolean onlinePaymentIsAllow) {
+    public DashboardAdapter(Context context, List<Invoice> invoiceList, List<MessageNotification> messageNotificationList, boolean onlinePaymentIsAllow) {
         this.context = context;
         this.invoiceList = invoiceList;
-        this.messageList = messageList;
+        this.messageNotificationList = messageNotificationList;
         this.onlinePaymentIsAllow = onlinePaymentIsAllow;
     }
     
@@ -42,7 +42,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int i) {
         if (i == 0)
-            return messageList.size();
+            return messageNotificationList.size();
         return invoiceList.size();
     }
     
@@ -56,7 +56,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     @Override
     public Object getChild(int i, int i1) {
         if (i == 0)
-            return messageList.get(i1);
+            return messageNotificationList.get(i1);
         return invoiceList.get(i1);
     }
     
@@ -94,22 +94,22 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         if (i == 0) {
-            final Message message = (Message) getChild(i, i1);
+            final MessageNotification messageNotification = (MessageNotification) getChild(i, i1);
             
             MessageCellBinding binding = MessageCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
                     viewGroup, false);
             
-            binding.setMessage(message);
-            if (message.iconMediaPath != null) {
-                Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
+            binding.setMessage(messageNotification);
+            if (messageNotification.iconMediaPath != null) {
+                Picasso.with(context).load(messageNotification.iconMediaPath).into(binding.imageView);
             } else {
-                if (message.isNotification) {
+                if (messageNotification.isNotification) {
                     binding.imageView.setImageResource(R.drawable.icon_notification);
                 } else {
                     binding.imageView.setImageResource(R.drawable.icon_msg);
                 }
             }
-            if (!message.isNotification && message.messageAttachment != null && message.messageAttachment.length() >
+            if (!messageNotification.isNotification && messageNotification.messageAttachment != null && messageNotification.messageAttachment.length() >
                                                                                         0) {
                 binding.cameraIcon.setVisibility(View.VISIBLE);
             } else {
@@ -145,6 +145,5 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int i, int i1) {
         return true;
     }
-    
     
 }

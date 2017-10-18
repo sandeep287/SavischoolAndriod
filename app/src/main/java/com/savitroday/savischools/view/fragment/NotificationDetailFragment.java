@@ -8,17 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.FragmentNotificationOpenViewBinding;
 
 public class NotificationDetailFragment extends Fragment {
     
-    Message message;
+    MessageNotification messageNotification;
     FragmentNotificationOpenViewBinding mBindings;
     
-    public static NotificationDetailFragment getInstance(Message message) {
+    public static NotificationDetailFragment getInstance(MessageNotification messageNotification) {
         NotificationDetailFragment notificationOpenViewFra = new NotificationDetailFragment();
-        notificationOpenViewFra.message = message;
+        notificationOpenViewFra.messageNotification = messageNotification;
         return notificationOpenViewFra;
     }
     
@@ -26,7 +26,7 @@ public class NotificationDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_notification_open_view, container, false);
-        mBindings.setMessage(message);
+        mBindings.setMessage(messageNotification);
         mBindings.setHandler(new Handler());
         return mBindings.getRoot();
     }

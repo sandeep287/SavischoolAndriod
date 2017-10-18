@@ -2,13 +2,13 @@ package com.savitroday.savischools.api;
 
 
 import com.savitroday.savischools.api.response.Assignment;
+import com.savitroday.savischools.api.response.Conversation;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.api.response.ParentProfile;
 import com.savitroday.savischools.api.response.Student;
 
-import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.http.GET;
@@ -28,7 +28,7 @@ public interface UserRestService {
                                                                                                                 String studentId);
     
     @GET("api/parent/GetMessages")
-    CustomCallAdapter.CustomCall<List<Message>> getMessages(@Query("schoolid") String schoolId, @Query("userId")
+    CustomCallAdapter.CustomCall<List<MessageNotification>> getMessages(@Query("schoolid") String schoolId, @Query("userId")
                                                                                                  String userID);
     
     @GET("api/parent/StudentProfileDetail")
@@ -48,9 +48,9 @@ public interface UserRestService {
                                                                                                        studentId);
     
     @POST("api/parent/getReadMessageStatus")
-    CustomCallAdapter.CustomCall<Message> readStatusUpdate(@Query("schoolid") String schoolId,
-                                                           @Query("userId") String userid,
-                                                           @Query("schoolmessageId")
+    CustomCallAdapter.CustomCall<MessageNotification> readStatusUpdate(@Query("schoolid") String schoolId,
+                                                                       @Query("userId") String userid,
+                                                                       @Query("schoolmessageId")
                                                                   String schoolMessageId);
     
     @GET("api/parent/getstudentassignment")
@@ -61,10 +61,16 @@ public interface UserRestService {
     
     
     @GET("api/parent/deleteMessageNotification")
-    CustomCallAdapter.CustomCall<Message> deleteMessageNotification(@Query("schoolId") String schoolId,
-                                                                    @Query("userId") String userId,
-                                                                    @Query("schoolMessageId") String
+    CustomCallAdapter.CustomCall<MessageNotification> deleteMessageNotification(@Query("schoolId") String schoolId,
+                                                                                @Query("userId") String userId,
+                                                                                @Query("schoolMessageId") String
                                                                                      schoolMessageId);
+    
+    @GET("api/parent/GetMessageDetails")
+    CustomCallAdapter.CustomCall<Conversation> getMessageConversation(@Query("schoolid") String schoolId,
+                                                                      @Query("messageId") String messageId,
+                                                                      @Query("isNotification") boolean
+                                                                            isNotification);
     
     
 }

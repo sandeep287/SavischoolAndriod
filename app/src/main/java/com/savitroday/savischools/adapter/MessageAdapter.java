@@ -1,18 +1,20 @@
 package com.savitroday.savischools.adapter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.database.DataSetObserver;
-import android.databinding.DataBindingUtil;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.api.response.Message;
-import com.savitroday.savischools.databinding.InvoiceCellBinding;
-import com.savitroday.savischools.databinding.MessageCellBinding;
+import com.savitroday.savischools.api.response.MessageNotification;
+import com.savitroday.savischools.databinding.MessageListCellBinding;
+import com.savitroday.savischools.view.fragment.MessageOpenViewFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,93 +23,68 @@ import java.util.List;
  * Created by Harshita Ahuja on 22/09/17.
  */
 
-public class MessageAdapter implements ListAdapter {
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder> {
     
     private Context context;
-    List<Message> messageList;
+    List<MessageNotification> messageList;
+    LayoutInflater layoutInflater;
     
-    public MessageAdapter(Context context, List<Message> invoiceList) {
+    public MessageAdapter(Context context, List<MessageNotification> messageList) {
         this.context = context;
-        this.messageList = invoiceList;
+        this.messageList = messageList;
+        this.layoutInflater = (LayoutInflater)
+                                      context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+    }
+    
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        
+        MessageListCellBinding mBinding;
+        
+        public MyViewHolder(MessageListCellBinding mBinding) {
+            super(mBinding.getRoot());
+            this.mBinding = mBinding;
+        }
+    }
+    
+    
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        MessageListCellBinding binding = MessageListCellBinding.inflate(layoutInflater,
+                parent, false);
+        return new MyViewHolder(binding);
     }
     
     @Override
-    public boolean areAllItemsEnabled() {
-        return false;
-    }
-    
-    @Override
-    public boolean isEnabled(int i) {
-        return false;
-    }
-    
-    @Override
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        holder.mBinding.setMessage(messageList.get(position));
+        holder.mBinding.setHandler(new Handler());
+        if ((messageList.get(position)).iconMediaPath != null) {
+            Picasso.with(context).load((messageList.get(position)).iconMediaPath).into(holder.mBinding.imageView);
+            holder.mBinding.imageView.setPadding(0, 0, 0, 0);
+        }
+        if (messageList.get(position).studentName != null) {
+            if ((!messageList.get(position).studentName.equals(""))) {
+                holder.mBinding.studentName.setVisibility(View.VISIBLE);
+            }
+        }
         
     }
     
     @Override
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        
-    }
-    
-    @Override
-    public int getCount() {
+    public int getItemCount() {
         return messageList.size();
     }
     
-    @Override
-    public Object getItem(int i) {
-        return messageList.get(i);
-    }
-    
-    @Override
-    public long getItemId(int i) {
-        return i;
-    }
-    
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-    
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        final Message message = (Message) getItem(i);
-        MessageCellBinding binding = DataBindingUtil.getBinding(view);
-        if (binding == null) {
-             binding = MessageCellBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
-                    viewGroup, false);
+    public class Handler {
+        
+        public void openMessageDetail(MessageNotification message) {
+            Fragment fragment = MessageOpenViewFragment.getInstance(message);
+            FragmentManager manager = ((FragmentActivity) context).getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
-        binding.setMessage(message);
-        if(message.iconMediaPath != null) {
-            binding.imageView.setPadding(0,0,0,0);
-            Picasso.with(context).load(message.iconMediaPath).into(binding.imageView);
-        }
-        else
-        {
-            binding.imageView.setPadding(10,10,10,10);
-            binding.imageView.setImageResource(R.drawable.notification);
-            binding.imageView.setBackgroundResource(R.drawable.gradient_circle);
-        }
-    
-        binding.executePendingBindings();
-    
-        return binding.getRoot();
     }
     
-    @Override
-    public int getItemViewType(int i) {
-        return 0;
-    }
-    
-    @Override
-    public int getViewTypeCount() {
-        return 1;
-    }
-    
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
 }

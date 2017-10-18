@@ -15,14 +15,13 @@ import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.DashboardAdapter;
 import com.savitroday.savischools.api.response.Dashboard;
-import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.DashboardHeaderBinding;
 import com.savitroday.savischools.databinding.FragmentDashboardBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Event;
 import com.savitroday.savischools.util.EventManager;
-import com.savitroday.savischools.util.ListUtils;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.squareup.picasso.Picasso;
 
@@ -117,7 +116,7 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
                 if (groupPosition == 0) {
-                    Message message = (Message) dashboardAdapter.getChild(groupPosition, childPosition);
+                    MessageNotification messageNotification = (MessageNotification) dashboardAdapter.getChild(groupPosition, childPosition);
                     
 //                    FragmentManager manager = getActivity().getSupportFragmentManager();
 //                    FragmentTransaction transaction = manager.beginTransaction();

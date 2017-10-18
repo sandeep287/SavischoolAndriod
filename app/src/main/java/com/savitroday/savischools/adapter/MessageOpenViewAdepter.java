@@ -2,16 +2,14 @@ package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.savitroday.savischools.R;
-import com.savitroday.savischools.api.response.Message;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.RecevemessageCellBinding;
 import com.savitroday.savischools.databinding.SendmessageCellBinding;
 import com.squareup.picasso.Picasso;
@@ -26,20 +24,21 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
 
 {
     Activity activity;
-    List<Message> ldt;
+    List<MessageNotification> ldt;
     View view;
 //    ViewDataBinding mBindings;
     AppCompatActivity apc;
     int tempposition=0;
     SendmessageCellBinding sendmessageCellBinding;
     RecevemessageCellBinding recevemessageCellBinding;
-    Message message;
+    MessageNotification messageNotification;
     ViewGroup parent;
     
-    public MessageOpenViewAdepter(Activity activity, List<Message> ldt,Message message) {
+    public MessageOpenViewAdepter(Activity activity, List<MessageNotification> ldt, MessageNotification
+                                                                                            messageNotification) {
         this.activity = activity;
         this.ldt = ldt;
-        this.message=message;
+        this.messageNotification = messageNotification;
     }
     
     
@@ -49,7 +48,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
 //        mBindings = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.sendmessage_cell,
 //                parent, false);
         this.parent=parent;
-        if (message.senderName.equals(ldt.get(tempposition).senderName)) {
+        if (messageNotification.senderName.equals(ldt.get(tempposition).senderName)) {
             recevemessageCellBinding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.recevemessage_cell,
                parent, false);
             return new MessageOpenViewAdepter.viewHolder(recevemessageCellBinding.getRoot());
@@ -70,7 +69,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
 
 
 
-        if (message.senderName.equals(ldt.get(position).senderName)) {
+        if (messageNotification.senderName.equals(ldt.get(position).senderName)) {
 
              recevemessageCellBinding.setMessage(ldt.get(position));
             if(ldt.get(position) != null) {

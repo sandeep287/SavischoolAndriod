@@ -5,18 +5,14 @@
     <data>
         <variable
             name="message"
-            type="com.savitroday.savischools.api.response.Message"/>
+            type="com.savitroday.savischools.api.response.MessageNotification"/>
 
-        <variable
-            name="handler"
-            type="com.savitroday.savischools.adapter.NotificationAdapter.Handler"/>
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white_two"
-        android:onClick="@{()->handler.openNotificationDetail(message)}"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         >

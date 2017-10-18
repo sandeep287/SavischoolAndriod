@@ -2,13 +2,20 @@ package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
-import com.savitroday.savischools.api.response.Message;
-import com.savitroday.savischools.databinding.MessageCellBinding;
+import com.savitroday.savischools.R;
+import com.savitroday.savischools.api.response.MessageNotification;
+import com.savitroday.savischools.databinding.NotificationCellBinding;
+import com.savitroday.savischools.view.fragment.NotificationDetailFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -19,20 +26,20 @@ import java.util.List;
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
     
     Context context;
-    List<Message> list;
+    List<MessageNotification> list;
     LayoutInflater layoutInflater;
     
     public class MyViewHolder extends RecyclerView.ViewHolder {
         
-        MessageCellBinding mBinding;
+        NotificationCellBinding mBinding;
         
-        public MyViewHolder(MessageCellBinding mBinding) {
+        public MyViewHolder(NotificationCellBinding mBinding) {
             super(mBinding.getRoot());
             this.mBinding = mBinding;
         }
     }
     
-    public NotificationAdapter(Activity context, List<Message> list) {
+    public NotificationAdapter(Activity context, List<MessageNotification> list) {
         this.list = list;
         this.context = context;
         this.layoutInflater = (LayoutInflater)
@@ -41,7 +48,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MessageCellBinding binding = MessageCellBinding.inflate(layoutInflater,
+        NotificationCellBinding binding = NotificationCellBinding.inflate(layoutInflater,
                 parent, false);
         return new MyViewHolder(binding);
     }
@@ -50,6 +57,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.mBinding.setMessage(list.get(position));
         holder.mBinding.setHandler(new Handler());
+        if ((list.get(position)).iconMediaPath != null) {
+            Picasso.with(context).load((list.get(position)).iconMediaPath).into(holder.mBinding.imageView);
+            holder.mBinding.imageView.setPadding(0, 0, 0, 0);
+        }
+        if (list.get(position).studentName != null) {
+            if ((!list.get(position).studentName.equals(""))) {
+                holder.mBinding.studentName.setVisibility(View.VISIBLE);
+            }
+        }
     }
     
     @Override
@@ -58,7 +74,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
     
     public class Handler {
-        public void openNotificationDetail(Message notification) {
+        public void openNotificationDetail(MessageNotification notification) {
+            Fragment fragment = NotificationDetailFragment.getInstance(notification);
+            FragmentManager manager = ((FragmentActivity) context).getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+        
+        public void deleteNotification(){
             
         }
     }

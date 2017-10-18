@@ -1,16 +1,12 @@
 package com.savitroday.savischools.manager;
 
-import android.util.Log;
-
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Invoice;
-import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
-import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
 
 import java.util.ArrayList;
 import java.util.List;

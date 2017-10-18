@@ -8,7 +8,7 @@
 
         <variable
             name="message"
-            type="com.savitroday.savischools.api.response.Message"/>
+            type="com.savitroday.savischools.api.response.MessageNotification"/>
     </data>
 
     <LinearLayout

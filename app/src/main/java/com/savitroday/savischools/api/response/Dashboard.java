@@ -73,7 +73,7 @@ public class Dashboard {
     public List<Student> listStudentModel = null;
     @SerializedName("ListSchoolMessagesModel")
     @Expose
-    public List<Message> listSchoolMessagesModel = null;
+    public List<MessageNotification> listSchoolMessagesModel = null;
     @SerializedName("ListStudentInvoiceModel")
     @Expose
     public List<Invoice> listStudentInvoiceModel = null;
