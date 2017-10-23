@@ -1,7 +1,5 @@
-package com.savitroday.savischools.view.fragment;
+package com.savitroday.savischools.view.fragment.homework;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.savitroday.savischools.R;
 
