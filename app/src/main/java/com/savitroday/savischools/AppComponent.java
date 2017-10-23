@@ -1,7 +1,6 @@
 package com.savitroday.savischools;
 
 
-import com.google.firebase.messaging.RemoteMessage;
 import com.savitroday.savischools.api.RestHelper;
 import com.savitroday.savischools.di.module.AppModule;
 import com.savitroday.savischools.di.module.ManagerModule;
@@ -15,14 +14,14 @@ import com.savitroday.savischools.manager.NotificationManager;
 import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
-import com.savitroday.savischools.view.fragment.HistoryInvoiceFragment;
-import com.savitroday.savischools.view.fragment.MessageOpenViewFragment;
-import com.savitroday.savischools.view.fragment.MessagesFragment;
-import com.savitroday.savischools.view.fragment.NotificationFragment;
+import com.savitroday.savischools.view.fragment.invoice.HistoryInvoiceFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.MessageOpenViewFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.MessagesFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationFragment;
 
-import com.savitroday.savischools.view.fragment.NotificationMessageTabFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment;
 import com.savitroday.savischools.view.fragment.ParentProfileFragment;
-import com.savitroday.savischools.view.fragment.PendingInvoiceFragment;
+import com.savitroday.savischools.view.fragment.invoice.PendingInvoiceFragment;
 import com.savitroday.savischools.view.fragment.ProfileFragment;
 
 import javax.inject.Singleton;

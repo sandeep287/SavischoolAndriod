@@ -27,6 +27,6 @@ public class Conversation {
     public String messageAttachment;
     @SerializedName("ListMessageResponseModel")
     @Expose
-    public List<Message> listMessageNotificationResponseModel = null;
+    public List<Message> messageList = null;
     
 }

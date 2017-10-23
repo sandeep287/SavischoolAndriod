@@ -17,6 +17,7 @@ import com.savitroday.savischools.databinding.FragmentProfileBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.Event;
 import com.savitroday.savischools.util.EventManager;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;

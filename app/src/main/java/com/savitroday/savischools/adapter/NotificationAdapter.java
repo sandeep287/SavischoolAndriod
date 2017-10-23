@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.NotificationCellBinding;
-import com.savitroday.savischools.view.fragment.NotificationDetailFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationDetailFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

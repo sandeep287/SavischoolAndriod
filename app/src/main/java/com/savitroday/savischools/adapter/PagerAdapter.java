@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.savitroday.savischools.view.fragment.MessagesFragment;
-import com.savitroday.savischools.view.fragment.NotificationFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.MessagesFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationFragment;
 
 /**
  * Created by owner on 9/29/2017.

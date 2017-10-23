@@ -23,7 +23,7 @@ import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.CategoryFragment;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
-import com.savitroday.savischools.view.fragment.InvoicePaymentFragment;
+import com.savitroday.savischools.view.fragment.invoice.InvoicePaymentFragment;
 import com.savitroday.savischools.view.fragment.ParentProfileFragment;
 
 import java.util.List;

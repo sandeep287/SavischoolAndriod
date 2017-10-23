@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.savitroday.savischools.view.fragment.NotificationMessageTabFragment">
+    tools:context="com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
