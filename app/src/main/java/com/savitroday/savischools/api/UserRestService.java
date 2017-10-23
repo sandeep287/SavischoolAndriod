@@ -5,12 +5,14 @@ import com.savitroday.savischools.api.response.Assignment;
 import com.savitroday.savischools.api.response.Conversation;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.api.response.ParentProfile;
 import com.savitroday.savischools.api.response.Student;
 
 import java.util.List;
 
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -71,6 +73,9 @@ public interface UserRestService {
                                                                       @Query("messageId") String messageId,
                                                                       @Query("isNotification") boolean
                                                                             isNotification);
+    
+    @POST("api/parent/Responseofmessages")
+    CustomCallAdapter.CustomCall<List<Message>> replyToConversation(@Body Message message);
     
     
 }

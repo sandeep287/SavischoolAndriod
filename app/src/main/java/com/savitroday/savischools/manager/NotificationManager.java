@@ -5,6 +5,7 @@ import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Conversation;
+import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
@@ -142,6 +143,27 @@ public class NotificationManager {
             @Override
             public void success(Response<Conversation> response) {
                 Conversation conversation = response.body();
+                task.setResult(conversation);
+            }
+            
+            @Override
+            public void failure(ApiException e) {
+                task.setError(e);
+            }
+        });
+        
+        return task.getTask();
+    }
+    
+    public Task replyToConversation(Message message) {
+        
+        final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
+        
+        userRestService.replyToConversation(message).enqueue(new CustomCallAdapter
+                                                                                                     .CustomCallback<List<Message>>() {
+            @Override
+            public void success(Response<List<Message>> response) {
+                List<Message> conversation = response.body();
                 task.setResult(conversation);
             }
             
