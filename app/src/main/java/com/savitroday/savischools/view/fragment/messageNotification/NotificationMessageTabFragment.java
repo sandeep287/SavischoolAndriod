@@ -47,19 +47,6 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_notification_message_tab, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        if (toDetail) {
-            if (messageNotification.isNotification) {
-                //todo : send to notification detail
-                FragmentManager manager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.add(R.id.flFragments, NotificationDetailFragment.getInstance(messageNotification));
-                transaction.addToBackStack(null);
-                transaction.commit();
-            } else {
-                //todo : send to message detail later
-            }
-        }
-        
         
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
         tabLayout.setTabTextColors(ContextCompat.getColor(getContext(), R.color.white), ContextCompat.getColor(getContext(), R.color.white));
@@ -90,6 +77,24 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
                 
             }
         });
+    
+        if (toDetail) {
+            if (messageNotification.isNotification) {
+                //todo : send to notification detail
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, NotificationDetailFragment.getInstance(messageNotification));
+                transaction.addToBackStack(null);
+                transaction.commit();
+            } else {
+                //todo : send to message detail later
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, MessageOpenViewFragment.getInstance(messageNotification));
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        }
         
         return inflatedView;
     }
