@@ -4,6 +4,7 @@ import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
+import com.savitroday.savischools.api.response.Conversation;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
@@ -118,6 +119,30 @@ public class NotificationManager {
             public void success(Response<MessageNotification> response) {
                 MessageNotification messageNotification = response.body();
                 task.setResult(messageNotification);
+            }
+            
+            @Override
+            public void failure(ApiException e) {
+                task.setError(e);
+            }
+        });
+        
+        return task.getTask();
+    }
+    
+    public Task getMessageConversation(String schoolMessageId) {
+        
+        final TaskCompletionSource<Conversation> task = new TaskCompletionSource<Conversation>();
+        
+        
+        String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
+        
+        userRestService.getMessageConversation(schoolId, schoolMessageId, false).enqueue(new CustomCallAdapter
+                                                                                                         .CustomCallback<Conversation>() {
+            @Override
+            public void success(Response<Conversation> response) {
+                Conversation conversation = response.body();
+                task.setResult(conversation);
             }
             
             @Override
