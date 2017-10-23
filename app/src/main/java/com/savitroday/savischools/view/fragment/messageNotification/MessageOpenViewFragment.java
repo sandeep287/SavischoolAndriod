@@ -111,7 +111,7 @@ public class MessageOpenViewFragment extends Fragment {
         }
         public  void onDeletePress()
                {
-            deleteMessageData();
+            deleteMessageData(); 
                }
         public  void onSendPress()
                {
