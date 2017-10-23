@@ -34,7 +34,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/attachment"
+    />
             <TextView
                 android:id="@+id/textmessage"
                 style="@style/Regular14Navy"

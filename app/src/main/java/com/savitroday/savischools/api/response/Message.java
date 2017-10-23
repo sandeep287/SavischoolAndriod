@@ -2,6 +2,9 @@ package com.savitroday.savischools.api.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.savitroday.savischools.util.DateUtility;
+
+import java.util.Date;
 
 /**
  * Created by Harshita Ahuja on 18/10/17.
@@ -12,7 +15,7 @@ public class Message {
     public String schoolMessageId;
     @SerializedName("createdOn")
     @Expose
-    public String createdOn;
+    public Date createdOn;
     @SerializedName("responseBy")
     @Expose
     public String responseBy;
@@ -25,4 +28,7 @@ public class Message {
     @SerializedName("staffName")
     @Expose
     public String staffName;
+    public String getCreatedOn(){
+        return DateUtility.getDateFull(createdOn);
+    }
 }

@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.savitroday.savischools.R;
+import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.RecevemessageCellBinding;
 import com.savitroday.savischools.databinding.SendmessageCellBinding;
@@ -24,7 +26,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
 
 {
     Activity activity;
-    List<MessageNotification> ldt;
+    List<Message> ldt;
     View view;
 //    ViewDataBinding mBindings;
     AppCompatActivity apc;
@@ -34,7 +36,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
     MessageNotification messageNotification;
     ViewGroup parent;
     
-    public MessageOpenViewAdepter(Activity activity, List<MessageNotification> ldt, MessageNotification
+    public MessageOpenViewAdepter(Activity activity, List<Message> ldt, MessageNotification
                                                                                             messageNotification) {
         this.activity = activity;
         this.ldt = ldt;
@@ -45,10 +47,9 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
     @Override
     public MessageOpenViewAdepter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-//        mBindings = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.sendmessage_cell,
-//                parent, false);
+
         this.parent=parent;
-        if (messageNotification.senderName.equals(ldt.get(tempposition).senderName)) {
+        if (tempposition==0) {
             recevemessageCellBinding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.recevemessage_cell,
                parent, false);
             return new MessageOpenViewAdepter.viewHolder(recevemessageCellBinding.getRoot());
@@ -69,25 +70,31 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
 
 
 
-        if (messageNotification.senderName.equals(ldt.get(position).senderName)) {
+        if (position==0)
+        {
 
-             recevemessageCellBinding.setMessage(ldt.get(position));
-            if(ldt.get(position) != null) {
+             recevemessageCellBinding.setMessage(messageNotification);
+
+            if(messageNotification.iconMediaPath != null) {
                 recevemessageCellBinding.senderimage.setPadding(0,0,0,0);
-                Picasso.with(activity).load((ldt.get(position)).iconMediaPath).into(recevemessageCellBinding.senderimage);
+                Picasso.with(activity).load(messageNotification.iconMediaPath).into(recevemessageCellBinding.senderimage);
+            }
+            if (messageNotification.messageAttachment!=null)
+            {
+                Picasso.with(activity).load(messageNotification.messageAttachment).into(recevemessageCellBinding.attachment);
             }
         }
         else
         {
-        sendmessageCellBinding.setMessage(ldt.get(position));
+                sendmessageCellBinding.setMessage(ldt.get(position-1));
         }
 
     }
-    
-    
+
+
     @Override
     public int getItemCount() {
-        return ldt.size();
+        return ldt.size()+1;
     }
     
     class viewHolder extends RecyclerView.ViewHolder {

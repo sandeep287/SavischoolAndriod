@@ -1,5 +1,7 @@
 package com.savitroday.savischools.manager;
 
+import android.util.Log;
+
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
@@ -107,17 +109,19 @@ public class NotificationManager {
     
     
     public Task deleteMessageNotification(String schoolMessageId) {
-        
+       Log.e("amita","aaaaaaaaaaa");
+
         final TaskCompletionSource<MessageNotification> task = new TaskCompletionSource<MessageNotification>();
         
         
         String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-        
-        userRestService.deleteMessageNotification(schoolId, userId, schoolMessageId).enqueue(new CustomCallAdapter
+
+        userRestService.deleteMessageNotification(schoolMessageId,userId,schoolId).enqueue(new CustomCallAdapter
                                                                                                          .CustomCallback<MessageNotification>() {
             @Override
             public void success(Response<MessageNotification> response) {
+                Log.e("12121221messageid",schoolMessageId);
                 MessageNotification messageNotification = response.body();
                 task.setResult(messageNotification);
             }
@@ -179,7 +183,12 @@ public class NotificationManager {
     public static List<MessageNotification> getNOtificationList() {
         List<MessageNotification> notifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
-            if (messageNotificationList.get(i).isNotification) {
+            if (messageNotificationList.get(i).hideOnMobile==null)
+            {
+                messageNotificationList.get(i).hideOnMobile=false;
+            }
+
+            if (messageNotificationList.get(i).isNotification&&messageNotificationList.get(i).delFlg!=true&&messageNotificationList.get(i).hideOnMobile!=true) {
                 notifications.add(messageNotificationList.get(i));
             }
         }
@@ -189,7 +198,11 @@ public class NotificationManager {
     public static List<MessageNotification> getMessageNotificationList() {
         List<MessageNotification> messageNotifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
-            if (!messageNotificationList.get(i).isNotification) {
+             if (messageNotificationList.get(i).hideOnMobile==null)
+            {
+                messageNotificationList.get(i).hideOnMobile=false;
+            }
+            if ((!messageNotificationList.get(i).isNotification)&&(!messageNotificationList.get(i).delFlg)&&messageNotificationList.get(i).hideOnMobile!=true) {
                 messageNotifications.add(messageNotificationList.get(i));
             }
         }

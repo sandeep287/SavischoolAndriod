@@ -33,25 +33,28 @@ public class NotificationFragment extends Fragment {
         
         
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false);
-        
+
         MyApplication.getApp().getComponent().inject(this);
         LinearLayoutManager llm2 = new LinearLayoutManager(getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         mBindings.notificationList.setLayoutManager(llm2);
         getMessageData();
-        
+
         return mBindings.getRoot();
     }
     
     public void getMessageData() {
+
         mBindings.progressBar.setVisibility(View.VISIBLE);
         notificationManager.getMessageTask().continueWith((task -> {
+
             mBindings.progressBar.setVisibility(View.GONE);
             if (task.getResult() != null) {
                 notificationList = NotificationManager.getNOtificationList();
+
                 notificationAdapter = new NotificationAdapter(getActivity(), notificationList);
                 mBindings.notificationList.setAdapter(notificationAdapter);
-                
+
             } else {
                 
             }

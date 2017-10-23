@@ -67,6 +67,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 holder.mBinding.studentName.setVisibility(View.VISIBLE);
             }
         }
+        if ((messageList.get(position).messageAttachmentType!=null)&&(!messageList.get(position).messageAttachmentType.equals(".txt")))
+        {
+            if(messageList.get(position).messageAttachmentType.equals(".img"))
+            {
+                holder.mBinding.imageView.setImageResource(R.drawable.attached_file);
+            }
+            else if (messageList.get(position).messageAttachmentType.equals(".doc"))
+            {
+
+            }
+        }
         
     }
     

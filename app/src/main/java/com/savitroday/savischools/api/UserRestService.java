@@ -1,6 +1,7 @@
 package com.savitroday.savischools.api;
 
 
+import com.google.common.base.Strings;
 import com.savitroday.savischools.api.response.Assignment;
 import com.savitroday.savischools.api.response.Conversation;
 import com.savitroday.savischools.api.response.Dashboard;
@@ -63,10 +64,10 @@ public interface UserRestService {
     
     
     @GET("api/parent/deleteMessageNotification")
-    CustomCallAdapter.CustomCall<MessageNotification> deleteMessageNotification(@Query("schoolId") String schoolId,
+    CustomCallAdapter.CustomCall<MessageNotification> deleteMessageNotification(@Query("schoolMessageId") String schoolMessageId ,
                                                                                 @Query("userId") String userId,
-                                                                                @Query("schoolMessageId") String
-                                                                                     schoolMessageId);
+                                                                                @Query("schoolId") String schoolId
+                                                                                     );
     
     @GET("api/parent/GetMessageDetails")
     CustomCallAdapter.CustomCall<Conversation> getMessageConversation(@Query("schoolid") String schoolId,
@@ -76,6 +77,6 @@ public interface UserRestService {
     
     @POST("api/parent/Responseofmessages")
     CustomCallAdapter.CustomCall<List<Message>> replyToConversation(@Body Message message);
-    
+
     
 }

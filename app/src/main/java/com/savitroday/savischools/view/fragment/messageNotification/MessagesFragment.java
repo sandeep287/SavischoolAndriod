@@ -16,13 +16,14 @@ import com.savitroday.savischools.adapter.MessageAdapter;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.FragmentMessagesBinding;
 import com.savitroday.savischools.manager.NotificationManager;
+import com.savitroday.savischools.util.EventManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class MessagesFragment extends Fragment {
+public class MessagesFragment extends Fragment implements EventManager.EventManagerDelegate  {
     
     RecyclerView messagesListView;
     List<MessageNotification> messageNotificationList = new ArrayList<>();
@@ -69,6 +70,10 @@ public class MessagesFragment extends Fragment {
         }));
         
     }
-    
-    
+
+
+    @Override
+    public void didReceivedEvent(int id, Object... args) {
+        getMessageData();
+    }
 }
