@@ -3,9 +3,6 @@ package com.savitroday.savischools.view.fragment.messageNotification;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,32 +40,32 @@ public class NotificationDetailFragment extends Fragment {
         
         return mBindings.getRoot();
     }
+    
     public void deleteMessageData() {
-
+        
         notificationManager.deleteMessageNotification(messageNotification.schoolMessageId).continueWith((task -> {
-
-
+            
+            
             if (task.getResult() != null) {
-
-
+                
+                
             } else {
-
+                
             }
-
-
+            
+            
             return null;
         }));
-
+        
     }
+    
     public class Handler {
         public void onBackPressed() {
             getActivity().onBackPressed();
         }
-        public  void onDeletePress()
-        {
+        
+        public void onDeletePress() {
             deleteMessageData();
-
-
         }
     }
 }

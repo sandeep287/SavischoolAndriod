@@ -1,7 +1,5 @@
 package com.savitroday.savischools.manager;
 
-import android.util.Log;
-
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
@@ -13,6 +11,7 @@ import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import bolts.Task;
@@ -58,7 +57,8 @@ public class NotificationManager {
                                                                               .CustomCallback<List<MessageNotification>>() {
                 @Override
                 public void success(Response<List<MessageNotification>> response) {
-                    messageNotificationList = response.body();
+                    List<MessageNotification> list = response.body();
+                    sanitizeList(list);
                     task.setResult(messageNotificationList);
                     for (TaskCompletionSource taskCompletionSource : taskList) {
                         taskCompletionSource.setResult(messageNotificationList);
@@ -80,6 +80,16 @@ public class NotificationManager {
             });
         }
         return task.getTask();
+    }
+    
+    
+    void sanitizeList(List<MessageNotification> list) {
+        messageNotificationList = new ArrayList<>();
+        for (MessageNotification msg : list) {
+            if (msg.hideOnMobile == false && msg.delFlg == false) {
+                messageNotificationList.add(msg);
+            }
+        }
     }
     
     public Task readStatusUpdate(String schoolMessageId) {
@@ -109,21 +119,27 @@ public class NotificationManager {
     
     
     public Task deleteMessageNotification(String schoolMessageId) {
-       Log.e("amita","aaaaaaaaaaa");
-
+        
         final TaskCompletionSource<MessageNotification> task = new TaskCompletionSource<MessageNotification>();
         
         
         String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-
-        userRestService.deleteMessageNotification(schoolMessageId,userId,schoolId).enqueue(new CustomCallAdapter
-                                                                                                         .CustomCallback<MessageNotification>() {
+        
+        HashMap<String, String> map = new HashMap<>();
+        map.put("schoolMessageId", schoolMessageId);
+        map.put("userId", userId);
+        map.put("schoolId", schoolId);
+        
+        
+        userRestService.deleteMessageNotification(map).enqueue(new CustomCallAdapter
+                                                                           .CustomCallback<MessageNotification>() {
             @Override
             public void success(Response<MessageNotification> response) {
-                Log.e("12121221messageid",schoolMessageId);
                 MessageNotification messageNotification = response.body();
                 task.setResult(messageNotification);
+                clearCache = true;
+                getMessageTask();
             }
             
             @Override
@@ -143,7 +159,7 @@ public class NotificationManager {
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
         
         userRestService.getMessageConversation(schoolId, schoolMessageId, false).enqueue(new CustomCallAdapter
-                                                                                                         .CustomCallback<Conversation>() {
+                                                                                                     .CustomCallback<Conversation>() {
             @Override
             public void success(Response<Conversation> response) {
                 Conversation conversation = response.body();
@@ -164,7 +180,7 @@ public class NotificationManager {
         final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
         
         userRestService.replyToConversation(message).enqueue(new CustomCallAdapter
-                                                                                                     .CustomCallback<List<Message>>() {
+                                                                         .CustomCallback<List<Message>>() {
             @Override
             public void success(Response<List<Message>> response) {
                 List<Message> conversation = response.body();
@@ -180,15 +196,10 @@ public class NotificationManager {
         return task.getTask();
     }
     
-    public static List<MessageNotification> getNOtificationList() {
+    public static List<MessageNotification> getNotificationList() {
         List<MessageNotification> notifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
-            if (messageNotificationList.get(i).hideOnMobile==null)
-            {
-                messageNotificationList.get(i).hideOnMobile=false;
-            }
-
-            if (messageNotificationList.get(i).isNotification&&messageNotificationList.get(i).delFlg!=true&&messageNotificationList.get(i).hideOnMobile!=true) {
+            if (messageNotificationList.get(i).isNotification) {
                 notifications.add(messageNotificationList.get(i));
             }
         }
@@ -198,11 +209,7 @@ public class NotificationManager {
     public static List<MessageNotification> getMessageNotificationList() {
         List<MessageNotification> messageNotifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
-             if (messageNotificationList.get(i).hideOnMobile==null)
-            {
-                messageNotificationList.get(i).hideOnMobile=false;
-            }
-            if ((!messageNotificationList.get(i).isNotification)&&(!messageNotificationList.get(i).delFlg)&&messageNotificationList.get(i).hideOnMobile!=true) {
+            if (!messageNotificationList.get(i).isNotification) {
                 messageNotifications.add(messageNotificationList.get(i));
             }
         }

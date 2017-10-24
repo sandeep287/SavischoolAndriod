@@ -5,6 +5,7 @@ import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Dashboard;
+import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.Event;
@@ -12,6 +13,7 @@ import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.util.TinyDB;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bolts.Task;
 import bolts.TaskCompletionSource;
@@ -58,6 +60,7 @@ public class DashboardManager {
                 @Override
                 public void success(Response<Dashboard> response) {
                     dashboard = response.body();
+                    sanitizeList();
                     task.setResult(dashboard);
                     for (TaskCompletionSource taskCompletionSource : taskList) {
                         taskCompletionSource.setResult(dashboard);
@@ -79,6 +82,16 @@ public class DashboardManager {
             });
         }
         return task.getTask();
+    }
+    
+    void sanitizeList(){
+        List<MessageNotification> list = new ArrayList<>();
+        for (MessageNotification msg:dashboard.listSchoolMessagesModel){
+            if(msg.hideOnMobile == false && msg.delFlg == false){
+                list.add(msg);
+            }
+        }
+        dashboard.listSchoolMessagesModel = list;
     }
     
     public void setDefaultStudent(Student student) {

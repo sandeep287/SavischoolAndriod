@@ -30,13 +30,13 @@ public class MessageNotification {
     public Date createdOn;
     @SerializedName("isNotification")
     @Expose
-    public Boolean isNotification;
+    public boolean isNotification;
     @SerializedName("hideOnMobile")
     @Expose
-    public Boolean hideOnMobile;
+    public boolean hideOnMobile;
     @SerializedName("isViewed")
     @Expose
-    public Boolean isViewed;
+    public boolean isViewed;
     @SerializedName("schoolId")
     @Expose
     public Integer schoolId;
@@ -63,7 +63,7 @@ public class MessageNotification {
     public Object expiresOn;
     @SerializedName("closed")
     @Expose
-    public Boolean closed;
+    public boolean closed;
     @SerializedName("closedOn")
     @Expose
     public Object closedOn;
