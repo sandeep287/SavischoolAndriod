@@ -5,6 +5,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+android:id="@+id/framlayout"
         android:layout_height="match_parent"
         tools:context="com.savitroday.savischools.view.fragment.messageNotification.NotificationFragment">
 

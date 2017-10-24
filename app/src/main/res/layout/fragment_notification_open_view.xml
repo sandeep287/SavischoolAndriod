@@ -115,6 +115,26 @@
                 tools:text="New Year is just round the corner. So start looking here for some awesome New Year Messages that you can send to your family members and friends wishing them a fabulous year ahead."
                 />
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/translucent"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone">
+
+            <android.support.v4.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible"/>
+        </RelativeLayout>
 
     </FrameLayout>
 

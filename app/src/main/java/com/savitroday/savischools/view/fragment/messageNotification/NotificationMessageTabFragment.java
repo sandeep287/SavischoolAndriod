@@ -112,7 +112,7 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
             transaction.commit();
         }
     }
-    
+
     public class Handler {
         public void openNotificationDetail(MessageNotification notification) {
             Fragment fragment = NotificationDetailFragment.getInstance(notification);

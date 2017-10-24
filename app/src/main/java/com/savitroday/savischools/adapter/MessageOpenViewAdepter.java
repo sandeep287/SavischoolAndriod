@@ -67,7 +67,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
     public void onBindViewHolder(MessageOpenViewAdepter.viewHolder holder, int position)
     {
        tempposition=tempposition+1;
-
+Log.e("positionnnnnnnnnnn",""+position);
 
 
         if (position==0)
@@ -104,6 +104,7 @@ public class MessageOpenViewAdepter extends RecyclerView.Adapter<MessageOpenView
             super(itemView);
         }
     }
+
 }
 
 

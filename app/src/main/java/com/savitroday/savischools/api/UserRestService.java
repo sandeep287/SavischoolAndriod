@@ -23,58 +23,58 @@ import retrofit2.http.Query;
  * Created by harshitaahuja.
  */
 public interface UserRestService {
-    
+
     /* ================
         API
      ================ */
     @GET("api/parent/GetInvoiceByStudent")
     CustomCallAdapter.CustomCall<List<Invoice>> getInvoiceByStudent(@Query("schoolid") String schoolId, @Query("studntid")
-                                                                                                                String studentId);
-    
+            String studentId);
+
     @GET("api/parent/GetMessages")
     CustomCallAdapter.CustomCall<List<MessageNotification>> getMessages(@Query("schoolid") String schoolId, @Query("userId")
-                                                                                                 String userID);
-    
+            String userID);
+
     @GET("api/parent/StudentProfileDetail")
     CustomCallAdapter.CustomCall<Dashboard> getDashboard(@Query("schoolid") String schoolId,
                                                          @Query("parentId") String parentId,
                                                          @Query("userId") String userId);
-    
-    
+
+
     @GET("api/parent/parentprofile")
     CustomCallAdapter.CustomCall<ParentProfile> getParentProfile(@Query("schoolId") String schoolId, @Query("parentId")
-                                                                                                      String parentId);
-    
-    
+            String parentId);
+
+
     @GET("api/parent/studentprofile")
     CustomCallAdapter.CustomCall<Student> getStudentProfile(@Query("schoolid") String schoolId, @Query("studntid")
-                                                                                                       String
-                                                                                                       studentId);
-    
+            String
+            studentId);
+
     @POST("api/parent/getReadMessageStatus")
     CustomCallAdapter.CustomCall<MessageNotification> readStatusUpdate(@Query("schoolid") String schoolId,
                                                                        @Query("userId") String userid,
                                                                        @Query("schoolmessageId")
-                                                                  String schoolMessageId);
-    
+                                                                               String schoolMessageId);
+
     @GET("api/parent/getstudentassignment")
     CustomCallAdapter.CustomCall<List<Assignment>> getStudentAssignment(@Query("schoolId") String schoolId, @Query
-                                                                                                               ("studntId")
-                                                                                                        String
-                                                                                                        studentId);
-    
-    
+            ("studntId")
+            String
+            studentId);
+
+
     @POST("api/parent/deleteMessageNotification")
     CustomCallAdapter.CustomCall<MessageNotification> deleteMessageNotification(@Body HashMap<String,String> map);
-    
+
     @GET("api/parent/GetMessageDetails")
     CustomCallAdapter.CustomCall<Conversation> getMessageConversation(@Query("schoolid") String schoolId,
                                                                       @Query("messageId") String messageId,
                                                                       @Query("isNotification") boolean
-                                                                            isNotification);
-    
+                                                                              isNotification);
+
     @POST("api/parent/Responseofmessages")
     CustomCallAdapter.CustomCall<List<Message>> replyToConversation(@Body Message message);
 
-    
+
 }

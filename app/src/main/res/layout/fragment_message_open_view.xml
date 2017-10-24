@@ -59,19 +59,25 @@
 
                     android:src="@drawable/delete"/>
             </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="66dp"
+    android:layout_marginBottom="50dp"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/reyclerview_message_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        >
+    </android.support.v7.widget.RecyclerView>
 
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/reyclerview_message_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="50dp"
-                android:layout_marginTop="66dp"
-                android:scrollbars="vertical"
+</ScrollView>
 
-                >
-            </android.support.v7.widget.RecyclerView>
 
             <!-- A horizontal line between the chatbox and RecyclerView -->
 
@@ -112,6 +118,26 @@
             </LinearLayout>
 
 
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/translucent"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone">
+
+            <android.support.v4.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible"/>
         </RelativeLayout>
     </FrameLayout>
 </layout>

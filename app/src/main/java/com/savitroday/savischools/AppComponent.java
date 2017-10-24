@@ -1,6 +1,7 @@
 package com.savitroday.savischools;
 
 
+import com.savitroday.savischools.adapter.NotificationAdapter;
 import com.savitroday.savischools.api.RestHelper;
 import com.savitroday.savischools.di.module.AppModule;
 import com.savitroday.savischools.di.module.ManagerModule;
@@ -51,7 +52,7 @@ public interface AppComponent {
     void inject(NotificationDetailFragment notificationDetailFragment);
     void inject(LoginActivity loginActivity);
     void inject(HistoryInvoiceFragment historyInvoiceFragment);
-    
+    void inject(NotificationAdapter notificationAdapter);
     void inject(DashboardFragment dashboardFragment);
     void inject(ProfileFragment profileFragment);
     void inject(PendingInvoiceFragment pendingInvoiceFragment);

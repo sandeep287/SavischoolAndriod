@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class MessagesFragment extends Fragment implements EventManager.EventMana
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.e("22222222222222222222","22222222222222222222222222222222");
         
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_messages, container, false);
         MyApplication.getApp().getComponent().inject(this);

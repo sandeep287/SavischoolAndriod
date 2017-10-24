@@ -50,10 +50,11 @@ public class NotificationFragment extends Fragment {
 
             mBindings.progressBar.setVisibility(View.GONE);
             if (task.getResult() != null) {
-                notificationList = NotificationManager.getNotificationList();
+                notificationList = NotificationManager.getNOtificationList();
 
                 notificationAdapter = new NotificationAdapter(getActivity(), notificationList);
                 mBindings.notificationList.setAdapter(notificationAdapter);
+                notificationAdapter.notifyDataSetChanged();
 
             } else {
                 
@@ -62,4 +63,6 @@ public class NotificationFragment extends Fragment {
         }));
         
     }
+
+
 }

@@ -25,6 +25,12 @@ public class Message {
     @SerializedName("parentName")
     @Expose
     public String parentName;
+    @SerializedName("userId")
+    @Expose
+    public String userId;
+    @SerializedName("parentId")
+    @Expose
+    public String parentId;
     @SerializedName("staffName")
     @Expose
     public String staffName;
