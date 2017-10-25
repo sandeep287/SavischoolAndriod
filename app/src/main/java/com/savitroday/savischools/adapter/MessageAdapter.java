@@ -63,7 +63,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             holder.mBinding.imageView.setPadding(0, 0, 0, 0);
         }
         if (messageList.get(position).studentName != null) {
-            if ((!messageList.get(position).studentName.equals(""))) {
+            if ((!messageList.get(position).studentName.trim().equals(""))) {
                 holder.mBinding.studentName.setVisibility(View.VISIBLE);
             }
         }
@@ -97,5 +97,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             transaction.commit();
         }
     }
-    
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
 }

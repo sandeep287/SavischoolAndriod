@@ -28,10 +28,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
-            android:background="@drawable/gradient_circle"
-            android:padding="8dp"
 
-            android:src="@drawable/message"/>
+
+            android:src="@drawable/icon_msg"/>
 
         <ImageView
             android:id="@+id/camera_icon"
@@ -153,14 +152,15 @@
                         style="@style/Regular10White"
                         android:layout_width="wrap_content"
 
-                        android:layout_height="wrap_content"
+                        android:layout_height="18dp"
                         android:background="@drawable/muted_blue_round_corner"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
+
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+
                         android:text="@{message.studentName}"
                         android:visibility="gone"
+                        android:gravity="center_vertical"
                         tools:text="JENNY"
                         />
                 </LinearLayout>

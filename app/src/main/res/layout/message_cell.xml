@@ -120,11 +120,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:alpha="0.80"
+                    android:id="@+id/studenname"
                     android:background="@drawable/muted_blue_rounded_background"
                     android:paddingBottom="2dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:paddingTop="2dp"
+                    android:visibility="gone"
                     android:text="@{message.studentName}"
                     tools:text="JENNY"
                     />

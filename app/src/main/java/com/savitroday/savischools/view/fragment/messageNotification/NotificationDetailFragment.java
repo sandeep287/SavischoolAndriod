@@ -47,7 +47,9 @@ public class NotificationDetailFragment extends Fragment {
         mBindings.setHandler(new Handler());
 
         //todo: call readmessage task here
-        setStatus();
+        if (messageNotification.isViewed==false) {
+            setStatus();
+        }
         return mBindings.getRoot();
     }
 
@@ -100,7 +102,7 @@ Log.e("status","1");
         }
 
         public void onDeletePress() {
-            //   deleteMessageData();
+               deleteMessageData();
 
 
         }

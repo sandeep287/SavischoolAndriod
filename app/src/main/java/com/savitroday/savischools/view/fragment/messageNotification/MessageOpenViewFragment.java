@@ -65,6 +65,9 @@ public class MessageOpenViewFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         messaglist.setLayoutManager(llm);
         // messages.add(message);
+        if (messageNotification.isViewed==false) {
+            setStatus();
+        }
         getMessageData();
 
         return mBindings.getRoot();
@@ -79,13 +82,10 @@ public class MessageOpenViewFragment extends Fragment {
             if (task.getResult() != null) {
                 conversation = (Conversation) task.getResult();
                 messageNotifications = conversation.messageList;
-                Log.e("chackkkkkkkkkkkkkkkkk", "" + messageNotifications.size());
-
                 adapter = new MessageOpenViewAdapter(getActivity(), messageNotifications, messageNotification);
-
                 messaglist.setAdapter(adapter);
-
-            } else {
+            }
+            else {
 
             }
 
@@ -172,6 +172,19 @@ public class MessageOpenViewFragment extends Fragment {
                 setMessageData();
             }
         }
+    }
+    public void setStatus() {
+        notificationManager.readStatusUpdate(messageNotification.schoolMessageId).continueWith((task -> {
+            if (task.getResult() != null) {
+                Log.e("status","1");
+
+            } else {
+                Log.e("status","2");
+                Exception e = task.getError();
+                AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());
+            }
+            return null;
+        }));
     }
 
 }

@@ -4,9 +4,11 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
@@ -24,6 +26,7 @@ public class NotificationFragment extends Fragment {
     List<MessageNotification> notificationList = new ArrayList<>();
     FragmentNotificationBinding mBindings;
     NotificationAdapter notificationAdapter;
+   public static RelativeLayout progressbar;
     @Inject
     NotificationManager notificationManager;
 
@@ -33,7 +36,7 @@ public class NotificationFragment extends Fragment {
 
 
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false);
-
+        progressbar=mBindings.progressBar;
         MyApplication.getApp().getComponent().inject(this);
         LinearLayoutManager llm2 = new LinearLayoutManager(getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
@@ -42,6 +45,7 @@ public class NotificationFragment extends Fragment {
 
         return mBindings.getRoot();
     }
+
 
     public void getMessageData() {
 
@@ -55,6 +59,7 @@ public class NotificationFragment extends Fragment {
                 notificationAdapter = new NotificationAdapter(getActivity(), notificationList);
                 mBindings.notificationList.setAdapter(notificationAdapter);
                 notificationAdapter.notifyDataSetChanged();
+
 
             } else {
 

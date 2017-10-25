@@ -109,6 +109,13 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                     binding.imageView.setImageResource(R.drawable.icon_msg);
                 }
             }
+            if(messageNotification.studentName==null)
+            {
+                if (messageNotification.studentName.trim().equals(""))
+                {
+                    binding.studenname.setVisibility(View.VISIBLE);
+                }
+            }
             if (!messageNotification.isNotification && messageNotification.messageAttachment != null && messageNotification.messageAttachment.length() >
                                                                                         0) {
                 binding.cameraIcon.setVisibility(View.VISIBLE);

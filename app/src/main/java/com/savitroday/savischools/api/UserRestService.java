@@ -52,10 +52,7 @@ public interface UserRestService {
             studentId);
 
     @POST("api/parent/getReadMessageStatus")
-    CustomCallAdapter.CustomCall<MessageNotification> readStatusUpdate(@Query("schoolid") String schoolId,
-                                                                       @Query("userId") String userid,
-                                                                       @Query("schoolmessageId")
-                                                                               String schoolMessageId);
+    CustomCallAdapter.CustomCall<MessageNotification> readStatusUpdate( @Body HashMap<String,String> mapv);
 
     @GET("api/parent/getstudentassignment")
     CustomCallAdapter.CustomCall<List<Assignment>> getStudentAssignment(@Query("schoolId") String schoolId, @Query

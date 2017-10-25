@@ -2,10 +2,12 @@ package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 
 import android.util.Log;
@@ -18,7 +20,9 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.NotificationCellBinding;
 import com.savitroday.savischools.manager.NotificationManager;
+import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.view.fragment.messageNotification.NotificationDetailFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -78,6 +82,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 holder.mBinding.studentName.setVisibility(View.VISIBLE);
             }
         }
+        holder.mBinding.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteMessageData(list.get(position),holder.mBinding.getRoot(),position);
+            }
+        });
+
     }
     
     @Override
@@ -95,17 +106,36 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             transaction.addToBackStack(null);
             transaction.commit();
         }
-        
-        public void deleteNotification(MessageNotification notification)
-        {
-            notificationManager.deleteMessageNotification(notification.schoolMessageId).continueWith((task -> {
 
 
-
-                return null;
-            }));
-            
-
-        }
     }
+    public void deleteMessageData(MessageNotification messageNotification,View view,int position) {
+
+        NotificationFragment.progressbar.setVisibility(View.VISIBLE);
+        notificationManager.deleteMessageNotification(messageNotification.schoolMessageId).continueWith((task -> {
+        NotificationFragment.progressbar.setVisibility(View.GONE);
+            AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.MyDialogTheme);
+            builder.setMessage("Deleted successfully...");
+            builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+               notifyItemRemoved(position);
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+
+            if (task.getResult() != null) {
+                alertDialog.show();
+
+            } else {
+                Exception e = task.getError();
+                AlertUtil.showSnackbarWithMessage(e.getMessage(),view);
+            }
+
+
+            return null;
+        }));
+
+    }
+
 }

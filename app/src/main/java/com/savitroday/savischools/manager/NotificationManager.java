@@ -95,23 +95,27 @@ public class NotificationManager {
     }
     
     public Task readStatusUpdate(String schoolMessageId) {
-        Log.e("mlkmklm","jknkjjk ");
+
         final TaskCompletionSource<MessageNotification> task = new TaskCompletionSource<MessageNotification>();
-        
-        
+
         String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-        
-        userRestService.readStatusUpdate(schoolId, userId, schoolMessageId).enqueue(new CustomCallAdapter
+        HashMap<String, String> map = new HashMap<>();
+        map.put("schoolMessageId", schoolMessageId);
+        map.put("userId", userId);
+        map.put("schoolId", schoolId);
+        userRestService.readStatusUpdate(map).enqueue(new CustomCallAdapter
                                                                                                 .CustomCallback<MessageNotification>() {
             @Override
             public void success(Response<MessageNotification> response) {
+                Log.e("status","3");
                 MessageNotification messageNotification = response.body();
                 task.setResult(messageNotification);
             }
             
             @Override
             public void failure(ApiException e) {
+                Log.e("status","4");
                 task.setError(e);
             }
         });
@@ -132,8 +136,6 @@ public class NotificationManager {
         map.put("schoolMessageId", schoolMessageId);
         map.put("userId", userId);
         map.put("schoolId", schoolId);
-        
-        
         userRestService.deleteMessageNotification(map).enqueue(new CustomCallAdapter
                                                                            .CustomCallback<MessageNotification>() {
             @Override
@@ -178,7 +180,7 @@ public class NotificationManager {
     }
     
     public Task replyToConversation(Message message ) {
-        
+
         final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
 
         userRestService.replyToConversation(message).enqueue(new CustomCallAdapter

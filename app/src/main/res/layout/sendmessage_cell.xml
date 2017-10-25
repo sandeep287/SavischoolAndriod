@@ -59,7 +59,7 @@
             android:id="@+id/reciverimage"
             android:layout_marginRight="8dp"
             android:src="@drawable/profile_img"
-
+            android:layout_marginBottom="20dp"
             />
 
     </LinearLayout>
