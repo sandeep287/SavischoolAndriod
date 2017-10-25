@@ -4,17 +4,17 @@
 
         <variable
             name="handler"
-            type="com.savitroday.savischools.view.fragment.messageNotification.MessageOpenViewFragment.Handler"/>
+            type="com.savitroday.savischools.view.fragment.messageNotification.MessageOpenViewFragment.Handler" />
 
 
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 xmlns:tools="http://schemas.android.com/tools"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:background="@color/white_two"
-                 tools:context="com.savitroday.savischools.view.fragment.messageNotification.MessageOpenViewFragment">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_two"
+        tools:context="com.savitroday.savischools.view.fragment.messageNotification.MessageOpenViewFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -35,8 +35,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="72dp"
                     android:gravity="center"
-                    android:text="Message"
-                    />
+                    android:text="Message" />
 
                 <ImageButton
                     android:layout_width="24dp"
@@ -45,7 +44,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
                     android:background="@drawable/back_arrow_icon"
-                    android:onClick="@{()->handler.onBackPressed()}"/>
+                    android:onClick="@{()->handler.onBackPressed()}" />
 
 
                 <ImageView
@@ -57,26 +56,30 @@
                     android:layout_marginRight="16dp"
                     android:onClick="@{()->handler.onDeletePress()}"
 
-                    android:src="@drawable/delete"/>
+                    android:src="@drawable/delete" />
             </RelativeLayout>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:layout_marginTop="66dp"
-    android:layout_marginBottom="50dp"
-    >
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/reyclerview_message_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        >
-    </android.support.v7.widget.RecyclerView>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="66dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/reyclerview_message_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+                    </android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
 
 
-</ScrollView>
+            </ScrollView>
 
 
             <!-- A horizontal line between the chatbox and RecyclerView -->
@@ -87,8 +90,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/white"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/edittext_chatbox"
@@ -100,8 +102,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="Type something to send…"
-                    />
+                    android:hint="Type something to send…" />
 
                 <Button
                     android:id="@+id/button_chatbox_send"
@@ -110,15 +111,16 @@
                     android:layout_gravity="bottom|center"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="4dp"
-                    android:onClick="@{()->handler.onSendPress()}"
-
                     android:background="@drawable/send"
+
                     android:clickable="true"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:onClick="@{()->handler.onSendPress()}" />
             </LinearLayout>
 
 
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
@@ -137,7 +139,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
-                android:visibility="visible"/>
+                android:visibility="visible" />
         </RelativeLayout>
     </FrameLayout>
 </layout>

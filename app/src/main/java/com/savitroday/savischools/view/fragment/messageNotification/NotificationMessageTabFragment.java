@@ -23,31 +23,31 @@ import com.savitroday.savischools.view.fragment.ProfileFragment;
 import javax.inject.Inject;
 
 public class NotificationMessageTabFragment extends Fragment implements View.OnClickListener {
-    
+
     TabLayout tabLayout;
     MessageNotification messageNotification;
     boolean toDetail = false;
     @Inject
     DashboardManager dashboardManager;
-    
+
     public static NotificationMessageTabFragment getInstance(MessageNotification messageNotification) {
         NotificationMessageTabFragment fragment = new NotificationMessageTabFragment();
         fragment.toDetail = true;
         fragment.messageNotification = messageNotification;
         return fragment;
     }
-    
+
     public NotificationMessageTabFragment() {
         // Required empty public constructor
     }
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_notification_message_tab, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        
+
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
         tabLayout.setTabTextColors(ContextCompat.getColor(getContext(), R.color.white), ContextCompat.getColor(getContext(), R.color.white));
         tabLayout.addTab(tabLayout.newTab().setText("NOTIFICATION"));
@@ -57,27 +57,27 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         ImageView profile = (ImageView) inflatedView.findViewById(R.id.profileButton);
         profile.setOnClickListener(this);
         final ViewPager viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
-        
+
         viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                
+
             }
-            
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                
+
             }
-            
+
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                
+
             }
         });
-    
+
         if (toDetail) {
             if (messageNotification.isNotification) {
                 //todo : send to notification detail
@@ -95,11 +95,11 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
                 transaction.commit();
             }
         }
-        
+
         return inflatedView;
     }
-    
-    
+
+
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.backButton) {
@@ -121,7 +121,7 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
             transaction.addToBackStack(null);
             transaction.commit();
         }
-    
+
         public void openMessageDetail(MessageNotification message) {
             Fragment fragment = MessageOpenViewFragment.getInstance(message);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();

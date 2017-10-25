@@ -26,12 +26,12 @@ public class NotificationFragment extends Fragment {
     NotificationAdapter notificationAdapter;
     @Inject
     NotificationManager notificationManager;
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        
-        
+
+
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false);
 
         MyApplication.getApp().getComponent().inject(this);
@@ -42,7 +42,7 @@ public class NotificationFragment extends Fragment {
 
         return mBindings.getRoot();
     }
-    
+
     public void getMessageData() {
 
         mBindings.progressBar.setVisibility(View.VISIBLE);
@@ -57,11 +57,11 @@ public class NotificationFragment extends Fragment {
                 notificationAdapter.notifyDataSetChanged();
 
             } else {
-                
+
             }
             return null;
         }));
-        
+
     }
 
 

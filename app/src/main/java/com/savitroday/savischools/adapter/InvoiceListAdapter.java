@@ -55,6 +55,7 @@ public class InvoiceListAdapter extends RecyclerView.Adapter<InvoiceListAdapter.
         public viewHolder(View itemView) {
             
             super(itemView);
+
         }
     }
     

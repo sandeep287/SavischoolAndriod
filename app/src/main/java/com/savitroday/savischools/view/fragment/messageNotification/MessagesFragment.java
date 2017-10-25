@@ -24,36 +24,34 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class MessagesFragment extends Fragment implements EventManager.EventManagerDelegate  {
-    
-    RecyclerView messagesListView;
+public class MessagesFragment extends Fragment implements EventManager.EventManagerDelegate {
+
+
     List<MessageNotification> messageNotificationList = new ArrayList<>();
-    
-    
+
+
     MessageAdapter messageAdapter;
     @Inject
     NotificationManager notificationManager;
     FragmentMessagesBinding mBindings;
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.e("22222222222222222222","22222222222222222222222222222222");
-        
+        Log.e("22222222222222222222", "22222222222222222222222222222222");
+
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_messages, container, false);
         MyApplication.getApp().getComponent().inject(this);
-        
-        
-        messagesListView = mBindings.messageList;
-        
+
+
         LinearLayoutManager llm2 = new LinearLayoutManager(getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
-        messagesListView.setLayoutManager(llm2);
+        mBindings.messageList.setLayoutManager(llm2);
         getMessageData();
-        
+
         return mBindings.getRoot();
     }
-    
+
     public void getMessageData() {
         mBindings.progressBar.setVisibility(View.VISIBLE);
         notificationManager.getMessageTask().continueWith((task -> {
@@ -61,16 +59,16 @@ public class MessagesFragment extends Fragment implements EventManager.EventMana
             if (task.getResult() != null) {
                 messageNotificationList = NotificationManager.getMessageNotificationList();
                 messageAdapter = new MessageAdapter(getActivity(), messageNotificationList);
-                messagesListView.setAdapter(messageAdapter);
-                
+                mBindings.messageList.setAdapter(messageAdapter);
+
             } else {
-                
+
             }
-            
-            
+
+
             return null;
         }));
-        
+
     }
 
 

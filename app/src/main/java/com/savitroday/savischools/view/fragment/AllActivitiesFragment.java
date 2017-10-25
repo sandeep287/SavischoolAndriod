@@ -14,9 +14,10 @@ import com.savitroday.savischools.databinding.FragmentAllActivitiesBinding;
 import com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment;
 
 public class AllActivitiesFragment extends Fragment {
-FragmentAllActivitiesBinding mBindings;
+    FragmentAllActivitiesBinding mBindings;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_all_activities, container, false);
 
         return mBindings.getRoot();
