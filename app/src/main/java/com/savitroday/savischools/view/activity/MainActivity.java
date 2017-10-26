@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.savitroday.savischools.MyApplication;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity
     StudentListAdapter studentListAdapter;
     DrawerLayout drawer;
     Button profileButton;
+    LinearLayout bootomTab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         
         
         mProgressDialog = (RelativeLayout) findViewById(R.id.progressBar);
-        
+        bootomTab = (LinearLayout) findViewById(R.id.bottom_tab);
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(this);
         profileButton = (Button) findViewById(R.id.profile_button);
@@ -150,6 +152,15 @@ public class MainActivity extends AppCompatActivity
             transaction.add(R.id.flFragments, new InvoicePaymentFragment());
             transaction.addToBackStack(null);
             transaction.commit();
+        }
+    }
+    
+    public void hideBottomTab(boolean hide){
+        if(hide){
+            bootomTab.setVisibility(View.GONE);
+        }
+        else {
+            bootomTab.setVisibility(View.VISIBLE);
         }
     }
 }

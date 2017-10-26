@@ -26,6 +26,7 @@ import com.savitroday.savischools.databinding.FragmentMessageOpenViewBinding;
 import com.savitroday.savischools.manager.NotificationManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.view.activity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,11 +55,14 @@ public class MessageOpenViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        messageNotifications = new ArrayList<>();
+        
         mBindings = DataBindingUtil.inflate(inflater, R.layout.fragment_message_open_view, container, false);
-        mBindings.setHandler(new Handler());
         MyApplication.getApp().getComponent().inject(this);
+        mBindings.setHandler(new Handler());
+        
+        ((MainActivity)getActivity()).hideBottomTab(true);
+        
+        messageNotifications = new ArrayList<>();
         messaglist = mBindings.reyclerviewMessageList;
         MyApplication.getApp().getComponent().inject(this);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
@@ -70,7 +74,13 @@ public class MessageOpenViewFragment extends Fragment {
 
         return mBindings.getRoot();
     }
-
+    
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        ((MainActivity)getActivity()).hideBottomTab(false);
+    }
+    
     public void getMessageData() {
         mBindings.progressBar.setVisibility(View.VISIBLE);
 
