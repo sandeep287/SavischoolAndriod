@@ -128,14 +128,14 @@
         <RelativeLayout
             android:id="@+id/middle_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="53dp"
             android:layout_below="@id/top_layout"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="58dp"
             android:layout_marginRight="58dp"
             android:paddingBottom="12dp"
             android:paddingTop="9dp"
-            android:layout_marginTop="-25dp"
+            android:layout_marginTop="-26dp"
             android:background="@drawable/white_rounded_background"
             android:elevation="8dp">
 
@@ -151,7 +151,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:layout_toLeftOf="@id/image"
                 android:orientation="vertical">
 
@@ -160,8 +160,10 @@
                     style="@style/Regular12Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="bottom"
                     android:layout_gravity="right"
                     android:text="Check In"
+
                     android:includeFontPadding="false"
                     />
 
@@ -169,7 +171,9 @@
                     style="@style/Medium14Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="top"
                     android:layout_gravity="right"
+
                     android:text="@{dashboard.getCheckInTime()}"
                     tools:text="9:00 AM"
                     android:includeFontPadding="false"
@@ -178,7 +182,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:layout_toRightOf="@id/image"
                 android:orientation="vertical">
 
@@ -186,8 +190,9 @@
                     style="@style/Regular12Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:layout_gravity="left"
-                    android:text="Check OUT"
+                    android:text="Check Out"
                     android:includeFontPadding="false"
                     />
 
@@ -195,6 +200,7 @@
                     style="@style/Medium14Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:layout_gravity="left"
                     android:text="@{dashboard.getCheckOutTime()}"
                     tools:text="NOT YET"

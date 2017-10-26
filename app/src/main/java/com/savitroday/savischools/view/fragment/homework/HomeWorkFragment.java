@@ -65,12 +65,12 @@ public class HomeWorkFragment extends Fragment {
 
             switch (position) {
                 case 0:
-                    Log.e("vfssvs","dcvsvsdddddd");
+
                     AssignedHomeWorkFragment tab1 = new AssignedHomeWorkFragment();
 
                     return tab1;
                 case 1:
-                    Log.e("2222222222vfssvs","dcvsvsdddddd");
+
                     CompleteHomeWorkFragment tab2 = new CompleteHomeWorkFragment();
                     return tab2;
                 default:

@@ -119,7 +119,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    notifyItemRemoved(position);
+                   // notifyItemRemoved(position);
                 }
             });
             AlertDialog alertDialog = builder.create();

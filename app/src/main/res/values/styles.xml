@@ -14,7 +14,6 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
-
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -54,6 +53,13 @@
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/navy_two</item>
+    </style>
+    <style name="Normal10White_15">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white__15</item>
     </style>
 
     <style name="Bold24Black" style="@android:style/TextAppearance.DeviceDefault.Medium">

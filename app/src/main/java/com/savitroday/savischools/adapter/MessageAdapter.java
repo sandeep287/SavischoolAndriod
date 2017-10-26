@@ -58,23 +58,24 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.mBinding.setMessage(messageList.get(position));
         holder.mBinding.setHandler(new Handler());
-        if ((messageList.get(position)).iconMediaPath != null) {
-            Picasso.with(context).load((messageList.get(position)).iconMediaPath).into(holder.mBinding.imageView);
-            holder.mBinding.imageView.setPadding(0, 0, 0, 0);
-        }
+
         if (messageList.get(position).studentName != null) {
             if ((!messageList.get(position).studentName.trim().equals(""))) {
                 holder.mBinding.studentName.setVisibility(View.VISIBLE);
             }
         }
-        if ((messageList.get(position).messageAttachmentType!=null)&&(!messageList.get(position).messageAttachmentType.equals(".txt")))
+        if ((messageList.get(position).messageAttachmentType!=null)&&(!messageList.get(position).messageAttachmentType.equals(".txt"))&&(messageList.get(position).messageAttachment!=null))
         {
             if(messageList.get(position).messageAttachmentType.equals(".img"))
             {
-                holder.mBinding.imageView.setImageResource(R.drawable.attached_file);
+                Picasso.with(context)
+                        .load(messageList.get(position).messageAttachment)
+                        .into(holder.mBinding.imageView);
+                holder.mBinding.cameraIcon.setVisibility(View.VISIBLE);
             }
             else if (messageList.get(position).messageAttachmentType.equals(".doc"))
             {
+                holder.mBinding.imageView.setImageResource(R.drawable.attached_file);
 
             }
         }

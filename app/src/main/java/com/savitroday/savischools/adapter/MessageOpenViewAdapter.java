@@ -1,8 +1,11 @@
 package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +20,21 @@ import com.savitroday.savischools.databinding.RecevemessageCellBinding;
 import com.savitroday.savischools.databinding.SendmessageCellBinding;
 import com.squareup.picasso.Picasso;
 
+import org.eclipse.core.internal.utils.FileUtil;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 
 /**
@@ -73,12 +91,28 @@ public class MessageOpenViewAdapter extends RecyclerView.Adapter<MessageOpenView
             RecevemessageCellBinding mBinding = (RecevemessageCellBinding) holder.bindingsuper;
             mBinding.setMessage(messageNotification);
 
+
             if (messageNotification.iconMediaPath != null) {
                 mBinding.senderimage.setPadding(0, 0, 0, 0);
                 Picasso.with(activity).load(messageNotification.iconMediaPath).into(mBinding.senderimage);
             }
             if (messageNotification.messageAttachment != null) {
-                Picasso.with(activity).load(messageNotification.messageAttachment).into(mBinding.attachment);
+                mBinding.attachment.setVisibility(View.VISIBLE);
+                mBinding.attachment.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Uri uri = Uri.parse("https://cbsnews1.cbsistatic.com/hub/i/2013/02/04/4de61f36-a645-11e2-a3f0-029118418759/18King_Richard_III.jpg");
+                        Intent intent=new Intent(Intent.ACTION_VIEW);
+                        intent.setDataAndType(uri,"image/*");
+                        //intent.setDataAndType(uri, "text/plain");
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        activity.startActivity(intent);
+
+
+                    }
+                });
+
+                //   Picasso.with(activity).load(messageNotification.messageAttachment).into(mBinding.attachment);
             }
         } else {
             SendmessageCellBinding mBinding = (SendmessageCellBinding) holder.bindingsuper;
@@ -101,6 +135,7 @@ public class MessageOpenViewAdapter extends RecyclerView.Adapter<MessageOpenView
             bindingsuper = itemView;
         }
     }
+
 
 }
 

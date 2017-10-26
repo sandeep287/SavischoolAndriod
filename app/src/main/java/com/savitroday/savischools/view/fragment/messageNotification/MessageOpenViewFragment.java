@@ -188,10 +188,10 @@ public class MessageOpenViewFragment extends Fragment {
     public void setStatus() {
         notificationManager.readStatusUpdate(messageNotification.schoolMessageId).continueWith((task -> {
             if (task.getResult() != null) {
-                Log.e("status","1");
+
 
             } else {
-                Log.e("status","2");
+
                 Exception e = task.getError();
                 AlertUtil.showSnackbarWithMessage(e.getMessage(), mBindings.getRoot());
             }

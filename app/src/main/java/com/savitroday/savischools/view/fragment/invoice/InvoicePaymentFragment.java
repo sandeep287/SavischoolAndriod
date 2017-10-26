@@ -69,12 +69,12 @@ public class InvoicePaymentFragment extends Fragment {
             
             switch (position) {
                 case 0:
-                    Log.e("vfssvs","dcvsvsdddddd");
+
                     PendingInvoiceFragment tab1 = new PendingInvoiceFragment();
                     
                     return tab1;
                 case 1:
-                    Log.e("2222222222vfssvs","dcvsvsdddddd");
+
                     HistoryInvoiceFragment tab2 = new HistoryInvoiceFragment();
                     return tab2;
                 default:

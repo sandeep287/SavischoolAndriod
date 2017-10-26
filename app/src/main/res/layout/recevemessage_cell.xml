@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp"
+        android:paddingLeft="8dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="24dp"
@@ -34,11 +36,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@drawable/receivmessagecorner"
+                >
+
+
 <ImageView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/attachment"
+android:visibility="gone"
+    android:src="@drawable/backgroundimagegradint"
     />
             <TextView
                 android:id="@+id/textmessage"
@@ -46,19 +60,25 @@
                 android:layout_width="wrap_content"
                 android:maxWidth="240dp"
                 android:layout_height="wrap_content"
-               android:padding="8dp"
-                android:background="@drawable/receivmessagecorner"
+               android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+
+
                 android:text='@{ message.message}'
                 android:alpha=".74"
                 tools:text="Thank alot, we’ll love to come there and enjoy this beautiful day!"
                 />
-
+            </LinearLayout>
             <TextView
                 style="@style/Regular10Navy"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
                 android:layout_gravity="bottom|right"
                 android:alpha=".54"
+                android:gravity="center"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="4dp"
                 android:text="@{message.getCreatedOn()}"
                 tools:text="02:20 AM"
