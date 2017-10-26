@@ -10,6 +10,8 @@ import com.savitroday.savischools.api.response.Conversation;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.util.Constants;
+import com.savitroday.savischools.util.Event;
+import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.util.TinyDB;
 
 import java.util.ArrayList;
@@ -68,6 +70,8 @@ public class NotificationManager {
                     taskList.clear();
                     updateInProgress = false;
                     clearCache = false;
+                    EventManager.getInstance().postEventName(Event.MESSAGES_UPDATED);
+                    EventManager.getInstance().postEventName(Event.NOTIFICATION_UPDATED);
                 }
                 
                 @Override
@@ -95,9 +99,9 @@ public class NotificationManager {
     }
     
     public Task readStatusUpdate(String schoolMessageId) {
-
+        
         final TaskCompletionSource<MessageNotification> task = new TaskCompletionSource<MessageNotification>();
-
+        
         String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
         String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
         HashMap<String, String> map = new HashMap<>();
@@ -105,17 +109,17 @@ public class NotificationManager {
         map.put("userId", userId);
         map.put("schoolId", schoolId);
         userRestService.readStatusUpdate(map).enqueue(new CustomCallAdapter
-                                                                                                .CustomCallback<MessageNotification>() {
+                                                                  .CustomCallback<MessageNotification>() {
             @Override
             public void success(Response<MessageNotification> response) {
-                Log.e("status","3");
+                Log.e("status", "3");
                 MessageNotification messageNotification = response.body();
                 task.setResult(messageNotification);
             }
             
             @Override
             public void failure(ApiException e) {
-                Log.e("status","4");
+                Log.e("status", "4");
                 task.setError(e);
             }
         });
@@ -179,13 +183,13 @@ public class NotificationManager {
         return task.getTask();
     }
     
-    public Task replyToConversation(Message message ) {
-
+    public Task replyToConversation(Message message) {
+        
         final TaskCompletionSource<List<Message>> task = new TaskCompletionSource<List<Message>>();
-
+        
         userRestService.replyToConversation(message).enqueue(new CustomCallAdapter
                                                                          .CustomCallback<List<Message>>() {
-
+            
             @Override
             public void success(Response<List<Message>> response) {
                 List<Message> conversation = response.body();
@@ -201,12 +205,13 @@ public class NotificationManager {
         return task.getTask();
     }
     
-    public static List<MessageNotification>  getNOtificationList() {
+    public static List<MessageNotification> getNOtificationList() {
         List<MessageNotification> notifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
-
-
-            if (messageNotificationList.get(i).isNotification&&messageNotificationList.get(i).delFlg!=true&&messageNotificationList.get(i).hideOnMobile!=true) {
+            
+            
+            if (messageNotificationList.get(i).isNotification && messageNotificationList.get(i).delFlg != true &&
+                        messageNotificationList.get(i).hideOnMobile != true) {
                 notifications.add(messageNotificationList.get(i));
             }
         }
@@ -216,8 +221,9 @@ public class NotificationManager {
     public static List<MessageNotification> getMessageNotificationList() {
         List<MessageNotification> messageNotifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
-
-            if ((!messageNotificationList.get(i).isNotification)&&(!messageNotificationList.get(i).delFlg)&&messageNotificationList.get(i).hideOnMobile!=true) {
+            
+            if ((!messageNotificationList.get(i).isNotification) && (!messageNotificationList.get(i).delFlg) &&
+                        messageNotificationList.get(i).hideOnMobile != true) {
                 messageNotifications.add(messageNotificationList.get(i));
             }
         }

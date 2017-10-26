@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +53,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public NotificationAdapter(Activity context, List<MessageNotification> list) {
         this.list = list;
         this.context = context;
-        Log.e("list_sizzzzzzzzzzzze",""+list.size());
+        Log.e("list_sizzzzzzzzzzzze", "" + list.size());
         this.layoutInflater = (LayoutInflater)
                                       context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         MyApplication.getApp().getComponent().inject(this);
@@ -64,7 +63,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         NotificationCellBinding binding = NotificationCellBinding.inflate(layoutInflater,
                 parent, false);
-        Log.e("list_sizzzzzzzzzzzze",""+list.size());
+        Log.e("list_sizzzzzzzzzzzze", "" + list.size());
         return new MyViewHolder(binding);
     }
     
@@ -72,7 +71,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.mBinding.setMessage(list.get(position));
         holder.mBinding.setHandler(new Handler());
-        Log.e("list_sizzzzzzzzzzzze",""+list.size());
+        Log.e("list_sizzzzzzzzzzzze", "" + list.size());
         if ((list.get(position)).iconMediaPath != null) {
             Picasso.with(context).load((list.get(position)).iconMediaPath).into(holder.mBinding.imageView);
             holder.mBinding.imageView.setPadding(0, 0, 0, 0);
@@ -85,15 +84,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         holder.mBinding.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteMessageData(list.get(position),holder.mBinding.getRoot(),position);
+                deleteMessageData(list.get(position), holder.mBinding.getRoot(), position);
             }
         });
-
+        
     }
     
     @Override
     public int getItemCount() {
-
+        
         return list.size();
     }
     
@@ -106,36 +105,37 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             transaction.addToBackStack(null);
             transaction.commit();
         }
-
-
+        
+        
     }
-    public void deleteMessageData(MessageNotification messageNotification,View view,int position) {
-
+    
+    public void deleteMessageData(MessageNotification messageNotification, View view, int position) {
+        
         NotificationFragment.progressbar.setVisibility(View.VISIBLE);
         notificationManager.deleteMessageNotification(messageNotification.schoolMessageId).continueWith((task -> {
-        NotificationFragment.progressbar.setVisibility(View.GONE);
+            NotificationFragment.progressbar.setVisibility(View.GONE);
             AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.MyDialogTheme);
             builder.setMessage("Deleted successfully...");
             builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-               notifyItemRemoved(position);
+                    notifyItemRemoved(position);
                 }
             });
             AlertDialog alertDialog = builder.create();
-
+            
             if (task.getResult() != null) {
                 alertDialog.show();
-
+                
             } else {
                 Exception e = task.getError();
-                AlertUtil.showSnackbarWithMessage(e.getMessage(),view);
+                AlertUtil.showSnackbarWithMessage(e.getMessage(), view);
             }
-
-
+            
+            
             return null;
         }));
-
+        
     }
-
+    
 }
