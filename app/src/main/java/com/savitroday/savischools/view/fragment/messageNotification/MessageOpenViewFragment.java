@@ -65,9 +65,7 @@ public class MessageOpenViewFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         messaglist.setLayoutManager(llm);
         // messages.add(message);
-        if (messageNotification.isViewed==false) {
-            setStatus();
-        }
+        
         getMessageData();
 
         return mBindings.getRoot();
@@ -84,9 +82,13 @@ public class MessageOpenViewFragment extends Fragment {
                 messageNotifications = conversation.messageList;
                 adapter = new MessageOpenViewAdapter(getActivity(), messageNotifications, messageNotification);
                 messaglist.setAdapter(adapter);
+                if (messageNotification.isViewed==false) {
+                    setStatus();
+                }
             }
             else {
-
+                Exception e = task.getError();
+                AlertUtil.callAlert(getActivity(), e.getMessage());
             }
 
 
@@ -104,7 +106,7 @@ public class MessageOpenViewFragment extends Fragment {
 
             if (task.getResult() != null) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.MyDialogTheme);
-                builder.setMessage("Deleted successfully...");
+                builder.setMessage("Conversation deleted successfully.");
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -160,8 +162,8 @@ public class MessageOpenViewFragment extends Fragment {
         public void onDeletePress() {
 
 
-            // deleteMessageData();
-            getActivity().onBackPressed();
+             deleteMessageData();
+           // getActivity().onBackPressed();
         }
 
         public void onSendPress()
