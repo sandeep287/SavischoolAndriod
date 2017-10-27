@@ -3,6 +3,8 @@ package com.savitroday.savischools.view.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.savitroday.savischools.api.response.Student;
 import com.savitroday.savischools.databinding.FragmentParentProfileBinding;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.util.AlertUtil;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,12 +86,12 @@ public class ParentProfileFragment extends Fragment {
     public class Handler {
         public void onNotificationTap() {
 
-//            Fragment fragment = new NotificationMessageTabFragment();
-//            FragmentManager manager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction transaction = manager.beginTransaction();
-//            transaction.add(R.id.flFragments, fragment);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
+            Fragment fragment = new NotificationMessageTabFragment();
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.flFragments, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         
         public void onBackPressed() {

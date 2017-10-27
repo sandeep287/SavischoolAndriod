@@ -1,5 +1,7 @@
 package com.savitroday.savischools.view.fragment.messageNotification;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -29,6 +31,7 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
     boolean toDetail = false;
     @Inject
     DashboardManager dashboardManager;
+    PagerAdapter pagerAdapter;
 
     public static NotificationMessageTabFragment getInstance(MessageNotification messageNotification) {
         NotificationMessageTabFragment fragment = new NotificationMessageTabFragment();
@@ -40,7 +43,15 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
     public NotificationMessageTabFragment() {
         // Required empty public constructor
     }
-
+ 
+    
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        pagerAdapter = new PagerAdapter(getChildFragmentManager(),2); //here used child fragment manager
+    
+    }
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,7 +69,7 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
         profile.setOnClickListener(this);
         final ViewPager viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
 
-        viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
+        viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -98,6 +109,8 @@ public class NotificationMessageTabFragment extends Fragment implements View.OnC
 
         return inflatedView;
     }
+    
+    
 
 
     @Override
