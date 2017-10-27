@@ -28,9 +28,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="22dp"
-
-
-            android:src="@drawable/icon_msg"/>
+            android:background="@drawable/icon_msg"/>
 
         <ImageView
             android:id="@+id/camera_icon"
@@ -62,6 +60,7 @@
                     android:layout_marginRight="83dp"
                     android:layout_marginTop="28dp"
                     android:alpha=".20"
+                    android:id="@+id/hrline"
                     android:background="@color/warm_grey"
                     />
 
@@ -69,12 +68,12 @@
                     android:id="@+id/deletiondetail"
                     android:layout_width="wrap_content"
                     android:layout_height="16dp"
-                    android:layout_alignParentRight="true"
+                   android:layout_alignLeft="@id/hrline"
                     android:layout_marginTop="35dp"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingRight="16dp"
+                    android:layout_marginLeft="8dp"                    android:orientation="horizontal"
+
                     >
 
                     <ImageView

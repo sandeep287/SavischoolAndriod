@@ -64,7 +64,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 holder.mBinding.studentName.setVisibility(View.VISIBLE);
             }
         }
-        if ((messageList.get(position).messageAttachmentType!=null)&&(!messageList.get(position).messageAttachmentType.equals(".txt"))&&(messageList.get(position).messageAttachment!=null))
+        if ((messageList.get(position).messageAttachmentType!=null))
         {
             if(messageList.get(position).messageAttachmentType.equals(".img"))
             {
@@ -73,8 +73,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                         .into(holder.mBinding.imageView);
                 holder.mBinding.cameraIcon.setVisibility(View.VISIBLE);
             }
-            else if (messageList.get(position).messageAttachmentType.equals(".doc"))
+            else
             {
+                holder.mBinding.imageView.setPadding(8,8,8,8);
+                holder.mBinding.imageView.setBackgroundResource(R.drawable.gradient_circle);
                 holder.mBinding.imageView.setImageResource(R.drawable.attached_file);
 
             }

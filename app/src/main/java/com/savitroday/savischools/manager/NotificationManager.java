@@ -222,10 +222,10 @@ public class NotificationManager {
         List<MessageNotification> messageNotifications = new ArrayList<>();
         for (int i = 0; i < messageNotificationList.size(); i++) {
 
-            if ((!messageNotificationList.get(i).isNotification) && (!messageNotificationList.get(i).delFlg) &&
-                    messageNotificationList.get(i).hideOnMobile != true) {
+         //   if ((!messageNotificationList.get(i).isNotification) && (!messageNotificationList.get(i).delFlg) &&
+                 //   messageNotificationList.get(i).hideOnMobile != true) {
                 messageNotifications.add(messageNotificationList.get(i));
-            }
+          //  }
         }
         return messageNotifications;
     }

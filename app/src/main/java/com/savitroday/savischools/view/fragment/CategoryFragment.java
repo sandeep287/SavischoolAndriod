@@ -13,6 +13,7 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.databinding.FragmentCategoryBinding;
 import com.savitroday.savischools.view.fragment.homework.HomeWorkFragment;
 import com.savitroday.savischools.view.fragment.invoice.InvoicePaymentFragment;
+import com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment;
 
 
 public class CategoryFragment extends Fragment{
@@ -71,7 +72,7 @@ public class CategoryFragment extends Fragment{
         }
 
         public void onMessageNotification(){
-            Fragment fragment = new HomeWorkFragment();
+            Fragment fragment = new NotificationMessageTabFragment();
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, fragment);

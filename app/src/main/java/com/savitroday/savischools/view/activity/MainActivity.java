@@ -63,6 +63,18 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
+        ((ImageButton)findViewById(R.id.categoryButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, new CategoryFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         View hView = navigationView.getHeaderView(0);
         recyclerView = (RecyclerView) hView.findViewById(R.id.studentListRecyclerView);

@@ -72,6 +72,8 @@
                 android:layout_margin="16dp"
                 android:scaleX="1"
                 app:mcv_arrowColor="@color/white"
+                app:mcv_selectionColor="@color/turquoise"
+
                 app:mcv_dateTextAppearance="@style/Bold10White"
                 app:mcv_headerTextAppearance="@style/Regular12White55"
                 app:mcv_tileSize="0dp"

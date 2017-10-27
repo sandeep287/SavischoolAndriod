@@ -38,39 +38,86 @@
             android:orientation="vertical"
 
             >
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="5dp"
                 android:background="@drawable/receivmessagecorner"
                 >
 
-
-<ImageView
-    android:layout_width="match_parent"
+<RelativeLayout
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/attachment"
-android:visibility="gone"
-    android:src="@drawable/backgroundimagegradint"
+    android:id="@+id/attachment">
+<ImageView
+    android:layout_width="230dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/attachmentimg"
+    android:layout_marginLeft="5dp"
+    android:layout_gravity="center"
+    android:scaleType="centerCrop"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:src="@drawable/background_image"
+    android:visibility="gone"
+
+
     />
+                <View
+                    android:layout_width="230dp"
+                    android:layout_height="122dp"
+                    android:id="@+id/attachmentetc"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/navy_54"
+                    android:visibility="gone"
+                    android:alpha=".10"
+                    />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/downlode_file"
+        android:id="@+id/downlodebutton"
+        android:background="@drawable/gradient_circle"
+        android:alpha=".50"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        tools:text="Downlode"
+        android:lines="1"
+        />
+<ProgressBar
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_centerInParent="true"
+
+    android:id="@+id/pbar"
+    android:visibility="gone"
+
+        />
+</RelativeLayout>
             <TextView
                 android:id="@+id/textmessage"
                 style="@style/Regular14Navy"
+                android:layout_below="@id/attachment"
                 android:layout_width="wrap_content"
                 android:maxWidth="240dp"
                 android:layout_height="wrap_content"
                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
+                android:paddingRight="13dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
 
 
                 android:text='@{ message.message}'
                 android:alpha=".74"
-                tools:text="Thank alot, we’ll love to come there and enjoy this beautiful day!"
+                tools:text="this beautiful day!"
                 />
-            </LinearLayout>
+            </RelativeLayout>
             <TextView
                 style="@style/Regular10Navy"
                 android:layout_width="wrap_content"

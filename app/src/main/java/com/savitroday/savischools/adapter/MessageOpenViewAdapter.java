@@ -12,12 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.databinding.RecevemessageCellBinding;
 import com.savitroday.savischools.databinding.SendmessageCellBinding;
+import com.savitroday.savischools.helper.DownloadFileFromURL;
 import com.squareup.picasso.Picasso;
 
 import org.eclipse.core.internal.utils.FileUtil;
@@ -47,12 +50,14 @@ public class MessageOpenViewAdapter extends RecyclerView.Adapter<MessageOpenView
     Activity activity;
     List<Message> ldt;
     View view;
-    //    ViewDataBinding mBindings;
+    public static ProgressBar progressBar;
+
     AppCompatActivity apc;
     int tempposition = 0;
     SendmessageCellBinding sendmessageCellBinding;
     RecevemessageCellBinding recevemessageCellBinding;
     MessageNotification messageNotification;
+    public  static ImageView downlode;
     ViewGroup parent;
 
     public MessageOpenViewAdapter(Activity activity, List<Message> ldt, MessageNotification
@@ -90,29 +95,33 @@ public class MessageOpenViewAdapter extends RecyclerView.Adapter<MessageOpenView
 
             RecevemessageCellBinding mBinding = (RecevemessageCellBinding) holder.bindingsuper;
             mBinding.setMessage(messageNotification);
-
-
+downlode=mBinding.downlodebutton;
             if (messageNotification.iconMediaPath != null) {
                 mBinding.senderimage.setPadding(0, 0, 0, 0);
                 Picasso.with(activity).load(messageNotification.iconMediaPath).into(mBinding.senderimage);
             }
-            if (messageNotification.messageAttachment != null) {
-                mBinding.attachment.setVisibility(View.VISIBLE);
+            if (messageNotification.messageAttachmentType != null) {
+                progressBar = mBinding.pbar;
+                if (messageNotification.messageAttachment.equals(".img")) {
+                    mBinding.attachmentimg.setVisibility(View.VISIBLE);
+                    Picasso.with(activity)
+                            .load(messageNotification.messageAttachment)
+                            .into(mBinding.attachmentimg);
+                } else {
+                    mBinding.attachmentetc.setVisibility(View.VISIBLE);
+                    mBinding.downlodebutton.setVisibility(View.VISIBLE);
+
+                }
                 mBinding.attachment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Uri uri = Uri.parse("https://cbsnews1.cbsistatic.com/hub/i/2013/02/04/4de61f36-a645-11e2-a3f0-029118418759/18King_Richard_III.jpg");
-                        Intent intent=new Intent(Intent.ACTION_VIEW);
-                        intent.setDataAndType(uri,"image/*");
-                        //intent.setDataAndType(uri, "text/plain");
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        activity.startActivity(intent);
-
-
+Log.e("sssss",messageNotification.messageAttachment);
+                        String fileName = (messageNotification.messageAttachment).substring((messageNotification.messageAttachment).lastIndexOf('/') + 1);
+                        Log.e("111111111111111111111",fileName);
+                        new DownloadFileFromURL(activity, messageNotification.messageAttachmentType,fileName).execute(messageNotification.messageAttachment);
                     }
                 });
 
-                //   Picasso.with(activity).load(messageNotification.messageAttachment).into(mBinding.attachment);
             }
         } else {
             SendmessageCellBinding mBinding = (SendmessageCellBinding) holder.bindingsuper;
