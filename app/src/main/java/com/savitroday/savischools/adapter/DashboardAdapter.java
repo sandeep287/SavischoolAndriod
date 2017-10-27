@@ -26,7 +26,8 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
     List<MessageNotification> messageNotificationList;
     boolean onlinePaymentIsAllow;
     
-    public DashboardAdapter(Context context, List<Invoice> invoiceList, List<MessageNotification> messageNotificationList, boolean onlinePaymentIsAllow) {
+    public DashboardAdapter(Context context, List<Invoice> invoiceList, List<MessageNotification>
+                                                                                messageNotificationList, boolean onlinePaymentIsAllow) {
         this.context = context;
         this.invoiceList = invoiceList;
         this.messageNotificationList = messageNotificationList;
@@ -100,27 +101,27 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                     viewGroup, false);
             
             binding.setMessage(messageNotification);
-            if (messageNotification.iconMediaPath != null) {
-                Picasso.with(context).load(messageNotification.iconMediaPath).into(binding.imageView);
+            if (messageNotification.iconMediaPath != null && messageNotification.iconMediaPath.length() > 0) {
+                Picasso.with(context).load(messageNotification.iconMediaPath)
+                        .placeholder(R.drawable.icon_msg).into(binding.imageView);
             } else {
                 if (messageNotification.isNotification) {
                     binding.imageView.setImageResource(R.drawable.icon_notification);
+                    binding.cameraIcon.setVisibility(View.GONE);
                 } else {
                     binding.imageView.setImageResource(R.drawable.icon_msg);
+                    if (messageNotification.messageAttachment != null &&
+                                messageNotification.messageAttachment.length() > 0 && messageNotification
+                                                                                              .messageAttachmentType!=null) {
+                        if(!messageNotification.messageAttachmentType.equals(".img")) {
+                            binding.imageView.setImageResource(R.drawable.attached_file);
+                            binding.cameraIcon.setVisibility(View.GONE);
+                        }
+                        else {
+                            binding.cameraIcon.setVisibility(View.VISIBLE);
+                        }
+                    }
                 }
-            }
-            if(messageNotification.studentName==null)
-            {
-                if (messageNotification.studentName.trim().equals(""))
-                {
-                    binding.studenname.setVisibility(View.VISIBLE);
-                }
-            }
-            if (!messageNotification.isNotification && messageNotification.messageAttachment != null && messageNotification.messageAttachment.length() >
-                                                                                        0) {
-                binding.cameraIcon.setVisibility(View.VISIBLE);
-            } else {
-                binding.cameraIcon.setVisibility(View.GONE);
             }
             binding.executePendingBindings();
             return binding.getRoot();

@@ -8,6 +8,7 @@
         <variable
             name="message"
             type="com.savitroday.savischools.api.response.MessageNotification"/>
+
         <variable
             name="handler"
             type="com.savitroday.savischools.adapter.MessageAdapter.Handler"/>
@@ -17,17 +18,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:onClick="@{()->handler.openMessageDetail(message)}"
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
-
-        android:onClick="@{()->handler.openMessageDetail(message)}"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-          android:layout_marginTop="22dp"
+            android:layout_marginTop="22dp"
 
 
             android:src="@drawable/icon_msg"/>
@@ -59,8 +59,8 @@
                     android:layout_width="2dp"
                     android:layout_height="30dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="28dp"
                     android:layout_marginRight="83dp"
+                    android:layout_marginTop="28dp"
                     android:alpha=".20"
                     android:background="@color/warm_grey"
                     />
@@ -72,9 +72,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="35dp"
                     android:background="@color/white"
-                    android:paddingRight="16dp"
                     android:gravity="center"
                     android:orientation="horizontal"
+                    android:paddingRight="16dp"
                     >
 
                     <ImageView
@@ -92,8 +92,7 @@
                         android:layout_height="wrap_content"
                         android:alpha=".54"
                         android:background="@color/white"
-                        android:text="@{message.getCreatedOn()}"
-
+                        android:text="@{message.totalTime}"
                         tools:text="4:10 AM"
                         />
 
@@ -124,7 +123,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:alpha="0.54"
-
                         android:text='@{"From " + message.senderName}'
                         tools:text="From John"
                         />
@@ -154,16 +152,13 @@
                         android:id="@+id/student_name"
                         style="@style/Regular10White"
                         android:layout_width="wrap_content"
-
                         android:layout_height="18dp"
                         android:background="@drawable/muted_blue_round_corner"
-
+                        android:gravity="center_vertical"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
-
                         android:text="@{message.studentName}"
                         android:visibility="gone"
-                        android:gravity="center_vertical"
                         tools:text="JENNY"
                         />
                 </LinearLayout>

@@ -60,13 +60,13 @@ public class MessageNotification {
     public String messageAttachment;
     @SerializedName("expiresOn")
     @Expose
-    public Object expiresOn;
+    public String expiresOn;
     @SerializedName("closed")
     @Expose
     public boolean closed;
     @SerializedName("closedOn")
     @Expose
-    public Object closedOn;
+    public String closedOn;
     @SerializedName("studentId")
     @Expose
     public String studentId;
@@ -75,10 +75,10 @@ public class MessageNotification {
     public String studentName;
     @SerializedName("status")
     @Expose
-    public Object status;
+    public String status;
     @SerializedName("name")
     @Expose
-    public Object name;
+    public String name;
     @SerializedName("delFlg")
     @Expose
     public boolean delFlg;
