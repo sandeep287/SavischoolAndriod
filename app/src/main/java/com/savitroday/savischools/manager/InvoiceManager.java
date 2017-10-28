@@ -37,7 +37,6 @@ public class InvoiceManager {
     public Task getInvoicesTask() {
         
         final TaskCompletionSource<List<Invoice>> task = new TaskCompletionSource<List<Invoice>>();
-        
         if (invoiceList != null && !clearCache && !updateInProgress) {
             task.trySetResult(invoiceList);
             return task.getTask();

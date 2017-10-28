@@ -1,6 +1,9 @@
 package com.savitroday.savischools.view.activity;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -24,7 +27,7 @@ import com.savitroday.savischools.helper.OnItemClickListener;
 import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.view.fragment.CategoryFragment;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
-import com.savitroday.savischools.view.fragment.invoice.InvoicePaymentFragment;
+import com.savitroday.savischools.view.fragment.invoice.InvoicePaymentTabFragment;
 import com.savitroday.savischools.view.fragment.ParentProfileFragment;
 
 import java.util.List;
@@ -43,13 +46,14 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     Button profileButton;
     LinearLayout bootomTab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Used to inject
-        MyApplication.getApp().getComponent().inject(this);
-        
+         MyApplication.getApp().getComponent().inject(this);
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         
         ImageButton drawertoggle = (ImageButton) findViewById(R.id.studentButton);
@@ -161,12 +165,12 @@ public class MainActivity extends AppCompatActivity
         } else if (view.getId() == R.id.activityButton) {
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, new InvoicePaymentFragment());
+            transaction.add(R.id.flFragments, new InvoicePaymentTabFragment());
             transaction.addToBackStack(null);
             transaction.commit();
         }
     }
-    
+
     public void hideBottomTab(boolean hide){
         if(hide){
             bootomTab.setVisibility(View.GONE);

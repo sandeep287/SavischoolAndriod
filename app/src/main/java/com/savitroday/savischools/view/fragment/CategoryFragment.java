@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.databinding.FragmentCategoryBinding;
 import com.savitroday.savischools.view.fragment.homework.HomeWorkFragment;
-import com.savitroday.savischools.view.fragment.invoice.InvoicePaymentFragment;
+import com.savitroday.savischools.view.fragment.invoice.InvoicePaymentTabFragment;
 import com.savitroday.savischools.view.fragment.messageNotification.NotificationMessageTabFragment;
 
 
@@ -36,7 +36,7 @@ public class CategoryFragment extends Fragment{
     
     public class Handler{
         public void onActivity(){
-            Fragment fragment = new InvoicePaymentFragment();
+            Fragment fragment = new InvoicePaymentTabFragment();
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, fragment);
@@ -54,7 +54,7 @@ public class CategoryFragment extends Fragment{
         }
     
         public void onInvoicePayment(){
-            Fragment fragment = new InvoicePaymentFragment();
+            Fragment fragment = new InvoicePaymentTabFragment();
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, fragment);

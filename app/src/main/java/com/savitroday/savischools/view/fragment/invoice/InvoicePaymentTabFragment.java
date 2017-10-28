@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.savitroday.savischools.R;
 
 
-public class InvoicePaymentFragment extends Fragment {
+public class InvoicePaymentTabFragment extends Fragment {
     TabLayout tabLayout;
     static TextView totalamount;
     

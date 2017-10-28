@@ -24,19 +24,21 @@ import java.net.URLConnection;
 
 public class DownloadFileFromURL extends AsyncTask<String, String, String> {
 
-    /**
-     * Before starting background thread
-     * Show Progress Bar Dialog
-     * */
+    
     Context context;
 
     String filetype;
     String fileName;
-
+   static File directory;
+static {
+    directory = new File(Environment.getExternalStorageDirectory()+File.separator+"Savischool");
+    directory.mkdirs();
+}
     public DownloadFileFromURL(Context context,String filetype,String fileName) {
         this.context = context;
         this.filetype=filetype;
         this.fileName=fileName;
+
     }
 
     @Override
@@ -60,7 +62,7 @@ public class DownloadFileFromURL extends AsyncTask<String, String, String> {
             int lenghtOfFile = conection.getContentLength();
 
              InputStream input = new BufferedInputStream(url.openStream(), 8192);
-             OutputStream output = new FileOutputStream("/sdcard/"+fileName);
+             OutputStream output = new FileOutputStream("/sdcard/Savischool/"+fileName);
              byte data[] = new byte[2024];
 
             long total = 0;
@@ -98,8 +100,8 @@ public class DownloadFileFromURL extends AsyncTask<String, String, String> {
 
 MessageOpenViewAdapter.progressBar.setVisibility(View.GONE);
 
-        String filePath = Environment.getExternalStorageDirectory().toString() + "/"+fileName;
-
+      //  String filePath = Environment.getExternalStorageDirectory().toString() + "Download/"+fileName;
+        String filePath =   directory.getAbsolutePath()+File.separator+fileName;
         File  file=new File(filePath);
         Uri uri = Uri.fromFile(file);
         Intent intent = new Intent(Intent.ACTION_VIEW);

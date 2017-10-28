@@ -115,9 +115,7 @@ downlode=mBinding.downlodebutton;
                 mBinding.attachment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-Log.e("sssss",messageNotification.messageAttachment);
                         String fileName = (messageNotification.messageAttachment).substring((messageNotification.messageAttachment).lastIndexOf('/') + 1);
-                        Log.e("111111111111111111111",fileName);
                         new DownloadFileFromURL(activity, messageNotification.messageAttachmentType,fileName).execute(messageNotification.messageAttachment);
                     }
                 });

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         pendingInvoiceList.setLayoutManager(llm2);
         
     
-       // getInvoiceData();
+        getInvoiceData();
         return view;
     }
     
@@ -55,10 +56,13 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         
         invoiceManager.getInvoicesTask().continueWith((task -> {
             progressBar.setVisibility(View.INVISIBLE);
+            Log.e("chackkkkkkkkkkk","aagayaaaaaaaaaa");
             if (task.getResult() != null) {
+                Log.e("chackkkkkkkkkkk","888888aagayaaaaaaaaaa");
+                invoiceList = invoiceManager.getPendingInvoices();
+                Log.e("chackkkkkkkkkkk","aagayaaaaaaaaaa"+invoiceList.size());
                 invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceList);
                 pendingInvoiceList.setAdapter(invoiceListAdapter);
-                invoiceList = invoiceManager.getPendingInvoices();
                 setAmount();
                 invoiceListAdapter.notifyDataSetChanged();
             } else {
@@ -73,7 +77,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     
     void setAmount() {
         totalAmount = invoiceManager.getTotalAmount();
-        InvoicePaymentFragment.totalamount.setText("$" + (int) totalAmount);
+        InvoicePaymentTabFragment.totalamount.setText("$" + (int) totalAmount);
     }
     
     
