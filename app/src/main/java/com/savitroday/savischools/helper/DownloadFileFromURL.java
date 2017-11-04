@@ -131,6 +131,7 @@ MessageOpenViewAdapter.progressBar.setVisibility(View.GONE);
             }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         context.startActivity(intent);
 
     }

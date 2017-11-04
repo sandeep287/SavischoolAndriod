@@ -114,7 +114,7 @@ public class DashboardAdapter extends BaseExpandableListAdapter {
                                 messageNotification.messageAttachment.length() > 0 && messageNotification
                                                                                               .messageAttachmentType!=null) {
                         if(!messageNotification.messageAttachmentType.equals(".img")) {
-                            binding.imageView.setImageResource(R.drawable.attached_file);
+                            binding.imageView.setImageResource(R.drawable.icon_bg_notification);
                             binding.cameraIcon.setVisibility(View.GONE);
                         }
                         else {

@@ -52,7 +52,7 @@
                 android:layout_centerVertical="true"
                 android:alpha="0.54"
                 android:minWidth="44dp"
-                android:text="@{message.getCreatedOn()}"
+                android:text="@{message.totalTime}"
                 tools:text="23 Weeks"
                 />
 

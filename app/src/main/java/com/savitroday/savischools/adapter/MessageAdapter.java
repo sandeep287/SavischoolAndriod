@@ -75,10 +75,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             }
             else
             {
-                holder.mBinding.imageView.setPadding(8,8,8,8);
-                holder.mBinding.imageView.setBackgroundResource(R.drawable.gradient_circle);
-                holder.mBinding.imageView.setImageResource(R.drawable.attached_file);
-
+                holder.mBinding.imageView.setImageResource(R.drawable.icon_bg_notification);
             }
         }
         
