@@ -6,6 +6,7 @@ import com.savitroday.savischools.api.response.Assignment;
 import com.savitroday.savischools.api.response.Conversation;
 import com.savitroday.savischools.api.response.Dashboard;
 import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Invoices;
 import com.savitroday.savischools.api.response.Message;
 import com.savitroday.savischools.api.response.MessageNotification;
 import com.savitroday.savischools.api.response.ParentProfile;
@@ -28,8 +29,8 @@ public interface UserRestService {
         API
      ================ */
     @GET("api/parent/GetInvoiceByStudent")
-    CustomCallAdapter.CustomCall<List<Invoice>> getInvoiceByStudent(@Query("schoolid") String schoolId, @Query("studntid")
-            String studentId);
+    CustomCallAdapter.CustomCall<Invoices> getInvoiceByStudent(@Query("schoolid") String schoolId, @Query("userId")
+            String userId);
 
     @GET("api/parent/GetMessages")
     CustomCallAdapter.CustomCall<List<MessageNotification>> getMessages(@Query("schoolid") String schoolId, @Query("userId")

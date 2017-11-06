@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,10 @@ import android.widget.RelativeLayout;
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.InvoiceListAdapter;
-import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Invoices;
 import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.EventManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -27,9 +23,8 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     RecyclerView pendingInvoiceList;
     @Inject
     InvoiceManager invoiceManager;
-    List<Invoice> invoiceList = new ArrayList<>();
+    Invoices invoices;
     View view;
-    float totalAmount;
     RelativeLayout progressBar;
     InvoiceListAdapter invoiceListAdapter;
     
@@ -46,7 +41,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         pendingInvoiceList.setLayoutManager(llm2);
         
-    
+        
         getInvoiceData();
         return view;
     }
@@ -56,12 +51,10 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
         
         invoiceManager.getInvoicesTask().continueWith((task -> {
             progressBar.setVisibility(View.INVISIBLE);
-            Log.e("chackkkkkkkkkkk","aagayaaaaaaaaaa");
+            
             if (task.getResult() != null) {
-                Log.e("chackkkkkkkkkkk","888888aagayaaaaaaaaaa");
-                invoiceList = invoiceManager.getPendingInvoices();
-                Log.e("chackkkkkkkkkkk","aagayaaaaaaaaaa"+invoiceList.size());
-                invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceList);
+                invoices = (Invoices) task.getResult();
+                invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceManager.getPendingInvoices());
                 pendingInvoiceList.setAdapter(invoiceListAdapter);
                 setAmount();
                 invoiceListAdapter.notifyDataSetChanged();
@@ -76,8 +69,7 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     
     
     void setAmount() {
-        totalAmount = invoiceManager.getTotalAmount();
-        InvoicePaymentTabFragment.totalamount.setText("$" + (int) totalAmount);
+        InvoicePaymentTabFragment.totalamount.setText("$" + (int) invoices.totalAmount);
     }
     
     

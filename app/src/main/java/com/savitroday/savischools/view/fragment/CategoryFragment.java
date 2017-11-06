@@ -36,39 +36,39 @@ public class CategoryFragment extends Fragment{
     
     public class Handler{
         public void onActivity(){
-            Fragment fragment = new InvoicePaymentTabFragment();
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+//            Fragment fragment = new InvoicePaymentTabFragment();
+//            FragmentManager manager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.add(R.id.flFragments, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
         }
     
         public void onAttendance(){
-            Fragment fragment = new AttendanceFragment();
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+//            Fragment fragment = new AttendanceFragment();
+//            FragmentManager manager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.add(R.id.flFragments, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
         }
     
         public void onInvoicePayment(){
-            Fragment fragment = new InvoicePaymentTabFragment();
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+//            Fragment fragment = new InvoicePaymentTabFragment();
+//            FragmentManager manager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.add(R.id.flFragments, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
         }
     
         public void onHomework(){
-            Fragment fragment = new HomeWorkFragment();
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.flFragments, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+//            Fragment fragment = new HomeWorkFragment();
+//            FragmentManager manager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.add(R.id.flFragments, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
         }
 
         public void onMessageNotification(){
@@ -80,7 +80,7 @@ public class CategoryFragment extends Fragment{
             transaction.commit();
         }
         public void  onChildernProfile(){
-            Fragment fragment = new ProfileFragment();
+            Fragment fragment = new ParentProfileFragment();
             FragmentManager manager = getActivity().getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.flFragments, fragment);

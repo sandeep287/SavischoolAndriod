@@ -17,7 +17,6 @@ import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Event;
 import com.savitroday.savischools.util.EventManager;
-import com.savitroday.savischools.view.activity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class HistoryInvoiceFragment extends Fragment implements EventManager.Eve
     RecyclerView historyinvoiclist;
     
     List<Invoice> invoiceList = new ArrayList<>();
-   
+    
     View view;
     RelativeLayout progressBar;
     @Inject

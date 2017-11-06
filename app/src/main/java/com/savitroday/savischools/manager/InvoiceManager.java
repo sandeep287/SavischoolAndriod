@@ -5,6 +5,7 @@ import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.UserRestService;
 import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Invoices;
 import com.savitroday.savischools.util.Constants;
 import com.savitroday.savischools.util.TinyDB;
 
@@ -24,7 +25,7 @@ public class InvoiceManager {
     public static Boolean updateInProgress = Boolean.FALSE;
     private UserRestService userRestService;
     private ArrayList<TaskCompletionSource> taskList = new ArrayList<>();
-    private static List<Invoice> invoiceList;
+    private static Invoices invoices;
     private static boolean clearCache = false;
     private TinyDB tinyDB;
     
@@ -36,9 +37,9 @@ public class InvoiceManager {
     
     public Task getInvoicesTask() {
         
-        final TaskCompletionSource<List<Invoice>> task = new TaskCompletionSource<List<Invoice>>();
-        if (invoiceList != null && !clearCache && !updateInProgress) {
-            task.trySetResult(invoiceList);
+        final TaskCompletionSource<Invoices> task = new TaskCompletionSource<Invoices>();
+        if (invoices != null && !clearCache && !updateInProgress) {
+            task.trySetResult(invoices);
             return task.getTask();
         }
         if (updateInProgress) {
@@ -46,16 +47,16 @@ public class InvoiceManager {
             taskList.add(task);
         } else {
             updateInProgress = true;
-            String studentId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_STUDENT_ID);
+            String userId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_USER_ID);
             String schoolId = MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID);
-            userRestService.getInvoiceByStudent(schoolId, studentId).enqueue(new CustomCallAdapter
-                                                                                .CustomCallback<List<Invoice>>() {
+            userRestService.getInvoiceByStudent(schoolId, userId).enqueue(new CustomCallAdapter
+                                                                                .CustomCallback<Invoices>() {
                 @Override
-                public void success(Response<List<Invoice>> response) {
-                    invoiceList = response.body();
-                    task.setResult(invoiceList);
+                public void success(Response<Invoices> response) {
+                    invoices = response.body();
+                    task.setResult(invoices);
                     for (TaskCompletionSource taskCompletionSource : taskList) {
-                        taskCompletionSource.setResult(invoiceList);
+                        taskCompletionSource.setResult(invoices);
                     }
                     taskList.clear();
                     updateInProgress = false;
@@ -78,7 +79,7 @@ public class InvoiceManager {
     
     public List<Invoice> getPendingInvoices() {
         List<Invoice> pendingInvoices = new ArrayList<>();
-        for (Invoice invoice:invoiceList) {
+        for (Invoice invoice:invoices.Listinvoices) {
             if (invoice.status.equals("Pending")) {
                 pendingInvoices.add(invoice);
                 
@@ -88,23 +89,14 @@ public class InvoiceManager {
     }
     public List<Invoice> getHistoyrInvoices() {
         List<Invoice> historyInvoices = new ArrayList<>();
-        for (int i=0;i<invoiceList.size();i++) {
-            Invoice invoice=invoiceList.get(i);
+        for (int i=0;i<invoices.Listinvoices.size();i++) {
+            Invoice invoice=invoices.Listinvoices.get(i);
             if (invoice.status.equals("Paid")) {
                 historyInvoices.add(invoice);
 
             }
         }
         return historyInvoices;
-    }
-    public float getTotalAmount() {
-        float totalAmount = 0;
-        for (Invoice invoice:invoiceList) {
-            if (invoice.status.equals("Pending")) {
-                totalAmount += invoice.amount;
-            }
-        }
-        return totalAmount;
     }
     
 }

@@ -12,14 +12,12 @@ import android.widget.TextView;
 
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.MakePaymentListAdepter;
-import com.savitroday.savischools.api.response.Invoice;
+import com.savitroday.savischools.api.response.Invoices;
 import com.savitroday.savischools.databinding.FragmentMakePaymentBinding;
 import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.EventManager;
 import com.savitroday.savischools.view.activity.MainActivity;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -28,8 +26,8 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
     
     @Inject
     InvoiceManager invoiceManager;
-    List<Invoice> invoiceList;
-    float totalAmount;
+    
+    Invoices invoices;
     View view;
     FragmentMakePaymentBinding mBinding;
     MakePaymentListAdepter makePaymentListAdepter;
@@ -45,7 +43,7 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
         LinearLayoutManager llm2 = new LinearLayoutManager((MainActivity) getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         mBinding.paymentlist.setLayoutManager(llm2);
-        MakePaymentListAdepter makePaymentListAdepter = new MakePaymentListAdepter(getActivity(), invoiceList);
+        MakePaymentListAdepter makePaymentListAdepter = new MakePaymentListAdepter(getActivity(), invoices.Listinvoices);
         mBinding.paymentlist.setAdapter(makePaymentListAdepter);
         return mBinding.getRoot();
     }
@@ -59,7 +57,7 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
             
             if (task.getResult() != null) {
                 
-                invoiceList = (List<Invoice>) task.getResult();
+                invoices = (Invoices) task.getResult();
                 //invoiceManager.getPendingInvoices();
                 setAmount();
                 makePaymentListAdepter.notifyDataSetChanged();
@@ -73,8 +71,7 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
     }
     
     void setAmount() {
-        totalAmount = invoiceManager.getTotalAmount();
-        ((TextView) view.findViewById(R.id.totalamount)).setText("$" + (int) totalAmount);
+        ((TextView) view.findViewById(R.id.totalamount)).setText("$" + (int) invoices.totalAmount);
     }
     
     @Override
