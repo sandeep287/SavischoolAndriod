@@ -21,32 +21,37 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="84dp"
-            android:background="@color/white"
-            android:padding="16dp">
+android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            >
 
             <LinearLayout
                 android:id="@+id/date"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_centerVertical="true"
+                android:layout_margin="8dp"
                 android:background="@drawable/white_61_rounded_background"
-                android:elevation="8dp"
+android:elevation="5dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     style="@style/Bold10NavyTwo"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="11dp"
+
+                    android:alpha="0.80"
                     android:text="@{invoice.getMonth()}"
+                    android:textAllCaps="true"
                     tools:text="May"
                     />
 
                 <TextView
                     style="@style/Bold16NavyTwo"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    android:layout_height="19dp"
                     android:gravity="center_horizontal"
                     android:letterSpacing="0.03"
                     android:text="@{invoice.getDate()}"
@@ -54,29 +59,61 @@
                     />
 
                 <TextView
-                    style="@style/Bold10NavyTwo"
+                    style="@style/Regular10NavyTwo"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
+                    android:layout_height="11dp"
+
+                    android:alpha="0.50"
                     android:gravity="center_horizontal"
-                    android:letterSpacing="-0.03"
                     android:text="@{invoice.getYear()}"
                     tools:text="2017"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/pay"
 
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:alpha=".2"
+                    android:background="@color/warm_grey"
+                    android:id="@+id/line"
+
+                    />
+                <TextView
+                    style="@style/Bold16Turqoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_gravity="center"
+                    android:text='@{invoice.currency +" "+ invoice.amount}'
+                    tools:text="$200"
+                    />
+
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="33dp"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="16dp"
                 android:layout_toRightOf="@id/date"
+                android:layout_toLeftOf="@id/pay"
                 android:orientation="vertical">
 
                 <TextView
                     style="@style/Medium16Navy"
                     android:layout_width="wrap_content"
                     android:layout_height="22dp"
+                    android:ellipsize="end"
                     android:text="@{invoice.invoiceType}"
                     tools:text="Invoice 1020"
                     />
@@ -85,30 +122,14 @@
                 <TextView
                     style="@style/Regular10PinkyRed"
                     android:layout_width="wrap_content"
-                    android:layout_height="11dp"
+                    android:layout_height="wrap_content"
                     android:text="@{invoice.status}"
+                    android:ellipsize="end"
                     tools:text="Pending"
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
 
-                <TextView
-                    style="@style/Bold16Turqoise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:text='@{invoice.currency +" "+ invoice.amount}'
-                    tools:text="$200"
-                    />
-
-
-            </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

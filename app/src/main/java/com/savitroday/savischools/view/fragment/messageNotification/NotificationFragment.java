@@ -53,7 +53,7 @@ public class NotificationFragment extends Fragment implements EventManager.Event
     public void getMessageData() {
         
         mBindings.progressBar.setVisibility(View.VISIBLE);
-        notificationManager.getMessageTask().continueWith((task -> {
+        notificationManager.getMessageTask().continueWith(task -> {
             
             mBindings.progressBar.setVisibility(View.GONE);
             if (task.getResult() != null) {
@@ -69,7 +69,7 @@ public class NotificationFragment extends Fragment implements EventManager.Event
                 AlertUtil.callAlert(getActivity(), e.getMessage());
             }
             return null;
-        }));
+        });
         
     }
     

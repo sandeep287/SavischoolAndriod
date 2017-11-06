@@ -408,6 +408,7 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/navy_two</item>
+
     </style>
 
     <style name="Bold10Black" style="@android:style/TextAppearance.DeviceDefault.Medium">

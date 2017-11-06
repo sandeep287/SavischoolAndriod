@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.View;
 
 import com.savitroday.savischools.adapter.MessageOpenViewAdapter;
@@ -33,7 +34,9 @@ public class DownloadFileFromURL extends AsyncTask<String, String, String> {
     
     static {
         directory = new File(Environment.getExternalStorageDirectory() + File.separator + "Savischool");
+        Log.e("chack","v"+directory.getAbsolutePath());
         directory.mkdirs();
+        Log.e("chack","v"+directory.getAbsolutePath());
     }
     
     public DownloadFileFromURL(Context context, String filetype, String fileName) {
@@ -85,7 +88,9 @@ public class DownloadFileFromURL extends AsyncTask<String, String, String> {
             output.close();
             input.close();
             
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
         

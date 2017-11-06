@@ -18,7 +18,6 @@ public class MessageNotification {
     @SerializedName("messageAttachmentType")
     @Expose
     public String messageAttachmentType;
-
     @SerializedName("userId")
     @Expose
     public String userId;

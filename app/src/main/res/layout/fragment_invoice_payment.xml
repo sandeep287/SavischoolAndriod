@@ -1,6 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.savitroday.savischools.view.fragment.invoice.InvoicePaymentTabFragment">
 
@@ -89,21 +91,22 @@
            style="@style/Medium14White"
             />
 
-        <android.support.design.widget.AppBarLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_below="@+id/paynow"
             android:layout_marginTop="16dp"
-            android:background="@android:color/transparent"
+
+
             >
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/invoicepaymenttabLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:layout_below="@id/toolbar"
+
                 app:tabGravity="fill"
                 app:tabIndicatorColor="@color/white__70"
                 app:tabIndicatorHeight="3dp"
@@ -112,14 +115,17 @@
                 app:tabTextColor="@color/white"
                 />
 
+
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewpagerfrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:background="@color/white"
 
-                android:background="@color/white_four"/>
+                 />
 
-        </android.support.design.widget.AppBarLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 </FrameLayout>

@@ -24,8 +24,7 @@ public class ApiException extends RuntimeException {
     private ApiErrorModel errorModel;
     private Context context;
     
-    public ApiException(Context context, String message, String url, Response response, Kind kind, Throwable
-                                                                                                           exception,
+    public ApiException(Context context, String message, String url, Response response, Kind kind, Throwable  exception,
                         boolean isNetworkError) {
         super(message, exception);
         this.url = url;
@@ -63,40 +62,16 @@ public class ApiException extends RuntimeException {
         return url;
     }
     
-    /**
-     * Response object containing status code, headers, body, etc.
-     */
+
     public Response getResponse() {
         return response;
     }
     
-    /**
-     * The event kind which triggered this error.
-     */
     public Kind getKind() {
         return kind;
     }
     
-    /**
-     * HTTP response body converted to specified {@code type}. {@code null} if there is no
-     * response.
-     *
-     * @throws IOException if unable to convert the body to the specified {@code type}.
-     */
-/*
-    public <T> T getErrorBodyAs(Class<T> type, ResponseBody responseBody) throws IOException, RuntimeException {
-        Gson gson = new Gson();
-        ApiErrorModel errorModel = gson.fromJson(responseBody.toString(), type);
-        Converter<ResponseBody, T> converter =  GsonConverterFactory.create().responseBodyConverter(type, new
-        Annotation[0]);//MyApplication.getRestClient().getRetrofitInstance().responseBodyConverter(type, new
-        Annotation[0]);
-        try {
-            return converter.convert(responseBody);
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
-    }
-*/
+
     public ApiErrorModel getErrorModel() {
         //TODO: Check for null if null Send a mock ApiErrorModel saying unexpected happen
         if (this.errorModel != null) {

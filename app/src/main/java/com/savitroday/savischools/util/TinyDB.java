@@ -291,46 +291,21 @@ public class TinyDB {
         return newList;
     }
 
-    /**
-     * Get String value from SharedPreferences at 'key'. If key not found, return ""
-     *
-     * @param key SharedPreferences key
-     * @return String value at 'key' or "" (empty String) if key not found
-     */
+
     public String getString(String key) {
         return preferences.getString(key, "");
     }
 
-    /**
-     * Get parsed ArrayList of String from SharedPreferences at 'key'
-     *
-     * @param key SharedPreferences key
-     * @return ArrayList of String
-     */
     public ArrayList<String> getListString(String key) {
         return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, "")
                 , "‚‗‚")));
     }
 
-    // Put methods
-
-    /**
-     * Get boolean value from SharedPreferences at 'key'. If key not found, return 'defaultValue'
-     *
-     * @param key          SharedPreferences key
-     * @param defaultValue boolean value returned if key was not found
-     * @return boolean value at 'key' or 'defaultValue' if key not found
-     */
     public boolean getBoolean(String key, boolean defaultValue) {
         return preferences.getBoolean(key, defaultValue);
     }
 
-    /**
-     * Get parsed ArrayList of Boolean from SharedPreferences at 'key'
-     *
-     * @param key SharedPreferences key
-     * @return ArrayList of Boolean
-     */
+
     public ArrayList<Boolean> getListBoolean(String key) {
         ArrayList<String> myList = getListString(key);
         ArrayList<Boolean> newList = new ArrayList<Boolean>();
@@ -346,105 +321,44 @@ public class TinyDB {
         return newList;
     }
 
-    /**
-     * Put int value into SharedPreferences with 'key' and save
-     *
-     * @param key   SharedPreferences key
-     * @param value int value to be added
-     */
     public void putInt(String key, int value) {
         preferences.edit().putInt(key, value).apply();
     }
 
-    /**
-     * Put ArrayList of Integer into SharedPreferences with 'key' and save
-     *
-     * @param key     SharedPreferences key
-     * @param intList ArrayList of Integer to be added
-     */
     public void putListInt(String key, ArrayList<Integer> intList) {
         Integer[] myIntList = intList.toArray(new Integer[intList.size()]);
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myIntList)).apply();
     }
 
-    /**
-     * Put long value into SharedPreferences with 'key' and save
-     *
-     * @param key   SharedPreferences key
-     * @param value long value to be added
-     */
     public void putLong(String key, long value) {
         preferences.edit().putLong(key, value).apply();
     }
-
-    /**
-     * Put float value into SharedPreferences with 'key' and save
-     *
-     * @param key   SharedPreferences key
-     * @param value float value to be added
-     */
     public void putFloat(String key, float value) {
         preferences.edit().putFloat(key, value).apply();
     }
 
-    /**
-     * Put double value into SharedPreferences with 'key' and save
-     *
-     * @param key   SharedPreferences key
-     * @param value double value to be added
-     */
+
     public void putDouble(String key, double value) {
         putString(key, String.valueOf(value));
     }
 
-    /**
-     * Put ArrayList of Double into SharedPreferences with 'key' and save
-     *
-     * @param key        SharedPreferences key
-     * @param doubleList ArrayList of Double to be added
-     */
     public void putListDouble(String key, ArrayList<Double> doubleList) {
         Double[] myDoubleList = doubleList.toArray(new Double[doubleList.size()]);
         preferences.edit().putString(key, TextUtils.join("â€šâ€—â€š", myDoubleList)).apply();
     }
-
-    /**
-     * Put String value into SharedPreferences with 'key' and save
-     *
-     * @param key   SharedPreferences key
-     * @param value String value to be added
-     */
-    public void putString(String key, String value) {
+public void putString(String key, String value) {
         preferences.edit().putString(key, value).apply();
     }
 
-    /**
-     * Put ArrayList of String into SharedPreferences with 'key' and save
-     *
-     * @param key        SharedPreferences key
-     * @param stringList ArrayList of String to be added
-     */
     public void putListString(String key, ArrayList<String> stringList) {
         String[] myStringList = stringList.toArray(new String[stringList.size()]);
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myStringList)).apply();
     }
 
-    /**
-     * Put boolean value into SharedPreferences with 'key' and save
-     *
-     * @param key   SharedPreferences key
-     * @param value boolean value to be added
-     */
     public void putBoolean(String key, boolean value) {
         preferences.edit().putBoolean(key, value).apply();
     }
 
-    /**
-     * Put ArrayList of Boolean into SharedPreferences with 'key' and save
-     *
-     * @param key      SharedPreferences key
-     * @param boolList ArrayList of Boolean to be added
-     */
     public void putListBoolean(String key, ArrayList<Boolean> boolList) {
         ArrayList<String> newList = new ArrayList<String>();
 

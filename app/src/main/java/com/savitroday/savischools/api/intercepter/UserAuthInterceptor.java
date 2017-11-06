@@ -17,8 +17,8 @@ import okhttp3.Response;
  */
 public class UserAuthInterceptor implements Interceptor {
     
-    AppModule appModule;
-    
+    AppModule appModule ;
+
     public UserAuthInterceptor(AppModule appModule) {
         this.appModule = appModule;
     }
