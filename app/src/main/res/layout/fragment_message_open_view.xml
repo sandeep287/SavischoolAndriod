@@ -106,7 +106,10 @@
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="Type something to send…" />
+
+                    android:hint="Type something to send…"
+                    android:textColorHint="@color/navy"
+                    />
 
                 <Button
                     android:id="@+id/button_chatbox_send"
