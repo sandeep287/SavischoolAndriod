@@ -76,6 +76,7 @@ dependencies {
     compile "com.android.support:support-v13:$supportLibrariesVersion"
     compile "com.google.firebase:firebase-messaging:$playServicesVersion"
     compile "com.google.firebase:firebase-core:$playServicesVersion"
+
     // Network Stack - retrofit, okhttp
     // apt 'com.github.hotchemi:permissionsdispatcher-processor:2.1.3'
     // Dagger

@@ -54,12 +54,12 @@ public class CategoryFragment extends Fragment{
         }
     
         public void onInvoicePayment(){
-            Fragment fragment = new InvoicePaymentTabFragment();
-           FragmentManager manager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-           transaction.add(R.id.flFragments, fragment);
-           transaction.addToBackStack(null);
-            transaction.commit();
+//            Fragment fragment = new InvoicePaymentTabFragment();
+//           FragmentManager manager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//           transaction.add(R.id.flFragments, fragment);
+//           transaction.addToBackStack(null);
+//            transaction.commit();
         }
     
         public void onHomework(){

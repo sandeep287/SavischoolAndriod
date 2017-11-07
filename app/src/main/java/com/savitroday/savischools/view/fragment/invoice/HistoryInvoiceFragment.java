@@ -35,9 +35,8 @@ public class HistoryInvoiceFragment extends Fragment implements EventManager.Eve
     InvoiceManager invoiceManager;
     
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_history_invoice, container, false);
         
         MyApplication.getApp().getComponent().inject(this);
@@ -55,12 +54,14 @@ public class HistoryInvoiceFragment extends Fragment implements EventManager.Eve
         
     }
     
-    public void getInvoiceData() {
+    public void getInvoiceData()
+    {
         progressBar.setVisibility(View.VISIBLE);
         
         invoiceManager.getInvoicesTask().continueWith((task -> {
             progressBar.setVisibility(View.INVISIBLE);
             if (task.getResult() != null) {
+
                 InvoiceListAdapter invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceList);
                 historyinvoiclist.setAdapter(invoiceListAdapter);
                 invoiceList = invoiceManager.getHistoyrInvoices();
@@ -76,7 +77,8 @@ public class HistoryInvoiceFragment extends Fragment implements EventManager.Eve
     
     
     @Override
-    public void didReceivedEvent(int id, Object... args) {
+    public void didReceivedEvent(int id, Object... args)
+    {
         getInvoiceData();
     }
 }

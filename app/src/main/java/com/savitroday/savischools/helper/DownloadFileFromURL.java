@@ -62,7 +62,7 @@ public class DownloadFileFromURL extends AsyncTask<String, String, String> {
         super.onPreExecute();
         MessageOpenViewAdapter.downlode.setVisibility(View.GONE);
         MessageOpenViewAdapter.progressBar.setVisibility(View.VISIBLE);
-       builder.setContentTitle("Downloading images...").setContentText("Download in progress").setSmallIcon(R.drawable.profile_img);
+       builder.setContentTitle("Downloading ...").setContentText("Download in progress").setSmallIcon(R.drawable.profile_img);
 
         builder.setProgress(0, 0, true);
      manager.notify(1,builder.build());
@@ -123,10 +123,7 @@ len=f_url.length;
     }
 
 
-//    protected void onProgressUpdate(String... progress) {
-//        // setting progress percentage
-//       // pDialog.setProgress(Integer.parseInt(progress[0]));
-//    }
+
 
 
     @Override
@@ -155,6 +152,11 @@ len=f_url.length;
     protected void onPostExecute(String file_url) {
 
         Toast.makeText(context,"downlode Complete...",Toast.LENGTH_LONG).show();
+        builder.setContentTitle("Done.");
+        builder.setContentText("Download complete")
+                // Removes the progress bar
+                .setProgress(0, 0, false);
+        manager.notify(1,builder.build());
         MessageOpenViewAdapter.progressBar.setVisibility(View.GONE);
 //
 //        //  String filePath = Environment.getExternalStorageDirectory().toString() + "Download/"+fileName;
