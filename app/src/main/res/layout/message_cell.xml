@@ -3,10 +3,12 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="message"
             type="com.savitroday.savischools.api.response.MessageNotification"/>
-       <import type="android.view.View"/>
+
+        <import type="android.view.View"/>
 
     </data>
 
@@ -33,7 +35,8 @@
                 android:layout_marginTop="6dp"
                 android:src="@drawable/icon_notification"/>
 
-            <ImageView android:id="@+id/camera_icon"
+            <ImageView
+                android:id="@+id/camera_icon"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_alignTop="@id/imageView"
@@ -116,19 +119,19 @@
                     />
 
                 <TextView
+                    android:id="@+id/studenname"
                     style="@style/Regular10White"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:alpha="0.80"
-                    android:id="@+id/studenname"
                     android:background="@drawable/muted_blue_rounded_background"
                     android:paddingBottom="2dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:paddingTop="2dp"
-                    android:visibility="@{message.studentName!=null ? View.VISIBLE : View.GONE}"
                     android:text="@{message.studentName}"
+                    android:visibility="@{message.studentName!=null &amp;&amp; message.studentName.trim().length() > 0 ? View.VISIBLE : View.GONE}"
                     tools:text="JENNY"
                     />
             </LinearLayout>
@@ -139,7 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/bottomLayout"
-            android:background="@color/warm_grey"
-            android:alpha="0.24"/>
+            android:alpha="0.24"
+            android:background="@color/warm_grey"/>
     </RelativeLayout>
 </layout>

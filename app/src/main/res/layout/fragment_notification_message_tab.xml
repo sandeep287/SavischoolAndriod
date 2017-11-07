@@ -40,7 +40,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/profile_img"/>
+                    android:src="@drawable/profile_picture"/>
 
             </RelativeLayout>
         </android.support.design.widget.AppBarLayout>
@@ -63,19 +63,19 @@
             android:background="@android:color/white"/>
     </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/fab"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+    <!--<ImageButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="56dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
 
-        android:background="@drawable/aqua_marine_circle"
-        android:backgroundTint="@color/aqua_marine"
-        android:padding="16dp"
-        android:src="@drawable/add"
+        <!--android:background="@drawable/aqua_marine_circle"-->
+        <!--android:backgroundTint="@color/aqua_marine"-->
+        <!--android:padding="16dp"-->
+        <!--android:src="@drawable/add"-->
 
-        />
+        <!--/>-->
 
 
 </FrameLayout>

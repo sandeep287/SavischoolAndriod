@@ -84,7 +84,7 @@ public class DashboardFragment extends Fragment implements EventManager.EventMan
                 
                 Picasso.with(getContext())
                         .load(dashboard.getDefaultStudent().iconMediaPath)
-                        .placeholder(R.drawable.profile_img)
+                        .placeholder(R.drawable.profile_picture)
                         .into(headerBinding.studentImageview);
                 setNavDrawer();
                 setListClicks();

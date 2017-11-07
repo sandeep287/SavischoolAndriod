@@ -104,8 +104,7 @@
                         android:layout_below="@id/actionbarcontent"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="19dp"
-                        android:onClick="onclikthis"
-                        android:src="@drawable/profile_img"
+                        android:src="@drawable/profile_picture"
                         />
 
                     <TextView

@@ -1,14 +1,10 @@
 package com.savitroday.savischools.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,21 +19,6 @@ import com.savitroday.savischools.databinding.SendmessageCellBinding;
 import com.savitroday.savischools.helper.DownloadFileFromURL;
 import com.squareup.picasso.Picasso;
 
-import org.eclipse.core.internal.utils.FileUtil;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.List;
 
 /**
@@ -51,51 +32,51 @@ public class MessageOpenViewAdapter extends RecyclerView.Adapter<MessageOpenView
     List<Message> ldt;
     View view;
     public static ProgressBar progressBar;
-
+    
     AppCompatActivity apc;
     int tempposition = 0;
     SendmessageCellBinding sendmessageCellBinding;
     RecevemessageCellBinding recevemessageCellBinding;
     MessageNotification messageNotification;
-    public  static ImageView downlode;
+    public static ImageView downlode;
     ViewGroup parent;
-
+    
     public MessageOpenViewAdapter(Activity activity, List<Message> ldt, MessageNotification
-            messageNotification) {
+                                                                                messageNotification) {
         this.activity = activity;
         this.ldt = ldt;
         this.messageNotification = messageNotification;
     }
-
-
+    
+    
     @Override
     public MessageOpenViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-
+        
+        
         this.parent = parent;
         if (tempposition == 0) {
             recevemessageCellBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.recevemessage_cell,
-                    parent, false);
+                                                               parent, false);
             return new MessageOpenViewAdapter.ViewHolder(recevemessageCellBinding);
         } else {
             sendmessageCellBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.sendmessage_cell,
-                    parent, false);
+                                                             parent, false);
             return new MessageOpenViewAdapter.ViewHolder(sendmessageCellBinding);
         }
-
+        
     }
-
+    
     @Override
     public void onBindViewHolder(MessageOpenViewAdapter.ViewHolder holder, int position) {
         tempposition = 0;
         tempposition = position + 1;
-
-
+        
+        
         if (position == 0) {
-
+            
             RecevemessageCellBinding mBinding = (RecevemessageCellBinding) holder.bindingsuper;
             mBinding.setMessage(messageNotification);
-downlode=mBinding.downlodebutton;
+            downlode = mBinding.downlodebutton;
             if (messageNotification.iconMediaPath != null) {
                 mBinding.senderimage.setPadding(0, 0, 0, 0);
                 Picasso.with(activity).load(messageNotification.iconMediaPath).into(mBinding.senderimage);
@@ -110,40 +91,42 @@ downlode=mBinding.downlodebutton;
                 } else {
                     mBinding.attachmentetc.setVisibility(View.VISIBLE);
                     mBinding.downlodebutton.setVisibility(View.VISIBLE);
-
+                    
                 }
                 mBinding.attachment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String fileName = (messageNotification.messageAttachment).substring((messageNotification.messageAttachment).lastIndexOf('/') + 1);
-                        new DownloadFileFromURL(activity, messageNotification.messageAttachmentType,fileName).execute(messageNotification.messageAttachment);
+                        String fileName = (messageNotification.messageAttachment).substring((messageNotification
+                                                                                                     .messageAttachment).lastIndexOf('/') + 1);
+                        new DownloadFileFromURL(activity, messageNotification.messageAttachmentType, fileName)
+                                .execute(messageNotification.messageAttachment);
                     }
                 });
-
+                
             }
         } else {
             SendmessageCellBinding mBinding = (SendmessageCellBinding) holder.bindingsuper;
             mBinding.setMessage(ldt.get(position - 1));
         }
-
+        
     }
-
-
+    
+    
     @Override
     public int getItemCount() {
         return ldt.size() + 1;
     }
-
+    
     class ViewHolder extends RecyclerView.ViewHolder {
         ViewDataBinding bindingsuper;
-
+        
         public ViewHolder(ViewDataBinding itemView) {
             super(itemView.getRoot());
             bindingsuper = itemView;
         }
     }
-
-
+    
+    
 }
 
 

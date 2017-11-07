@@ -73,12 +73,12 @@ public class ProfileFragment extends Fragment implements EventManager.EventManag
             mBindings.studentImageview.setImageDrawable(null);
             Picasso.with(getContext())
                     .load(student.iconMediaPath)
-                    .placeholder(R.drawable.profile_img)
+                    .placeholder(R.drawable.profile_picture)
                     .into(mBindings.studentImageview);
         }
         else
         {
-            mBindings.studentImageview.setImageResource(R.drawable.profile_img);
+            mBindings.studentImageview.setImageResource(R.drawable.profile_picture);
         }
     }
     

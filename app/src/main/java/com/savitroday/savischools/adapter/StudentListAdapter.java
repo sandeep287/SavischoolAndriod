@@ -46,7 +46,7 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         if (student.iconMediaPath != null)
             Picasso.with(_context)
                     .load(student.iconMediaPath)
-                    .placeholder(R.drawable.profile_img)
+                    .placeholder(R.drawable.profile_picture)
                     .into(holder.stImage);
         holder.stName.setText(student.studentName);
         if (student.isdefault) {

@@ -16,9 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:padding="8dp"
-        
         android:orientation="horizontal"
+        android:padding="8dp"
         >
 
         <LinearLayout
@@ -31,11 +30,11 @@
                 android:id="@+id/textmessage"
                 style="@style/Regular14White"
                 android:layout_width="wrap_content"
-                android:paddingTop="4dp"
-              android:maxWidth="240dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sendmessagecorner"
+                android:maxWidth="240dp"
                 android:padding="8dp"
+                android:paddingTop="4dp"
                 android:text='@{ message.message}'
                 tools:text="Thank alot, we’ll love to come there and enjoy this beautiful day!"
                 />
@@ -45,10 +44,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_gravity="bottom"
-                android:alpha=".54"
-                android:gravity="center"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="4dp"
+                android:alpha=".54"
+                android:gravity="center"
                 android:text="@{message.getCreatedOn()}"
                 tools:text="02:20 AM"
                 />
@@ -56,15 +55,15 @@
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/reciverimage"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="8dp"
-            android:id="@+id/reciverimage"
-            android:scaleType="centerCrop"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/parent_image"
             android:layout_marginBottom="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_picture"
             />
 
     </LinearLayout>
