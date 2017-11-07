@@ -63,7 +63,7 @@
             android:id="@+id/reciverimage"
             android:scaleType="centerCrop"
             android:layout_marginRight="8dp"
-            android:src="@drawable/background_image"
+            android:src="@drawable/parent_image"
             android:layout_marginBottom="20dp"
             />
 
