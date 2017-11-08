@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.R;
 import com.savitroday.savischools.adapter.MakePaymentListAdepter;
 import com.savitroday.savischools.api.response.Invoices;
@@ -40,25 +41,27 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
         mBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_make_payment, container, false);
         mBinding.setHandler(new Handler());
+        MyApplication.getApp().getComponent().inject(this);
         LinearLayoutManager llm2 = new LinearLayoutManager((MainActivity) getActivity());
         llm2.setOrientation(LinearLayoutManager.VERTICAL);
         mBinding.paymentlist.setLayoutManager(llm2);
-        MakePaymentListAdepter makePaymentListAdepter = new MakePaymentListAdepter(getActivity(), invoices.Listinvoices);
-        mBinding.paymentlist.setAdapter(makePaymentListAdepter);
+      getInvoiceData();
         return mBinding.getRoot();
     }
     
     public void getInvoiceData() {
-        progressBar.setVisibility(View.VISIBLE);
+       getActivity().findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
         
         
         invoiceManager.getInvoicesTask().continueWith((task -> {
-            progressBar.setVisibility(View.INVISIBLE);
+            ((RelativeLayout)getActivity().findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
             
             if (task.getResult() != null) {
                 
                 invoices = (Invoices) task.getResult();
                 //invoiceManager.getPendingInvoices();
+                MakePaymentListAdepter makePaymentListAdepter = new MakePaymentListAdepter(getActivity(), invoices.Listinvoices);
+                mBinding.paymentlist.setAdapter(makePaymentListAdepter);
                 setAmount();
                 makePaymentListAdepter.notifyDataSetChanged();
             } else {

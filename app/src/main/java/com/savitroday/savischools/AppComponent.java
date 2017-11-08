@@ -16,6 +16,7 @@ import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
 import com.savitroday.savischools.view.fragment.invoice.HistoryInvoiceFragment;
+import com.savitroday.savischools.view.fragment.invoice.MakePaymentFragment;
 import com.savitroday.savischools.view.fragment.messageNotification.MessageOpenViewFragment;
 import com.savitroday.savischools.view.fragment.messageNotification.MessagesFragment;
 import com.savitroday.savischools.view.fragment.messageNotification.NotificationDetailFragment;
@@ -45,6 +46,7 @@ public interface AppComponent {
     void inject(MyApplication application);
     void inject(NotificationMessageTabFragment notificationMessageTabFragment);
     void inject(NotificationFragment notificationFragment);
+    void inject(MakePaymentFragment makePaymentFragment);
     void inject(RestHelper restHelper);
     void inject(ParentProfileFragment parentProfileFragment);
     void inject(MainActivity mainActivity);
