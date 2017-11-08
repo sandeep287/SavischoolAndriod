@@ -16,117 +16,123 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="8dp"
         android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
         android:paddingTop="8dp"
         >
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/senderimage"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:id="@+id/senderimage"
-            android:layout_gravity="bottom|left"
-            android:layout_marginLeft="8dp"
+            android:layout_gravity="bottom"
             android:layout_marginBottom="20dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:background="@drawable/profile_picture"
-
+            android:src="@drawable/profile_picture"
+            android:scaleType="centerCrop"
             />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="vertical">
 
-            >
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:background="@drawable/receivmessagecorner"
+                android:orientation="vertical"
                 >
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/attachment">
-<ImageView
-    android:layout_width="230dp"
-    android:layout_height="wrap_content"
-    android:id="@+id/attachmentimg"
-    android:layout_marginLeft="5dp"
-    android:layout_gravity="center"
-    android:scaleType="centerCrop"
-    android:layout_marginRight="5dp"
-    android:layout_marginTop="5dp"
-    android:src="@drawable/background_image"
-    android:visibility="gone"
+                <RelativeLayout
+                    android:id="@+id/attachment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/attachmentimg"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/background_image"
+                        android:visibility="gone"
 
 
-    />
-                <View
-                    android:layout_width="230dp"
-                    android:layout_height="122dp"
-                    android:id="@+id/attachmentetc"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/navy_54"
-                    android:visibility="gone"
-                    android:alpha=".10"
+                        />
+
+                    <View
+                        android:id="@+id/attachmentetc"
+                        android:layout_width="230dp"
+                        android:layout_height="122dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:alpha=".10"
+                        android:background="@color/navy_54"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone"
+                        />
+
+                    <ImageView
+                        android:id="@+id/downlodebutton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:alpha=".50"
+                        android:background="@drawable/gradient_circle"
+                        android:lines="1"
+                        android:padding="10dp"
+                        android:src="@drawable/downlode_file"
+                        android:textColor="@color/black"
+                        android:visibility="gone"
+                        tools:text="Downlode"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/pbar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"
+
+                        />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textmessage"
+                    style="@style/Regular14Navy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/attachment"
+                    android:alpha=".74"
+                    android:maxWidth="240dp"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="13dp"
+
+
+                    android:paddingTop="4dp"
+                    android:text='@{ message.message}'
+                    tools:text="this beautiful day!"
                     />
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:padding="10dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/downlode_file"
-        android:id="@+id/downlodebutton"
-        android:background="@drawable/gradient_circle"
-        android:alpha=".50"
-        android:textColor="@color/black"
-        android:visibility="gone"
-        tools:text="Downlode"
-        android:lines="1"
-        />
-<ProgressBar
-    android:layout_width="30dp"
-    android:layout_height="30dp"
-    android:layout_centerInParent="true"
-
-    android:id="@+id/pbar"
-    android:visibility="gone"
-
-        />
-</RelativeLayout>
-            <TextView
-                android:id="@+id/textmessage"
-                style="@style/Regular14Navy"
-                android:layout_below="@id/attachment"
-                android:layout_width="wrap_content"
-                android:maxWidth="240dp"
-                android:layout_height="wrap_content"
-               android:paddingLeft="8dp"
-                android:paddingRight="13dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-
-
-                android:text='@{ message.message}'
-                android:alpha=".74"
-                tools:text="this beautiful day!"
-                />
             </RelativeLayout>
+
             <TextView
                 style="@style/Regular10Navy"
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_gravity="bottom|right"
-                android:alpha=".54"
-                android:gravity="center"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="4dp"
+                android:alpha=".54"
+                android:gravity="center"
                 android:text="@{message.getCreatedOn()}"
                 tools:text="02:20 AM"
                 />
