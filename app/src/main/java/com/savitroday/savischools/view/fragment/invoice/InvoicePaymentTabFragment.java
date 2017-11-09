@@ -5,14 +5,17 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.savitroday.savischools.R;
+import com.savitroday.savischools.view.fragment.CategoryFragment;
 
 
 public class InvoicePaymentTabFragment extends Fragment {
@@ -52,7 +55,17 @@ public class InvoicePaymentTabFragment extends Fragment {
             }
         });
         totalamount = (TextView) inflatedView.findViewById(R.id.totalamount);
-        
+        ((Button)inflatedView.findViewById(R.id.paynow)).setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                FragmentManager manager =getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(R.id.flFragments, new MakePaymentFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
         return inflatedView;
     }
     

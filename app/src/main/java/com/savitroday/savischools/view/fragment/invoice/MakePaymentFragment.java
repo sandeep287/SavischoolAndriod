@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
     InvoiceManager invoiceManager;
     
     Invoices invoices;
-    View view;
+
     FragmentMakePaymentBinding mBinding;
     MakePaymentListAdepter makePaymentListAdepter;
     RelativeLayout progressBar;
@@ -50,23 +51,23 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
     }
     
     public void getInvoiceData() {
-       getActivity().findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
-        
-        
+
+
+       mBinding.progressBar.setVisibility(View.VISIBLE);
         invoiceManager.getInvoicesTask().continueWith((task -> {
-            ((RelativeLayout)getActivity().findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
+           mBinding.progressBar.setVisibility(View.INVISIBLE);
             
             if (task.getResult() != null) {
                 
-                invoices = (Invoices) task.getResult();
+              invoices = (Invoices)task.getResult();
                 //invoiceManager.getPendingInvoices();
-                MakePaymentListAdepter makePaymentListAdepter = new MakePaymentListAdepter(getActivity(), invoices.Listinvoices);
+                MakePaymentListAdepter makePaymentListAdepter = new MakePaymentListAdepter(getActivity(), invoiceManager.getPendingInvoices());
                 mBinding.paymentlist.setAdapter(makePaymentListAdepter);
                 setAmount();
                 makePaymentListAdepter.notifyDataSetChanged();
             } else {
                 Exception e = task.getError();
-                AlertUtil.showSnackbarWithMessage(e.getMessage(), view);
+                AlertUtil.showSnackbarWithMessage(e.getMessage(), mBinding.getRoot());
             }
             return null;
         }));
@@ -74,7 +75,8 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
     }
     
     void setAmount() {
-        ((TextView) view.findViewById(R.id.totalamount)).setText("$" + (int) invoices.totalAmount);
+        Log.e("ammamama","adhcdc jk");
+        mBinding.totalamount.setText("$" + (int) invoices.totalAmount);
     }
     
     @Override

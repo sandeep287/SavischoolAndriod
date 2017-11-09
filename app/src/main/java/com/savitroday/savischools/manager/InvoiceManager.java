@@ -1,5 +1,7 @@
 package com.savitroday.savischools.manager;
 
+import android.util.Log;
+
 import com.savitroday.savischools.MyApplication;
 import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
@@ -54,6 +56,7 @@ public class InvoiceManager {
                 @Override
                 public void success(Response<Invoices> response) {
                     invoices = response.body();
+
                     task.setResult(invoices);
                     for (TaskCompletionSource taskCompletionSource : taskList) {
                         taskCompletionSource.setResult(invoices);
@@ -79,18 +82,21 @@ public class InvoiceManager {
     
     public List<Invoice> getPendingInvoices() {
         List<Invoice> pendingInvoices = new ArrayList<>();
-        for (Invoice invoice:invoices.Listinvoices) {
+        List<Invoice> invoices1=invoices.Listinvoices;
+        for (int i=0;i<invoices1.size();i++) {
+            Invoice invoice=invoices1.get(i);
             if (invoice.status.equals("Pending")) {
                 pendingInvoices.add(invoice);
-                
+                Log.e("cclkncskc","cjkcjcjlacb");
             }
         }
         return pendingInvoices;
     }
     public List<Invoice> getHistoyrInvoices() {
         List<Invoice> historyInvoices = new ArrayList<>();
-        for (int i=0;i<invoices.Listinvoices.size();i++) {
-            Invoice invoice=invoices.Listinvoices.get(i);
+        List<Invoice> invoices1=invoices.Listinvoices;
+        for (int i=0;i<invoices1.size();i++) {
+            Invoice invoice=invoices1.get(i);
             if (invoice.status.equals("Paid")) {
                 historyInvoices.add(invoice);
 

@@ -27,7 +27,7 @@ import javax.inject.Inject;
 public class HistoryInvoiceFragment extends Fragment implements EventManager.EventManagerDelegate {
     RecyclerView historyinvoiclist;
     
-    List<Invoice> invoiceList = new ArrayList<>();
+ List<Invoice> invoiceList = new ArrayList<>();
     
     View view;
     RelativeLayout progressBar;
@@ -61,10 +61,10 @@ public class HistoryInvoiceFragment extends Fragment implements EventManager.Eve
         invoiceManager.getInvoicesTask().continueWith((task -> {
             progressBar.setVisibility(View.INVISIBLE);
             if (task.getResult() != null) {
-
+                invoiceList = invoiceManager.getHistoyrInvoices();
                 InvoiceListAdapter invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceList);
                 historyinvoiclist.setAdapter(invoiceListAdapter);
-                invoiceList = invoiceManager.getHistoyrInvoices();
+
                 invoiceListAdapter.notifyDataSetChanged();
             } else {
                 Exception e = task.getError();
