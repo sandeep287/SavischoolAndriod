@@ -63,16 +63,17 @@
                     android:src="@drawable/notification"/>
             </RelativeLayout>
 
-            <android.support.v7.widget.CardView
+            <RelativeLayout
                 android:id="@+id/card"
                 android:layout_width="match_parent"
-
+                android:layout_marginBottom="25dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/actionbarcontent"
 
                 android:layout_marginLeft="17dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="20dp"
+                android:elevation="1dp"
                 android:background="@color/white">
 
                 <RelativeLayout
@@ -125,15 +126,15 @@
 
                 </RelativeLayout>
 
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/paynow"
                 android:layout_width="150dp"
                 android:layout_height="49dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/card"
-                android:layout_marginTop="-25dp"
+               android:layout_alignParentBottom="true"
+
                 android:background="@drawable/turquois_round_corner"
                 android:text="Pay Now"
                 />

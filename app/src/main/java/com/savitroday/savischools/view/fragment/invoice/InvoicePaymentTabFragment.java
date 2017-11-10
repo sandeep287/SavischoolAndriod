@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.savitroday.savischools.R;
@@ -21,14 +22,14 @@ import com.savitroday.savischools.view.fragment.CategoryFragment;
 public class InvoicePaymentTabFragment extends Fragment {
     TabLayout tabLayout;
     static TextView totalamount;
-    
+    public static RelativeLayout prcessbar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         
         View inflatedView = inflater.inflate(R.layout.fragment_invoice_payment, container, false);
-        
+        prcessbar=(RelativeLayout)inflatedView.findViewById(R.id.progressBar);
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.invoicepaymenttabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Pending Invoice"));
         tabLayout.addTab(tabLayout.newTab().setText("History"));

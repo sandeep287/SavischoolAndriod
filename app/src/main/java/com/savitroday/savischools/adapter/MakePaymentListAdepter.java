@@ -12,6 +12,7 @@ import com.savitroday.savischools.R;
 import com.savitroday.savischools.api.response.Invoice;
 import com.savitroday.savischools.databinding.InvoiceCellPaymentBinding;
 import com.savitroday.savischools.databinding.PendingPaymentListCellBinding;
+import com.savitroday.savischools.helper.AutoResizeTextView;
 
 import java.util.List;
 

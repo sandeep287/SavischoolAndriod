@@ -77,6 +77,8 @@ public class MakePaymentFragment extends Fragment implements EventManager.EventM
     void setAmount() {
         Log.e("ammamama","adhcdc jk");
         mBinding.totalamount.setText("$" + (int) invoices.totalAmount);
+        mBinding.paynow.setVisibility(View.GONE);
+        mBinding.paynow.setVisibility(View.VISIBLE);
     }
     
     @Override

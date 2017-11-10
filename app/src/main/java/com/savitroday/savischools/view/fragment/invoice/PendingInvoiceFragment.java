@@ -47,11 +47,11 @@ public class PendingInvoiceFragment extends Fragment implements EventManager.Eve
     }
     
     public void getInvoiceData() {
-        progressBar.setVisibility(View.VISIBLE);
-        
+      //  progressBar.setVisibility(View.VISIBLE);
+        InvoicePaymentTabFragment.prcessbar.setVisibility(View.VISIBLE);
         invoiceManager.getInvoicesTask().continueWith((task -> {
-            progressBar.setVisibility(View.INVISIBLE);
-            
+        //    progressBar.setVisibility(View.INVISIBLE);
+            InvoicePaymentTabFragment.prcessbar.setVisibility(View.GONE);
             if (task.getResult() != null) {
                 invoices = (Invoices) task.getResult();
                 invoiceListAdapter = new InvoiceListAdapter(getActivity(), invoiceManager.getPendingInvoices());
