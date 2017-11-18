@@ -23,5 +23,6 @@ public class Constants {
     public static final String SHARED_PREFERENCES_PARENT_ID = "parent_id";
     public static final String SHARED_PREFERENCES_USER_ID = "user_id";
     
-    public static final String BASE_URL ="http://schlmappdev.savitech.us/";
+    public static final String BASE_URL ="http://schlmappdev.savitech.us/";//dev
+    //public static final String BASE_URL ="http://mapi.savischools.com/";//prod
 }
