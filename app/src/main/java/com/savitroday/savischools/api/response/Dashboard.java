@@ -79,8 +79,8 @@ public class Dashboard {
     public List<Invoice> listStudentInvoiceModel = null;
     
     
-    public String getStudentName() {
-        String name = "Hi " + getDefaultStudent().studentName + ",";
+    public String getParentName() {
+        String name = "Hi " + parentName + ",";
         return name;
     }
     

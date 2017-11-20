@@ -102,7 +102,7 @@
                         style="@style/Bold14White"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{dashboard.getStudentName()}"
+                        android:text="@{dashboard.getParentName()}"
                         tools:text="Hi Jenny,"
                         />
 
