@@ -13,6 +13,7 @@ import com.savitroday.savischools.api.ApiException;
 import com.savitroday.savischools.api.CustomCallAdapter;
 import com.savitroday.savischools.api.OAuthRestService;
 import com.savitroday.savischools.databinding.ActivityGetOtpBinding;
+import com.savitroday.savischools.util.AlertUtil;
 import com.savitroday.savischools.util.Constants;
 
 import java.util.HashMap;
@@ -131,30 +132,34 @@ public class GetOtpActivity extends AppCompatActivity implements View.OnClickLis
         mBinding.submit.setOnClickListener(this);
     }
     
-    int getOtp(){
-        String s = mBinding.otp0.getText().toString() + mBinding.otp1.getText().toString()+
-        mBinding.otp2.getText().toString() + mBinding.otp3.getText().toString();
-        int otp = Integer.parseInt(s);
-        return otp;
-    }
     
-    void checkotp(){
-        //todo : show progress
-        oAuthRestService.verifyOtpCode(MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_EMAIL),
-                                       MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID), getOtp())
-                .enqueue(new CustomCallAdapter.CustomCallback<HashMap<String, String>>() {
-    
-    
-            @Override
-            public void success(Response<HashMap<String, String>> response) {
+    void checkotp() {
+        String s = mBinding.otp0.getText().toString() + mBinding.otp1.getText().toString() +
+                           mBinding.otp2.getText().toString() + mBinding.otp3.getText().toString();
+        int otp = 0;
+        try {
+            otp = Integer.parseInt(s);
+            //todo : show progress
+            oAuthRestService.verifyOtpCode(MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_EMAIL),
+                                           MyApplication.tinyDB.getString(Constants.SHARED_PREFERENCES_SCHOOL_ID), otp)
+                    .enqueue(new CustomCallAdapter.CustomCallback<HashMap<String, String>>() {
+                        
+                        
+                        @Override
+                        public void success(Response<HashMap<String, String>> response) {
+                        
+                        }
+                        
+                        @Override
+                        public void failure(ApiException e) {
+                        
+                        }
+                    });
+        } catch (NumberFormatException e) {
+            AlertUtil.showSnackbarWithMessage("Invalid input.", mBinding.getRoot());
+        }
         
-            }
-    
-            @Override
-            public void failure(ApiException e) {
         
-            }
-        });
     }
     
     @Override

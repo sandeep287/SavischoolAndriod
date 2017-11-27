@@ -66,7 +66,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     
     @Override
     public void onClick(View view) {
-        //todo : validate empty strings
+        //todo : validate empty strings and email address
         forgotPassword();
     }
 }
