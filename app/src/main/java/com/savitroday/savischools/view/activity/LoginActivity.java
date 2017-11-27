@@ -89,6 +89,10 @@ public class LoginActivity extends AppCompatActivity {
         
     }
     
+    public void onForgotPassword(){
+    
+    }
+    
     boolean validate() {
         if (schoolId.getText().toString().trim().equals("") ||
                     userName.getText().toString().trim().equals("") ||

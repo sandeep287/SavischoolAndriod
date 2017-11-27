@@ -80,8 +80,7 @@
                             android:layout_height="wrap_content"
                             android:alpha=".54"
                             android:background="@color/white"
-                            android:text="@{message.getCreatedOn()}"
-
+                            android:text="@{message.totalTime}"
                             tools:text="4:10 AM"
                             />
 
