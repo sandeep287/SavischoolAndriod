@@ -1,9 +1,10 @@
 package com.savitroday.savischools.view.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.generated.callback.OnClickListener;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.savitroday.savischools.MyApplication;
@@ -21,7 +22,7 @@ import javax.inject.Inject;
 import retrofit2.Response;
 
 public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener {
-
+    
     @Inject
     OAuthRestService oAuthRestService;
     ActivityForgotPasswordBinding mBinding;
@@ -29,24 +30,36 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_forgot_password);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_forgot_password);
         MyApplication.getApp().getComponent().inject(this);
         mBinding.resetPassword.setOnClickListener(this);
     }
     
-    void forgotPassword(){
+    void forgotPassword() {
         //todo : show progressbar
-        oAuthRestService.validateEmail(mBinding.mailid.getText().toString().trim(),mBinding.schoolid.getText()
-                                                                                           .toString().trim())
+        oAuthRestService.validateEmail(mBinding.mailid.getText().toString().trim(), mBinding.schoolid.getText()
+                                                                                            .toString().trim())
                 .enqueue(new CustomCallAdapter.CustomCallback<HashMap<String, String>>() {
                     @Override
                     public void success(Response<HashMap<String, String>> response) {
-                        AlertUtil.callAlert(ForgotPasswordActivity.this,"Please check your email.");
+                        
+                        
+                        new AlertDialog.Builder(ForgotPasswordActivity.this)
+                                .setCancelable(false)
+                                .setMessage("Please check your email for otp.")
+                                .setPositiveButton("OK",
+                                                   (dialog, whichButton) -> {
+                                                       dialog.dismiss();
+                                                       Intent i = new Intent(ForgotPasswordActivity.this,
+                                                                             GetOtpActivity.class);
+                                                       i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                       ForgotPasswordActivity.this.startActivity(i);
+                                                   }).create().show();
                     }
-    
+                    
                     @Override
                     public void failure(ApiException e) {
-        
+                        AlertUtil.showSnackbarWithMessage(e.getMessage(),mBinding.getRoot());
                     }
                 });
     }

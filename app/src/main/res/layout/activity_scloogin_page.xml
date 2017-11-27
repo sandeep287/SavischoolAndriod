@@ -185,7 +185,7 @@
             android:layout_marginTop="57dp"
             android:alpha=".54"
             android:text="Forgot Password?"
-            android:onClick="onForgotPassword()"
+            android:onClick="onForgotPassword"
             />
 
     </RelativeLayout>

@@ -44,10 +44,10 @@ public class LoginActivity extends AppCompatActivity {
         schoolId = (EditText) findViewById(R.id.Id);
         userName = (EditText) findViewById(R.id.uname);
         password = (EditText) findViewById(R.id.pass);
-    
-        loginbtn = (Button) findViewById(R.id.loginbtn);
-       // passlength = (TextView) findViewById(R.id.passlenth);
         
+        loginbtn = (Button) findViewById(R.id.loginbtn);
+        // passlength = (TextView) findViewById(R.id.passlenth);
+
 //        password.addTextChangedListener(new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -89,15 +89,16 @@ public class LoginActivity extends AppCompatActivity {
         
     }
     
-    public void onForgotPassword(){
-    
+    public void onForgotPassword(View v) {
+        Intent i = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+        startActivity(i);
     }
     
     boolean validate() {
         if (schoolId.getText().toString().trim().equals("") ||
                     userName.getText().toString().trim().equals("") ||
-                    password.getText().toString().trim().equals("") ){
-                  //  || password.getText().toString().trim().length() < 6 ) {
+                    password.getText().toString().trim().equals("")) {
+            //  || password.getText().toString().trim().length() < 6 ) {
             if (schoolId.getText().toString().trim().equals("")) {
                 schoolId.requestFocus();
                 schoolId.setError("Enter your schoolId no.");
@@ -120,54 +121,61 @@ public class LoginActivity extends AppCompatActivity {
     
     void login() {
         loginHelper.setCredentials(userName.getText().toString().trim(), password.getText().toString().trim(),
-                schoolId.getText().toString().trim());
-       // loginHelper.setCredentials("singhs", "123456", "3");
+                                   schoolId.getText().toString().trim());
+        // loginHelper.setCredentials("singhs", "123456", "3");
         loginUser();
     }
     
     public void loginUser() {
         loginHelper.loginAndGetUser().continueWith((task) -> {
-                    progressBar.setVisibility(View.GONE);
-                    // mProgressDialog.setVisibility(View.GONE);
-                    if (task.getResult() != null) {
-                        
-                        MyApplication.tinyDB.putBoolean(Constants.SHARED_PREFERENCES_IS_LOGGED_IN, true);
-                        UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
-                        if (profile.userType.equals("SchoolParent")) {
-                            
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        } else {
-                            new AlertDialog.Builder(LoginActivity.this)
-                                    //set message, mTitle, and icon
-                                    .setCancelable(false)
-                                    .setMessage("You have successfully logged in. Usertype is " + profile.userType)
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int whichButton) {
-                                            dialog.dismiss();
-                                        }
-                                    }).create().show();
-                        }
-                    } else {
-                        
-                        ApiException e = (ApiException) task.getError();
-                        if (e.getKind() == ApiException.Kind.HTTP || e.getKind() == ApiException.Kind.NETWORK) {
-                            
-                            try {
-                                ApiErrorModel  apiErrorModel = e.getErrorModel();
-                                Toast.makeText(LoginActivity.this, apiErrorModel.errorMessage, Toast.LENGTH_LONG)
-                                        .show();
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                                Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            
-                            Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                    return null;
-                }
+                                                       progressBar.setVisibility(View.GONE);
+                                                       // mProgressDialog.setVisibility(View.GONE);
+                                                       if (task.getResult() != null) {
+                
+                                                           MyApplication.tinyDB.putBoolean(Constants
+                                                                                                   .SHARED_PREFERENCES_IS_LOGGED_IN, true);
+                                                           UserOAuthResponse profile = (UserOAuthResponse) task.getResult();
+                                                           if (profile.userType.equals("SchoolParent")) {
+                    
+                                                               Intent intent = new Intent(LoginActivity.this,
+                                                                                          MainActivity.class);
+                                                               startActivity(intent);
+                                                           } else {
+                                                               new AlertDialog.Builder(LoginActivity.this)
+                                                                       //set message, mTitle, and icon
+                                                                       .setCancelable(false)
+                                                                       .setMessage("You have successfully logged in. " +
+                                                                                           "Usertype is " + profile.userType)
+                                                                       .setPositiveButton("OK", new DialogInterface
+                                                                                                            .OnClickListener() {
+                                                                           public void onClick(DialogInterface
+                                                                                                       dialog, int whichButton) {
+                                                                               dialog.dismiss();
+                                                                           }
+                                                                       }).create().show();
+                                                           }
+                                                       } else {
+                
+                                                           ApiException e = (ApiException) task.getError();
+                                                           if (e.getKind() == ApiException.Kind.HTTP || e.getKind()
+                                                                                                                ==
+                                                                                                                ApiException.Kind.NETWORK) {
+                    
+                                                               try {
+                                                                   ApiErrorModel apiErrorModel = e.getErrorModel();
+                                                                   Toast.makeText(LoginActivity.this, apiErrorModel.errorMessage, Toast.LENGTH_LONG)
+                                                                           .show();
+                                                               } catch (Exception e1) {
+                                                                   e1.printStackTrace();
+                                                                   Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
+                                                               }
+                                                           } else {
+                    
+                                                               Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
+                                                           }
+                                                       }
+                                                       return null;
+                                                   }
         );
     }
     
