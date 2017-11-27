@@ -12,6 +12,9 @@ import com.savitroday.savischools.manager.DashboardManager;
 import com.savitroday.savischools.manager.InvoiceManager;
 import com.savitroday.savischools.manager.MyProfileManager;
 import com.savitroday.savischools.manager.NotificationManager;
+import com.savitroday.savischools.view.activity.ChangePasswordActivity;
+import com.savitroday.savischools.view.activity.ForgotPasswordActivity;
+import com.savitroday.savischools.view.activity.GetOtpActivity;
 import com.savitroday.savischools.view.activity.LoginActivity;
 import com.savitroday.savischools.view.activity.MainActivity;
 import com.savitroday.savischools.view.fragment.DashboardFragment;
@@ -59,6 +62,9 @@ public interface AppComponent {
     void inject(ProfileFragment profileFragment);
     void inject(PendingInvoiceFragment pendingInvoiceFragment);
     void inject(MessagesFragment messagesFragment);
+    void inject(ForgotPasswordActivity forgotPasswordActivity);
+    void inject(GetOtpActivity getOtpActivity);
+    void inject(ChangePasswordActivity changePasswordActivity);
     DashboardManager dashboardManager();
     MyProfileManager profileManager();
     

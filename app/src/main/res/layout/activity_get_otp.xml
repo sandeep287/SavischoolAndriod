@@ -1,129 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.savitroday.savischools.view.activity.GetOtpActivity"
-    android:background="@drawable/gradient_background"
-    >
+        xmlns:tools="http://schemas.android.com/tools">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-       android:weightSum="6"
-        android:layout_marginTop="100dp"
-
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        android:orientation="vertical"
+        tools:context="com.savitroday.savischools.view.activity.GetOtpActivity"
         >
-        <View
-            android:layout_width="20dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
 
-
-            />
-        <RelativeLayout
-            android:layout_width="70dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="100dp"
+            android:weightSum="6"
 
             >
-        <EditText
-            android:layout_width="70dp"
-            android:layout_weight="1"
-            android:id="@+id/otp0"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:maxLength="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="70dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
 
-
-            >
-        <EditText
-            android:layout_width="70dp"
-            android:layout_weight="1"
-            android:id="@+id/otp1"
-            android:layout_height="match_parent"
-            android:maxLength="1"
-            android:contextClickable="false"
-            android:clickable="false"
-            android:gravity="center"
-            android:background="@color/white"
-            android:layout_centerInParent="true"
-                     />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="70dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-
-
-            >
-        <EditText
-            android:layout_width="70dp"
-            android:id="@+id/otp2"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:maxLength="1"
-            android:contextClickable="false"
-            android:clickable="false"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="70dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-
-
-            >
-            <EditText
-                android:layout_width="70dp"
-                android:layout_weight="1"
-                android:maxLength="1"
-                android:contextClickable="false"
-                android:gravity="center"
-                android:id="@+id/otp3"
-                android:clickable="false"
+            <View
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:background="@color/white"
-                android:layout_centerInParent="true"
+                android:layout_weight="1"
+
+
                 />
-        </RelativeLayout>
-        <View
-            android:layout_width="20dp"
-         android:layout_weight="1"
-            android:layout_height="match_parent"
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
 
 
+                >
+
+                <EditText
+                    android:id="@+id/otp0"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+
+                >
+
+                <EditText
+                    android:id="@+id/otp1"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:contextClickable="false"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+
+                >
+
+                <EditText
+                    android:id="@+id/otp2"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:contextClickable="false"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+
+                >
+
+                <EditText
+                    android:id="@+id/otp3"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:contextClickable="false"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+
+                />
+        </LinearLayout>
+
+        <TextView
+            style="@style/Medium12YellowOrange"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Resend Otp"
+            />
+
+        <Button android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="70dp"
+            android:background="@drawable/muted_blue_rounded_background"
+            android:text="submit"
             />
     </LinearLayout>
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="20dp"
-    android:text="Resend Otp"
-    android:gravity="center"
-    android:layout_marginTop="10dp"
-    style="@style/Medium12YellowOrange"
-    />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="70dp"
-        android:text="submit"
-        android:background="@drawable/muted_blue_rounded_background"
-        />
-</LinearLayout>
 </layout>
