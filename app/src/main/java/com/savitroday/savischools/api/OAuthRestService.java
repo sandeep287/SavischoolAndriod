@@ -7,7 +7,9 @@ import java.util.HashMap;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by harshitaahuja.
@@ -29,11 +31,10 @@ public interface OAuthRestService {
                                                                         @Field("schoolId") String schoolId);
     
     
-    @FormUrlEncoded
-    @POST("api/account/CheckOtpForForgotPass")
-    CustomCallAdapter.CustomCall<HashMap<String, String>> verifyOtpCode(@Field("emailId") String emailId,
-                                                                        @Field("schoolId") String schoolId,
-                                                                        @Field("otp") int otp);
+    @GET("api/account/CheckOtpForForgotPass")
+    CustomCallAdapter.CustomCall<HashMap<String, String>> verifyOtpCode(@Query("emailId") String emailId,
+                                                                        @Query("schoolId") String schoolId,
+                                                                        @Query("otp") int otp);
     
     
     @FormUrlEncoded

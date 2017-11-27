@@ -5,51 +5,43 @@
                 android:id="@+id/loginrelative"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:background="@drawable/gradient_background"
                 tools:context="com.savitroday.savischools.view.activity.LoginActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        >
-
+        android:layout_centerHorizontal="true">
 
         <ImageView
             android:id="@+id/daycaretital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="80dp"
-             android:layout_marginBottom="10dp"
             android:background="@drawable/day_care"
-            android:gravity="center"
+            android:gravity="center"/>
 
+        <TextView
+            android:id="@+id/signinital"
+            style="@style/Light14White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daycaretital"
+            android:layout_marginBottom="87dp"
+            android:gravity="center"
+            android:text="Sign in to the school"
             />
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           style="@style/Light14White"
-           android:layout_marginBottom="87dp"
-           android:layout_below="@id/daycaretital"
-           android:id="@+id/signinital"
-           android:text="Sign in to the school"
-           android:gravity="center"
-           />
+
         <LinearLayout
 
+            android:id="@+id/signindetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signinital"
-            android:id="@+id/signindetail"
             android:layout_marginLeft="32dp"
-
-            android:orientation="vertical"
-
-
-            >
-
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,20 +59,20 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:background="@drawable/setbordercolor"
                     android:layout_marginRight="36dp"
+                    android:background="@drawable/setbordercolor"
                     android:textColorHint="@color/white_55"
                     app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/Id"
+                        style="@style/Regular16White"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:layout_marginBottom="24dp"
                         android:hint="School ID"
                         android:inputType="number|textNoSuggestions"
                         android:maxLines="1"
-                        style="@style/Regular16White"
                         />
                 </android.support.design.widget.TextInputLayout>
 
@@ -103,9 +95,9 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_marginRight="36dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginRight="36dp"
                     android:background="@drawable/setbordercolor"
                     android:textColorHint="@color/white_55"
                     app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
@@ -113,13 +105,13 @@
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/uname"
+                        style="@style/Regular16White"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:layout_marginBottom="24dp"
                         android:hint="Username"
                         android:inputType="textEmailAddress|textNoSuggestions"
                         android:maxLines="1"
-                        style="@style/Regular16White"
                         android:textColorHint="@color/white"
                         />
                 </android.support.design.widget.TextInputLayout>
@@ -167,35 +159,33 @@
             </LinearLayout>
 
 
-
         </LinearLayout>
 
         <Button
             android:id="@+id/loginbtn"
+            style="@style/Medium14Navy"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_below="@id/signindetail"
-
-
-            android:layout_marginTop="48dp"
-            android:layout_marginRight="32dp"
             android:layout_marginLeft="48dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="48dp"
             android:background="@color/turquoise"
-            android:text="Login"
-            style="@style/Medium14Navy"
             android:gravity="center"
+            android:text="Login"
             />
 
         <TextView
             style="@style/Regular12White"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forget Password?"
-            android:alpha=".54"
             android:layout_below="@id/loginbtn"
             android:layout_centerHorizontal="true"
-  android:layout_marginTop="57dp"
             android:layout_marginBottom="24dp"
+            android:layout_marginTop="57dp"
+            android:alpha=".54"
+            android:text="Forgot Password?"
+            android:onClick="onForgotPassword()"
             />
 
     </RelativeLayout>
